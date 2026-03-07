@@ -1,4 +1,5 @@
 export type Scene = {
+  schemaVersion: "1.0";
   id: string;
   title: string;
   sceneType: string;

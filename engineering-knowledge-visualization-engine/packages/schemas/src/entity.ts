@@ -1,4 +1,5 @@
 export type Entity = {
+  schemaVersion: "1.0";
   id: string;
   name: string;
   type: string;

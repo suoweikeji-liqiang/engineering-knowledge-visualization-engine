@@ -1,4 +1,5 @@
 export type VisualIntent = {
+  schemaVersion: "1.0";
   id: string;
   primaryObjects: string[];
   visualPattern?: string;
