@@ -1,4 +1,56 @@
 {
+  "schemaVersion": "1.0",
   "topic": "Chilled Water Loop",
-  "status": "placeholder"
+  "domain": "hvac",
+  "targetAudience": "beginner",
+  "contentType": "system-flow",
+  "sections": [
+    {
+      "id": "section-01",
+      "title": "System Overview",
+      "learningObjective": "Understand the purpose and layout of a chilled water loop",
+      "keyPoints": [
+        "Closed loop circulates chilled water",
+        "Connects chiller to cooling loads",
+        "Supply and return paths form complete circuit"
+      ],
+      "estimatedDurationSec": 30
+    },
+    {
+      "id": "section-02",
+      "title": "Flow Path",
+      "learningObjective": "Trace the flow of chilled water through the system",
+      "keyPoints": [
+        "Chiller cools water to setpoint temperature",
+        "Pump circulates water to AHUs",
+        "AHUs extract heat from air",
+        "Warmed water returns to chiller"
+      ],
+      "estimatedDurationSec": 50
+    },
+    {
+      "id": "section-03",
+      "title": "Key Components",
+      "learningObjective": "Identify the main components in the loop",
+      "keyPoints": [
+        "Chiller - heat removal",
+        "Pumps - circulation",
+        "AHUs - heat extraction",
+        "Piping - distribution"
+      ],
+      "estimatedDurationSec": 40
+    },
+    {
+      "id": "section-04",
+      "title": "Summary",
+      "learningObjective": "Recap the chilled water loop operation",
+      "keyPoints": [
+        "Continuous circulation maintains cooling",
+        "Temperature difference drives heat transfer",
+        "System efficiency depends on flow and temperature control"
+      ],
+      "estimatedDurationSec": 20
+    }
+  ],
+  "totalEstimatedDurationSec": 140
 }

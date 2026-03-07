@@ -1,4 +1,66 @@
 {
+  "schemaVersion": "1.0",
   "topic": "PID Intro for HVAC",
-  "status": "placeholder"
+  "domain": "hvac",
+  "targetAudience": "intermediate",
+  "contentType": "control-algorithm",
+  "sections": [
+    {
+      "id": "section-01",
+      "title": "Control Problem",
+      "learningObjective": "Understand why PID control is needed in HVAC",
+      "keyPoints": [
+        "Need to maintain temperature at setpoint",
+        "Disturbances cause deviations",
+        "Simple on/off control causes oscillations"
+      ],
+      "estimatedDurationSec": 35
+    },
+    {
+      "id": "section-02",
+      "title": "Proportional Control",
+      "learningObjective": "Learn how proportional gain responds to error",
+      "keyPoints": [
+        "Control output proportional to error",
+        "Larger error = stronger response",
+        "Leaves steady-state error"
+      ],
+      "estimatedDurationSec": 40
+    },
+    {
+      "id": "section-03",
+      "title": "Integral Control",
+      "learningObjective": "Understand how integral action eliminates steady-state error",
+      "keyPoints": [
+        "Accumulates error over time",
+        "Eliminates offset",
+        "Can cause overshoot if too aggressive"
+      ],
+      "estimatedDurationSec": 40
+    },
+    {
+      "id": "section-04",
+      "title": "Derivative Control",
+      "learningObjective": "Learn how derivative action dampens oscillations",
+      "keyPoints": [
+        "Responds to rate of change",
+        "Anticipates future error",
+        "Reduces overshoot and settling time"
+      ],
+      "estimatedDurationSec": 40
+    },
+    {
+      "id": "section-05",
+      "title": "Summary",
+      "learningObjective": "Recap PID control principles",
+      "keyPoints": [
+        "P responds to current error",
+        "I eliminates steady-state error",
+        "D dampens oscillations",
+        "Tuning balances speed and stability"
+      ],
+      "estimatedDurationSec": 25
+    }
+  ],
+  "totalEstimatedDurationSec": 180
 }

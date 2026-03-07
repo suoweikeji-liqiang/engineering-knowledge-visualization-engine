@@ -1,4 +1,56 @@
 {
+  "schemaVersion": "1.0",
   "topic": "Chiller Basics",
-  "status": "placeholder"
+  "domain": "hvac",
+  "targetAudience": "beginner",
+  "contentType": "equipment-principle",
+  "sections": [
+    {
+      "id": "section-01",
+      "title": "What is a Chiller?",
+      "learningObjective": "Understand what a chiller does and why it matters in HVAC systems",
+      "keyPoints": [
+        "A chiller removes heat from water",
+        "Chilled water circulates to cool buildings",
+        "Central equipment in large cooling systems"
+      ],
+      "estimatedDurationSec": 30
+    },
+    {
+      "id": "section-02",
+      "title": "Four Main Components",
+      "learningObjective": "Identify the four key components of a chiller",
+      "keyPoints": [
+        "Evaporator - where cooling happens",
+        "Compressor - drives the cycle",
+        "Condenser - where heat is rejected",
+        "Expansion valve - reduces pressure"
+      ],
+      "estimatedDurationSec": 45
+    },
+    {
+      "id": "section-03",
+      "title": "The Refrigeration Cycle",
+      "learningObjective": "Understand how refrigerant flows through the cycle",
+      "keyPoints": [
+        "Refrigerant evaporates in evaporator, absorbing heat",
+        "Compressor increases pressure and temperature",
+        "Refrigerant condenses in condenser, rejecting heat",
+        "Expansion valve drops pressure to restart cycle"
+      ],
+      "estimatedDurationSec": 60
+    },
+    {
+      "id": "section-04",
+      "title": "Summary",
+      "learningObjective": "Recap the key principles of chiller operation",
+      "keyPoints": [
+        "Four components work together",
+        "Phase change enables heat transfer",
+        "Compressor requires energy input"
+      ],
+      "estimatedDurationSec": 20
+    }
+  ],
+  "totalEstimatedDurationSec": 155
 }
