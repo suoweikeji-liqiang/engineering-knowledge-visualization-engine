@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0",
+  "id": "scene-chiller-principle-intro",
+  "title": "Chiller Principle Introduction",
+  "sceneType": "equipment-principle",
+  "targetRenderer": "manim",
+  "visualIntentId": "visual-chiller-components",
+  "narrationIntentId": "narration-chiller-intro",
+  "timingId": "timing-chiller-intro"
+}

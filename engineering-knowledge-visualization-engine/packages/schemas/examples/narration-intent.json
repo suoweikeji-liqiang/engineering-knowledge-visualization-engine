@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "id": "narration-chiller-intro",
+  "goal": "Explain what a chiller does and why it matters in HVAC systems",
+  "audienceLevel": "beginner",
+  "explanationStyle": "simple-analogy-first",
+  "emphasisPoints": [
+    "Chiller removes heat from water",
+    "Chilled water circulates to cool buildings",
+    "Four main components work together"
+  ]
+}

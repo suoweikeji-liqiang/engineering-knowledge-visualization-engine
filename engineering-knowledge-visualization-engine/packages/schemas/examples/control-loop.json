@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "id": "chilled-water-temp-control",
+  "controlledVariable": "chilled-water-supply-temperature",
+  "manipulatedVariable": "compressor-speed",
+  "feedbackSource": "supply-temperature-sensor",
+  "constraints": ["min-speed-30-percent", "max-speed-100-percent"],
+  "explanationNotes": [
+    "PID controller adjusts compressor speed to maintain setpoint",
+    "Faster response increases energy but improves stability"
+  ]
+}

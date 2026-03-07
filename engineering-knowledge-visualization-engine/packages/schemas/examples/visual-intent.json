@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "id": "visual-chiller-components",
+  "primaryObjects": ["evaporator", "compressor", "condenser", "expansion-valve"],
+  "visualPattern": "component-highlight-sequence",
+  "highlightTargets": ["refrigerant-flow-path"],
+  "motionType": "flow-animation",
+  "diagramStyle": "technical-schematic"
+}

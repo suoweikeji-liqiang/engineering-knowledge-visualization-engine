@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "id": "chilled-water-circulation",
+  "name": "Chilled Water Circulation",
+  "steps": [
+    "Chiller cools water to setpoint temperature",
+    "Primary pump circulates chilled water to AHUs",
+    "AHUs extract heat from air using cooling coils",
+    "Warmed water returns to chiller",
+    "Cycle repeats"
+  ],
+  "inputs": ["electrical-power", "condenser-water"],
+  "outputs": ["chilled-water", "heat-rejection"],
+  "causalNotes": [
+    "Lower chilled water temperature increases cooling capacity but reduces efficiency",
+    "Flow rate affects heat transfer and pump energy"
+  ]
+}

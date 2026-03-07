@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "1.0",
+  "id": "timing-chiller-intro",
+  "estimatedDurationSec": 45,
+  "beatPoints": [0, 12, 24, 36],
+  "syncTargets": ["narration-chiller-intro"]
+}

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0",
+  "id": "hvac-refrigeration-cycle",
+  "name": "Refrigeration Cycle",
+  "description": "The thermodynamic cycle that removes heat from a low-temperature space and rejects it to a higher-temperature sink",
+  "prerequisites": ["thermodynamics-basics", "phase-change"],
+  "relatedConcepts": ["vapor-compression", "heat-transfer", "enthalpy"]
+}
