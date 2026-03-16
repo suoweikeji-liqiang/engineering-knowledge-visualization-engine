@@ -1,0 +1,228 @@
+{
+  "schemaVersion": "1.0",
+  "id": "storyboard-chiller-basics",
+  "outlineId": "outline-chiller-basics",
+  "topic": "Chiller Basics",
+  "domain": "hvac",
+  "targetAudience": "beginner",
+  "contentType": "equipment-principle",
+  "scenes": [
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-01-what-is-a-chiller",
+      "order": 1,
+      "title": "What is a Chiller?",
+      "sourceSectionId": "section-01",
+      "sceneType": "introduction",
+      "targetRenderer": "remotion",
+      "visualIntentId": "visual-scene-01-what-is-a-chiller",
+      "narrationIntentId": "narration-scene-01-what-is-a-chiller",
+      "timingId": "timing-scene-01-what-is-a-chiller"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-02-four-main-components",
+      "order": 2,
+      "title": "Four Main Components",
+      "sourceSectionId": "section-02",
+      "sceneType": "component-breakdown",
+      "targetRenderer": "manim",
+      "visualIntentId": "visual-scene-02-four-main-components",
+      "narrationIntentId": "narration-scene-02-four-main-components",
+      "timingId": "timing-scene-02-four-main-components"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-03-the-refrigeration-cycle",
+      "order": 3,
+      "title": "The Refrigeration Cycle",
+      "sourceSectionId": "section-03",
+      "sceneType": "principle",
+      "targetRenderer": "manim",
+      "visualIntentId": "visual-scene-03-the-refrigeration-cycle",
+      "narrationIntentId": "narration-scene-03-the-refrigeration-cycle",
+      "timingId": "timing-scene-03-the-refrigeration-cycle"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-04-summary",
+      "order": 4,
+      "title": "Summary",
+      "sourceSectionId": "section-04",
+      "sceneType": "summary",
+      "targetRenderer": "remotion",
+      "visualIntentId": "visual-scene-04-summary",
+      "narrationIntentId": "narration-scene-04-summary",
+      "timingId": "timing-scene-04-summary"
+    }
+  ],
+  "narrationIntents": [
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-01-what-is-a-chiller",
+      "goal": "Understand what a chiller does and why it matters in HVAC systems",
+      "audienceLevel": "beginner",
+      "explanationStyle": "purpose-context-first",
+      "emphasisPoints": [
+        "A chiller removes heat from water",
+        "Chilled water circulates to cool buildings",
+        "Central equipment in large cooling systems"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-02-four-main-components",
+      "goal": "Identify the four key components of a chiller",
+      "audienceLevel": "beginner",
+      "explanationStyle": "label-and-function",
+      "emphasisPoints": [
+        "Evaporator - where cooling happens",
+        "Compressor - drives the cycle",
+        "Condenser - where heat is rejected",
+        "Expansion valve - reduces pressure"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-03-the-refrigeration-cycle",
+      "goal": "Understand how refrigerant flows through the cycle",
+      "audienceLevel": "beginner",
+      "explanationStyle": "cause-and-effect",
+      "emphasisPoints": [
+        "Refrigerant evaporates in evaporator, absorbing heat",
+        "Compressor increases pressure and temperature",
+        "Refrigerant condenses in condenser, rejecting heat",
+        "Expansion valve drops pressure to restart cycle"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-04-summary",
+      "goal": "Recap the key principles of chiller operation",
+      "audienceLevel": "beginner",
+      "explanationStyle": "recap-and-transfer",
+      "emphasisPoints": [
+        "Four components work together",
+        "Phase change enables heat transfer",
+        "Compressor requires energy input"
+      ]
+    }
+  ],
+  "visualIntents": [
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-01-what-is-a-chiller",
+      "primaryObjects": [
+        "A chiller removes heat from water",
+        "Chilled water circulates to cool buildings",
+        "Central equipment in large cooling systems"
+      ],
+      "visualPattern": "chapter-card",
+      "motionType": "title-reveal",
+      "diagramStyle": "motion-graphic"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-02-four-main-components",
+      "primaryObjects": [
+        "Evaporator",
+        "Compressor",
+        "Condenser",
+        "Expansion valve"
+      ],
+      "visualPattern": "component-highlight-sequence",
+      "highlightTargets": [
+        "Evaporator",
+        "Compressor",
+        "Condenser",
+        "Expansion valve"
+      ],
+      "motionType": "sequential-highlight",
+      "diagramStyle": "technical-schematic"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-03-the-refrigeration-cycle",
+      "primaryObjects": [
+        "Refrigerant evaporates in evaporator, absorbing heat",
+        "Compressor increases pressure and temperature",
+        "Refrigerant condenses in condenser, rejecting heat",
+        "Expansion valve drops pressure to restart cycle"
+      ],
+      "visualPattern": "process-reveal",
+      "motionType": "progressive-build",
+      "diagramStyle": "technical-schematic"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-04-summary",
+      "primaryObjects": [
+        "Four components work together",
+        "Phase change enables heat transfer",
+        "Compressor requires energy input"
+      ],
+      "visualPattern": "key-takeaways",
+      "motionType": "bullet-recap",
+      "diagramStyle": "motion-graphic"
+    }
+  ],
+  "timings": [
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-01-what-is-a-chiller",
+      "estimatedDurationSec": 30,
+      "beatPoints": [
+        0,
+        8,
+        15,
+        23
+      ],
+      "syncTargets": [
+        "narration-scene-01-what-is-a-chiller"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-02-four-main-components",
+      "estimatedDurationSec": 45,
+      "beatPoints": [
+        0,
+        11,
+        23,
+        34
+      ],
+      "syncTargets": [
+        "narration-scene-02-four-main-components"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-03-the-refrigeration-cycle",
+      "estimatedDurationSec": 60,
+      "beatPoints": [
+        0,
+        15,
+        30,
+        45
+      ],
+      "syncTargets": [
+        "narration-scene-03-the-refrigeration-cycle"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-04-summary",
+      "estimatedDurationSec": 20,
+      "beatPoints": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "syncTargets": [
+        "narration-scene-04-summary"
+      ]
+    }
+  ],
+  "totalEstimatedDurationSec": 155
+}

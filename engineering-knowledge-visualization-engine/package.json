@@ -9,6 +9,15 @@
     "build": "node scripts/build.ts",
     "bootstrap": "node scripts/bootstrap.ts",
     "lint": "echo 'lint not configured yet'",
+    "examples:generate": "tsx scripts/generate-example-artifacts.ts",
     "typecheck": "tsc -p tsconfig.base.json --noEmit"
+  },
+  "dependencies": {
+    "@repo/schemas": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.8.3"
   }
 }

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0",
+  "id": "scene-01-what-is-a-chiller",
+  "fileName": "scene-01-what-is-a-chiller.json",
+  "order": 1,
+  "slug": "what-is-a-chiller",
+  "title": "What is a Chiller?",
+  "topic": "Chiller Basics",
+  "domain": "hvac",
+  "targetAudience": "beginner",
+  "contentType": "equipment-principle",
+  "sceneType": "introduction",
+  "targetRenderer": "remotion",
+  "source": {
+    "outlineId": "outline-chiller-basics",
+    "storyboardId": "storyboard-chiller-basics",
+    "sectionId": "section-01"
+  },
+  "narration": {
+    "goal": "Understand what a chiller does and why it matters in HVAC systems",
+    "audienceLevel": "beginner",
+    "explanationStyle": "purpose-context-first",
+    "emphasisPoints": [
+      "A chiller removes heat from water",
+      "Chilled water circulates to cool buildings",
+      "Central equipment in large cooling systems"
+    ]
+  },
+  "visual": {
+    "primaryObjects": [
+      "A chiller removes heat from water",
+      "Chilled water circulates to cool buildings",
+      "Central equipment in large cooling systems"
+    ],
+    "visualPattern": "chapter-card",
+    "motionType": "title-reveal",
+    "diagramStyle": "motion-graphic"
+  },
+  "timing": {
+    "estimatedDurationSec": 30,
+    "beatPoints": [
+      0,
+      8,
+      15,
+      23
+    ],
+    "syncTargets": [
+      "narration-scene-01-what-is-a-chiller"
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "id": "scene-05-summary",
+  "fileName": "scene-05-summary.json",
+  "order": 5,
+  "slug": "summary",
+  "title": "Summary",
+  "topic": "PID Intro for HVAC",
+  "domain": "hvac",
+  "targetAudience": "intermediate",
+  "contentType": "control-algorithm",
+  "sceneType": "summary",
+  "targetRenderer": "remotion",
+  "source": {
+    "outlineId": "outline-pid-intro-for-hvac",
+    "storyboardId": "storyboard-pid-intro-for-hvac",
+    "sectionId": "section-05"
+  },
+  "narration": {
+    "goal": "Recap PID control principles",
+    "audienceLevel": "intermediate",
+    "explanationStyle": "recap-and-transfer",
+    "emphasisPoints": [
+      "P responds to current error",
+      "I eliminates steady-state error",
+      "D dampens oscillations",
+      "Tuning balances speed and stability"
+    ]
+  },
+  "visual": {
+    "primaryObjects": [
+      "P responds to current error",
+      "I eliminates steady-state error",
+      "D dampens oscillations",
+      "Tuning balances speed and stability"
+    ],
+    "visualPattern": "key-takeaways",
+    "motionType": "bullet-recap",
+    "diagramStyle": "motion-graphic"
+  },
+  "timing": {
+    "estimatedDurationSec": 25,
+    "beatPoints": [
+      0,
+      6,
+      13,
+      19
+    ],
+    "syncTargets": [
+      "narration-scene-05-summary"
+    ]
+  }
+}

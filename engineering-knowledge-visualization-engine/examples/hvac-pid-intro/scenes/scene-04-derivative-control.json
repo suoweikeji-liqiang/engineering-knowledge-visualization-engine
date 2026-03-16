@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0",
+  "id": "scene-04-derivative-control",
+  "fileName": "scene-04-derivative-control.json",
+  "order": 4,
+  "slug": "derivative-control",
+  "title": "Derivative Control",
+  "topic": "PID Intro for HVAC",
+  "domain": "hvac",
+  "targetAudience": "intermediate",
+  "contentType": "control-algorithm",
+  "sceneType": "control-logic",
+  "targetRenderer": "manim",
+  "source": {
+    "outlineId": "outline-pid-intro-for-hvac",
+    "storyboardId": "storyboard-pid-intro-for-hvac",
+    "sectionId": "section-04"
+  },
+  "narration": {
+    "goal": "Learn how derivative action dampens oscillations",
+    "audienceLevel": "intermediate",
+    "explanationStyle": "feedback-first",
+    "emphasisPoints": [
+      "Responds to rate of change",
+      "Anticipates future error",
+      "Reduces overshoot and settling time"
+    ]
+  },
+  "visual": {
+    "primaryObjects": [
+      "Responds to rate of change",
+      "Anticipates future error",
+      "Reduces overshoot and settling time"
+    ],
+    "visualPattern": "signal-and-response",
+    "highlightTargets": [
+      "setpoint",
+      "error",
+      "controller-output",
+      "feedback"
+    ],
+    "motionType": "signal-propagation",
+    "diagramStyle": "block-diagram"
+  },
+  "timing": {
+    "estimatedDurationSec": 40,
+    "beatPoints": [
+      0,
+      10,
+      20,
+      30
+    ],
+    "syncTargets": [
+      "narration-scene-04-derivative-control"
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0",
+  "id": "scene-01-control-problem",
+  "fileName": "scene-01-control-problem.json",
+  "order": 1,
+  "slug": "control-problem",
+  "title": "Control Problem",
+  "topic": "PID Intro for HVAC",
+  "domain": "hvac",
+  "targetAudience": "intermediate",
+  "contentType": "control-algorithm",
+  "sceneType": "introduction",
+  "targetRenderer": "remotion",
+  "source": {
+    "outlineId": "outline-pid-intro-for-hvac",
+    "storyboardId": "storyboard-pid-intro-for-hvac",
+    "sectionId": "section-01"
+  },
+  "narration": {
+    "goal": "Understand why PID control is needed in HVAC",
+    "audienceLevel": "intermediate",
+    "explanationStyle": "purpose-context-first",
+    "emphasisPoints": [
+      "Need to maintain temperature at setpoint",
+      "Disturbances cause deviations",
+      "Simple on/off control causes oscillations"
+    ]
+  },
+  "visual": {
+    "primaryObjects": [
+      "Need to maintain temperature at setpoint",
+      "Disturbances cause deviations",
+      "Simple on/off control causes oscillations"
+    ],
+    "visualPattern": "chapter-card",
+    "motionType": "title-reveal",
+    "diagramStyle": "motion-graphic"
+  },
+  "timing": {
+    "estimatedDurationSec": 35,
+    "beatPoints": [
+      0,
+      9,
+      18,
+      26
+    ],
+    "syncTargets": [
+      "narration-scene-01-control-problem"
+    ]
+  }
+}

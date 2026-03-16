@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0",
+  "id": "scene-03-integral-control",
+  "fileName": "scene-03-integral-control.json",
+  "order": 3,
+  "slug": "integral-control",
+  "title": "Integral Control",
+  "topic": "PID Intro for HVAC",
+  "domain": "hvac",
+  "targetAudience": "intermediate",
+  "contentType": "control-algorithm",
+  "sceneType": "control-logic",
+  "targetRenderer": "manim",
+  "source": {
+    "outlineId": "outline-pid-intro-for-hvac",
+    "storyboardId": "storyboard-pid-intro-for-hvac",
+    "sectionId": "section-03"
+  },
+  "narration": {
+    "goal": "Understand how integral action eliminates steady-state error",
+    "audienceLevel": "intermediate",
+    "explanationStyle": "feedback-first",
+    "emphasisPoints": [
+      "Accumulates error over time",
+      "Eliminates offset",
+      "Can cause overshoot if too aggressive"
+    ]
+  },
+  "visual": {
+    "primaryObjects": [
+      "Accumulates error over time",
+      "Eliminates offset",
+      "Can cause overshoot if too aggressive"
+    ],
+    "visualPattern": "signal-and-response",
+    "highlightTargets": [
+      "setpoint",
+      "error",
+      "controller-output",
+      "feedback"
+    ],
+    "motionType": "signal-propagation",
+    "diagramStyle": "block-diagram"
+  },
+  "timing": {
+    "estimatedDurationSec": 40,
+    "beatPoints": [
+      0,
+      10,
+      20,
+      30
+    ],
+    "syncTargets": [
+      "narration-scene-03-integral-control"
+    ]
+  }
+}

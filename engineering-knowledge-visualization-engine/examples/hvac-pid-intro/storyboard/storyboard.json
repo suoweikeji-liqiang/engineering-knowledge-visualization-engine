@@ -1,0 +1,288 @@
+{
+  "schemaVersion": "1.0",
+  "id": "storyboard-pid-intro-for-hvac",
+  "outlineId": "outline-pid-intro-for-hvac",
+  "topic": "PID Intro for HVAC",
+  "domain": "hvac",
+  "targetAudience": "intermediate",
+  "contentType": "control-algorithm",
+  "scenes": [
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-01-control-problem",
+      "order": 1,
+      "title": "Control Problem",
+      "sourceSectionId": "section-01",
+      "sceneType": "introduction",
+      "targetRenderer": "remotion",
+      "visualIntentId": "visual-scene-01-control-problem",
+      "narrationIntentId": "narration-scene-01-control-problem",
+      "timingId": "timing-scene-01-control-problem"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-02-proportional-control",
+      "order": 2,
+      "title": "Proportional Control",
+      "sourceSectionId": "section-02",
+      "sceneType": "control-logic",
+      "targetRenderer": "manim",
+      "visualIntentId": "visual-scene-02-proportional-control",
+      "narrationIntentId": "narration-scene-02-proportional-control",
+      "timingId": "timing-scene-02-proportional-control"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-03-integral-control",
+      "order": 3,
+      "title": "Integral Control",
+      "sourceSectionId": "section-03",
+      "sceneType": "control-logic",
+      "targetRenderer": "manim",
+      "visualIntentId": "visual-scene-03-integral-control",
+      "narrationIntentId": "narration-scene-03-integral-control",
+      "timingId": "timing-scene-03-integral-control"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-04-derivative-control",
+      "order": 4,
+      "title": "Derivative Control",
+      "sourceSectionId": "section-04",
+      "sceneType": "control-logic",
+      "targetRenderer": "manim",
+      "visualIntentId": "visual-scene-04-derivative-control",
+      "narrationIntentId": "narration-scene-04-derivative-control",
+      "timingId": "timing-scene-04-derivative-control"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-05-summary",
+      "order": 5,
+      "title": "Summary",
+      "sourceSectionId": "section-05",
+      "sceneType": "summary",
+      "targetRenderer": "remotion",
+      "visualIntentId": "visual-scene-05-summary",
+      "narrationIntentId": "narration-scene-05-summary",
+      "timingId": "timing-scene-05-summary"
+    }
+  ],
+  "narrationIntents": [
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-01-control-problem",
+      "goal": "Understand why PID control is needed in HVAC",
+      "audienceLevel": "intermediate",
+      "explanationStyle": "purpose-context-first",
+      "emphasisPoints": [
+        "Need to maintain temperature at setpoint",
+        "Disturbances cause deviations",
+        "Simple on/off control causes oscillations"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-02-proportional-control",
+      "goal": "Learn how proportional gain responds to error",
+      "audienceLevel": "intermediate",
+      "explanationStyle": "feedback-first",
+      "emphasisPoints": [
+        "Control output proportional to error",
+        "Larger error = stronger response",
+        "Leaves steady-state error"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-03-integral-control",
+      "goal": "Understand how integral action eliminates steady-state error",
+      "audienceLevel": "intermediate",
+      "explanationStyle": "feedback-first",
+      "emphasisPoints": [
+        "Accumulates error over time",
+        "Eliminates offset",
+        "Can cause overshoot if too aggressive"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-04-derivative-control",
+      "goal": "Learn how derivative action dampens oscillations",
+      "audienceLevel": "intermediate",
+      "explanationStyle": "feedback-first",
+      "emphasisPoints": [
+        "Responds to rate of change",
+        "Anticipates future error",
+        "Reduces overshoot and settling time"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-05-summary",
+      "goal": "Recap PID control principles",
+      "audienceLevel": "intermediate",
+      "explanationStyle": "recap-and-transfer",
+      "emphasisPoints": [
+        "P responds to current error",
+        "I eliminates steady-state error",
+        "D dampens oscillations",
+        "Tuning balances speed and stability"
+      ]
+    }
+  ],
+  "visualIntents": [
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-01-control-problem",
+      "primaryObjects": [
+        "Need to maintain temperature at setpoint",
+        "Disturbances cause deviations",
+        "Simple on/off control causes oscillations"
+      ],
+      "visualPattern": "chapter-card",
+      "motionType": "title-reveal",
+      "diagramStyle": "motion-graphic"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-02-proportional-control",
+      "primaryObjects": [
+        "Control output proportional to error",
+        "Larger error = stronger response",
+        "Leaves steady-state error"
+      ],
+      "visualPattern": "signal-and-response",
+      "highlightTargets": [
+        "setpoint",
+        "error",
+        "controller-output",
+        "feedback"
+      ],
+      "motionType": "signal-propagation",
+      "diagramStyle": "block-diagram"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-03-integral-control",
+      "primaryObjects": [
+        "Accumulates error over time",
+        "Eliminates offset",
+        "Can cause overshoot if too aggressive"
+      ],
+      "visualPattern": "signal-and-response",
+      "highlightTargets": [
+        "setpoint",
+        "error",
+        "controller-output",
+        "feedback"
+      ],
+      "motionType": "signal-propagation",
+      "diagramStyle": "block-diagram"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-04-derivative-control",
+      "primaryObjects": [
+        "Responds to rate of change",
+        "Anticipates future error",
+        "Reduces overshoot and settling time"
+      ],
+      "visualPattern": "signal-and-response",
+      "highlightTargets": [
+        "setpoint",
+        "error",
+        "controller-output",
+        "feedback"
+      ],
+      "motionType": "signal-propagation",
+      "diagramStyle": "block-diagram"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-05-summary",
+      "primaryObjects": [
+        "P responds to current error",
+        "I eliminates steady-state error",
+        "D dampens oscillations",
+        "Tuning balances speed and stability"
+      ],
+      "visualPattern": "key-takeaways",
+      "motionType": "bullet-recap",
+      "diagramStyle": "motion-graphic"
+    }
+  ],
+  "timings": [
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-01-control-problem",
+      "estimatedDurationSec": 35,
+      "beatPoints": [
+        0,
+        9,
+        18,
+        26
+      ],
+      "syncTargets": [
+        "narration-scene-01-control-problem"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-02-proportional-control",
+      "estimatedDurationSec": 40,
+      "beatPoints": [
+        0,
+        10,
+        20,
+        30
+      ],
+      "syncTargets": [
+        "narration-scene-02-proportional-control"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-03-integral-control",
+      "estimatedDurationSec": 40,
+      "beatPoints": [
+        0,
+        10,
+        20,
+        30
+      ],
+      "syncTargets": [
+        "narration-scene-03-integral-control"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-04-derivative-control",
+      "estimatedDurationSec": 40,
+      "beatPoints": [
+        0,
+        10,
+        20,
+        30
+      ],
+      "syncTargets": [
+        "narration-scene-04-derivative-control"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-05-summary",
+      "estimatedDurationSec": 25,
+      "beatPoints": [
+        0,
+        6,
+        13,
+        19
+      ],
+      "syncTargets": [
+        "narration-scene-05-summary"
+      ]
+    }
+  ],
+  "totalEstimatedDurationSec": 180
+}

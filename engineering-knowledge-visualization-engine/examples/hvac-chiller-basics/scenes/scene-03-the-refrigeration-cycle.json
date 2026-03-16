@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "id": "scene-03-the-refrigeration-cycle",
+  "fileName": "scene-03-the-refrigeration-cycle.json",
+  "order": 3,
+  "slug": "the-refrigeration-cycle",
+  "title": "The Refrigeration Cycle",
+  "topic": "Chiller Basics",
+  "domain": "hvac",
+  "targetAudience": "beginner",
+  "contentType": "equipment-principle",
+  "sceneType": "principle",
+  "targetRenderer": "manim",
+  "source": {
+    "outlineId": "outline-chiller-basics",
+    "storyboardId": "storyboard-chiller-basics",
+    "sectionId": "section-03"
+  },
+  "narration": {
+    "goal": "Understand how refrigerant flows through the cycle",
+    "audienceLevel": "beginner",
+    "explanationStyle": "cause-and-effect",
+    "emphasisPoints": [
+      "Refrigerant evaporates in evaporator, absorbing heat",
+      "Compressor increases pressure and temperature",
+      "Refrigerant condenses in condenser, rejecting heat",
+      "Expansion valve drops pressure to restart cycle"
+    ]
+  },
+  "visual": {
+    "primaryObjects": [
+      "Refrigerant evaporates in evaporator, absorbing heat",
+      "Compressor increases pressure and temperature",
+      "Refrigerant condenses in condenser, rejecting heat",
+      "Expansion valve drops pressure to restart cycle"
+    ],
+    "visualPattern": "process-reveal",
+    "motionType": "progressive-build",
+    "diagramStyle": "technical-schematic"
+  },
+  "timing": {
+    "estimatedDurationSec": 60,
+    "beatPoints": [
+      0,
+      15,
+      30,
+      45
+    ],
+    "syncTargets": [
+      "narration-scene-03-the-refrigeration-cycle"
+    ]
+  }
+}

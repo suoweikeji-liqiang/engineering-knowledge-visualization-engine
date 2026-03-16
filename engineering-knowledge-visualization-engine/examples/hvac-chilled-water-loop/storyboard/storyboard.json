@@ -1,0 +1,228 @@
+{
+  "schemaVersion": "1.0",
+  "id": "storyboard-chilled-water-loop",
+  "outlineId": "outline-chilled-water-loop",
+  "topic": "Chilled Water Loop",
+  "domain": "hvac",
+  "targetAudience": "beginner",
+  "contentType": "system-flow",
+  "scenes": [
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-01-system-overview",
+      "order": 1,
+      "title": "System Overview",
+      "sourceSectionId": "section-01",
+      "sceneType": "introduction",
+      "targetRenderer": "remotion",
+      "visualIntentId": "visual-scene-01-system-overview",
+      "narrationIntentId": "narration-scene-01-system-overview",
+      "timingId": "timing-scene-01-system-overview"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-02-flow-path",
+      "order": 2,
+      "title": "Flow Path",
+      "sourceSectionId": "section-02",
+      "sceneType": "system-flow",
+      "targetRenderer": "manim",
+      "visualIntentId": "visual-scene-02-flow-path",
+      "narrationIntentId": "narration-scene-02-flow-path",
+      "timingId": "timing-scene-02-flow-path"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-03-key-components",
+      "order": 3,
+      "title": "Key Components",
+      "sourceSectionId": "section-03",
+      "sceneType": "component-breakdown",
+      "targetRenderer": "manim",
+      "visualIntentId": "visual-scene-03-key-components",
+      "narrationIntentId": "narration-scene-03-key-components",
+      "timingId": "timing-scene-03-key-components"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "scene-04-summary",
+      "order": 4,
+      "title": "Summary",
+      "sourceSectionId": "section-04",
+      "sceneType": "summary",
+      "targetRenderer": "remotion",
+      "visualIntentId": "visual-scene-04-summary",
+      "narrationIntentId": "narration-scene-04-summary",
+      "timingId": "timing-scene-04-summary"
+    }
+  ],
+  "narrationIntents": [
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-01-system-overview",
+      "goal": "Understand the purpose and layout of a chilled water loop",
+      "audienceLevel": "beginner",
+      "explanationStyle": "purpose-context-first",
+      "emphasisPoints": [
+        "Closed loop circulates chilled water",
+        "Connects chiller to cooling loads",
+        "Supply and return paths form complete circuit"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-02-flow-path",
+      "goal": "Trace the flow of chilled water through the system",
+      "audienceLevel": "beginner",
+      "explanationStyle": "chronological-flow-trace",
+      "emphasisPoints": [
+        "Chiller cools water to setpoint temperature",
+        "Pump circulates water to AHUs",
+        "AHUs extract heat from air",
+        "Warmed water returns to chiller"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-03-key-components",
+      "goal": "Identify the main components in the loop",
+      "audienceLevel": "beginner",
+      "explanationStyle": "label-and-function",
+      "emphasisPoints": [
+        "Chiller - heat removal",
+        "Pumps - circulation",
+        "AHUs - heat extraction",
+        "Piping - distribution"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "narration-scene-04-summary",
+      "goal": "Recap the chilled water loop operation",
+      "audienceLevel": "beginner",
+      "explanationStyle": "recap-and-transfer",
+      "emphasisPoints": [
+        "Continuous circulation maintains cooling",
+        "Temperature difference drives heat transfer",
+        "System efficiency depends on flow and temperature control"
+      ]
+    }
+  ],
+  "visualIntents": [
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-01-system-overview",
+      "primaryObjects": [
+        "Closed loop circulates chilled water",
+        "Connects chiller to cooling loads",
+        "Supply and return paths form complete circuit"
+      ],
+      "visualPattern": "chapter-card",
+      "motionType": "title-reveal",
+      "diagramStyle": "motion-graphic"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-02-flow-path",
+      "primaryObjects": [
+        "Chiller cools water to setpoint temperature",
+        "Pump circulates water to AHUs",
+        "AHUs extract heat from air",
+        "Warmed water returns to chiller"
+      ],
+      "visualPattern": "flow-trace",
+      "motionType": "directional-flow",
+      "diagramStyle": "technical-schematic"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-03-key-components",
+      "primaryObjects": [
+        "Chiller",
+        "Pumps",
+        "AHUs",
+        "Piping"
+      ],
+      "visualPattern": "component-highlight-sequence",
+      "highlightTargets": [
+        "Chiller",
+        "Pumps",
+        "AHUs",
+        "Piping"
+      ],
+      "motionType": "sequential-highlight",
+      "diagramStyle": "technical-schematic"
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "visual-scene-04-summary",
+      "primaryObjects": [
+        "Continuous circulation maintains cooling",
+        "Temperature difference drives heat transfer",
+        "System efficiency depends on flow and temperature control"
+      ],
+      "visualPattern": "key-takeaways",
+      "motionType": "bullet-recap",
+      "diagramStyle": "motion-graphic"
+    }
+  ],
+  "timings": [
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-01-system-overview",
+      "estimatedDurationSec": 30,
+      "beatPoints": [
+        0,
+        8,
+        15,
+        23
+      ],
+      "syncTargets": [
+        "narration-scene-01-system-overview"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-02-flow-path",
+      "estimatedDurationSec": 50,
+      "beatPoints": [
+        0,
+        13,
+        25,
+        38
+      ],
+      "syncTargets": [
+        "narration-scene-02-flow-path"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-03-key-components",
+      "estimatedDurationSec": 40,
+      "beatPoints": [
+        0,
+        10,
+        20,
+        30
+      ],
+      "syncTargets": [
+        "narration-scene-03-key-components"
+      ]
+    },
+    {
+      "schemaVersion": "1.0",
+      "id": "timing-scene-04-summary",
+      "estimatedDurationSec": 20,
+      "beatPoints": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "syncTargets": [
+        "narration-scene-04-summary"
+      ]
+    }
+  ],
+  "totalEstimatedDurationSec": 140
+}

@@ -8,7 +8,28 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "types": ["node"],
+    "paths": {
+      "@repo/cli": ["apps/cli/src/index.ts"],
+      "@repo/cli/*": ["apps/cli/src/*"],
+      "@repo/studio": ["apps/studio/src/index.ts"],
+      "@repo/studio/*": ["apps/studio/src/*"],
+      "@repo/schemas": ["packages/schemas/src/index.ts"],
+      "@repo/schemas/*": ["packages/schemas/src/*"],
+      "@repo/core": ["packages/core/src/index.ts"],
+      "@repo/core/*": ["packages/core/src/*"],
+      "@repo/domain-hvac": ["packages/domain-hvac/src/index.ts"],
+      "@repo/domain-hvac/*": ["packages/domain-hvac/src/*"],
+      "@repo/generator-manim": ["packages/generator-manim/src/index.ts"],
+      "@repo/generator-manim/*": ["packages/generator-manim/src/*"],
+      "@repo/composer-remotion": ["packages/composer-remotion/src/index.ts"],
+      "@repo/composer-remotion/*": ["packages/composer-remotion/src/*"],
+      "@repo/voice": ["packages/voice/src/index.ts"],
+      "@repo/voice/*": ["packages/voice/src/*"],
+      "@repo/utils": ["packages/utils/src/index.ts"],
+      "@repo/utils/*": ["packages/utils/src/*"]
+    }
   },
   "exclude": ["node_modules", "dist", "build"]
 }

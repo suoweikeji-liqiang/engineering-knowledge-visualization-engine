@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0",
+  "id": "scene-03-key-components",
+  "fileName": "scene-03-key-components.json",
+  "order": 3,
+  "slug": "key-components",
+  "title": "Key Components",
+  "topic": "Chilled Water Loop",
+  "domain": "hvac",
+  "targetAudience": "beginner",
+  "contentType": "system-flow",
+  "sceneType": "component-breakdown",
+  "targetRenderer": "manim",
+  "source": {
+    "outlineId": "outline-chilled-water-loop",
+    "storyboardId": "storyboard-chilled-water-loop",
+    "sectionId": "section-03"
+  },
+  "narration": {
+    "goal": "Identify the main components in the loop",
+    "audienceLevel": "beginner",
+    "explanationStyle": "label-and-function",
+    "emphasisPoints": [
+      "Chiller - heat removal",
+      "Pumps - circulation",
+      "AHUs - heat extraction",
+      "Piping - distribution"
+    ]
+  },
+  "visual": {
+    "primaryObjects": [
+      "Chiller",
+      "Pumps",
+      "AHUs",
+      "Piping"
+    ],
+    "visualPattern": "component-highlight-sequence",
+    "highlightTargets": [
+      "Chiller",
+      "Pumps",
+      "AHUs",
+      "Piping"
+    ],
+    "motionType": "sequential-highlight",
+    "diagramStyle": "technical-schematic"
+  },
+  "timing": {
+    "estimatedDurationSec": 40,
+    "beatPoints": [
+      0,
+      10,
+      20,
+      30
+    ],
+    "syncTargets": [
+      "narration-scene-03-key-components"
+    ]
+  }
+}

@@ -1,9 +1,11 @@
 {
   "schemaVersion": "1.0",
-  "id": "scene-chiller-principle-intro",
+  "id": "scene-01-what-is-a-chiller",
+  "order": 1,
   "title": "Chiller Principle Introduction",
-  "sceneType": "equipment-principle",
-  "targetRenderer": "manim",
+  "sourceSectionId": "section-01",
+  "sceneType": "introduction",
+  "targetRenderer": "remotion",
   "visualIntentId": "visual-chiller-components",
   "narrationIntentId": "narration-chiller-intro",
   "timingId": "timing-chiller-intro"

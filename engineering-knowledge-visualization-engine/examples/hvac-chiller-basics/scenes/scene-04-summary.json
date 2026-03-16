@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0",
+  "id": "scene-04-summary",
+  "fileName": "scene-04-summary.json",
+  "order": 4,
+  "slug": "summary",
+  "title": "Summary",
+  "topic": "Chiller Basics",
+  "domain": "hvac",
+  "targetAudience": "beginner",
+  "contentType": "equipment-principle",
+  "sceneType": "summary",
+  "targetRenderer": "remotion",
+  "source": {
+    "outlineId": "outline-chiller-basics",
+    "storyboardId": "storyboard-chiller-basics",
+    "sectionId": "section-04"
+  },
+  "narration": {
+    "goal": "Recap the key principles of chiller operation",
+    "audienceLevel": "beginner",
+    "explanationStyle": "recap-and-transfer",
+    "emphasisPoints": [
+      "Four components work together",
+      "Phase change enables heat transfer",
+      "Compressor requires energy input"
+    ]
+  },
+  "visual": {
+    "primaryObjects": [
+      "Four components work together",
+      "Phase change enables heat transfer",
+      "Compressor requires energy input"
+    ],
+    "visualPattern": "key-takeaways",
+    "motionType": "bullet-recap",
+    "diagramStyle": "motion-graphic"
+  },
+  "timing": {
+    "estimatedDurationSec": 20,
+    "beatPoints": [
+      0,
+      5,
+      10,
+      15
+    ],
+    "syncTargets": [
+      "narration-scene-04-summary"
+    ]
+  }
+}

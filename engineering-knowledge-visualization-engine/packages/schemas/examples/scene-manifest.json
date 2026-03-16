@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0",
+  "id": "scene-02-four-main-components",
+  "fileName": "scene-02-four-main-components.json",
+  "order": 2,
+  "slug": "four-main-components",
+  "title": "Four Main Components",
+  "topic": "Chiller Basics",
+  "domain": "hvac",
+  "targetAudience": "beginner",
+  "contentType": "equipment-principle",
+  "sceneType": "component-breakdown",
+  "targetRenderer": "manim",
+  "source": {
+    "outlineId": "outline-chiller-basics",
+    "storyboardId": "storyboard-chiller-basics",
+    "sectionId": "section-02"
+  },
+  "narration": {
+    "goal": "Identify the four key components of a chiller",
+    "audienceLevel": "beginner",
+    "explanationStyle": "label-and-function",
+    "emphasisPoints": [
+      "Evaporator - where cooling happens",
+      "Compressor - drives the cycle",
+      "Condenser - where heat is rejected",
+      "Expansion valve - reduces pressure"
+    ]
+  },
+  "visual": {
+    "primaryObjects": [
+      "Evaporator",
+      "Compressor",
+      "Condenser",
+      "Expansion valve"
+    ],
+    "visualPattern": "component-highlight-sequence",
+    "highlightTargets": [
+      "Evaporator",
+      "Compressor",
+      "Condenser",
+      "Expansion valve"
+    ],
+    "motionType": "sequential-highlight",
+    "diagramStyle": "technical-schematic"
+  },
+  "timing": {
+    "estimatedDurationSec": 45,
+    "beatPoints": [
+      0,
+      11,
+      23,
+      34
+    ],
+    "syncTargets": [
+      "narration-scene-02-four-main-components"
+    ]
+  }
+}

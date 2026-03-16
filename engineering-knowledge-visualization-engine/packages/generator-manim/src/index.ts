@@ -1,4 +1,4 @@
-import { Scene } from "@repo/schemas";
+import { SceneManifest } from "@repo/schemas";
 
 export type ManimGeneratorConfig = {
   outputDir: string;
@@ -8,7 +8,7 @@ export type ManimGeneratorConfig = {
 export class ManimGenerator {
   constructor(private config: ManimGeneratorConfig) {}
 
-  async generateScene(scene: Scene): Promise<string> {
+  async generateScene(scene: SceneManifest): Promise<string> {
     // Stub: returns path to generated Python script
     const scriptPath = `${this.config.outputDir}/${scene.id}.py`;
     return scriptPath;

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0",
+  "id": "scene-01-system-overview",
+  "fileName": "scene-01-system-overview.json",
+  "order": 1,
+  "slug": "system-overview",
+  "title": "System Overview",
+  "topic": "Chilled Water Loop",
+  "domain": "hvac",
+  "targetAudience": "beginner",
+  "contentType": "system-flow",
+  "sceneType": "introduction",
+  "targetRenderer": "remotion",
+  "source": {
+    "outlineId": "outline-chilled-water-loop",
+    "storyboardId": "storyboard-chilled-water-loop",
+    "sectionId": "section-01"
+  },
+  "narration": {
+    "goal": "Understand the purpose and layout of a chilled water loop",
+    "audienceLevel": "beginner",
+    "explanationStyle": "purpose-context-first",
+    "emphasisPoints": [
+      "Closed loop circulates chilled water",
+      "Connects chiller to cooling loads",
+      "Supply and return paths form complete circuit"
+    ]
+  },
+  "visual": {
+    "primaryObjects": [
+      "Closed loop circulates chilled water",
+      "Connects chiller to cooling loads",
+      "Supply and return paths form complete circuit"
+    ],
+    "visualPattern": "chapter-card",
+    "motionType": "title-reveal",
+    "diagramStyle": "motion-graphic"
+  },
+  "timing": {
+    "estimatedDurationSec": 30,
+    "beatPoints": [
+      0,
+      8,
+      15,
+      23
+    ],
+    "syncTargets": [
+      "narration-scene-01-system-overview"
+    ]
+  }
+}

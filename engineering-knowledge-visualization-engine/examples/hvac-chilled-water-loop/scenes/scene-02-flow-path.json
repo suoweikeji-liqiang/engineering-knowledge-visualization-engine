@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "id": "scene-02-flow-path",
+  "fileName": "scene-02-flow-path.json",
+  "order": 2,
+  "slug": "flow-path",
+  "title": "Flow Path",
+  "topic": "Chilled Water Loop",
+  "domain": "hvac",
+  "targetAudience": "beginner",
+  "contentType": "system-flow",
+  "sceneType": "system-flow",
+  "targetRenderer": "manim",
+  "source": {
+    "outlineId": "outline-chilled-water-loop",
+    "storyboardId": "storyboard-chilled-water-loop",
+    "sectionId": "section-02"
+  },
+  "narration": {
+    "goal": "Trace the flow of chilled water through the system",
+    "audienceLevel": "beginner",
+    "explanationStyle": "chronological-flow-trace",
+    "emphasisPoints": [
+      "Chiller cools water to setpoint temperature",
+      "Pump circulates water to AHUs",
+      "AHUs extract heat from air",
+      "Warmed water returns to chiller"
+    ]
+  },
+  "visual": {
+    "primaryObjects": [
+      "Chiller cools water to setpoint temperature",
+      "Pump circulates water to AHUs",
+      "AHUs extract heat from air",
+      "Warmed water returns to chiller"
+    ],
+    "visualPattern": "flow-trace",
+    "motionType": "directional-flow",
+    "diagramStyle": "technical-schematic"
+  },
+  "timing": {
+    "estimatedDurationSec": 50,
+    "beatPoints": [
+      0,
+      13,
+      25,
+      38
+    ],
+    "syncTargets": [
+      "narration-scene-02-flow-path"
+    ]
+  }
+}
