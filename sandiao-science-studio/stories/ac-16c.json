@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "title": "空调开到16℃真的更省电吗？",
+    "slug": "ac-16c",
+    "episode": "01",
+    "resolution": [960, 540],
+    "fps": 15,
+    "video": "output/ac-16c-sample.mp4",
+    "audio": "output/ac-16c-master.wav",
+    "poster": "output/ac-16c-poster.png"
+  },
+  "characters": [
+    {
+      "id": "laowang",
+      "name": "老王",
+      "palette": {"skin": "#F0C7A1", "shirt": "#E85A47", "hair": "#242A33", "accent": "#F2C14E"},
+      "voice": {"voice": "zh", "speed": 178, "pitch": 42}
+    },
+    {
+      "id": "xiaoming",
+      "name": "小明",
+      "palette": {"skin": "#F4CFAE", "shirt": "#3E7CB1", "hair": "#1B2735", "accent": "#8AC6E8"},
+      "voice": {"voice": "zh", "speed": 192, "pitch": 64}
+    }
+  ],
+  "shots": [
+    {
+      "id": "hook",
+      "duration": 3.6,
+      "speaker": "laowang",
+      "dialogue": "空调开到十六度，肯定降温更快，还更省电！",
+      "headline": "16℃ = 更快 + 更省电？",
+      "diagram": "myth",
+      "effect": "burst",
+      "transition": "swipe",
+      "sfx": ["impact"],
+      "states": [
+        {"character": "laowang", "x": 0.20, "y": 0.58, "scale": 1.12, "facing": 1, "action": "talk", "expression": "confident"},
+        {"character": "xiaoming", "x": 0.86, "y": 0.62, "scale": 0.82, "facing": -1, "action": "idle", "expression": "neutral"}
+      ]
+    },
+    {
+      "id": "not-faucet",
+      "duration": 3.8,
+      "speaker": "xiaoming",
+      "dialogue": "先别急，空调可不是水龙头，温度拧低就立刻多出冷量。",
+      "headline": "空调 ≠ 水龙头",
+      "diagram": "not-faucet",
+      "effect": "question",
+      "sfx": ["boing"],
+      "states": [
+        {"character": "laowang", "x": 0.19, "y": 0.63, "scale": 0.86, "facing": 1, "action": "think", "expression": "puzzled"},
+        {"character": "xiaoming", "x": 0.86, "y": 0.60, "scale": 0.98, "facing": -1, "action": "point", "expression": "serious"}
+      ]
+    },
+    {
+      "id": "compressor",
+      "duration": 4.2,
+      "speaker": "xiaoming",
+      "dialogue": "多数定频空调一启动，压缩机基本就是按额定能力干活。",
+      "headline": "先看它怎么干活",
+      "diagram": "compressor",
+      "sfx": ["ding"],
+      "states": [
+        {"character": "laowang", "x": 0.18, "y": 0.64, "scale": 0.80, "facing": 1, "action": "idle", "expression": "neutral"},
+        {"character": "xiaoming", "x": 0.87, "y": 0.61, "scale": 0.90, "facing": -1, "action": "point", "expression": "serious"}
+      ]
+    },
+    {
+      "id": "question",
+      "duration": 3.2,
+      "speaker": "laowang",
+      "dialogue": "那调十六度，它不是会更卖力吗？",
+      "headline": "温度更低 = 功率更大？",
+      "diagram": "no-super",
+      "effect": "question",
+      "sfx": ["boing"],
+      "states": [
+        {"character": "laowang", "x": 0.20, "y": 0.60, "scale": 1.02, "facing": 1, "action": "think", "expression": "puzzled"},
+        {"character": "xiaoming", "x": 0.87, "y": 0.64, "scale": 0.80, "facing": -1, "action": "idle", "expression": "neutral"}
+      ]
+    },
+    {
+      "id": "runtime",
+      "duration": 4.4,
+      "speaker": "xiaoming",
+      "dialogue": "通常只是更晚停机，不会凭空多出一档超级功率。",
+      "headline": "真正改变的是运行时间",
+      "diagram": "runtime",
+      "sfx": ["whoosh"],
+      "states": [
+        {"character": "laowang", "x": 0.18, "y": 0.64, "scale": 0.80, "facing": 1, "action": "idle", "expression": "puzzled"},
+        {"character": "xiaoming", "x": 0.87, "y": 0.60, "scale": 0.94, "facing": -1, "action": "point", "expression": "serious"}
+      ]
+    },
+    {
+      "id": "never",
+      "duration": 4.2,
+      "speaker": "xiaoming",
+      "dialogue": "房间到不了十六度时，压缩机甚至可能一直跑。",
+      "headline": "目标到不了，会发生什么？",
+      "diagram": "never",
+      "effect": "snow",
+      "sfx": ["ding"],
+      "states": [
+        {"character": "laowang", "x": 0.18, "y": 0.62, "scale": 0.82, "facing": 1, "action": "shake", "expression": "shocked"},
+        {"character": "xiaoming", "x": 0.87, "y": 0.60, "scale": 0.92, "facing": -1, "action": "point", "expression": "serious"}
+      ]
+    },
+    {
+      "id": "tips",
+      "duration": 4.4,
+      "speaker": "xiaoming",
+      "dialogue": "想省电，温度别设太低，再配合密闭、遮阳和合适风量。",
+      "headline": "真正有效的三件事",
+      "diagram": "tips",
+      "effect": "confetti",
+      "sfx": ["sparkle"],
+      "states": [
+        {"character": "laowang", "x": 0.17, "y": 0.64, "scale": 0.76, "facing": 1, "action": "nod", "expression": "smile"},
+        {"character": "xiaoming", "x": 0.88, "y": 0.62, "scale": 0.84, "facing": -1, "action": "point", "expression": "smile"}
+      ]
+    },
+    {
+      "id": "end",
+      "duration": 4.2,
+      "speaker": "laowang",
+      "dialogue": "明白了，十六度不是省电键，是压缩机的加班键！",
+      "headline": "老王终于悟了",
+      "diagram": "end",
+      "effect": "confetti",
+      "transition": "swipe",
+      "sfx": ["impact", "sparkle"],
+      "states": [
+        {"character": "laowang", "x": 0.19, "y": 0.60, "scale": 1.00, "facing": 1, "action": "celebrate", "expression": "smile"},
+        {"character": "xiaoming", "x": 0.88, "y": 0.63, "scale": 0.80, "facing": -1, "action": "nod", "expression": "smile"}
+      ]
+    }
+  ]
+}
