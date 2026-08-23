@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="384" height="512">
+  <!-- Evaporator S-Coils -->
+  <g id="hvac-heat-exchanger">
+    <rect x="24" y="24" width="336" height="464" rx="24" fill="#FFFFFF" stroke="#13223A" stroke-width="3.5"/>
+    <!-- Fins Background -->
+    <g opacity="0.25">
+      <line x1="60" y1="60" x2="324" y2="60" stroke="#8FA6CB" stroke-width="2"/>
+      <line x1="60" y1="100" x2="324" y2="100" stroke="#8FA6CB" stroke-width="2"/>
+      <line x1="60" y1="140" x2="324" y2="140" stroke="#8FA6CB" stroke-width="2"/>
+      <line x1="60" y1="180" x2="324" y2="180" stroke="#8FA6CB" stroke-width="2"/>
+      <line x1="60" y1="220" x2="324" y2="220" stroke="#8FA6CB" stroke-width="2"/>
+      <line x1="60" y1="260" x2="324" y2="260" stroke="#8FA6CB" stroke-width="2"/>
+      <line x1="60" y1="300" x2="324" y2="300" stroke="#8FA6CB" stroke-width="2"/>
+      <line x1="60" y1="340" x2="324" y2="340" stroke="#8FA6CB" stroke-width="2"/>
+      <line x1="60" y1="380" x2="324" y2="380" stroke="#8FA6CB" stroke-width="2"/>
+      <line x1="60" y1="420" x2="324" y2="420" stroke="#8FA6CB" stroke-width="2"/>
+    </g>
+    <!-- Copper Continuous S-Pipe -->
+    <path d="M 80,80 L 300,80 A 30,30 0 0,1 300,140 L 80,140 A 30,30 0 0,0 80,200 L 300,200 A 30,30 0 0,1 300,260 L 80,260 A 30,30 0 0,0 80,320 L 300,320 A 30,30 0 0,1 300,380 L 80,380 A 30,30 0 0,0 80,440 L 300,440" fill="none" stroke="#1890FF" stroke-width="16" stroke-linecap="round"/>
+    <path d="M 80,80 L 300,80 A 30,30 0 0,1 300,140 L 80,140 A 30,30 0 0,0 80,200 L 300,200 A 30,30 0 0,1 300,260 L 80,260 A 30,30 0 0,0 80,320 L 300,320 A 30,30 0 0,1 300,380 L 80,380 A 30,30 0 0,0 80,440 L 300,440" fill="none" stroke="#13223A" stroke-width="2.5"/>
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520">
+  <!-- Runtime component: slots stay content-free and addressable. -->
+  <g id="diagram-tips-card">
+    <rect id="card-frame" width="960" height="520" rx="24" fill="#FFFFFF" stroke="#13223A" stroke-width="3.5"/>
+    <rect id="title-slot" x="48" y="28" width="600" height="36" rx="8" fill="#E6EEF8"/>
+    <g id="tip-one">
+      <rect x="48" y="88" width="864" height="110" rx="14" fill="#F6F8FA" stroke="#D9D9D9" stroke-width="1.5"/>
+      <circle id="tip-one-index" cx="98" cy="143" r="24" fill="#1F5CFF"/>
+      <rect id="tip-one-title-slot" x="144" y="116" width="560" height="24" rx="6" fill="#D6E4FF"/>
+      <rect id="tip-one-body-slot" x="144" y="154" width="700" height="18" rx="5" fill="#E6EEF8"/>
+    </g>
+    <g id="tip-two">
+      <rect x="48" y="222" width="864" height="110" rx="14" fill="#F6F8FA" stroke="#D9D9D9" stroke-width="1.5"/>
+      <circle id="tip-two-index" cx="98" cy="277" r="24" fill="#1FD6E2"/>
+      <rect id="tip-two-title-slot" x="144" y="250" width="560" height="24" rx="6" fill="#B5F5EC"/>
+      <rect id="tip-two-body-slot" x="144" y="288" width="700" height="18" rx="5" fill="#E6EEF8"/>
+    </g>
+    <g id="tip-three">
+      <rect x="48" y="356" width="864" height="110" rx="14" fill="#F6F8FA" stroke="#D9D9D9" stroke-width="1.5"/>
+      <circle id="tip-three-index" cx="98" cy="411" r="24" fill="#52C41A"/>
+      <rect id="tip-three-title-slot" x="144" y="384" width="560" height="24" rx="6" fill="#D9F7BE"/>
+      <rect id="tip-three-body-slot" x="144" y="422" width="700" height="18" rx="5" fill="#E6EEF8"/>
+    </g>
+  </g>
+</svg>

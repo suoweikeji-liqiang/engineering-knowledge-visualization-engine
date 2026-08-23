@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!-- Summary Stage (9:16 Vertical Composite) -->
+  <rect width="1080" height="1920" fill="#0B1321"/>
+  <ellipse cx="540" cy="300" rx="450" ry="200" fill="none" stroke="#1F5CFF" stroke-width="2" opacity="0.3"/>
+  <polygon points="60,1480 1020,1480 1080,1680 0,1680" fill="#101C31" stroke="#1FD6E2" stroke-width="2.5"/>
+  <rect x="0" y="1680" width="1080" height="240" fill="#060A12"/>
+</svg>

@@ -1,0 +1,610 @@
+{
+  "schemaVersion": "1.0",
+  "assets": [
+    {
+      "id": "shared.background.daily-living.background16x9",
+      "type": "background-layer",
+      "source": "backgrounds/daily-living/background_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "shared.background.daily-living.foreground16x9",
+      "type": "background-layer",
+      "source": "backgrounds/daily-living/foreground_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "shared.background.daily-living.midground16x9",
+      "type": "background-layer",
+      "source": "backgrounds/daily-living/midground_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "shared.background.daily-living.scene16x9",
+      "type": "background",
+      "source": "backgrounds/daily-living/scene_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "shared.background.daily-living.scene9x16",
+      "type": "background",
+      "source": "backgrounds/daily-living/scene_9x16.svg",
+      "viewBox": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "anchors": {
+        "center": [
+          540.0,
+          960.0
+        ],
+        "horizon": [
+          540.0,
+          1497.6000000000001
+        ]
+      },
+      "variants": [
+        "vertical"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "shared.background.daily-living.scene-night16x9",
+      "type": "background",
+      "source": "backgrounds/daily-living/scene_night_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "night"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "shared.symbol.airflow",
+      "type": "symbol",
+      "source": "symbols/symbol-airflow.svg",
+      "viewBox": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "anchors": {
+        "center": [
+          64.0,
+          64.0
+        ],
+        "label": [
+          64.0,
+          19.2
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "tintable"
+      ],
+      "layers": []
+    },
+    {
+      "id": "shared.symbol.clock",
+      "type": "symbol",
+      "source": "symbols/symbol-clock.svg",
+      "viewBox": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "anchors": {
+        "center": [
+          64.0,
+          64.0
+        ],
+        "label": [
+          64.0,
+          19.2
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "tintable"
+      ],
+      "layers": []
+    },
+    {
+      "id": "shared.symbol.cold-flow",
+      "type": "symbol",
+      "source": "symbols/symbol-cold-flow.svg",
+      "viewBox": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "anchors": {
+        "center": [
+          64.0,
+          64.0
+        ],
+        "label": [
+          64.0,
+          19.2
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "tintable"
+      ],
+      "layers": []
+    },
+    {
+      "id": "shared.symbol.electricity",
+      "type": "symbol",
+      "source": "symbols/symbol-electricity.svg",
+      "viewBox": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "anchors": {
+        "center": [
+          64.0,
+          64.0
+        ],
+        "label": [
+          64.0,
+          19.2
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "tintable"
+      ],
+      "layers": []
+    },
+    {
+      "id": "shared.symbol.error",
+      "type": "symbol",
+      "source": "symbols/symbol-error.svg",
+      "viewBox": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "anchors": {
+        "center": [
+          64.0,
+          64.0
+        ],
+        "label": [
+          64.0,
+          19.2
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "tintable"
+      ],
+      "layers": []
+    },
+    {
+      "id": "shared.symbol.gauge",
+      "type": "symbol",
+      "source": "symbols/symbol-gauge.svg",
+      "viewBox": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "anchors": {
+        "center": [
+          64.0,
+          64.0
+        ],
+        "label": [
+          64.0,
+          19.2
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "tintable"
+      ],
+      "layers": []
+    },
+    {
+      "id": "shared.symbol.heat-flow",
+      "type": "symbol",
+      "source": "symbols/symbol-heat-flow.svg",
+      "viewBox": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "anchors": {
+        "center": [
+          64.0,
+          64.0
+        ],
+        "label": [
+          64.0,
+          19.2
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "tintable"
+      ],
+      "layers": []
+    },
+    {
+      "id": "shared.symbol.success",
+      "type": "symbol",
+      "source": "symbols/symbol-success.svg",
+      "viewBox": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "anchors": {
+        "center": [
+          64.0,
+          64.0
+        ],
+        "label": [
+          64.0,
+          19.2
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "tintable"
+      ],
+      "layers": []
+    },
+    {
+      "id": "shared.symbol.warning",
+      "type": "symbol",
+      "source": "symbols/symbol-warning.svg",
+      "viewBox": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "anchors": {
+        "center": [
+          64.0,
+          64.0
+        ],
+        "label": [
+          64.0,
+          19.2
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "tintable"
+      ],
+      "layers": []
+    },
+    {
+      "id": "shared.symbol.water-drop",
+      "type": "symbol",
+      "source": "symbols/symbol-water-drop.svg",
+      "viewBox": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "anchors": {
+        "center": [
+          64.0,
+          64.0
+        ],
+        "label": [
+          64.0,
+          19.2
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "tintable"
+      ],
+      "layers": []
+    },
+    {
+      "id": "shared.diagram.comparison-card",
+      "type": "diagram",
+      "source": "diagrams/diagram-comparison-card.svg",
+      "viewBox": [
+        0,
+        0,
+        1000,
+        600
+      ],
+      "anchors": {
+        "center": [
+          500.0,
+          300.0
+        ],
+        "label": [
+          500.0,
+          90.0
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "stateful",
+        "dataBindable"
+      ],
+      "layers": [
+        "diagram-comparison-card",
+        "card-frame",
+        "left-panel",
+        "left-badge-slot",
+        "left-title-slot",
+        "left-content-slot",
+        "right-panel",
+        "right-badge-slot",
+        "right-title-slot",
+        "right-content-slot"
+      ]
+    },
+    {
+      "id": "shared.diagram.flow-node",
+      "type": "diagram",
+      "source": "diagrams/diagram-flow-node.svg",
+      "viewBox": [
+        0,
+        0,
+        320,
+        180
+      ],
+      "anchors": {
+        "center": [
+          160.0,
+          90.0
+        ],
+        "label": [
+          160.0,
+          27.0
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "stateful",
+        "dataBindable"
+      ],
+      "layers": [
+        "diagram-flow-node",
+        "node-frame",
+        "state-indicator",
+        "title-slot",
+        "header-divider",
+        "body-slot",
+        "status-slot",
+        "input-port",
+        "output-port"
+      ]
+    },
+    {
+      "id": "shared.diagram.line-chart",
+      "type": "diagram",
+      "source": "diagrams/diagram-line-chart.svg",
+      "viewBox": [
+        0,
+        0,
+        960,
+        480
+      ],
+      "anchors": {
+        "center": [
+          480.0,
+          240.0
+        ],
+        "label": [
+          480.0,
+          72.0
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "stateful",
+        "dataBindable"
+      ],
+      "layers": [
+        "diagram-line-chart",
+        "chart-frame",
+        "title-slot",
+        "plot-grid",
+        "axes",
+        "primary-series",
+        "secondary-series",
+        "annotation-layer",
+        "x-label-slot",
+        "y-label-slot",
+        "legend-slot"
+      ]
+    },
+    {
+      "id": "shared.diagram.tips-card",
+      "type": "diagram",
+      "source": "diagrams/diagram-tips-card.svg",
+      "viewBox": [
+        0,
+        0,
+        960,
+        520
+      ],
+      "anchors": {
+        "center": [
+          480.0,
+          260.0
+        ],
+        "label": [
+          480.0,
+          78.0
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "stateful",
+        "dataBindable"
+      ],
+      "layers": [
+        "diagram-tips-card",
+        "card-frame",
+        "title-slot",
+        "tip-one",
+        "tip-one-index",
+        "tip-one-title-slot",
+        "tip-one-body-slot",
+        "tip-two",
+        "tip-two-index",
+        "tip-two-title-slot",
+        "tip-two-body-slot",
+        "tip-three",
+        "tip-three-index",
+        "tip-three-title-slot",
+        "tip-three-body-slot"
+      ]
+    }
+  ]
+}

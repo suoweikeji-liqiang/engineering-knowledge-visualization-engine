@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs></defs>
+  <g id="ai-model-observatory">
+    <rect id="background" width="1920" height="1080" fill="#EAF2FF"/>
+    <g id="constellation-field"><circle cx="90" cy="82" r="3" fill="#1FD6E2" opacity=".3"/><circle cx="227" cy="148" r="4" fill="#1FD6E2" opacity=".4"/><circle cx="364" cy="214" r="5" fill="#1FD6E2" opacity=".5"/><circle cx="501" cy="82" r="6" fill="#1FD6E2" opacity=".6"/><circle cx="638" cy="148" r="3" fill="#1FD6E2" opacity=".7"/><circle cx="775" cy="214" r="4" fill="#1FD6E2" opacity=".8"/><circle cx="912" cy="82" r="5" fill="#1FD6E2" opacity=".3"/><circle cx="1049" cy="148" r="6" fill="#1FD6E2" opacity=".4"/><circle cx="1186" cy="214" r="3" fill="#1FD6E2" opacity=".5"/><circle cx="1323" cy="82" r="4" fill="#1FD6E2" opacity=".6"/><circle cx="1460" cy="148" r="5" fill="#1FD6E2" opacity=".7"/><circle cx="1597" cy="214" r="6" fill="#1FD6E2" opacity=".8"/><circle cx="1734" cy="82" r="3" fill="#1FD6E2" opacity=".3"/><path d="M90 82l274 132 274-66 274 132 274-198 274 132" fill="none" stroke="#1FD6E2" stroke-width="3" opacity=".20"/></g>
+    <path id="rear-wall" d="M0 356L960 210l960 146v724H0z" fill="#FFFFFF" stroke="#C9D8EC" stroke-width="6"/>
+    <g id="compute-racks">
+      <rect x="90" y="410" width="260" height="440" rx="28" fill="#101C31" stroke="#1F5CFF" stroke-width="5"/>
+      <rect x="1570" y="410" width="260" height="440" rx="28" fill="#101C31" stroke="#8B5CF6" stroke-width="5"/>
+      <g stroke="#C9D8EC" stroke-width="4"><path d="M125 500h190M125 595h190M125 690h190M125 785h190M1605 500h190M1605 595h190M1605 690h190M1605 785h190"/></g>
+      <g fill="#22C55E"><circle cx="150" cy="465" r="8"/><circle cx="1640" cy="465" r="8"/></g>
+    </g>
+    <g id="model-hologram">
+      <circle cx="960" cy="510" r="180" fill="#8B5CF6" fill-opacity=".10" stroke="#8B5CF6" stroke-width="6"/>
+      <ellipse cx="960" cy="510" rx="270" ry="92" fill="none" stroke="#1FD6E2" stroke-width="5" transform="rotate(-12 960 510)"/>
+      <path d="M894 548v-76l66-38 66 38v76l-66 38zM960 434v152" fill="none" stroke="#1FD6E2" stroke-width="10"/>
+    </g>
+    <path id="floor" d="M0 860h1920v220H0z" fill="#101C31"/>
+    <path id="floor-grid" d="M0 940h1920M260 860L90 1080M620 860l-70 220M960 860v220M1300 860l70 220M1660 860l170 220" stroke="#1F5CFF" stroke-width="4" opacity=".24"/>
+    <g id="presenter-zone"><ellipse cx="960" cy="890" rx="330" ry="56" fill="#1FD6E2" opacity=".10"/><path d="M650 890h620" stroke="#1FD6E2" stroke-width="4" stroke-dasharray="18 14"/></g>
+  </g>
+</svg>

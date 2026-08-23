@@ -1,0 +1,2380 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <style>
+      .font-title { font-family: system-ui, -apple-system, 'PingFang SC', sans-serif; font-weight: 800; }
+      .font-body { font-family: system-ui, -apple-system, 'PingFang SC', sans-serif; font-weight: 600; }
+      .font-mono { font-family: 'SF Mono', monospace; font-weight: 600; }
+    </style>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0B1321"/>
+      <stop offset="100%" stop-color="#14233C"/>
+    </linearGradient>
+    <clipPath id="avatarClip">
+      <rect width="180" height="185" rx="12"/>
+    </clipPath>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+
+  <g transform="translate(80, 45)">
+    <text x="0" y="36" fill="#FFFFFF" class="font-title" font-size="32">角色 12 核心情绪表情阵列 (12 Expression Matrix - 160px Readability Verified)</text>
+    <text x="0" y="70" fill="#8FA6CB" class="font-body" font-size="16">老王（生活直觉派）与小明（观测站研究员）微表情在移动端 160px 头像尺寸下的高辨识度验收</text>
+  </g>
+  <g transform="translate(80, 135)">
+
+    <!-- Cell 0: neutral -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="420" height="275" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+      <rect x="16" y="14" width="388" height="34" rx="8" fill="#172A46"/>
+      <text x="30" y="37" fill="#1FD6E2" class="font-title" font-size="16">Neutral 中性待机</text>
+
+      <!-- Lao Wang Avatar on Left -->
+      <g transform="translate(20, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#lw_neutral"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#FA541C" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#FA541C"/>
+        <text x="42" y="167" fill="#FFFFFF" class="font-body" font-size="12" text-anchor="middle">老王</text>
+      </g>
+
+      <!-- Xiao Ming Avatar on Right -->
+      <g transform="translate(220, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#xm_neutral"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#1FD6E2" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#1FD6E2"/>
+        <text x="42" y="167" fill="#080E18" class="font-body" font-size="12" text-anchor="middle">小明</text>
+      </g>
+    </g>
+
+    <!-- Cell 1: happy -->
+    <g transform="translate(440, 0)">
+      <rect x="0" y="0" width="420" height="275" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+      <rect x="16" y="14" width="388" height="34" rx="8" fill="#172A46"/>
+      <text x="30" y="37" fill="#1FD6E2" class="font-title" font-size="16">Happy 喜悦微笑</text>
+
+      <!-- Lao Wang Avatar on Left -->
+      <g transform="translate(20, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#lw_happy"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#FA541C" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#FA541C"/>
+        <text x="42" y="167" fill="#FFFFFF" class="font-body" font-size="12" text-anchor="middle">老王</text>
+      </g>
+
+      <!-- Xiao Ming Avatar on Right -->
+      <g transform="translate(220, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#xm_happy"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#1FD6E2" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#1FD6E2"/>
+        <text x="42" y="167" fill="#080E18" class="font-body" font-size="12" text-anchor="middle">小明</text>
+      </g>
+    </g>
+
+    <!-- Cell 2: confident -->
+    <g transform="translate(880, 0)">
+      <rect x="0" y="0" width="420" height="275" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+      <rect x="16" y="14" width="388" height="34" rx="8" fill="#172A46"/>
+      <text x="30" y="37" fill="#1FD6E2" class="font-title" font-size="16">Confident 笃定自信</text>
+
+      <!-- Lao Wang Avatar on Left -->
+      <g transform="translate(20, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#lw_confident"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#FA541C" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#FA541C"/>
+        <text x="42" y="167" fill="#FFFFFF" class="font-body" font-size="12" text-anchor="middle">老王</text>
+      </g>
+
+      <!-- Xiao Ming Avatar on Right -->
+      <g transform="translate(220, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#xm_confident"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#1FD6E2" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#1FD6E2"/>
+        <text x="42" y="167" fill="#080E18" class="font-body" font-size="12" text-anchor="middle">小明</text>
+      </g>
+    </g>
+
+    <!-- Cell 3: serious -->
+    <g transform="translate(1320, 0)">
+      <rect x="0" y="0" width="420" height="275" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+      <rect x="16" y="14" width="388" height="34" rx="8" fill="#172A46"/>
+      <text x="30" y="37" fill="#1FD6E2" class="font-title" font-size="16">Serious 严谨严肃</text>
+
+      <!-- Lao Wang Avatar on Left -->
+      <g transform="translate(20, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#lw_serious"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#FA541C" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#FA541C"/>
+        <text x="42" y="167" fill="#FFFFFF" class="font-body" font-size="12" text-anchor="middle">老王</text>
+      </g>
+
+      <!-- Xiao Ming Avatar on Right -->
+      <g transform="translate(220, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#xm_serious"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#1FD6E2" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#1FD6E2"/>
+        <text x="42" y="167" fill="#080E18" class="font-body" font-size="12" text-anchor="middle">小明</text>
+      </g>
+    </g>
+
+    <!-- Cell 4: puzzled -->
+    <g transform="translate(0, 295)">
+      <rect x="0" y="0" width="420" height="275" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+      <rect x="16" y="14" width="388" height="34" rx="8" fill="#172A46"/>
+      <text x="30" y="37" fill="#1FD6E2" class="font-title" font-size="16">Puzzled 困惑疑虑</text>
+
+      <!-- Lao Wang Avatar on Left -->
+      <g transform="translate(20, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#lw_puzzled"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#FA541C" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#FA541C"/>
+        <text x="42" y="167" fill="#FFFFFF" class="font-body" font-size="12" text-anchor="middle">老王</text>
+      </g>
+
+      <!-- Xiao Ming Avatar on Right -->
+      <g transform="translate(220, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#xm_puzzled"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#1FD6E2" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#1FD6E2"/>
+        <text x="42" y="167" fill="#080E18" class="font-body" font-size="12" text-anchor="middle">小明</text>
+      </g>
+    </g>
+
+    <!-- Cell 5: shocked -->
+    <g transform="translate(440, 295)">
+      <rect x="0" y="0" width="420" height="275" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+      <rect x="16" y="14" width="388" height="34" rx="8" fill="#172A46"/>
+      <text x="30" y="37" fill="#1FD6E2" class="font-title" font-size="16">Shocked 震惊吃惊</text>
+
+      <!-- Lao Wang Avatar on Left -->
+      <g transform="translate(20, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#lw_shocked"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#FA541C" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#FA541C"/>
+        <text x="42" y="167" fill="#FFFFFF" class="font-body" font-size="12" text-anchor="middle">老王</text>
+      </g>
+
+      <!-- Xiao Ming Avatar on Right -->
+      <g transform="translate(220, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#xm_shocked"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#1FD6E2" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#1FD6E2"/>
+        <text x="42" y="167" fill="#080E18" class="font-body" font-size="12" text-anchor="middle">小明</text>
+      </g>
+    </g>
+
+    <!-- Cell 6: angry -->
+    <g transform="translate(880, 295)">
+      <rect x="0" y="0" width="420" height="275" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+      <rect x="16" y="14" width="388" height="34" rx="8" fill="#172A46"/>
+      <text x="30" y="37" fill="#1FD6E2" class="font-title" font-size="16">Angry 恼怒生气</text>
+
+      <!-- Lao Wang Avatar on Left -->
+      <g transform="translate(20, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#lw_angry"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#FA541C" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#FA541C"/>
+        <text x="42" y="167" fill="#FFFFFF" class="font-body" font-size="12" text-anchor="middle">老王</text>
+      </g>
+
+      <!-- Xiao Ming Avatar on Right -->
+      <g transform="translate(220, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#xm_angry"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#1FD6E2" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#1FD6E2"/>
+        <text x="42" y="167" fill="#080E18" class="font-body" font-size="12" text-anchor="middle">小明</text>
+      </g>
+    </g>
+
+    <!-- Cell 7: tired -->
+    <g transform="translate(1320, 295)">
+      <rect x="0" y="0" width="420" height="275" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+      <rect x="16" y="14" width="388" height="34" rx="8" fill="#172A46"/>
+      <text x="30" y="37" fill="#1FD6E2" class="font-title" font-size="16">Tired 疲惫无奈</text>
+
+      <!-- Lao Wang Avatar on Left -->
+      <g transform="translate(20, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#lw_tired"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#FA541C" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#FA541C"/>
+        <text x="42" y="167" fill="#FFFFFF" class="font-body" font-size="12" text-anchor="middle">老王</text>
+      </g>
+
+      <!-- Xiao Ming Avatar on Right -->
+      <g transform="translate(220, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#xm_tired"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#1FD6E2" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#1FD6E2"/>
+        <text x="42" y="167" fill="#080E18" class="font-body" font-size="12" text-anchor="middle">小明</text>
+      </g>
+    </g>
+
+    <!-- Cell 8: laugh -->
+    <g transform="translate(0, 590)">
+      <rect x="0" y="0" width="420" height="275" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+      <rect x="16" y="14" width="388" height="34" rx="8" fill="#172A46"/>
+      <text x="30" y="37" fill="#1FD6E2" class="font-title" font-size="16">Laugh 狂喜大笑</text>
+
+      <!-- Lao Wang Avatar on Left -->
+      <g transform="translate(20, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#lw_laugh"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#FA541C" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#FA541C"/>
+        <text x="42" y="167" fill="#FFFFFF" class="font-body" font-size="12" text-anchor="middle">老王</text>
+      </g>
+
+      <!-- Xiao Ming Avatar on Right -->
+      <g transform="translate(220, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#xm_laugh"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#1FD6E2" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#1FD6E2"/>
+        <text x="42" y="167" fill="#080E18" class="font-body" font-size="12" text-anchor="middle">小明</text>
+      </g>
+    </g>
+
+    <!-- Cell 9: cry -->
+    <g transform="translate(440, 590)">
+      <rect x="0" y="0" width="420" height="275" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+      <rect x="16" y="14" width="388" height="34" rx="8" fill="#172A46"/>
+      <text x="30" y="37" fill="#1FD6E2" class="font-title" font-size="16">Cry 悲伤痛哭</text>
+
+      <!-- Lao Wang Avatar on Left -->
+      <g transform="translate(20, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#lw_cry"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#FA541C" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#FA541C"/>
+        <text x="42" y="167" fill="#FFFFFF" class="font-body" font-size="12" text-anchor="middle">老王</text>
+      </g>
+
+      <!-- Xiao Ming Avatar on Right -->
+      <g transform="translate(220, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#xm_cry"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#1FD6E2" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#1FD6E2"/>
+        <text x="42" y="167" fill="#080E18" class="font-body" font-size="12" text-anchor="middle">小明</text>
+      </g>
+    </g>
+
+    <!-- Cell 10: embarrassed -->
+    <g transform="translate(880, 590)">
+      <rect x="0" y="0" width="420" height="275" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+      <rect x="16" y="14" width="388" height="34" rx="8" fill="#172A46"/>
+      <text x="30" y="37" fill="#1FD6E2" class="font-title" font-size="16">Embarrassed 尴尬流汗</text>
+
+      <!-- Lao Wang Avatar on Left -->
+      <g transform="translate(20, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#lw_embarrassed"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#FA541C" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#FA541C"/>
+        <text x="42" y="167" fill="#FFFFFF" class="font-body" font-size="12" text-anchor="middle">老王</text>
+      </g>
+
+      <!-- Xiao Ming Avatar on Right -->
+      <g transform="translate(220, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#xm_embarrassed"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#1FD6E2" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#1FD6E2"/>
+        <text x="42" y="167" fill="#080E18" class="font-body" font-size="12" text-anchor="middle">小明</text>
+      </g>
+    </g>
+
+    <!-- Cell 11: determined -->
+    <g transform="translate(1320, 590)">
+      <rect x="0" y="0" width="420" height="275" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+      <rect x="16" y="14" width="388" height="34" rx="8" fill="#172A46"/>
+      <text x="30" y="37" fill="#1FD6E2" class="font-title" font-size="16">Determined 坚毅下决心</text>
+
+      <!-- Lao Wang Avatar on Left -->
+      <g transform="translate(20, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#lw_determined"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#FA541C" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#FA541C"/>
+        <text x="42" y="167" fill="#FFFFFF" class="font-body" font-size="12" text-anchor="middle">老王</text>
+      </g>
+
+      <!-- Xiao Ming Avatar on Right -->
+      <g transform="translate(220, 58)">
+        <g clip-path="url(#avatarClip)">
+          <rect x="0" y="0" width="180" height="185" fill="#F4F6F9"/>
+          <g transform="translate(-166, -95) scale(1.0)">
+            <use href="#xm_determined"/>
+          </g>
+        </g>
+        <rect x="0" y="0" width="180" height="185" rx="12" fill="none" stroke="#1FD6E2" stroke-width="2"/>
+        <rect x="10" y="150" width="65" height="24" rx="6" fill="#1FD6E2"/>
+        <text x="42" y="167" fill="#080E18" class="font-body" font-size="12" text-anchor="middle">小明</text>
+      </g>
+    </g>
+
+  </g>
+  <defs>
+<g id="lw_neutral">
+  <!-- Lao Wang (Character: laowang, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 200,195 Q 220,180 240,195" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 272,195 Q 292,180 312,195" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="220" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="222" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="292" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="294" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <path id="mouth" d="M 236,260 Q 256,275 276,260" fill="none" stroke="#13223A" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Emotion Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</g>
+<g id="xm_neutral">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 205,172 Q 224,162 243,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 269,172 Q 288,162 307,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <path id="mouth" d="M 242,240 Q 256,248 270,240" fill="none" stroke="#101C31" stroke-width="3.5" stroke-linecap="round"/>
+
+      <!-- Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</g>
+<g id="lw_happy">
+  <!-- Lao Wang (Character: laowang, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 200,188 Q 220,175 240,190" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 272,190 Q 292,175 312,188" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="220" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="222" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="292" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="294" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <path id="mouth" d="M 230,255 Q 256,285 282,255 Z" fill="#820014" stroke="#13223A" stroke-width="3"/><path d="M 238,256 Q 256,264 274,256" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+
+      <!-- Emotion Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</g>
+<g id="xm_happy">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 205,172 Q 224,162 243,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 269,172 Q 288,162 307,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <path id="mouth" d="M 238,236 Q 256,260 274,236 Z" fill="#820014" stroke="#101C31" stroke-width="2.5"/><line x1="244" y1="238" x2="268" y2="238" stroke="#FFFFFF" stroke-width="3"/>
+
+      <!-- Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</g>
+<g id="lw_confident">
+  <!-- Lao Wang (Character: laowang, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 198,185 Q 220,170 242,190" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 270,192 Q 295,185 314,198" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="224" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="226" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="296" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="298" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <path id="mouth" d="M 236,255 Q 260,270 280,250" fill="none" stroke="#13223A" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Emotion Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</g>
+<g id="xm_confident">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 205,172 Q 224,162 243,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 269,172 Q 288,162 307,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <path id="mouth" d="M 242,238 Q 256,252 272,238" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</g>
+<g id="lw_serious">
+  <!-- Lao Wang (Character: laowang, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 200,200 L 242,210" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 270,210 L 312,200" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="220" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="222" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="292" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="294" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <line id="mouth" x1="236" y1="262" x2="276" y2="262" stroke="#13223A" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Emotion Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</g>
+<g id="xm_serious">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 205,176 L 243,184" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 269,184 L 307,176" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <line id="mouth" x1="242" y1="242" x2="270" y2="242" stroke="#101C31" stroke-width="3.5" stroke-linecap="round"/>
+
+      <!-- Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</g>
+<g id="lw_puzzled">
+  <!-- Lao Wang (Character: laowang, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 200,185 Q 220,170 240,185" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 272,205 Q 292,215 312,205" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="220" cy="206" r="6.5" fill="#13223A"/>
+        <circle cx="222" cy="204" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="292" cy="206" r="6.5" fill="#13223A"/>
+        <circle cx="294" cy="204" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <path id="mouth" d="M 236,262 Q 256,252 276,265" fill="none" stroke="#13223A" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Emotion Extras -->
+      <text x="325" y="180" font-family="sans-serif" font-size="32" font-weight="bold" fill="#FA541C">?</text>
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</g>
+<g id="xm_puzzled">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 205,165 Q 224,155 243,165" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 269,180 Q 288,190 307,180" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <path id="mouth" d="M 242,242 Q 256,236 270,244" fill="none" stroke="#101C31" stroke-width="3.5" stroke-linecap="round"/>
+
+      <!-- Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</g>
+<g id="lw_shocked">
+  <!-- Lao Wang (Character: laowang, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 195,175 Q 220,160 245,175" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 267,175 Q 292,160 317,175" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="220" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="222" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="292" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="294" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <ellipse id="mouth" cx="256" cy="265" rx="18" ry="24" fill="#820014" stroke="#13223A" stroke-width="3"/>
+
+      <!-- Emotion Extras -->
+      <path d="M 175,170 C 160,185 160,195 175,205 C 185,195 185,185 175,170 Z" fill="#91CAFF" stroke="#1F5CFF" stroke-width="2"/>
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</g>
+<g id="xm_shocked">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 202,158 Q 224,146 246,158" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 266,158 Q 288,146 310,158" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <ellipse id="mouth" cx="256" cy="245" rx="14" ry="18" fill="#820014" stroke="#101C31" stroke-width="2.5"/>
+
+      <!-- Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</g>
+<g id="lw_angry">
+  <!-- Lao Wang (Character: laowang, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 200,205 L 245,218" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 267,218 L 312,205" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="220" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="222" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="292" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="294" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <path id="mouth" d="M 232,270 Q 256,250 280,270" fill="none" stroke="#13223A" stroke-width="4.5" stroke-linecap="round"/>
+
+      <!-- Emotion Extras -->
+      <path d="M 320,160 L 340,140 M 340,160 L 320,140" stroke="#F04B2F" stroke-width="4"/>
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</g>
+<g id="xm_angry">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 205,182 L 245,192" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 267,192 L 307,182" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <path id="mouth" d="M 240,248 Q 256,238 272,248" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</g>
+<g id="lw_tired">
+  <!-- Lao Wang (Character: laowang, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 200,195 L 240,205" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 272,205 L 312,195" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="220" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="222" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="292" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="294" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <path id="mouth" d="M 238,265 Q 256,260 274,265" fill="none" stroke="#13223A" stroke-width="3"/>
+
+      <!-- Emotion Extras -->
+      <line x1="205" y1="228" x2="235" y2="228" stroke="#13223A" stroke-width="2"/><line x1="277" y1="228" x2="307" y2="228" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</g>
+<g id="xm_tired">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 205,172 Q 224,162 243,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 269,172 Q 288,162 307,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <path id="mouth" d="M 244,244 Q 256,240 268,244" fill="none" stroke="#101C31" stroke-width="3"/>
+
+      <!-- Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</g>
+<g id="lw_laugh">
+  <!-- Lao Wang (Character: laowang, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 198,185 Q 220,170 242,185" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 270,185 Q 292,170 314,185" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="220" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="222" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="292" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="294" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <path id="mouth" d="M 226,250 Q 256,295 286,250 Z" fill="#820014" stroke="#13223A" stroke-width="3"/><path d="M 236,252 Q 256,262 276,252" fill="none" stroke="#FFFFFF" stroke-width="4"/><path d="M 240,285 Q 256,270 272,285" fill="#FF7875"/>
+
+      <!-- Emotion Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</g>
+<g id="xm_laugh">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 205,172 Q 224,162 243,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 269,172 Q 288,162 307,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <path id="mouth" d="M 234,232 Q 256,270 278,232 Z" fill="#820014" stroke="#101C31" stroke-width="2.5"/><path d="M 242,234 Q 256,242 270,234" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+
+      <!-- Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</g>
+<g id="lw_cry">
+  <!-- Lao Wang (Character: laowang, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 200,180 Q 220,195 240,180" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 272,180 Q 292,195 312,180" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="220" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="222" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="292" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="294" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <path id="mouth" d="M 232,275 Q 256,250 280,275 Z" fill="#820014" stroke="#13223A" stroke-width="3"/>
+
+      <!-- Emotion Extras -->
+      <path d="M 215,225 L 215,310 M 297,225 L 297,310" stroke="#1890FF" stroke-width="8" stroke-linecap="round" opacity="0.8"/>
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</g>
+<g id="xm_cry">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 205,172 Q 224,162 243,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 269,172 Q 288,162 307,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <path id="mouth" d="M 240,250 Q 256,235 272,250 Z" fill="#820014" stroke="#101C31" stroke-width="2.5"/>
+
+      <!-- Extras -->
+      <line x1="220" y1="210" x2="220" y2="280" stroke="#1FD6E2" stroke-width="6" stroke-linecap="round"/>
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</g>
+<g id="lw_embarrassed">
+  <!-- Lao Wang (Character: laowang, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 200,190 Q 220,180 240,190" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 272,190 Q 292,180 312,190" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="220" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="222" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="292" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="294" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <path id="mouth" d="M 238,260 Q 248,268 258,260 Q 268,268 276,260" fill="none" stroke="#13223A" stroke-width="3"/>
+
+      <!-- Emotion Extras -->
+      <ellipse cx="195" cy="235" rx="14" ry="8" fill="#FFA39E" opacity="0.6"/><ellipse cx="317" cy="235" rx="14" ry="8" fill="#FFA39E" opacity="0.6"/><path d="M 330,170 C 318,182 318,190 330,198 C 338,190 338,182 330,170 Z" fill="#91CAFF" stroke="#1F5CFF" stroke-width="1.5"/>
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</g>
+<g id="xm_embarrassed">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 205,172 Q 224,162 243,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 269,172 Q 288,162 307,172" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <path id="mouth" d="M 244,242 Q 250,248 256,242 Q 262,248 268,242" fill="none" stroke="#101C31" stroke-width="2.5"/>
+
+      <!-- Extras -->
+      <ellipse cx="206" cy="216" rx="10" ry="6" fill="#FFA39E" opacity="0.6"/><ellipse cx="306" cy="216" rx="10" ry="6" fill="#FFA39E" opacity="0.6"/>
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</g>
+<g id="lw_determined">
+  <!-- Lao Wang (Character: laowang, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 198,195 L 242,208" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 270,208 L 314,195" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="220" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="222" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="292" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="294" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <path id="mouth" d="M 236,258 L 276,258" stroke="#13223A" stroke-width="4.5" stroke-linecap="round"/>
+
+      <!-- Emotion Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</g>
+<g id="xm_determined">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 205,178 L 243,188" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 269,188 L 307,178" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <line id="mouth" x1="242" y1="240" x2="270" y2="240" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</g>
+
+  </defs>
+</svg>

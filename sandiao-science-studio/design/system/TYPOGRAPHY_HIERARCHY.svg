@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <style>
+      .font-h1 { font-family: system-ui, -apple-system, 'PingFang SC', sans-serif; font-weight: 900; }
+      .font-h2 { font-family: system-ui, -apple-system, 'PingFang SC', sans-serif; font-weight: 800; }
+      .font-h3 { font-family: system-ui, -apple-system, 'PingFang SC', sans-serif; font-weight: 700; }
+      .font-body { font-family: system-ui, -apple-system, 'PingFang SC', sans-serif; font-weight: 600; }
+      .font-mono { font-family: 'SF Mono', 'Roboto Mono', monospace; font-weight: 600; }
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#0B1321"/>
+
+  <!-- Header -->
+  <g transform="translate(100, 60)">
+    <text x="0" y="40" fill="#FFFFFF" class="font-h1" font-size="36">小行星原理剧场 · 字体排版层级规范 (Typography Hierarchy)</text>
+    <text x="0" y="75" fill="#8FA6CB" class="font-body" font-size="20">ZERO-FONT DEPENDENCY / CROSS-PLATFORM SYSTEM FALLBACK CHAIN</text>
+  </g>
+
+  <!-- Typography Ladder Table -->
+  <g transform="translate(100, 180)">
+    <!-- Column Headers -->
+    <rect x="0" y="0" width="1720" height="50" rx="10" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+    <text x="30" y="32" fill="#1FD6E2" class="font-h3" font-size="16">层级 LEVEL</text>
+    <text x="200" y="32" fill="#1FD6E2" class="font-h3" font-size="16">字号 / 字重 (SIZE &amp; WEIGHT)</text>
+    <text x="520" y="32" fill="#1FD6E2" class="font-h3" font-size="16">视觉效果展示 (VISUAL PREVIEW)</text>
+    <text x="1350" y="32" fill="#1FD6E2" class="font-h3" font-size="16">应用场景 (APPLICATION)</text>
+
+    <!-- Row L1 -->
+    <g transform="translate(0, 70)">
+      <rect x="0" y="0" width="1720" height="100" rx="12" fill="#101C31"/>
+      <text x="30" y="58" fill="#FFFFFF" class="font-h2" font-size="22">L1 频道大标题</text>
+      <text x="200" y="58" fill="#8FA6CB" class="font-mono" font-size="16">36px / Weight: 900</text>
+      <text x="520" y="62" fill="#FFFFFF" class="font-h1" font-size="36">空调开到 16℃ 真的更省电吗？</text>
+      <text x="1350" y="58" fill="#8FA6CB" class="font-body" font-size="15">视频封面大标题、片头破题</text>
+    </g>
+
+    <!-- Row L2 -->
+    <g transform="translate(0, 190)">
+      <rect x="0" y="0" width="1720" height="90" rx="12" fill="#101C31"/>
+      <text x="30" y="52" fill="#FFFFFF" class="font-h2" font-size="20">L2 白板核心焦点</text>
+      <text x="200" y="52" fill="#8FA6CB" class="font-mono" font-size="16">26px / Weight: 800</text>
+      <g transform="translate(520, 20)">
+        <rect x="0" y="0" width="380" height="50" rx="10" fill="#101C31" stroke="#1FD6E2" stroke-width="2"/>
+        <text x="20" y="33" fill="#FFFFFF" class="font-h2" font-size="22">核心疑点：16℃ 会让制冷功率加倍吗？</text>
+      </g>
+      <text x="1350" y="52" fill="#8FA6CB" class="font-body" font-size="15">图解大白板顶部 Tab 疑点胶囊</text>
+    </g>
+
+    <!-- Row L3 -->
+    <g transform="translate(0, 300)">
+      <rect x="0" y="0" width="1720" height="90" rx="12" fill="#101C31"/>
+      <text x="30" y="52" fill="#FFFFFF" class="font-h2" font-size="20">L3 图解分栏标题</text>
+      <text x="200" y="52" fill="#8FA6CB" class="font-mono" font-size="16">22px / Weight: 700</text>
+      <g transform="translate(520, 25)">
+        <rect x="0" y="0" width="100" height="36" rx="8" fill="#F04B2F"/>
+        <text x="50" y="24" fill="#FFFFFF" class="font-h3" font-size="16" text-anchor="middle">直觉误区</text>
+        <text x="120" y="27" fill="#FFA39E" class="font-h3" font-size="22">水龙头旋钮模型（错）</text>
+      </g>
+      <text x="1350" y="52" fill="#8FA6CB" class="font-body" font-size="15">双栏图解卡片的主模块标题</text>
+    </g>
+
+    <!-- Row L4 -->
+    <g transform="translate(0, 410)">
+      <rect x="0" y="0" width="1720" height="90" rx="12" fill="#101C31"/>
+      <text x="30" y="52" fill="#FFFFFF" class="font-h2" font-size="20">L4 对白高反差字幕</text>
+      <text x="200" y="52" fill="#8FA6CB" class="font-mono" font-size="16">26px / Weight: 600</text>
+      <g transform="translate(520, 16)">
+        <rect x="0" y="0" width="660" height="58" rx="12" fill="#080E18" stroke="#1F5CFF" stroke-width="1.5"/>
+        <rect x="12" y="10" width="70" height="38" rx="8" fill="#1FD6E2"/>
+        <text x="47" y="34" fill="#080E18" class="font-h2" font-size="18" text-anchor="middle">小明</text>
+        <text x="96" y="37" fill="#FFFFFF" class="font-body" font-size="20">“多数定频空调一启动，压缩机就是按额定能力干活。”</text>
+      </g>
+      <text x="1350" y="52" fill="#8FA6CB" class="font-body" font-size="15">底部无遮挡对白字幕栏</text>
+    </g>
+
+    <!-- Row L5 -->
+    <g transform="translate(0, 520)">
+      <rect x="0" y="0" width="1720" height="90" rx="12" fill="#101C31"/>
+      <text x="30" y="52" fill="#FFFFFF" class="font-h2" font-size="20">L5 数据与状态徽章</text>
+      <text x="200" y="52" fill="#8FA6CB" class="font-mono" font-size="16">18px / Weight: 700</text>
+      <g transform="translate(520, 25)">
+        <rect x="0" y="0" width="160" height="40" rx="8" fill="#1FD6E2" opacity="0.2" stroke="#1FD6E2" stroke-width="1.5"/>
+        <text x="80" y="26" fill="#1FD6E2" class="font-mono" font-size="18" text-anchor="middle">100% 额定功率</text>
+        <g transform="translate(190, 0)">
+          <rect x="0" y="0" width="130" height="40" rx="8" fill="#FA541C" opacity="0.2" stroke="#FA541C" stroke-width="1.5"/>
+          <text x="65" y="26" fill="#FA541C" class="font-mono" font-size="18" text-anchor="middle">设定 16℃</text>
+        </g>
+      </g>
+      <text x="1350" y="52" fill="#8FA6CB" class="font-body" font-size="15">压缩机功率、流速与温度标定</text>
+    </g>
+  </g>
+
+  <!-- Bottom Cross-Platform Stack Card -->
+  <g transform="translate(100, 830)">
+    <rect x="0" y="0" width="1720" height="180" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="1.5"/>
+    <text x="40" y="45" fill="#FFFFFF" class="font-h2" font-size="20">跨平台系统字体安全回退栈 (Zero-Font Cross-Platform Compatibility)</text>
+    <text x="40" y="80" fill="#1FD6E2" class="font-mono" font-size="15">macOS: PingFang SC, SF Pro Display  |  Windows: Microsoft YaHei, Consolas  |  Linux: Source Han Sans SC, Noto Sans CJK SC</text>
+    <text x="40" y="115" fill="#8FA6CB" class="font-body" font-size="14">全部使用系统标配高品质中文字体族，杜绝因字体文件缺失导致的方块乱码，同时保障仓库体积轻量（0 Font Files Committed）。</text>
+  </g>
+</svg>

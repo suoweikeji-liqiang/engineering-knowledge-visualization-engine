@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 256" width="512" height="256">
+  <!-- Indoor AC Unit -->
+  <g id="hvac-ac-indoor">
+    <rect x="16" y="24" width="480" height="180" rx="24" fill="#FFFFFF" stroke="#13223A" stroke-width="4"/>
+    <rect x="36" y="140" width="440" height="36" rx="8" fill="#F0F5FF" stroke="#13223A" stroke-width="2.5"/>
+    <!-- Digital Temp Display -->
+    <rect x="390" y="44" width="76" height="40" rx="8" fill="#101C31"/>
+    <text x="428" y="71" fill="#1FD6E2" font-family="'SF Mono', monospace" font-size="20" font-weight="bold" text-anchor="middle">16℃</text>
+    <!-- Brand Asteroid Mark -->
+    <circle cx="60" cy="64" r="10" fill="#1F5CFF"/>
+    <ellipse cx="60" cy="64" rx="16" ry="6" fill="none" stroke="#1FD6E2" stroke-width="2" transform="rotate(-20 60 64)"/>
+  </g>
+</svg>

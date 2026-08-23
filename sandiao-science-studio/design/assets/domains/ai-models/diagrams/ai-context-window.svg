@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576">
+  <defs></defs>
+  <g id="ai-context-window">
+    <rect id="canvas" x="18" y="42" width="988" height="492" rx="34" fill="#FFFFFF" stroke="#13223A" stroke-width="6"/>
+    <g id="context-slots">    <rect id="context-slot-1" x="72" y="238" width="84" height="114" rx="18" fill="#1FD6E2" opacity="0.28" stroke="#1FD6E2" stroke-width="4"/>
+    <rect id="context-slot-2" x="176" y="238" width="84" height="114" rx="18" fill="#1FD6E2" opacity="0.28" stroke="#1FD6E2" stroke-width="4"/>
+    <rect id="context-slot-3" x="280" y="238" width="84" height="114" rx="18" fill="#1FD6E2" opacity="0.28" stroke="#1FD6E2" stroke-width="4"/>
+    <rect id="context-slot-4" x="384" y="238" width="84" height="114" rx="18" fill="#8B5CF6" opacity="0.28" stroke="#8B5CF6" stroke-width="4"/>
+    <rect id="context-slot-5" x="488" y="238" width="84" height="114" rx="18" fill="#8B5CF6" opacity="0.28" stroke="#8B5CF6" stroke-width="4"/>
+    <rect id="context-slot-6" x="592" y="238" width="84" height="114" rx="18" fill="#8B5CF6" opacity="0.28" stroke="#8B5CF6" stroke-width="4"/>
+    <rect id="context-slot-7" x="696" y="238" width="84" height="114" rx="18" fill="#8B5CF6" opacity="0.28" stroke="#8B5CF6" stroke-width="4"/>
+    <rect id="context-slot-8" x="800" y="238" width="84" height="114" rx="18" fill="#8FA6CB" opacity="0.14" stroke="#8FA6CB" stroke-width="4"/>
+    <rect id="context-slot-9" x="904" y="238" width="84" height="114" rx="18" fill="#8FA6CB" opacity="0.14" stroke="#8FA6CB" stroke-width="4"/></g>
+    <path id="window-bracket" d="M176 394v30h416v-30" fill="none" stroke="#8B5CF6" stroke-width="7" stroke-linecap="round"/>
+    <path id="overflow" d="M800 196v198" stroke="#F04B2F" stroke-width="7" stroke-dasharray="12 12"/>
+    <g id="memory-compression"><circle cx="512" cy="142" r="42" fill="#F59E0B" fill-opacity=".15" stroke="#F59E0B" stroke-width="5"/><path d="M486 142h52M512 116v52" stroke="#F59E0B" stroke-width="7"/></g>
+  </g>
+</svg>

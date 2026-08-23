@@ -5,22 +5,36 @@
     "episode": "01",
     "resolution": [960, 540],
     "fps": 15,
-    "video": "output/ac-16c-sample.mp4",
-    "audio": "output/ac-16c-master.wav",
-    "poster": "output/ac-16c-poster.png"
+    "video": "output/ac-16c-observatory.mp4",
+    "audio": "output/ac-16c-voices-v2.wav",
+    "poster": "output/ac-16c-observatory-poster.png"
   },
   "characters": [
     {
       "id": "laowang",
       "name": "老王",
       "palette": {"skin": "#F0C7A1", "shirt": "#E85A47", "hair": "#242A33", "accent": "#F2C14E"},
-      "voice": {"voice": "zh", "speed": 178, "pitch": 42}
+      "voice": {
+        "voice": "zh",
+        "speed": 178,
+        "pitch": 42,
+        "mimo_model": "mimo-v2.5-tts-voicedesign",
+        "style": "自然的中国中年男声，像有多年现场经验的维修师傅在和朋友聊天。声音厚实但不要刻意压低，语气自信、直爽、略带喜感；保留自然呼吸和口语连贯感，不要尖声、不要播音腔、不要机械重音。",
+        "mimo_optimize_text_preview": false
+      }
     },
     {
       "id": "xiaoming",
       "name": "小明",
       "palette": {"skin": "#F4CFAE", "shirt": "#3E7CB1", "hair": "#1B2735", "accent": "#8AC6E8"},
-      "voice": {"voice": "zh", "speed": 192, "pitch": 64}
+      "voice": {
+        "voice": "zh",
+        "speed": 192,
+        "pitch": 64,
+        "mimo_model": "mimo-v2.5-tts-voicedesign",
+        "style": "自然的中国青年男声，像耐心的工程科普研究员面对面解释原理。声音清晰、温和、可信，重点词轻微强调，句尾自然下落；不要故意装深沉、不要广告或新闻播音腔、不要机械断句。",
+        "mimo_optimize_text_preview": false
+      }
     }
   ],
   "shots": [
@@ -28,7 +42,7 @@
       "id": "hook",
       "duration": 3.6,
       "speaker": "laowang",
-      "dialogue": "空调开到十六度，肯定降温更快，还更省电！",
+      "dialogue": "空调开十六度，降温更快还更省电！",
       "headline": "16℃ = 更快 + 更省电？",
       "diagram": "myth",
       "effect": "burst",
@@ -43,7 +57,7 @@
       "id": "not-faucet",
       "duration": 3.8,
       "speaker": "xiaoming",
-      "dialogue": "先别急，空调可不是水龙头，温度拧低就立刻多出冷量。",
+      "dialogue": "空调不是水龙头，温度调低不会增加冷量。",
       "headline": "空调 ≠ 水龙头",
       "diagram": "not-faucet",
       "effect": "question",
@@ -57,7 +71,7 @@
       "id": "compressor",
       "duration": 4.2,
       "speaker": "xiaoming",
-      "dialogue": "多数定频空调一启动，压缩机基本就是按额定能力干活。",
+      "dialogue": "定频空调启动后，压缩机按额定能力运行。",
       "headline": "先看它怎么干活",
       "diagram": "compressor",
       "sfx": ["ding"],
@@ -70,7 +84,7 @@
       "id": "question",
       "duration": 3.2,
       "speaker": "laowang",
-      "dialogue": "那调十六度，它不是会更卖力吗？",
+      "dialogue": "调到十六度，不会更卖力吗？",
       "headline": "温度更低 = 功率更大？",
       "diagram": "no-super",
       "effect": "question",
@@ -84,7 +98,7 @@
       "id": "runtime",
       "duration": 4.4,
       "speaker": "xiaoming",
-      "dialogue": "通常只是更晚停机，不会凭空多出一档超级功率。",
+      "dialogue": "它只会更晚停机，不会凭空多出超级功率。",
       "headline": "真正改变的是运行时间",
       "diagram": "runtime",
       "sfx": ["whoosh"],
@@ -97,7 +111,7 @@
       "id": "never",
       "duration": 4.2,
       "speaker": "xiaoming",
-      "dialogue": "房间到不了十六度时，压缩机甚至可能一直跑。",
+      "dialogue": "到不了十六度，压缩机可能一直运行。",
       "headline": "目标到不了，会发生什么？",
       "diagram": "never",
       "effect": "snow",
@@ -111,7 +125,7 @@
       "id": "tips",
       "duration": 4.4,
       "speaker": "xiaoming",
-      "dialogue": "想省电，温度别设太低，再配合密闭、遮阳和合适风量。",
+      "dialogue": "想省电，温度别太低，注意密闭、遮阳和风量。",
       "headline": "真正有效的三件事",
       "diagram": "tips",
       "effect": "confetti",
@@ -125,7 +139,7 @@
       "id": "end",
       "duration": 4.2,
       "speaker": "laowang",
-      "dialogue": "明白了，十六度不是省电键，是压缩机的加班键！",
+      "dialogue": "懂了，十六度不是省电键，是压缩机的加班键！",
       "headline": "老王终于悟了",
       "diagram": "end",
       "effect": "confetti",

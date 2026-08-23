@@ -2,17 +2,18 @@ from __future__ import annotations
 
 import hashlib
 import math
-import shutil
-import subprocess
-import tempfile
 import wave
 from pathlib import Path
 
 import numpy as np
 
 from .story import Story
+from .resolved_timeline import ResolvedShot, save_resolved_timeline
+from .settings import project_root
+from .speech import resolve_speech_provider
 
 RATE = 44_100
+SPEECH_TAIL_SECONDS = 0.2
 
 def _read_wav(path: Path) -> tuple[np.ndarray, int]:
     with wave.open(str(path), "rb") as wav:
@@ -53,31 +54,37 @@ def _sfx(name: str) -> np.ndarray:
     return (.11*(np.sin(2*math.pi*880*t)+.5*np.sin(2*math.pi*1320*t))*np.exp(-5*t)).astype(np.float32)
 
 
-def build_audio(story: Story, output: Path | None = None) -> Path:
+def build_audio(story: Story, output: Path | None = None, provider: str = "auto") -> Path:
     out = (output or story.audio).resolve()
-    master = np.zeros(int(story.duration*RATE), dtype=np.float32)
-    espeak = shutil.which("espeak-ng") or shutil.which("espeak")
-    cursor = 0.0
+    speech = resolve_speech_provider(provider)
+    cache_dir = project_root() / "build" / "audio" / story.slug
+    clips: dict[str, np.ndarray] = {}
+    resolved_shots: list[ResolvedShot] = []
     for shot in story.shots:
-        start, room = int(cursor*RATE), int((shot.duration-.43)*RATE)
-        if espeak and shot.dialogue and shot.speaker:
+        speech_duration = 0.0
+        if speech and shot.dialogue and shot.speaker:
             char = story.characters[shot.speaker]
-            with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp:
-                tmp_path = Path(tmp.name)
-            try:
-                subprocess.run([espeak, "-v", str(char.voice.get("voice", "zh")),
-                                "-s", str(char.voice.get("speed", 180)),
-                                "-p", str(char.voice.get("pitch", 50)),
-                                "-a", "165", "-w", str(tmp_path), shot.dialogue],
-                               check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                data, rate = _read_wav(tmp_path)
-                data = _resample(data, round(len(data)*RATE/rate))
-                if len(data) > room: data = _resample(data, room)
-                _mix(master, data, start+int(.25*RATE), .84)
-            finally:
-                tmp_path.unlink(missing_ok=True)
+            digest = hashlib.sha256(speech.cache_key(shot.dialogue, char).encode("utf-8")).hexdigest()[:20]
+            clip = cache_dir / f"{shot.id}-{digest}.wav"
+            if not clip.exists() or clip.stat().st_size == 0:
+                speech.synthesize(shot.dialogue, char, clip)
+            data, rate = _read_wav(clip)
+            data = _resample(data, round(len(data)*RATE/rate))
+            clips[shot.id] = data
+            speech_duration = len(data) / RATE
+        duration = max(shot.duration, speech_duration + SPEECH_TAIL_SECONDS)
+        resolved_shots.append(ResolvedShot(shot.id, shot.duration, speech_duration, duration))
+
+    total_duration = sum(item.duration for item in resolved_shots)
+    master = np.zeros(round(total_duration*RATE), dtype=np.float32)
+    cursor = 0.0
+    for shot, resolved in zip(story.shots, resolved_shots):
+        start = int(cursor*RATE)
+        if shot.id in clips:
+            _mix(master, clips[shot.id], start+int(.25*RATE), .84)
         for i, name in enumerate(shot.sfx):
             _mix(master, _sfx(name), start+int((.04+.14*i)*RATE), .9)
-        cursor += shot.duration
+        cursor += resolved.duration
     _write_wav(out, master)
+    save_resolved_timeline(story, speech.name if speech else "silent", resolved_shots, out)
     return out

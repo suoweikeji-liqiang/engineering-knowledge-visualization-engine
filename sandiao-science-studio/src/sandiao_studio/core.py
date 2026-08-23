@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -33,13 +34,16 @@ class Point:
 
 
 class Timeline:
-    def __init__(self, story: Story):
+    def __init__(self, story: Story, durations: tuple[float, ...] | None = None):
         self.story = story
+        if durations is not None and len(durations) != len(story.shots):
+            raise ValueError("resolved durations must match story shots")
+        self.durations = durations or tuple(shot.duration for shot in story.shots)
         self.starts: list[float] = []
         cursor = 0.0
-        for shot in story.shots:
+        for duration in self.durations:
             self.starts.append(cursor)
-            cursor += shot.duration
+            cursor += duration
         self.duration = cursor
 
     def locate(self, t: float) -> Point:
@@ -48,27 +52,38 @@ class Timeline:
             if t >= self.starts[i]:
                 shot = self.story.shots[i]
                 local = t - self.starts[i]
-                return Point(shot, self.starts[i], local, clamp(local / shot.duration))
+                return Point(shot, self.starts[i], local, clamp(local / self.durations[i]))
         return Point(self.story.shots[0], 0, 0, 0)
 
 
 class Fonts:
     def __init__(self):
         regular = [
+            os.environ.get("SANDIAO_FONT_REGULAR", ""),
             "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
             "/System/Library/Fonts/PingFang.ttc",
+            "/System/Library/Fonts/Hiragino Sans GB.ttc",
+            "/System/Library/Fonts/STHeiti Medium.ttc",
+            "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
             "C:/Windows/Fonts/msyh.ttc",
             "/usr/share/fonts/truetype/arphic-gbsn00lp/gbsn00lp.ttf",
             "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
         ]
         bold = [
+            os.environ.get("SANDIAO_FONT_BOLD", ""),
             "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
             "/System/Library/Fonts/PingFang.ttc",
+            "/System/Library/Fonts/Hiragino Sans GB.ttc",
+            "/System/Library/Fonts/STHeiti Medium.ttc",
             "C:/Windows/Fonts/msyhbd.ttc",
             "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
         ]
-        self.regular = next((p for p in regular if Path(p).exists()), regular[-1])
-        self.bold = next((p for p in bold if Path(p).exists()), bold[-1])
+        self.regular = next((p for p in regular if p and Path(p).is_file()), "")
+        self.bold = next((p for p in bold if p and Path(p).is_file()), self.regular)
+        if not self.regular:
+            raise RuntimeError(
+                "no supported font found; set SANDIAO_FONT_REGULAR and SANDIAO_FONT_BOLD to local font files"
+            )
         self.cache: dict[tuple[int, bool], ImageFont.FreeTypeFont] = {}
 
     def get(self, size: int, bold: bool = False) -> ImageFont.FreeTypeFont:

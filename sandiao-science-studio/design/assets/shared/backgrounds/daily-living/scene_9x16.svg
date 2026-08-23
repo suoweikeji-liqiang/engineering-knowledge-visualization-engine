@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!-- Scene: Daily Living (9:16 Vertical Composite) -->
+  <!-- Wall -->
+  <rect width="1080" height="1920" fill="#F4EDE2"/>
+  <line x1="0" y1="380" x2="1080" y2="380" stroke="#E5DAC9" stroke-width="2"/>
+  <!-- Top AC Unit -->
+  <g transform="translate(350, 180)">
+    <rect x="0" y="0" width="380" height="120" rx="16" fill="#FFFFFF" stroke="#13223A" stroke-width="3"/>
+    <rect x="20" y="85" width="340" height="20" rx="5" fill="#F0F5FF" stroke="#13223A" stroke-width="2"/>
+    <rect x="290" y="25" width="60" height="30" rx="6" fill="#101C31"/>
+    <text x="320" y="47" fill="#1FD6E2" font-family="'SF Mono', monospace" font-size="16" font-weight="bold" text-anchor="middle">16℃</text>
+  </g>
+  <!-- Window on top left -->
+  <g transform="translate(60, 200)">
+    <rect x="0" y="0" width="200" height="300" rx="12" fill="#BAE7FF" stroke="#13223A" stroke-width="3"/>
+    <line x1="100" y1="0" x2="100" y2="300" stroke="#13223A" stroke-width="2.5"/>
+    <line x1="0" y1="150" x2="200" y2="150" stroke="#13223A" stroke-width="2.5"/>
+  </g>
+  <!-- Floor -->
+  <rect x="0" y="1400" width="1080" height="520" fill="#D4B185"/>
+  <line x1="0" y1="1400" x2="1080" y2="1400" stroke="#874D00" stroke-width="8"/>
+</svg>

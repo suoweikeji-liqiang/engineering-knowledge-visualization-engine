@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 96">
+  <g id="root">
+    <path id="body" d="M26 12a6 6 0 0 1 12 0v50a16 16 0 1 1-12 0z" fill="#eef5ff"/>
+    <path id="signal" d="M30 24h4v45h-4z" fill="#f04b2f"/>
+  </g>
+</svg>

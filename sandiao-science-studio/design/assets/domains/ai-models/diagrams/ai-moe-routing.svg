@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576">
+  <defs></defs>
+  <g id="ai-moe-routing">
+    <rect id="canvas" x="18" y="42" width="988" height="492" rx="34" fill="#FFFFFF" stroke="#13223A" stroke-width="6"/>
+    <g id="router"><path d="M100 210h200l72 81-72 81H100z" fill="#1F5CFF" fill-opacity=".12" stroke="#1F5CFF" stroke-width="6"/><circle cx="230" cy="291" r="42" fill="#1F5CFF"/></g>
+    <g id="routes">    <path id="route-1" d="M300 291 L640 194" stroke="#8FA6CB" stroke-width="4" opacity="0.3"/>
+    <path id="route-2" d="M300 291 L756 194" stroke="#22C55E" stroke-width="10" opacity="1"/>
+    <path id="route-3" d="M300 291 L872 194" stroke="#8FA6CB" stroke-width="4" opacity="0.3"/>
+    <path id="route-4" d="M300 291 L640 380" stroke="#8FA6CB" stroke-width="4" opacity="0.3"/>
+    <path id="route-5" d="M300 291 L756 380" stroke="#22C55E" stroke-width="10" opacity="1"/>
+    <path id="route-6" d="M300 291 L872 380" stroke="#8FA6CB" stroke-width="4" opacity="0.3"/></g>
+    <g id="experts">  <g id="expert-1">
+    <circle cx="640" cy="194" r="38" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="640" cy="194" r="7" fill="#8B5CF6"/>
+  </g>
+  <g id="expert-2">
+    <circle cx="756" cy="194" r="38" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="756" cy="194" r="7" fill="#8B5CF6"/>
+  </g>
+  <g id="expert-3">
+    <circle cx="872" cy="194" r="38" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="872" cy="194" r="7" fill="#8B5CF6"/>
+  </g>
+  <g id="expert-4">
+    <circle cx="640" cy="380" r="38" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="640" cy="380" r="7" fill="#8B5CF6"/>
+  </g>
+  <g id="expert-5">
+    <circle cx="756" cy="380" r="38" fill="#22C55E" fill-opacity=".18" stroke="#22C55E" stroke-width="4"/>
+    <circle cx="756" cy="380" r="7" fill="#22C55E"/>
+  </g>
+  <g id="expert-6">
+    <circle cx="872" cy="380" r="38" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="872" cy="380" r="7" fill="#8B5CF6"/>
+  </g></g>
+    <path id="merge" d="M920 194v186" stroke="#1FD6E2" stroke-width="10" stroke-linecap="round"/>
+  </g>
+</svg>

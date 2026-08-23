@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Scene: Daily Living (Night Variant) -->
+  <rect width="1920" height="1080" fill="#1A2233"/>
+  <g transform="translate(100, 160)">
+    <!-- Night Dark Window with Moon & Stars -->
+    <rect x="0" y="0" width="280" height="420" rx="16" fill="#080E18" stroke="#1FD6E2" stroke-width="2"/>
+    <circle cx="210" cy="80" r="28" fill="#FFFBE6"/>
+    <circle cx="80" cy="140" r="2" fill="#FFFFFF"/>
+    <circle cx="120" cy="90" r="3" fill="#1FD6E2"/>
+    <line x1="140" y1="0" x2="140" y2="420" stroke="#101C31" stroke-width="3"/>
+    <line x1="0" y1="210" x2="280" y2="210" stroke="#101C31" stroke-width="3"/>
+  </g>
+  <!-- Indoor Night Light AC Unit -->
+  <g transform="translate(1420, 120)">
+    <rect x="0" y="0" width="380" height="140" rx="18" fill="#243048" stroke="#1FD6E2" stroke-width="2"/>
+    <rect x="20" y="100" width="340" height="24" rx="6" fill="#172238" stroke="#1FD6E2" stroke-width="1.5"/>
+    <rect x="300" y="30" width="56" height="32" rx="6" fill="#080E18"/>
+    <text x="328" y="53" fill="#1FD6E2" font-family="'SF Mono', monospace" font-size="16" font-weight="bold" text-anchor="middle">16℃</text>
+  </g>
+  <rect x="0" y="750" width="1920" height="330" fill="#3D3024"/>
+</svg>

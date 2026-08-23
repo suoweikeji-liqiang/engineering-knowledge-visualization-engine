@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 384" width="512" height="384">
+  <!-- Outdoor Condenser Unit -->
+  <g id="hvac-ac-outdoor">
+    <rect x="24" y="24" width="464" height="336" rx="28" fill="#E6EEF8" stroke="#13223A" stroke-width="4"/>
+    <!-- Fan Grille -->
+    <circle cx="180" cy="192" r="120" fill="#FFFFFF" stroke="#13223A" stroke-width="3"/>
+    <circle cx="180" cy="192" r="80" fill="none" stroke="#8FA6CB" stroke-width="2"/>
+    <circle cx="180" cy="192" r="40" fill="none" stroke="#8FA6CB" stroke-width="2"/>
+    <!-- Fan Blades -->
+    <circle cx="180" cy="192" r="24" fill="#101C31"/>
+    <path d="M 180,168 Q 230,130 240,160 Z" fill="#172A46"/>
+    <path d="M 180,216 Q 130,254 120,224 Z" fill="#172A46"/>
+    <path d="M 204,192 Q 242,242 212,252 Z" fill="#172A46"/>
+    <path d="M 156,192 Q 118,142 148,132 Z" fill="#172A46"/>
+    <!-- Service Valve Compartment -->
+    <rect x="340" y="60" width="110" height="264" rx="14" fill="#D0DEEE" stroke="#13223A" stroke-width="2.5"/>
+    <circle cx="395" cy="120" r="16" fill="#FA541C" stroke="#13223A" stroke-width="2"/>
+    <circle cx="395" cy="220" r="16" fill="#1890FF" stroke="#13223A" stroke-width="2"/>
+  </g>
+</svg>

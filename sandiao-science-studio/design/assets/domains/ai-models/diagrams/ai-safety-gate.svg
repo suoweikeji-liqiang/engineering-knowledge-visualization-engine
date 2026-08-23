@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576">
+  <defs></defs>
+  <g id="ai-safety-gate">
+    <rect id="canvas" x="18" y="42" width="988" height="492" rx="34" fill="#FFFFFF" stroke="#13223A" stroke-width="6"/>
+    <g id="input-stage">  <g id="input-node">
+    <circle cx="116" cy="291" r="46" fill="#1FD6E2" fill-opacity=".18" stroke="#1FD6E2" stroke-width="4"/>
+    <circle cx="116" cy="291" r="7" fill="#1FD6E2"/>
+  </g></g>
+  <g id="input-flow">
+    <path d="M174 291 L292 291" fill="none" stroke="#1FD6E2" stroke-width="8" stroke-linecap="round"/>
+    <path d="M292 281 L306 291 L292 301" fill="none" stroke="#1FD6E2" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+    <g id="policy-gate"><path d="M330 160h176v262H330z" fill="#F59E0B" fill-opacity=".13" stroke="#F59E0B" stroke-width="6"/><path d="M418 198l54 24v54c0 52-54 82-54 82s-54-30-54-82v-54z" fill="#F59E0B" fill-opacity=".22" stroke="#F59E0B" stroke-width="6"/></g>
+  <g id="safe-flow">
+    <path d="M518 245 L648 245" fill="none" stroke="#22C55E" stroke-width="8" stroke-linecap="round"/>
+    <path d="M648 235 L662 245 L648 255" fill="none" stroke="#22C55E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+    <g id="safe-output">  <g id="safe-node">
+    <circle cx="730" cy="245" r="46" fill="#22C55E" fill-opacity=".18" stroke="#22C55E" stroke-width="4"/>
+    <circle cx="730" cy="245" r="7" fill="#22C55E"/>
+  </g></g>
+    <path id="blocked-flow" d="M518 338H662" stroke="#F04B2F" stroke-width="8" stroke-linecap="round"/>
+    <g id="blocked-output"><circle cx="730" cy="338" r="46" fill="#F04B2F" fill-opacity=".13" stroke="#F04B2F" stroke-width="5"/><path d="M708 316l44 44M752 316l-44 44" stroke="#F04B2F" stroke-width="8" stroke-linecap="round"/></g>
+    <g id="audit-trail"><path d="M830 188h104v206H830z" fill="#FFFFFF" stroke="#8FA6CB" stroke-width="5"/><path d="M852 230h60M852 276h60M852 322h60M852 368h42" stroke="#8FA6CB" stroke-width="8" stroke-linecap="round"/></g>
+  </g>
+</svg>

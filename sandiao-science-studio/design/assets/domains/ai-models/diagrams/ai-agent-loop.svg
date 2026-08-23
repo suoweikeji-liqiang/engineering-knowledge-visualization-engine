@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576">
+  <defs></defs>
+  <g id="ai-agent-loop">
+    <rect id="canvas" x="18" y="42" width="988" height="492" rx="34" fill="#FFFFFF" stroke="#13223A" stroke-width="6"/>
+    <g id="model-stage">  <g id="model-node">
+    <circle cx="512" cy="160" r="62" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="512" cy="160" r="7" fill="#8B5CF6"/>
+  </g></g>
+    <g id="plan-stage">  <g id="plan-node">
+    <circle cx="272" cy="291" r="54" fill="#1F5CFF" fill-opacity=".18" stroke="#1F5CFF" stroke-width="4"/>
+    <circle cx="272" cy="291" r="7" fill="#1F5CFF"/>
+  </g></g>
+    <g id="tool-stage">  <g id="tool-node">
+    <circle cx="512" cy="420" r="54" fill="#22C55E" fill-opacity=".18" stroke="#22C55E" stroke-width="4"/>
+    <circle cx="512" cy="420" r="7" fill="#22C55E"/>
+  </g></g>
+    <g id="observation-stage">  <g id="observation-node">
+    <circle cx="752" cy="291" r="54" fill="#1FD6E2" fill-opacity=".18" stroke="#1FD6E2" stroke-width="4"/>
+    <circle cx="752" cy="291" r="7" fill="#1FD6E2"/>
+  </g></g>
+    <path id="plan-flow" d="M466 200L316 258" stroke="#1F5CFF" stroke-width="9" stroke-linecap="round"/>
+    <path id="action-flow" d="M310 330L468 398" stroke="#22C55E" stroke-width="9" stroke-linecap="round"/>
+    <path id="observation-flow" d="M556 398L714 330" stroke="#1FD6E2" stroke-width="9" stroke-linecap="round"/>
+    <path id="reasoning-flow" d="M708 252L558 198" stroke="#8B5CF6" stroke-width="9" stroke-linecap="round"/>
+    <circle id="stop-condition" cx="512" cy="291" r="34" fill="#F04B2F" fill-opacity=".15" stroke="#F04B2F" stroke-width="5"/>
+  </g>
+</svg>

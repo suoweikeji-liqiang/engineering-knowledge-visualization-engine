@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576">
+  <defs></defs>
+  <g id="ai-rag-pipeline">
+    <rect id="canvas" x="18" y="42" width="988" height="492" rx="34" fill="#FFFFFF" stroke="#13223A" stroke-width="6"/>
+    <g id="question-stage">  <g id="question-node">
+    <circle cx="116" cy="291" r="46" fill="#1FD6E2" fill-opacity=".18" stroke="#1FD6E2" stroke-width="4"/>
+    <circle cx="116" cy="291" r="7" fill="#1FD6E2"/>
+  </g></g>
+  <g id="embedding-flow">
+    <path d="M174 291 L272 291" fill="none" stroke="#1FD6E2" stroke-width="8" stroke-linecap="round"/>
+    <path d="M272 281 L286 291 L272 301" fill="none" stroke="#1FD6E2" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+    <g id="retrieval-stage"><path d="M302 226v130c0 36 176 36 176 0V226" fill="#22C55E" fill-opacity=".12" stroke="#22C55E" stroke-width="5"/><ellipse cx="390" cy="226" rx="88" ry="35" fill="#FFFFFF" stroke="#22C55E" stroke-width="5"/><circle cx="360" cy="222" r="8" fill="#22C55E"/><circle cx="398" cy="210" r="8" fill="#22C55E"/><circle cx="425" cy="235" r="8" fill="#22C55E"/></g>
+  <g id="context-flow">
+    <path d="M490 291 L590 291" fill="none" stroke="#22C55E" stroke-width="8" stroke-linecap="round"/>
+    <path d="M590 281 L604 291 L590 301" fill="none" stroke="#22C55E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+    <g id="context-stage"><path d="M620 210h136v162H620z" fill="#F59E0B" fill-opacity=".12" stroke="#F59E0B" stroke-width="5"/><path d="M648 252h80M648 292h62M648 332h86" stroke="#F59E0B" stroke-width="9" stroke-linecap="round"/></g>
+  <g id="grounded-flow">
+    <path d="M768 291 L824 291" fill="none" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+    <path d="M824 281 L838 291 L824 301" fill="none" stroke="#F59E0B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+    <g id="answer-stage">  <g id="answer-node">
+    <circle cx="902" cy="291" r="46" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="902" cy="291" r="7" fill="#8B5CF6"/>
+  </g></g>
+    <path id="citation-link" d="M390 388 C520 486 698 462 688 384" fill="none" stroke="#22C55E" stroke-width="6" stroke-dasharray="12 10"/>
+  </g>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 768" width="512" height="768">
+  <!-- Lao Wang (Character: laowang, Pose: laugh) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 260), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 210,540 L 210,680 L 170,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <path id="leg_right" d="M 302,540 L 302,680 L 342,680" fill="none" stroke="#1A283F" stroke-width="36" stroke-linecap="round"/>
+      <rect x="160" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+      <rect x="292" y="665" width="65" height="24" rx="7" fill="#D4380D" stroke="#13223A" stroke-width="2.5"/>
+    </g>
+
+
+    <!-- Torso: Work Vest & Polo -->
+    <g id="torso">
+      <path d="M 176,300 C 156,370 166,540 196,540 L 316,540 C 346,540 356,370 336,300 Z" fill="#FA541C" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 216,300 L 256,380 L 296,300 Z" fill="#FFE7BA" stroke="#13223A" stroke-width="2"/>
+      <!-- Tool Belt with Tape Measure -->
+      <rect x="176" y="495" width="160" height="26" rx="5" fill="#13223A"/>
+      <rect x="275" y="488" width="38" height="38" rx="6" fill="#FADB14" stroke="#13223A" stroke-width="2"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 176,330 C 130,370 120,460 170,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_left" cx="170" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#FA541C" stroke-width="32" stroke-linecap="round"/>
+        <path d="M 336,330 C 382,370 392,460 342,480" fill="none" stroke="#13223A" stroke-width="3.5"/>
+        <circle id="hand_right" cx="342" cy="480" r="18" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+      </g>
+    </g>
+
+
+    <!-- Head Root -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="236" y="270" width="40" height="42" rx="6" fill="#F8D5B8" stroke="#13223A" stroke-width="2.5"/>
+
+      <!-- Head Base (Stout Rounded Trapezoid) -->
+      <path id="face" d="M 186,245 C 180,165 205,130 256,130 C 307,130 332,165 326,245 C 321,278 191,278 186,245 Z" fill="#F8D5B8" stroke="#13223A" stroke-width="3.5" stroke-linejoin="round"/>
+
+      <!-- Hairline & Characteristic Bald Top with Specular -->
+      <path id="hair" d="M 186,215 C 184,155 220,135 240,135 C 248,135 248,150 238,158 C 220,165 200,185 204,225 Z" fill="#13223A"/>
+      <path d="M 326,215 C 328,155 292,135 272,135 C 264,135 264,150 274,158 C 292,165 312,185 308,225 Z" fill="#13223A"/>
+      <ellipse cx="256" cy="144" rx="18" ry="6" fill="#FFF1B8" opacity="0.6"/>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 200,195 Q 220,180 240,195" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+      <path id="brow_right" d="M 272,195 Q 292,180 312,195" fill="none" stroke="#13223A" stroke-width="5" stroke-linecap="round"/>
+
+      <!-- Eyes -->
+      <g id="eye_left">
+        <ellipse cx="220" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="220" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="222" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+      <g id="eye_right">
+        <ellipse cx="292" cy="210" rx="13" ry="15" fill="#FFFFFF" stroke="#13223A" stroke-width="2.5"/>
+        <circle cx="292" cy="210" r="6.5" fill="#13223A"/>
+        <circle cx="294" cy="208" r="2" fill="#FFFFFF"/>
+      </g>
+
+      <!-- Mustache -->
+      <path id="mustache" d="M 230,238 Q 256,242 282,238 Q 268,248 256,245 Q 244,248 230,238 Z" fill="#13223A"/>
+
+      <!-- Mouth Component -->
+      <path id="mouth" d="M 236,260 Q 256,275 276,260" fill="none" stroke="#13223A" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Emotion Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 495)"/>
+  </g>
+</svg>

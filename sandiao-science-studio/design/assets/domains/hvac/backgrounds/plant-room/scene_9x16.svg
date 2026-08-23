@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!-- Plant Room (9:16 Vertical Composite) -->
+  <rect width="1080" height="1920" fill="#151E2E"/>
+  <path d="M 0,120 L 1080,120" fill="none" stroke="#1890FF" stroke-width="32"/>
+  <path d="M 0,180 L 1080,180" fill="none" stroke="#FA541C" stroke-width="32"/>
+  <rect x="0" y="1520" width="1080" height="400" fill="#0C121D"/>
+  <line x1="0" y1="1520" x2="1080" y2="1520" stroke="#FAAD14" stroke-width="6" stroke-dasharray="30 20"/>
+</svg>

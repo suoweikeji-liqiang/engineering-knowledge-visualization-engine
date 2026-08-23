@@ -8,12 +8,14 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 from .core import C, Fonts, Point, Timeline, ease
+from .resolved_timeline import load_resolved_timeline
 from .story import Character, State, Story
 
 class Studio:
     def __init__(self, story: Story):
         self.story = story
-        self.timeline = Timeline(story)
+        resolved = load_resolved_timeline(story)
+        self.timeline = Timeline(story, resolved.durations if resolved else None)
         self.fonts = Fonts()
         self.k = min(story.width / 640, story.height / 360)
 
@@ -270,9 +272,16 @@ class Studio:
         image.convert("RGB").save(out, quality=94)
         return out
 
-    def render(self, output: Path | None = None, audio: Path | None = None) -> Path:
+    def render(
+        self,
+        output: Path | None = None,
+        audio: Path | None = None,
+        duration: float | None = None,
+    ) -> Path:
         ffmpeg = shutil.which("ffmpeg")
         if not ffmpeg: raise RuntimeError("ffmpeg not found")
+        if duration is not None and duration <= 0:
+            raise ValueError("render duration must be positive")
         out, audio_path = (output or self.story.video).resolve(), (audio or self.story.audio).resolve()
         out.parent.mkdir(parents=True, exist_ok=True)
         cmd = [ffmpeg, "-y", "-loglevel", "warning", "-f", "rawvideo", "-pix_fmt", "rgb24",
@@ -283,7 +292,8 @@ class Studio:
         cmd += ["-movflags", "+faststart", str(out)]
         process = subprocess.Popen(cmd, stdin=subprocess.PIPE)
         assert process.stdin is not None
-        count = math.ceil(self.timeline.duration*self.story.fps)
+        render_duration = min(duration, self.timeline.duration) if duration is not None else self.timeline.duration
+        count = math.ceil(render_duration*self.story.fps)
         try:
             for i in range(count):
                 process.stdin.write(self.frame(i/self.story.fps).tobytes())

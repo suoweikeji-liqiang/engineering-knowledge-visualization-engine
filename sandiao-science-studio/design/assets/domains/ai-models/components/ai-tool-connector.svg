@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs></defs>
+  <g id="ai-tool-connector">
+    <path id="connector-line" d="M76 256h104M332 256h104" stroke="#22C55E" stroke-width="20" stroke-linecap="round"/>
+    <rect id="tool-port" x="170" y="170" width="172" height="172" rx="44" fill="#FFFFFF" stroke="#13223A" stroke-width="8"/>
+    <path id="tool-gear" d="M256 206l14 20 24-4 5 25 22 11-12 22 12 22-22 11-5 25-24-4-14 20-14-20-24 4-5-25-22-11 12-22-12-22 22-11 5-25 24 4z" fill="#22C55E" fill-opacity=".18" stroke="#22C55E" stroke-width="5" stroke-linejoin="round"/>
+    <circle id="tool-center" cx="256" cy="280" r="30" fill="#22C55E"/>
+  </g>
+</svg>

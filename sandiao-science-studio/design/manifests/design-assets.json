@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "manifests": [
+    {
+      "namespace": "brand",
+      "source": "assets/brand/manifest.json"
+    },
+    {
+      "namespace": "shared",
+      "source": "assets/shared/manifest.json"
+    },
+    {
+      "namespace": "domain.hvac",
+      "source": "assets/domains/hvac/manifest.json"
+    },
+    {
+      "namespace": "domain.ai-models",
+      "source": "assets/domains/ai-models/manifest.json"
+    }
+  ]
+}

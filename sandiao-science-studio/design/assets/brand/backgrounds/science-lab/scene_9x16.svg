@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!-- Science Lab (9:16 Vertical Composite) -->
+  <rect width="1080" height="1920" fill="#0E1726"/>
+  <g opacity="0.2">
+    <line x1="60" y1="0" x2="60" y2="1920" stroke="#1FD6E2" stroke-width="1.5"/>
+    <line x1="1020" y1="0" x2="1020" y2="1920" stroke="#1FD6E2" stroke-width="1.5"/>
+  </g>
+  <!-- Top Lab Header -->
+  <rect x="60" y="80" width="960" height="80" rx="16" fill="#101C31" stroke="#1F5CFF" stroke-width="2"/>
+  <text x="120" y="130" fill="#FFFFFF" font-family="sans-serif" font-size="24" font-weight="bold">ASTEROID LAB / 物理机理推导舞台</text>
+  <!-- Floor Lab Deck -->
+  <rect x="0" y="1540" width="1080" height="380" fill="#0A0F1A"/>
+  <line x1="0" y1="1540" x2="1080" y2="1540" stroke="#1FD6E2" stroke-width="3"/>
+</svg>

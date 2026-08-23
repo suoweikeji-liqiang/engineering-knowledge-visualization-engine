@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Abstract Telemetry Stage -->
+  <defs>
+    <radialGradient id="abstractGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#172B4D"/>
+      <stop offset="100%" stop-color="#080E18"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#abstractGlow)"/>
+  <!-- Concentric Telemetry Orbit Rings -->
+  <g opacity="0.25">
+    <circle cx="960" cy="460" r="300" fill="none" stroke="#1FD6E2" stroke-width="1.5" stroke-dasharray="8 6"/>
+    <circle cx="960" cy="460" r="500" fill="none" stroke="#1F5CFF" stroke-width="1.5"/>
+    <circle cx="960" cy="460" r="700" fill="none" stroke="#1FD6E2" stroke-width="1" stroke-dasharray="4 8"/>
+    <line x1="960" y1="0" x2="960" y2="1080" stroke="#1FD6E2" stroke-width="1"/>
+    <line x1="0" y1="460" x2="1920" y2="460" stroke="#1FD6E2" stroke-width="1"/>
+  </g>
+</svg>

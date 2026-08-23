@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Scene: Daily Living (16:9 Composite) -->
+  <g id="layer_background">
+  <!-- Daily Living: Background Layer -->
+  <rect width="1920" height="1080" fill="#F4EDE2"/>
+  <!-- Wall subtle panel lines -->
+  <line x1="0" y1="200" x2="1920" y2="200" stroke="#E5DAC9" stroke-width="1.5"/>
+  <line x1="0" y1="750" x2="1920" y2="750" stroke="#E5DAC9" stroke-width="2"/>
+  <!-- Window on Left Wall -->
+  <g transform="translate(100, 160)">
+    <rect x="0" y="0" width="280" height="420" rx="16" fill="#BAE7FF" stroke="#13223A" stroke-width="3.5"/>
+    <line x1="140" y1="0" x2="140" y2="420" stroke="#13223A" stroke-width="3"/>
+    <line x1="0" y1="210" x2="280" y2="210" stroke="#13223A" stroke-width="3"/>
+    <!-- Sunlight rays -->
+    <polygon points="40,0 240,0 280,420 0,420" fill="#FFE58F" opacity="0.25"/>
+    <!-- Wall shadow under window -->
+    <rect x="-10" y="420" width="300" height="16" rx="4" fill="#D9C9B3"/>
+  </g>
+  <!-- Floor Wooden Planks -->
+  <rect x="0" y="750" width="1920" height="330" fill="#D4B185"/>
+  <line x1="0" y1="840" x2="1920" y2="840" stroke="#B89363" stroke-width="2"/>
+  <line x1="0" y1="940" x2="1920" y2="940" stroke="#B89363" stroke-width="2"/>
+  <line x1="0" y1="1040" x2="1920" y2="1040" stroke="#B89363" stroke-width="2"/>
+</g>
+  <g id="layer_midground">
+  <!-- Daily Living: Midground Layer -->
+  <!-- Indoor AC Unit mounted high on right -->
+  <g transform="translate(1420, 120)">
+    <rect x="0" y="0" width="380" height="140" rx="18" fill="#FFFFFF" stroke="#13223A" stroke-width="3.5"/>
+    <!-- Louver air flap -->
+    <rect x="20" y="100" width="340" height="24" rx="6" fill="#F0F5FF" stroke="#13223A" stroke-width="2"/>
+    <!-- LED temperature display (16C) -->
+    <rect x="300" y="30" width="56" height="32" rx="6" fill="#101C31"/>
+    <text x="328" y="53" fill="#1FD6E2" font-family="'SF Mono', monospace" font-size="16" font-weight="bold" text-anchor="middle">16℃</text>
+  </g>
+  <!-- Modern Bookshelf on far left -->
+  <g transform="translate(60, 600)">
+    <rect x="0" y="0" width="160" height="240" rx="10" fill="#874D00" stroke="#13223A" stroke-width="3"/>
+    <rect x="15" y="20" width="30" height="80" rx="4" fill="#1890FF"/>
+    <rect x="50" y="20" width="24" height="80" rx="4" fill="#FA541C"/>
+    <rect x="80" y="35" width="28" height="65" rx="4" fill="#52C41A"/>
+  </g>
+</g>
+  <g id="layer_foreground">
+  <!-- Daily Living: Foreground Layer -->
+  <!-- Reserved Safe Zones: Left Char (x=80..380), Center Stage (x=420..1500), Right Char (x=1540..1840) -->
+  <g id="fg_anchors">
+    <!-- Baseboard floor trim -->
+    <rect x="0" y="740" width="1920" height="14" fill="#874D00"/>
+  </g>
+</g>
+</svg>

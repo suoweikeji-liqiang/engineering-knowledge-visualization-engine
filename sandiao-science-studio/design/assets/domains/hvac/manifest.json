@@ -1,0 +1,473 @@
+{
+  "schemaVersion": "1.0",
+  "assets": [
+    {
+      "id": "domain.hvac.background.plant-room.background16x9",
+      "type": "background-layer",
+      "source": "backgrounds/plant-room/background_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "domain.hvac.background.plant-room.foreground16x9",
+      "type": "background-layer",
+      "source": "backgrounds/plant-room/foreground_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "domain.hvac.background.plant-room.midground16x9",
+      "type": "background-layer",
+      "source": "backgrounds/plant-room/midground_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "domain.hvac.background.plant-room.scene16x9",
+      "type": "background",
+      "source": "backgrounds/plant-room/scene_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "domain.hvac.background.plant-room.scene9x16",
+      "type": "background",
+      "source": "backgrounds/plant-room/scene_9x16.svg",
+      "viewBox": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "anchors": {
+        "center": [
+          540.0,
+          960.0
+        ],
+        "horizon": [
+          540.0,
+          1497.6000000000001
+        ]
+      },
+      "variants": [
+        "vertical"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "domain.hvac.background.plant-room.scene-night16x9",
+      "type": "background",
+      "source": "backgrounds/plant-room/scene_night_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "night"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "domain.hvac.prop.ac-indoor",
+      "type": "prop",
+      "source": "props/hvac-ac-indoor.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        256
+      ],
+      "anchors": {
+        "center": [
+          256.0,
+          128.0
+        ],
+        "label": [
+          256.0,
+          38.4
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [],
+      "layers": [
+        "hvac-ac-indoor"
+      ]
+    },
+    {
+      "id": "domain.hvac.prop.ac-outdoor",
+      "type": "prop",
+      "source": "props/hvac-ac-outdoor.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        384
+      ],
+      "anchors": {
+        "center": [
+          256.0,
+          192.0
+        ],
+        "label": [
+          256.0,
+          57.599999999999994
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [],
+      "layers": [
+        "hvac-ac-outdoor"
+      ]
+    },
+    {
+      "id": "domain.hvac.prop.compressor",
+      "type": "prop",
+      "source": "props/hvac-compressor.svg",
+      "viewBox": [
+        0,
+        0,
+        384,
+        512
+      ],
+      "anchors": {
+        "center": [
+          192.0,
+          256.0
+        ],
+        "label": [
+          192.0,
+          76.8
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [],
+      "layers": [
+        "hvac-compressor"
+      ]
+    },
+    {
+      "id": "domain.hvac.prop.electric-meter",
+      "type": "prop",
+      "source": "props/hvac-electric-meter.svg",
+      "viewBox": [
+        0,
+        0,
+        256,
+        320
+      ],
+      "anchors": {
+        "center": [
+          128.0,
+          160.0
+        ],
+        "label": [
+          128.0,
+          48.0
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [],
+      "layers": [
+        "hvac-electric-meter"
+      ]
+    },
+    {
+      "id": "domain.hvac.prop.expansion-valve",
+      "type": "prop",
+      "source": "props/hvac-expansion-valve.svg",
+      "viewBox": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchors": {
+        "center": [
+          128.0,
+          128.0
+        ],
+        "label": [
+          128.0,
+          38.4
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [],
+      "layers": [
+        "hvac-expansion-valve"
+      ]
+    },
+    {
+      "id": "domain.hvac.prop.fan",
+      "type": "prop",
+      "source": "props/hvac-fan.svg",
+      "viewBox": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchors": {
+        "center": [
+          128.0,
+          128.0
+        ],
+        "label": [
+          128.0,
+          38.4
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [],
+      "layers": [
+        "hvac-fan"
+      ]
+    },
+    {
+      "id": "domain.hvac.prop.heat-exchanger",
+      "type": "prop",
+      "source": "props/hvac-heat-exchanger.svg",
+      "viewBox": [
+        0,
+        0,
+        384,
+        512
+      ],
+      "anchors": {
+        "center": [
+          192.0,
+          256.0
+        ],
+        "label": [
+          192.0,
+          76.8
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [],
+      "layers": [
+        "hvac-heat-exchanger"
+      ]
+    },
+    {
+      "id": "domain.hvac.prop.pipes",
+      "type": "prop",
+      "source": "props/hvac-pipes.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        128
+      ],
+      "anchors": {
+        "center": [
+          256.0,
+          64.0
+        ],
+        "label": [
+          256.0,
+          19.2
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [],
+      "layers": [
+        "hvac-pipes"
+      ]
+    },
+    {
+      "id": "domain.hvac.prop.sensor-pressure",
+      "type": "prop",
+      "source": "props/hvac-sensor-pressure.svg",
+      "viewBox": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchors": {
+        "center": [
+          128.0,
+          128.0
+        ],
+        "label": [
+          128.0,
+          38.4
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [],
+      "layers": [
+        "hvac-sensor-pressure"
+      ]
+    },
+    {
+      "id": "domain.hvac.prop.sensor-temp",
+      "type": "prop",
+      "source": "props/hvac-sensor-temp.svg",
+      "viewBox": [
+        0,
+        0,
+        128,
+        256
+      ],
+      "anchors": {
+        "center": [
+          64.0,
+          128.0
+        ],
+        "label": [
+          64.0,
+          38.4
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [],
+      "layers": [
+        "hvac-sensor-temp"
+      ]
+    },
+    {
+      "id": "domain.hvac.prop.thermometer",
+      "type": "prop",
+      "source": "props/hvac-thermometer.svg",
+      "viewBox": [
+        0,
+        0,
+        128,
+        384
+      ],
+      "anchors": {
+        "center": [
+          64.0,
+          192.0
+        ],
+        "label": [
+          64.0,
+          57.599999999999994
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [],
+      "layers": [
+        "hvac-thermometer"
+      ]
+    }
+  ]
+}

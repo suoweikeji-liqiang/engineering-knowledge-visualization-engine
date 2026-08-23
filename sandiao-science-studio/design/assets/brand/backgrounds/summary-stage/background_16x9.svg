@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Summary & Verdict Stage -->
+  <rect width="1920" height="1080" fill="#0B1321"/>
+  <!-- Starfield & Asteroid Orbit Backdrop -->
+  <g opacity="0.2">
+    <ellipse cx="960" cy="200" rx="800" ry="300" fill="none" stroke="#1F5CFF" stroke-width="2" transform="rotate(-10 960 200)"/>
+    <circle cx="300" cy="150" r="3" fill="#1FD6E2"/>
+    <circle cx="1600" cy="180" r="3" fill="#1FD6E2"/>
+    <circle cx="1400" cy="90" r="2" fill="#FFFFFF"/>
+  </g>
+  <!-- High-Tech Broadcast Desk -->
+  <g transform="translate(260, 760)">
+    <polygon points="100,0 1300,0 1400,160 0,160" fill="#101C31" stroke="#1FD6E2" stroke-width="2.5"/>
+    <line x1="200" y1="40" x2="1200" y2="40" stroke="#1F5CFF" stroke-width="3"/>
+    <rect x="620" y="60" width="160" height="40" rx="8" fill="#172A46"/>
+    <text x="700" y="86" fill="#1FD6E2" font-family="'SF Mono', monospace" font-size="16" font-weight="bold" text-anchor="middle">CONCLUSION DESK</text>
+  </g>
+  <rect x="0" y="920" width="1920" height="160" fill="#060A12"/>
+</svg>

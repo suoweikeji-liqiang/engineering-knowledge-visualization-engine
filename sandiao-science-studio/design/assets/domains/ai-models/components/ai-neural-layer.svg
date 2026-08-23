@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs></defs>
+  <g id="ai-neural-layer">
+    <path d="M134 126 L378 106" stroke="#8B5CF6" stroke-opacity=".22" stroke-width="4"/>
+    <path d="M134 126 L378 206" stroke="#8B5CF6" stroke-opacity=".22" stroke-width="4"/>
+    <path d="M134 126 L378 306" stroke="#8B5CF6" stroke-opacity=".22" stroke-width="4"/>
+    <path d="M134 126 L378 406" stroke="#8B5CF6" stroke-opacity=".22" stroke-width="4"/>
+    <path d="M134 256 L378 106" stroke="#8B5CF6" stroke-opacity=".22" stroke-width="4"/>
+    <path d="M134 256 L378 206" stroke="#8B5CF6" stroke-opacity=".22" stroke-width="4"/>
+    <path d="M134 256 L378 306" stroke="#8B5CF6" stroke-opacity=".22" stroke-width="4"/>
+    <path d="M134 256 L378 406" stroke="#8B5CF6" stroke-opacity=".22" stroke-width="4"/>
+    <path d="M134 386 L378 106" stroke="#8B5CF6" stroke-opacity=".22" stroke-width="4"/>
+    <path d="M134 386 L378 206" stroke="#8B5CF6" stroke-opacity=".22" stroke-width="4"/>
+    <path d="M134 386 L378 306" stroke="#8B5CF6" stroke-opacity=".22" stroke-width="4"/>
+    <path d="M134 386 L378 406" stroke="#8B5CF6" stroke-opacity=".22" stroke-width="4"/>
+  <g id="input-1">
+    <circle cx="112" cy="126" r="18" fill="#1FD6E2" fill-opacity=".18" stroke="#1FD6E2" stroke-width="4"/>
+    <circle cx="112" cy="126" r="7" fill="#1FD6E2"/>
+  </g>
+  <g id="input-2">
+    <circle cx="112" cy="256" r="18" fill="#1FD6E2" fill-opacity=".18" stroke="#1FD6E2" stroke-width="4"/>
+    <circle cx="112" cy="256" r="7" fill="#1FD6E2"/>
+  </g>
+  <g id="input-3">
+    <circle cx="112" cy="386" r="18" fill="#1FD6E2" fill-opacity=".18" stroke="#1FD6E2" stroke-width="4"/>
+    <circle cx="112" cy="386" r="7" fill="#1FD6E2"/>
+  </g>
+  <g id="output-1">
+    <circle cx="400" cy="106" r="18" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="400" cy="106" r="7" fill="#8B5CF6"/>
+  </g>
+  <g id="output-2">
+    <circle cx="400" cy="206" r="18" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="400" cy="206" r="7" fill="#8B5CF6"/>
+  </g>
+  <g id="output-3">
+    <circle cx="400" cy="306" r="18" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="400" cy="306" r="7" fill="#8B5CF6"/>
+  </g>
+  <g id="output-4">
+    <circle cx="400" cy="406" r="18" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="400" cy="406" r="7" fill="#8B5CF6"/>
+  </g>
+    <path id="layer-boundary" d="M256 54V458" stroke="#8FA6CB" stroke-width="3" stroke-dasharray="10 12"/>
+  </g>
+</svg>
