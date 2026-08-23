@@ -1,4 +1,4 @@
-import type {CinematicSceneAsset} from "@repo/schemas";
+import type {CharacterPerformanceAsset, CinematicSceneAsset, CinematicSoundCue} from "@repo/schemas";
 
 export const AI_CINEMATIC_SCENES: CinematicSceneAsset[] = [
   {
@@ -124,6 +124,67 @@ export const AI_VISUAL_METAPHORS = [
   {concept: "tool-router", world: "空间站转接台", mapping: ["工具=接口舱", "权限=舱门", "返回值=信号回流"]},
   {concept: "model-vs-runtime", world: "领航员与飞船", mapping: ["模型=判断航向", "运行时=持续执行", "护栏=航行规则"]}
 ] as const;
+
+export const AI_CHARACTER_PERFORMANCE_ASSETS: CharacterPerformanceAsset[] = [
+  {
+    schemaVersion: "1.0",
+    id: "xiaolan-evidence-bridge",
+    characterId: "xiaolan",
+    narrativeRole: "investigate",
+    action: "从来源文档中提取关键句，并把荧光标记延展成技术图解",
+    gaze: "object",
+    assetRef: "ai/character/xiaolan/evidence-bridge",
+    compatibleSceneModes: ["evidence-to-abstraction", "character-metaphor"],
+    transitionHooks: ["highlight-stroke", "document-edge"],
+    parallaxLayers: ["foreground-notes", "character", "evidence-board", "observatory-background"],
+    accumulationKey: "ai/character/xiaolan/performance/evidence-bridge"
+  },
+  {
+    schemaVersion: "1.0",
+    id: "xiaolan-connect-modules",
+    characterId: "xiaolan",
+    narrativeRole: "connect",
+    action: "把分散模块接入同一条信号路径，建立系统关系",
+    gaze: "path",
+    assetRef: "ai/character/xiaolan/connect-modules",
+    compatibleSceneModes: ["diagram-explainer", "character-metaphor"],
+    transitionHooks: ["signal-cable", "module-node"],
+    parallaxLayers: ["foreground-tools", "character", "modules", "observatory-background"],
+    accumulationKey: "ai/character/xiaolan/performance/connect-modules"
+  },
+  {
+    schemaVersion: "1.0",
+    id: "xiaolan-recover-path",
+    characterId: "xiaolan",
+    narrativeRole: "recover",
+    action: "面对失败分支重新规划路径，并把错误状态转回可执行流程",
+    gaze: "path",
+    assetRef: "ai/character/xiaolan/recover-path",
+    compatibleSceneModes: ["technical-trace", "character-synthesis"],
+    transitionHooks: ["red-error-path", "green-recovery-path"],
+    parallaxLayers: ["foreground-alert", "character", "route-board", "observatory-background"],
+    accumulationKey: "ai/character/xiaolan/performance/recover-path"
+  }
+];
+
+export const AI_SOUND_CUES: CinematicSoundCue[] = [
+  {id: "paper-settle", semanticRole: "enter", family: "paper", durationHintMs: 420, mixPriority: "support"},
+  {id: "document-settle", semanticRole: "enter", family: "paper", durationHintMs: 520, mixPriority: "support"},
+  {id: "marker-draw", semanticRole: "draw", family: "writing", durationHintMs: 520, mixPriority: "foreground"},
+  {id: "connector-draw", semanticRole: "connect", family: "diagram", durationHintMs: 460, mixPriority: "foreground"},
+  {id: "data-pulse", semanticRole: "connect", family: "signal", durationHintMs: 220, mixPriority: "support"},
+  {id: "data-rise", semanticRole: "draw", family: "chart", durationHintMs: 680, mixPriority: "support"},
+  {id: "curve-draw", semanticRole: "draw", family: "chart", durationHintMs: 900, mixPriority: "support"},
+  {id: "code-focus", semanticRole: "draw", family: "code", durationHintMs: 180, mixPriority: "support"},
+  {id: "editor-open", semanticRole: "enter", family: "code", durationHintMs: 360, mixPriority: "support"},
+  {id: "terminal-success", semanticRole: "confirm", family: "result", durationHintMs: 280, mixPriority: "foreground"},
+  {id: "result-stamp", semanticRole: "resolve", family: "result", durationHintMs: 360, mixPriority: "foreground"},
+  {id: "scene-whoosh", semanticRole: "enter", family: "transition", durationHintMs: 620, mixPriority: "ambient"},
+  {id: "soft-step", semanticRole: "enter", family: "foley", durationHintMs: 240, mixPriority: "ambient"},
+  {id: "task-inject", semanticRole: "enter", family: "signal", durationHintMs: 380, mixPriority: "support"},
+  {id: "soft-tick", semanticRole: "confirm", family: "ui", durationHintMs: 140, mixPriority: "ambient"},
+  {id: "character-return", semanticRole: "resolve", family: "character", durationHintMs: 540, mixPriority: "support"}
+];
 
 export const AI_REVIEW_RULES = [
   "不要把一次模型回答描述为已完成的 Agent 任务",
