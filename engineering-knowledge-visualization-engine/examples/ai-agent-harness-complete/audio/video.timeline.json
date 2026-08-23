@@ -1,184 +1,184 @@
 {
   "schemaVersion": "1.0",
   "storySlug": "ai-agent-harness-complete",
-  "storyFingerprint": "7839666e52fbc274f3f43bf9f392f91038810fbeec119d1c6b333570ca088b00",
+  "storyFingerprint": "9286a3e9230b9f8b6b020ce22947f486bbeb5511540bb82592e2e5740d7e7821",
   "provider": "mimo",
-  "duration": 715.1518867924528,
+  "duration": 714.7663551401869,
   "shots": [
     {
       "id": "hook",
       "plannedDuration": 10,
-      "speechDuration": 20.283962264150944,
-      "duration": 20.472641509433963
+      "speechDuration": 20.094392523364487,
+      "duration": 20.28130841121495
     },
     {
       "id": "bare-model",
       "plannedDuration": 12,
-      "speechDuration": 20.26132075471698,
-      "duration": 20.45
+      "speechDuration": 20.07196261682243,
+      "duration": 20.258878504672897
     },
     {
       "id": "boundary",
       "plannedDuration": 12,
-      "speechDuration": 23.37452830188679,
-      "duration": 23.56320754716981
+      "speechDuration": 23.15607476635514,
+      "duration": 23.342990654205607
     },
     {
       "id": "components",
       "plannedDuration": 11,
-      "speechDuration": 19.410377358490564,
-      "duration": 19.599056603773583
+      "speechDuration": 19.22897196261682,
+      "duration": 19.415887850467286
     },
     {
       "id": "request-compose",
       "plannedDuration": 13,
-      "speechDuration": 23.473584905660378,
-      "duration": 23.662264150943397
+      "speechDuration": 23.254205607476635,
+      "duration": 23.441121495327103
     },
     {
       "id": "tool-decision",
       "plannedDuration": 13,
-      "speechDuration": 22.68867924528302,
-      "duration": 22.877358490566035
+      "speechDuration": 22.476635514018692,
+      "duration": 22.663551401869157
     },
     {
       "id": "validate-route",
       "plannedDuration": 13,
-      "speechDuration": 22.950943396226414,
-      "duration": 23.139622641509433
+      "speechDuration": 22.73644859813084,
+      "duration": 22.923364485981306
     },
     {
       "id": "tool-result",
       "plannedDuration": 13,
-      "speechDuration": 23.85188679245283,
-      "duration": 24.04056603773585
+      "speechDuration": 23.628971962616824,
+      "duration": 23.815887850467288
     },
     {
       "id": "agent-loop",
       "plannedDuration": 13,
-      "speechDuration": 27.52452830188679,
-      "duration": 27.713207547169812
+      "speechDuration": 27.267289719626167,
+      "duration": 27.454205607476634
     },
     {
       "id": "stop-reasons",
       "plannedDuration": 12,
-      "speechDuration": 29.350943396226413,
-      "duration": 29.539622641509432
+      "speechDuration": 29.076635514018687,
+      "duration": 29.263551401869158
     },
     {
       "id": "planning-modes",
       "plannedDuration": 13,
-      "speechDuration": 22.58584905660377,
-      "duration": 22.77452830188679
+      "speechDuration": 22.374766355140185,
+      "duration": 22.561682242990653
     },
     {
       "id": "plan-update",
       "plannedDuration": 11,
-      "speechDuration": 24.62735849056604,
-      "duration": 24.816037735849054
+      "speechDuration": 24.397196261682243,
+      "duration": 24.584112149532707
     },
     {
       "id": "context-compose",
       "plannedDuration": 13,
-      "speechDuration": 23.81320754716981,
-      "duration": 24.00188679245283
+      "speechDuration": 23.590654205607475,
+      "duration": 23.777570093457943
     },
     {
       "id": "context-window",
       "plannedDuration": 14,
-      "speechDuration": 25.086792452830185,
-      "duration": 25.275471698113208
+      "speechDuration": 24.852336448598127,
+      "duration": 25.039252336448598
     },
     {
       "id": "state-memory",
       "plannedDuration": 13,
-      "speechDuration": 24.13679245283019,
-      "duration": 24.325471698113205
+      "speechDuration": 23.911214953271028,
+      "duration": 24.098130841121495
     },
     {
       "id": "multi-agent",
       "plannedDuration": 13,
-      "speechDuration": 22.326415094339623,
-      "duration": 22.51509433962264
+      "speechDuration": 22.117757009345794,
+      "duration": 22.30467289719626
     },
     {
       "id": "multi-agent-cost",
       "plannedDuration": 11,
-      "speechDuration": 23.512264150943395,
-      "duration": 23.700943396226414
+      "speechDuration": 23.292523364485977,
+      "duration": 23.479439252336448
     },
     {
       "id": "structured-output",
       "plannedDuration": 13,
-      "speechDuration": 24.199056603773585,
-      "duration": 24.3877358490566
+      "speechDuration": 23.97289719626168,
+      "duration": 24.159813084112148
     },
     {
       "id": "retry-idempotency",
       "plannedDuration": 14,
-      "speechDuration": 26.943396226415093,
-      "duration": 27.132075471698112
+      "speechDuration": 26.691588785046726,
+      "duration": 26.878504672897197
     },
     {
       "id": "checkpoint-resume",
       "plannedDuration": 12,
-      "speechDuration": 24.833962264150944,
-      "duration": 25.022641509433964
+      "speechDuration": 24.601869158878504,
+      "duration": 24.78878504672897
     },
     {
       "id": "prompt-injection",
       "plannedDuration": 14,
-      "speechDuration": 23.971698113207545,
-      "duration": 24.160377358490564
+      "speechDuration": 23.747663551401867,
+      "duration": 23.934579439252335
     },
     {
       "id": "sandbox-approval",
       "plannedDuration": 13,
-      "speechDuration": 25.01320754716981,
-      "duration": 25.20188679245283
+      "speechDuration": 24.779439252336445,
+      "duration": 24.966355140186913
     },
     {
       "id": "guardrail-boundary",
       "plannedDuration": 11,
-      "speechDuration": 25.472641509433963,
-      "duration": 25.66132075471698
+      "speechDuration": 25.234579439252336,
+      "duration": 25.421495327102804
     },
     {
       "id": "feedback-eval",
       "plannedDuration": 14,
-      "speechDuration": 25.65754716981132,
-      "duration": 25.846226415094335
+      "speechDuration": 25.41775700934579,
+      "duration": 25.60467289719626
     },
     {
       "id": "trace-metrics",
       "plannedDuration": 13,
-      "speechDuration": 25.419811320754715,
-      "duration": 25.608490566037734
+      "speechDuration": 25.182242990654203,
+      "duration": 25.36915887850467
     },
     {
       "id": "live-trace-start",
       "plannedDuration": 15,
-      "speechDuration": 26.392452830188677,
-      "duration": 26.581132075471697
+      "speechDuration": 26.145794392523364,
+      "duration": 26.332710280373828
     },
     {
       "id": "live-trace-recover",
       "plannedDuration": 16,
-      "speechDuration": 26.334905660377355,
-      "duration": 26.523584905660375
+      "speechDuration": 26.08878504672897,
+      "duration": 26.275700934579437
     },
     {
       "id": "live-trace-finish",
       "plannedDuration": 14,
-      "speechDuration": 25.84339622641509,
-      "duration": 26.032075471698114
+      "speechDuration": 31.900000000000002,
+      "duration": 32.086915887850466
     },
     {
       "id": "synthesis",
       "plannedDuration": 16,
-      "speechDuration": 30.33962264150943,
-      "duration": 30.528301886792452
+      "speechDuration": 30.056074766355135,
+      "duration": 30.242990654205606
     }
   ],
-  "playbackRate": 1.06
+  "playbackRate": 1.07
 }

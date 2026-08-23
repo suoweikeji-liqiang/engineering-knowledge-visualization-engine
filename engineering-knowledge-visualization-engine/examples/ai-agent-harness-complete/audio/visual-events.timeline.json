@@ -1,0 +1,1654 @@
+{
+  "schemaVersion": "1.0",
+  "contract": "semantic-visual-events-are-triggered-from-this-manifest",
+  "entryOffset": 0.46,
+  "events": 131,
+  "within500ms": 1,
+  "maximumDeltaSeconds": 0.21,
+  "shots": [
+    {
+      "shotId": "hook",
+      "visualKind": "character",
+      "shotStart": 0,
+      "events": [
+        {
+          "id": "hook:visual:01",
+          "label": "脚本 ✓",
+          "cueIndex": 0,
+          "cueText": "假设我把一句话交给大模型：",
+          "narrationStart": 0.25,
+          "activeStart": 0,
+          "renderedStart": 0.46,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "hook:visual:02",
+          "label": "证据 ○",
+          "cueIndex": 1,
+          "cueText": "请把 AI Agent 和 Harness 的原理，",
+          "narrationStart": 2.754,
+          "activeStart": 2.294,
+          "renderedStart": 2.754,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "hook:visual:03",
+          "label": "画面 ○",
+          "cueIndex": 2,
+          "cueText": "做成一条能发布的视频。几秒后，它给了我一段文案。",
+          "narrationStart": 7.762,
+          "activeStart": 7.302,
+          "renderedStart": 7.762,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "hook:visual:04",
+          "label": "音频 ○",
+          "cueIndex": 3,
+          "cueText": "任务完成了吗？没有。研究、核验、配图、配音、",
+          "narrationStart": 12.384,
+          "activeStart": 11.924,
+          "renderedStart": 12.384,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "hook:visual:05",
+          "label": "成片 ○",
+          "cueIndex": 4,
+          "cueText": "渲染、检查和发布，一个都没有自动发生。",
+          "narrationStart": 16.622,
+          "activeStart": 16.162,
+          "renderedStart": 16.622,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "bare-model",
+      "visualKind": "compare",
+      "shotStart": 20.281,
+      "events": [
+        {
+          "id": "bare-model:visual:01",
+          "label": "MODEL CALL",
+          "cueIndex": 0,
+          "cueText": "单次模型调用的边界很清楚：输入一组消息，",
+          "narrationStart": 20.531,
+          "activeStart": 0,
+          "renderedStart": 20.741,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "bare-model:visual:02",
+          "label": "REAL TASK",
+          "cueIndex": 5,
+          "cueText": "模型完成的是一次判断，不是一个跨环境的目标。",
+          "narrationStart": 36.645,
+          "activeStart": 15.903,
+          "renderedStart": 36.645,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "boundary",
+      "visualKind": "evidence",
+      "shotStart": 40.54,
+      "events": [
+        {
+          "id": "boundary:visual:01",
+          "label": "primary source",
+          "cueIndex": 0,
+          "cueText": "确定性流程和 Agent 也不是一回事。",
+          "narrationStart": 40.79,
+          "activeStart": 0,
+          "renderedStart": 41,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "boundary:visual:02",
+          "label": "Agents independently accomplish tasks on your behalf.",
+          "cueIndex": 2,
+          "cueText": "Agent 则让模型根据当前结果，",
+          "narrationStart": 46.609,
+          "activeStart": 5.609,
+          "renderedStart": 46.609,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "boundary:visual:03",
+          "label": "Workflow 是步骤序列；Agent 让 LLM 控制执行",
+          "cueIndex": 4,
+          "cueText": "还是把问题交还给人。能写成稳定流程的任务，",
+          "narrationStart": 53.7,
+          "activeStart": 12.7,
+          "renderedStart": 53.7,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "boundary:visual:04",
+          "label": "工具必须运行在 guardrails 内",
+          "cueIndex": 6,
+          "cueText": "才值得用 Agent。",
+          "narrationStart": 61.883,
+          "activeStart": 20.883,
+          "renderedStart": 61.883,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "components",
+      "visualKind": "topology",
+      "shotStart": 63.883,
+      "events": [
+        {
+          "id": "components:visual:01",
+          "label": "GOAL",
+          "cueIndex": 0,
+          "cueText": "一个可行动的 Agent，至少要有五样东西：",
+          "narrationStart": 64.133,
+          "activeStart": 0,
+          "renderedStart": 64.343,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "components:visual:02",
+          "label": "MODEL",
+          "cueIndex": 1,
+          "cueText": "用户目标，负责判断的模型，能影响真实世界的工具，",
+          "narrationStart": 68.037,
+          "activeStart": 3.694,
+          "renderedStart": 68.037,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "components:visual:03",
+          "label": "TOOLS",
+          "cueIndex": 2,
+          "cueText": "保存进度的状态，以及驱动这一切反复运行的循环。",
+          "narrationStart": 72.296,
+          "activeStart": 7.953,
+          "renderedStart": 72.296,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "components:visual:04",
+          "label": "STATE",
+          "cueIndex": 3,
+          "cueText": "Harness 就在模型外面，",
+          "narrationStart": 76.378,
+          "activeStart": 12.035,
+          "renderedStart": 76.378,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "components:visual:05",
+          "label": "LOOP",
+          "cueIndex": 4,
+          "cueText": "负责把这些部件组装起来，并让行动处在可控边界内。",
+          "narrationStart": 79.04,
+          "activeStart": 14.697,
+          "renderedStart": 79.04,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "request-compose",
+      "visualKind": "stack",
+      "shotStart": 83.299,
+      "events": [
+        {
+          "id": "request-compose:visual:01",
+          "label": "system instructions",
+          "cueIndex": 0,
+          "cueText": "现在跟着一次真实请求走。",
+          "narrationStart": 83.549,
+          "activeStart": 0,
+          "renderedStart": 83.759,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "request-compose:visual:02",
+          "label": "user goal",
+          "cueIndex": 1,
+          "cueText": "Harness 先把系统指令、用户目标、",
+          "narrationStart": 85.928,
+          "activeStart": 2.169,
+          "renderedStart": 85.928,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "request-compose:visual:03",
+          "label": "history",
+          "cueIndex": 2,
+          "cueText": "会话历史、当前项目状态，以及可用工具的名称、",
+          "narrationStart": 89.892,
+          "activeStart": 6.133,
+          "renderedStart": 89.892,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "request-compose:visual:04",
+          "label": "workspace state",
+          "cueIndex": 4,
+          "cueText": "这里的工具定义不是按钮列表，",
+          "narrationStart": 98.415,
+          "activeStart": 14.656,
+          "renderedStart": 98.415,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "request-compose:visual:05",
+          "label": "tool schemas",
+          "cueIndex": 5,
+          "cueText": "而是一份机器可读的能力契约：",
+          "narrationStart": 101.19,
+          "activeStart": 17.431,
+          "renderedStart": 101.19,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "request-compose:visual:06",
+          "label": "MODEL REQUEST",
+          "cueIndex": 6,
+          "cueText": "模型必须按指定字段提出调用。",
+          "narrationStart": 103.965,
+          "activeStart": 20.206,
+          "renderedStart": 103.965,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "tool-decision",
+      "visualKind": "code",
+      "shotStart": 106.74,
+      "events": [
+        {
+          "id": "tool-decision:visual:01",
+          "label": "  \"type\": \"tool_call\",",
+          "cueIndex": 0,
+          "cueText": "模型读完请求后，可以直接回答，",
+          "narrationStart": 106.99,
+          "activeStart": 0,
+          "renderedStart": 107.2,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "tool-decision:visual:02",
+          "label": "  \"name\": \"search_sources\",",
+          "cueIndex": 4,
+          "cueText": "并给出 query、域名范围和时间条件。注意：",
+          "narrationStart": 118.618,
+          "activeStart": 11.418,
+          "renderedStart": 118.618,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "tool-decision:visual:03",
+          "label": "  \"arguments\": {\"query\": \"agent harness\"}",
+          "cueIndex": 7,
+          "cueText": "更没有自动获得文件或网络权限。",
+          "narrationStart": 126.876,
+          "activeStart": 19.676,
+          "renderedStart": 126.876,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "validate-route",
+      "visualKind": "gates",
+      "shotStart": 129.404,
+      "events": [
+        {
+          "id": "validate-route:visual:01",
+          "label": "parse",
+          "cueIndex": 0,
+          "cueText": "接下来才轮到 Harness：解析调用，",
+          "narrationStart": 129.654,
+          "activeStart": 0,
+          "renderedStart": 129.864,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "validate-route:visual:02",
+          "label": "schema",
+          "cueIndex": 1,
+          "cueText": "检查工具是否存在，用 Schema 校验参数，",
+          "narrationStart": 133.34,
+          "activeStart": 3.477,
+          "renderedStart": 133.34,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "validate-route:visual:03",
+          "label": "permission",
+          "cueIndex": 2,
+          "cueText": "再检查当前主体有没有网络权限，",
+          "narrationStart": 137.58,
+          "activeStart": 7.716,
+          "renderedStart": 137.58,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "validate-route:visual:04",
+          "label": "approval",
+          "cueIndex": 4,
+          "cueText": "路由器才会把请求交给搜索工具。坏参数、",
+          "narrationStart": 144.032,
+          "activeStart": 14.168,
+          "renderedStart": 144.032,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "validate-route:visual:05",
+          "label": "route",
+          "cueIndex": 5,
+          "cueText": "越权请求和危险操作，",
+          "narrationStart": 147.534,
+          "activeStart": 17.671,
+          "renderedStart": 147.534,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "validate-route:visual:06",
+          "label": "EXECUTE",
+          "cueIndex": 6,
+          "cueText": "都应该在进入外部环境之前被拦住。",
+          "narrationStart": 149.378,
+          "activeStart": 19.514,
+          "renderedStart": 149.378,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "tool-result",
+      "visualKind": "swimlane",
+      "shotStart": 152.327,
+      "events": [
+        {
+          "id": "tool-result:visual:01",
+          "label": "tool_call",
+          "cueIndex": 0,
+          "cueText": "工具在浏览器、文件系统或沙箱里真正执行，",
+          "narrationStart": 152.577,
+          "activeStart": 0,
+          "renderedStart": 152.787,
+          "deltaSeconds": 0.21,
+          "strategy": "explicit"
+        },
+        {
+          "id": "tool-result:visual:02",
+          "label": "validate + execute",
+          "cueIndex": 0,
+          "cueText": "工具在浏览器、文件系统或沙箱里真正执行，",
+          "narrationStart": 152.577,
+          "activeStart": 0,
+          "renderedStart": 152.787,
+          "deltaSeconds": 0.21,
+          "strategy": "explicit"
+        },
+        {
+          "id": "tool-result:visual:03",
+          "label": "search results",
+          "cueIndex": 1,
+          "cueText": "再返回结构化结果。",
+          "narrationStart": 155.783,
+          "activeStart": 2.996,
+          "renderedStart": 155.783,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "tool-result:visual:04",
+          "label": "tool_result",
+          "cueIndex": 2,
+          "cueText": "Harness 把 tool result 连同调用标识写回历史，",
+          "narrationStart": 157.226,
+          "activeStart": 4.439,
+          "renderedStart": 157.226,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "tool-result:visual:05",
+          "label": "next decision / final response",
+          "cueIndex": 5,
+          "cueText": "模型读取结果，修正计划，决定下一个动作。",
+          "narrationStart": 168.608,
+          "activeStart": 15.821,
+          "renderedStart": 168.608,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        }
+      ]
+    },
+    {
+      "shotId": "agent-loop",
+      "visualKind": "loop",
+      "shotStart": 176.143,
+      "events": [
+        {
+          "id": "agent-loop:visual:01",
+          "label": "GOAL",
+          "cueIndex": 0,
+          "cueText": "把协议重复起来，就是 Agent Loop：",
+          "narrationStart": 176.393,
+          "activeStart": 0,
+          "renderedStart": 176.603,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "agent-loop:visual:02",
+          "label": "DECIDE",
+          "cueIndex": 2,
+          "cueText": "更新状态，再判断是否继续。ReAct 的关键，",
+          "narrationStart": 185.188,
+          "activeStart": 8.585,
+          "renderedStart": 185.188,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "agent-loop:visual:03",
+          "label": "ACT",
+          "cueIndex": 3,
+          "cueText": "是推理决策与环境行动交错，",
+          "narrationStart": 189.893,
+          "activeStart": 13.29,
+          "renderedStart": 189.893,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "agent-loop:visual:04",
+          "label": "OBSERVE",
+          "cueIndex": 5,
+          "cueText": "工程实现不需要展示模型的私有思维链，",
+          "narrationStart": 195.211,
+          "activeStart": 18.608,
+          "renderedStart": 195.211,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "agent-loop:visual:05",
+          "label": "UPDATE",
+          "cueIndex": 6,
+          "cueText": "只需要保存可检查的决策、调用、结果和状态变化。",
+          "narrationStart": 198.893,
+          "activeStart": 22.29,
+          "renderedStart": 198.893,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "stop-reasons",
+      "visualKind": "topology",
+      "shotStart": 203.597,
+      "events": [
+        {
+          "id": "stop-reasons:visual:01",
+          "label": "DONE",
+          "cueIndex": 0,
+          "cueText": "循环必须有出口。完成标准满足时返回 done；",
+          "narrationStart": 203.847,
+          "activeStart": 0,
+          "renderedStart": 204.057,
+          "deltaSeconds": 0.21,
+          "strategy": "explicit"
+        },
+        {
+          "id": "stop-reasons:visual:02",
+          "label": "FAILED",
+          "cueIndex": 1,
+          "cueText": "工具持续失败时进入 failed；缺少权限、",
+          "narrationStart": 208.648,
+          "activeStart": 4.591,
+          "renderedStart": 208.648,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "stop-reasons:visual:03",
+          "label": "NEEDS HUMAN",
+          "cueIndex": 2,
+          "cueText": "信息或高风险批准时进入 needs human；",
+          "narrationStart": 213.24,
+          "activeStart": 9.183,
+          "renderedStart": 213.24,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "stop-reasons:visual:04",
+          "label": "CANCELLED",
+          "cueIndex": 3,
+          "cueText": "用户也可以取消。",
+          "narrationStart": 218.25,
+          "activeStart": 14.192,
+          "renderedStart": 218.25,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        }
+      ]
+    },
+    {
+      "shotId": "planning-modes",
+      "visualKind": "compare",
+      "shotStart": 232.861,
+      "events": [
+        {
+          "id": "planning-modes:visual:01",
+          "label": "REACT",
+          "cueIndex": 0,
+          "cueText": "走一步看一步的 ReAct，适合环境变化快、",
+          "narrationStart": 233.111,
+          "activeStart": 0,
+          "renderedStart": 233.321,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "planning-modes:visual:02",
+          "label": "PLAN + EXECUTE",
+          "cueIndex": 6,
+          "cueText": "而不是把一张静态计划表当成真正的规划能力。",
+          "narrationStart": 251.762,
+          "activeStart": 18.441,
+          "renderedStart": 251.762,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "plan-update",
+      "visualKind": "timeline",
+      "shotStart": 255.422,
+      "events": [
+        {
+          "id": "plan-update:visual:01",
+          "label": "research · done",
+          "cueIndex": 0,
+          "cueText": "计划本身也是状态。研究阶段发现参考视频没有字幕，",
+          "narrationStart": 255.672,
+          "activeStart": 0,
+          "renderedStart": 255.882,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "plan-update:visual:02",
+          "label": "script · running",
+          "cueIndex": 2,
+          "cueText": "就要回到资产步骤。",
+          "narrationStart": 264.325,
+          "activeStart": 8.442,
+          "renderedStart": 264.325,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "plan-update:visual:03",
+          "label": "ASR task · inserted",
+          "cueIndex": 3,
+          "cueText": "Harness 记录每个任务的 pending、",
+          "narrationStart": 265.947,
+          "activeStart": 10.064,
+          "renderedStart": 265.947,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "plan-update:visual:04",
+          "label": "assets · blocked",
+          "cueIndex": 5,
+          "cueText": "并把新证据写回计划。能根据结果重规划，",
+          "narrationStart": 274.419,
+          "activeStart": 18.536,
+          "renderedStart": 274.419,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "plan-update:visual:05",
+          "label": "render · pending",
+          "cueIndex": 6,
+          "cueText": "才不是照着清单机械执行。",
+          "narrationStart": 277.844,
+          "activeStart": 21.961,
+          "renderedStart": 277.844,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "context-compose",
+      "visualKind": "stack",
+      "shotStart": 280.007,
+      "events": [
+        {
+          "id": "context-compose:visual:01",
+          "label": "instructions",
+          "cueIndex": 0,
+          "cueText": "模型 API 本身不会跨调用自动记住项目。",
+          "narrationStart": 280.257,
+          "activeStart": 0,
+          "renderedStart": 280.467,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "context-compose:visual:02",
+          "label": "selected history",
+          "cueIndex": 1,
+          "cueText": "每一轮，都是 Harness 重新挑选系统指令、",
+          "narrationStart": 284.306,
+          "activeStart": 3.84,
+          "renderedStart": 284.306,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "context-compose:visual:03",
+          "label": "tool results",
+          "cueIndex": 2,
+          "cueText": "历史消息、工具结果、当前计划和工作区摘要，",
+          "narrationStart": 288.935,
+          "activeStart": 8.468,
+          "renderedStart": 288.935,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "context-compose:visual:04",
+          "label": "plan + state",
+          "cueIndex": 3,
+          "cueText": "再组装进上下文。哪些信息留下，哪些隐藏，",
+          "narrationStart": 292.985,
+          "activeStart": 12.518,
+          "renderedStart": 292.985,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "context-compose:visual:05",
+          "label": "workspace summary",
+          "cueIndex": 4,
+          "cueText": "顺序如何排列，工具说明写得是否清楚，",
+          "narrationStart": 296.842,
+          "activeStart": 16.375,
+          "renderedStart": 296.842,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "context-compose:visual:06",
+          "label": "NEXT REQUEST",
+          "cueIndex": 5,
+          "cueText": "都会直接改变模型下一轮能做出的判断。",
+          "narrationStart": 300.313,
+          "activeStart": 19.846,
+          "renderedStart": 300.313,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "context-window",
+      "visualKind": "bars",
+      "shotStart": 303.784,
+      "events": [
+        {
+          "id": "context-window:visual:01",
+          "label": "instructions",
+          "cueIndex": 0,
+          "cueText": "上下文窗口有上限。消息、源码和工具结果不断增长，",
+          "narrationStart": 304.034,
+          "activeStart": 0,
+          "renderedStart": 304.244,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "context-window:visual:02",
+          "label": "history",
+          "cueIndex": 2,
+          "cueText": "或者把长历史压缩成摘要，再把摘要带入后续轮次。",
+          "narrationStart": 312.914,
+          "activeStart": 8.67,
+          "renderedStart": 312.914,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "context-window:visual:03",
+          "label": "tool results",
+          "cueIndex": 3,
+          "cueText": "但压缩不是魔法：细节可能丢失，",
+          "narrationStart": 317.169,
+          "activeStart": 12.925,
+          "renderedStart": 317.169,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "context-window:visual:04",
+          "label": "free",
+          "cueIndex": 5,
+          "cueText": "所以关键事实应该落到文件、结构化状态或检查点，",
+          "narrationStart": 322.349,
+          "activeStart": 18.104,
+          "renderedStart": 322.349,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "context-window:visual:05",
+          "label": "after / compacted",
+          "cueIndex": 6,
+          "cueText": "而不是只留在聊天记录里。",
+          "narrationStart": 326.603,
+          "activeStart": 22.359,
+          "renderedStart": 326.603,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "state-memory",
+      "visualKind": "topology",
+      "shotStart": 328.823,
+      "events": [
+        {
+          "id": "state-memory:visual:01",
+          "label": "STATE · 当前进度",
+          "cueIndex": 0,
+          "cueText": "状态、记忆和检查点也要分开。",
+          "narrationStart": 329.073,
+          "activeStart": 0,
+          "renderedStart": 329.283,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "state-memory:visual:02",
+          "label": "MEMORY · 跨任务经验",
+          "cueIndex": 2,
+          "cueText": "长期记忆保存跨任务仍有价值的偏好或经验；",
+          "narrationStart": 334.458,
+          "activeStart": 5.175,
+          "renderedStart": 334.458,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "state-memory:visual:03",
+          "label": "ARTIFACT · 外部成果",
+          "cueIndex": 4,
+          "cueText": "检查点则保存恢复所需的最小快照。崩溃以后，",
+          "narrationStart": 340.997,
+          "activeStart": 11.714,
+          "renderedStart": 340.997,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "state-memory:visual:04",
+          "label": "CHECKPOINT · 恢复快照",
+          "cueIndex": 6,
+          "cueText": "而不是让模型凭模糊摘要猜之前发生了什么。",
+          "narrationStart": 349.075,
+          "activeStart": 19.792,
+          "renderedStart": 349.075,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "multi-agent",
+      "visualKind": "topology",
+      "shotStart": 352.921,
+      "events": [
+        {
+          "id": "multi-agent:visual:01",
+          "label": "RESEARCH",
+          "cueIndex": 0,
+          "cueText": "任务再复杂，可以引入多个 Agent。",
+          "narrationStart": 353.171,
+          "activeStart": 0,
+          "renderedStart": 353.381,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "multi-agent:visual:02",
+          "label": "SCRIPT",
+          "cueIndex": 2,
+          "cueText": "视觉和 QA 派给独立工作台，",
+          "narrationStart": 357.773,
+          "activeStart": 4.391,
+          "renderedStart": 357.773,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "multi-agent:visual:03",
+          "label": "VISUAL",
+          "cueIndex": 5,
+          "cueText": "另一种方式是 Handoff：",
+          "narrationStart": 365.865,
+          "activeStart": 12.483,
+          "renderedStart": 365.865,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "multi-agent:visual:04",
+          "label": "QA",
+          "cueIndex": 7,
+          "cueText": "两种模式都依赖清晰的输入输出契约。",
+          "narrationStart": 372.529,
+          "activeStart": 19.147,
+          "renderedStart": 372.529,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "multi-agent-cost",
+      "visualKind": "curve",
+      "shotStart": 375.226,
+      "events": [
+        {
+          "id": "multi-agent-cost:visual:01",
+          "label": "speed",
+          "cueIndex": 0,
+          "cueText": "多 Agent 不是免费午餐。",
+          "narrationStart": 375.476,
+          "activeStart": 0,
+          "renderedStart": 375.686,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "multi-agent-cost:visual:02",
+          "label": "coordination",
+          "cueIndex": 6,
+          "cueText": "编排才真正有收益。",
+          "narrationStart": 397.02,
+          "activeStart": 21.333,
+          "renderedStart": 397.02,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "structured-output",
+      "visualKind": "code",
+      "shotStart": 398.706,
+      "events": [
+        {
+          "id": "structured-output:visual:01",
+          "label": "  \"args\": {\"fps\": \"fast\"},",
+          "cueIndex": 0,
+          "cueText": "真实系统的第一道可靠性门，是结构化输出。",
+          "narrationStart": 398.956,
+          "activeStart": 0,
+          "renderedStart": 399.166,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "structured-output:visual:02",
+          "label": "validator: $.args.fps must be integer",
+          "cueIndex": 6,
+          "cueText": "不要让一段看起来像 JSON 的字符串直接驱动生产工具。",
+          "narrationStart": 418.083,
+          "activeStart": 18.918,
+          "renderedStart": 418.083,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "retry-idempotency",
+      "visualKind": "timeline",
+      "shotStart": 422.865,
+      "events": [
+        {
+          "id": "retry-idempotency:visual:01",
+          "label": "upload · request id 7F2A",
+          "cueIndex": 0,
+          "cueText": "网络超时不代表动作没有发生。",
+          "narrationStart": 423.115,
+          "activeStart": 0,
+          "renderedStart": 423.325,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "retry-idempotency:visual:02",
+          "label": "timeout · response lost",
+          "cueIndex": 2,
+          "cueText": "使用退避，限制次数，并给有副作用的请求加幂等键。",
+          "narrationStart": 431.005,
+          "activeStart": 7.68,
+          "renderedStart": 431.005,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "retry-idempotency:visual:03",
+          "label": "check idempotency key",
+          "cueIndex": 3,
+          "cueText": "否则第一次上传已经成功，只是响应丢了；",
+          "narrationStart": 435.739,
+          "activeStart": 12.414,
+          "renderedStart": 435.739,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "retry-idempotency:visual:04",
+          "label": "result already committed",
+          "cueIndex": 5,
+          "cueText": "可靠性不是简单写一个 retry，",
+          "narrationStart": 443.235,
+          "activeStart": 19.909,
+          "renderedStart": 443.235,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "retry-idempotency:visual:05",
+          "label": "return existing artifact",
+          "cueIndex": 6,
+          "cueText": "而是知道什么可以安全地再做一次。",
+          "narrationStart": 446.588,
+          "activeStart": 23.263,
+          "renderedStart": 446.588,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "checkpoint-resume",
+      "visualKind": "character",
+      "shotStart": 449.744,
+      "events": [
+        {
+          "id": "checkpoint-resume:visual:01",
+          "label": "research ✓",
+          "cueIndex": 0,
+          "cueText": "如果渲染进程在第十八分钟崩溃，",
+          "narrationStart": 449.994,
+          "activeStart": 0,
+          "renderedStart": 450.204,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "checkpoint-resume:visual:02",
+          "label": "script ✓",
+          "cueIndex": 2,
+          "cueText": "Harness 从检查点恢复已确认的来源、",
+          "narrationStart": 454.864,
+          "activeStart": 4.66,
+          "renderedStart": 454.864,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "checkpoint-resume:visual:03",
+          "label": "voice ✓",
+          "cueIndex": 4,
+          "cueText": "只重跑受影响的下游步骤。恢复以后还要验证指纹，",
+          "narrationStart": 461.42,
+          "activeStart": 11.216,
+          "renderedStart": 461.42,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "checkpoint-resume:visual:04",
+          "label": "render ✕",
+          "cueIndex": 5,
+          "cueText": "避免拿旧音频配新画面。",
+          "narrationStart": 465.729,
+          "activeStart": 15.525,
+          "renderedStart": 465.729,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "checkpoint-resume:visual:05",
+          "label": "resume → frame 12,840",
+          "cueIndex": 7,
+          "cueText": "才能把长任务从演示变成生产。",
+          "narrationStart": 471.91,
+          "activeStart": 21.706,
+          "renderedStart": 471.91,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "prompt-injection",
+      "visualKind": "gates",
+      "shotStart": 474.533,
+      "events": [
+        {
+          "id": "prompt-injection:visual:01",
+          "label": "label data",
+          "cueIndex": 0,
+          "cueText": "安全问题最典型的是 Prompt Injection。",
+          "narrationStart": 474.783,
+          "activeStart": 0,
+          "renderedStart": 474.993,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "prompt-injection:visual:02",
+          "label": "strip active content",
+          "cueIndex": 2,
+          "cueText": "读取密钥并上传。对模型来说，",
+          "narrationStart": 482.898,
+          "activeStart": 7.906,
+          "renderedStart": 482.898,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "prompt-injection:visual:03",
+          "label": "scope context",
+          "cueIndex": 3,
+          "cueText": "这段恶意文字和正常资料都只是上下文 Token。",
+          "narrationStart": 485.217,
+          "activeStart": 10.224,
+          "renderedStart": 485.217,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "prompt-injection:visual:04",
+          "label": "deny secret access",
+          "cueIndex": 5,
+          "cueText": "隔离指令与资料，限制工具权限，",
+          "narrationStart": 493.002,
+          "activeStart": 18.009,
+          "renderedStart": 493.002,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "prompt-injection:visual:05",
+          "label": "SAFE OBSERVATION",
+          "cueIndex": 6,
+          "cueText": "并避免把秘密无条件放进模型可见范围。",
+          "narrationStart": 495.486,
+          "activeStart": 20.493,
+          "renderedStart": 495.486,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "sandbox-approval",
+      "visualKind": "gates",
+      "shotStart": 498.467,
+      "events": [
+        {
+          "id": "sandbox-approval:visual:01",
+          "label": "workspace scope",
+          "cueIndex": 0,
+          "cueText": "Sandbox 把文件、",
+          "narrationStart": 498.717,
+          "activeStart": 0,
+          "renderedStart": 498.927,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "sandbox-approval:visual:02",
+          "label": "network policy",
+          "cueIndex": 2,
+          "cueText": "最小权限让工具只能访问完成任务所需的资源。",
+          "narrationStart": 503.621,
+          "activeStart": 4.694,
+          "renderedStart": 503.621,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "sandbox-approval:visual:03",
+          "label": "secret redaction",
+          "cueIndex": 4,
+          "cueText": "发布内容或付款，也应该停在审批门前，",
+          "narrationStart": 512.056,
+          "activeStart": 13.129,
+          "renderedStart": 512.056,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "sandbox-approval:visual:04",
+          "label": "HUMAN APPROVAL",
+          "cueIndex": 5,
+          "cueText": "让人看见目标、参数和影响范围。",
+          "narrationStart": 515.587,
+          "activeStart": 16.66,
+          "renderedStart": 515.587,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "sandbox-approval:visual:05",
+          "label": "SIDE EFFECT",
+          "cueIndex": 7,
+          "cueText": "但不应该默认替人承担授权。",
+          "narrationStart": 520.884,
+          "activeStart": 21.956,
+          "renderedStart": 520.884,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "guardrail-boundary",
+      "visualKind": "stack",
+      "shotStart": 523.434,
+      "events": [
+        {
+          "id": "guardrail-boundary:visual:01",
+          "label": "authn + authz",
+          "cueIndex": 0,
+          "cueText": "输入过滤、输出检查、",
+          "narrationStart": 523.684,
+          "activeStart": 0,
+          "renderedStart": 523.894,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "guardrail-boundary:visual:02",
+          "label": "sandbox + least privilege",
+          "cueIndex": 1,
+          "cueText": "内容分类器和策略规则都是分层防御，",
+          "narrationStart": 525.605,
+          "activeStart": 1.711,
+          "renderedStart": 525.605,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "guardrail-boundary:visual:03",
+          "label": "approval",
+          "cueIndex": 2,
+          "cueText": "但 Guardrail 不是绝对安全，",
+          "narrationStart": 528.872,
+          "activeStart": 4.978,
+          "renderedStart": 528.872,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "guardrail-boundary:visual:04",
+          "label": "input/output guardrails",
+          "cueIndex": 4,
+          "cueText": "最危险的误解，是因为装了一个过滤器，",
+          "narrationStart": 537.134,
+          "activeStart": 13.24,
+          "renderedStart": 537.134,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "guardrail-boundary:visual:05",
+          "label": "audit + incident response",
+          "cueIndex": 5,
+          "cueText": "就让 Agent 拿到所有密钥和生产权限。",
+          "narrationStart": 540.593,
+          "activeStart": 16.699,
+          "renderedStart": 540.593,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "guardrail-boundary:visual:06",
+          "label": "DEFENSE IN DEPTH",
+          "cueIndex": 6,
+          "cueText": "可靠系统假设防线会失效，并限制失效后的损害。",
+          "narrationStart": 544.628,
+          "activeStart": 20.734,
+          "renderedStart": 544.628,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "feedback-eval",
+      "visualKind": "topology",
+      "shotStart": 548.855,
+      "events": [
+        {
+          "id": "feedback-eval:visual:01",
+          "label": "unit tests",
+          "cueIndex": 0,
+          "cueText": "Agent 变可靠，",
+          "narrationStart": 549.105,
+          "activeStart": 0,
+          "renderedStart": 549.315,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "feedback-eval:visual:02",
+          "label": "citation check",
+          "cueIndex": 2,
+          "cueText": "代码任务跑测试和 lint；",
+          "narrationStart": 554.538,
+          "activeStart": 5.223,
+          "renderedStart": 554.538,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "feedback-eval:visual:03",
+          "label": "ASR review",
+          "cueIndex": 4,
+          "cueText": "画面越界、黑帧和音画同步检查。失败一旦反复出现，",
+          "narrationStart": 560.63,
+          "activeStart": 11.315,
+          "renderedStart": 560.63,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "feedback-eval:visual:04",
+          "label": "visual QA",
+          "cueIndex": 6,
+          "cueText": "权限规则或恢复机制。",
+          "narrationStart": 567.38,
+          "activeStart": 18.065,
+          "renderedStart": 567.38,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "feedback-eval:visual:05",
+          "label": "human review",
+          "cueIndex": 8,
+          "cueText": "就是把经验变成可执行约束。",
+          "narrationStart": 572.319,
+          "activeStart": 23.004,
+          "renderedStart": 572.319,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "trace-metrics",
+      "visualKind": "bars",
+      "shotStart": 574.46,
+      "events": [
+        {
+          "id": "trace-metrics:visual:01",
+          "label": "success",
+          "cueIndex": 0,
+          "cueText": "完整 Trace 记录每次模型请求、工具调用、",
+          "narrationStart": 574.71,
+          "activeStart": 0,
+          "renderedStart": 574.92,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "trace-metrics:visual:02",
+          "label": "verified",
+          "cueIndex": 3,
+          "cueText": "也能计算任务成功率、延迟、成本、",
+          "narrationStart": 586.273,
+          "activeStart": 11.353,
+          "renderedStart": 586.273,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "trace-metrics:visual:03",
+          "label": "no retry",
+          "cueIndex": 6,
+          "cueText": "修复是否真的有效。",
+          "narrationStart": 598.035,
+          "activeStart": 23.115,
+          "renderedStart": 598.035,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "live-trace-start",
+      "visualKind": "swimlane",
+      "shotStart": 599.829,
+      "events": [
+        {
+          "id": "live-trace-start:visual:01",
+          "label": "goal + constraints",
+          "cueIndex": 1,
+          "cueText": "用户目标进入 Harness；它加载女声、片长、",
+          "narrationStart": 601.967,
+          "activeStart": 1.678,
+          "renderedStart": 601.967,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "live-trace-start:visual:02",
+          "label": "tool_call search_sources",
+          "cueIndex": 3,
+          "cueText": "模型先调用 search_sources，",
+          "narrationStart": 609.174,
+          "activeStart": 8.885,
+          "renderedStart": 609.174,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "live-trace-start:visual:03",
+          "label": "schema + network policy",
+          "cueIndex": 4,
+          "cueText": "Harness 校验参数和网络范围后执行；",
+          "narrationStart": 612.777,
+          "activeStart": 12.488,
+          "renderedStart": 612.777,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "live-trace-start:visual:04",
+          "label": "12 results",
+          "cueIndex": 5,
+          "cueText": "十二条来源回流，模型选出四条一手材料，",
+          "narrationStart": 616.381,
+          "activeStart": 16.092,
+          "renderedStart": 616.381,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "live-trace-start:visual:05",
+          "label": "4 primary sources",
+          "cueIndex": 5,
+          "cueText": "十二条来源回流，模型选出四条一手材料，",
+          "narrationStart": 616.381,
+          "activeStart": 16.092,
+          "renderedStart": 616.381,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "live-trace-start:visual:06",
+          "label": "state diff: script running",
+          "cueIndex": 7,
+          "cueText": "再把脚本任务标为 running。",
+          "narrationStart": 623.245,
+          "activeStart": 22.956,
+          "renderedStart": 623.245,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        }
+      ]
+    },
+    {
+      "shotId": "live-trace-recover",
+      "visualKind": "timeline",
+      "shotStart": 626.162,
+      "events": [
+        {
+          "id": "live-trace-recover:visual:01",
+          "label": "render page 12 · timeout",
+          "cueIndex": 0,
+          "cueText": "渲染阶段第一次失败：浏览器在第十二页超时。",
+          "narrationStart": 626.412,
+          "activeStart": 0,
+          "renderedStart": 626.622,
+          "deltaSeconds": 0.21,
+          "strategy": "explicit"
+        },
+        {
+          "id": "live-trace-recover:visual:02",
+          "label": "checkpoint frame 12,840",
+          "cueIndex": 3,
+          "cueText": "而是从 frame checkpoint 恢复，",
+          "narrationStart": 635.954,
+          "activeStart": 9.333,
+          "renderedStart": 635.954,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "live-trace-recover:visual:03",
+          "label": "retry concurrency 4 → 2",
+          "cueIndex": 4,
+          "cueText": "降低并发后重试。随后发布工具请求外部写入，",
+          "narrationStart": 640.119,
+          "activeStart": 13.497,
+          "renderedStart": 640.119,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "live-trace-recover:visual:04",
+          "label": "render complete",
+          "cueIndex": 4,
+          "cueText": "降低并发后重试。随后发布工具请求外部写入，",
+          "narrationStart": 640.119,
+          "activeStart": 13.497,
+          "renderedStart": 640.119,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "live-trace-recover:visual:05",
+          "label": "publish · needs human",
+          "cueIndex": 5,
+          "cueText": "审批门暂停循环；我确认标题、平台和文件指纹，",
+          "narrationStart": 643.762,
+          "activeStart": 17.14,
+          "renderedStart": 643.762,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        },
+        {
+          "id": "live-trace-recover:visual:06",
+          "label": "approved by xiaolan",
+          "cueIndex": 6,
+          "cueText": "才允许继续。一次恢复，一次人工批准，",
+          "narrationStart": 647.579,
+          "activeStart": 20.958,
+          "renderedStart": 647.579,
+          "deltaSeconds": 0,
+          "strategy": "explicit"
+        }
+      ]
+    },
+    {
+      "shotId": "live-trace-finish",
+      "visualKind": "character",
+      "shotStart": 652.437,
+      "events": [
+        {
+          "id": "live-trace-finish:visual:01",
+          "label": "video.mp4 ✓",
+          "cueIndex": 0,
+          "cueText": "最后，ASR 对女声逐段复核，",
+          "narrationStart": 652.687,
+          "activeStart": 0,
+          "renderedStart": 652.897,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "live-trace-finish:visual:02",
+          "label": "subtitles.srt ✓",
+          "cueIndex": 2,
+          "cueText": "只有门槛全部通过，停止原因才写成 done；",
+          "narrationStart": 659.864,
+          "activeStart": 6.967,
+          "renderedStart": 659.864,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "live-trace-finish:visual:03",
+          "label": "citations.json ✓",
+          "cueIndex": 4,
+          "cueText": "来源和可交互制作轨迹。",
+          "narrationStart": 668.33,
+          "activeStart": 15.432,
+          "renderedStart": 668.33,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "live-trace-finish:visual:04",
+          "label": "trace kind · narrative",
+          "cueIndex": 6,
+          "cueText": "这里的轨迹由冻结分镜生成，只示范应记录什么，",
+          "narrationStart": 674.219,
+          "activeStart": 21.321,
+          "renderedStart": 674.219,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "live-trace-finish:visual:05",
+          "label": "raw telemetry · external",
+          "cueIndex": 8,
+          "cueText": "参数、审批和文件哈希。",
+          "narrationStart": 682.5,
+          "activeStart": 29.603,
+          "renderedStart": 682.5,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    },
+    {
+      "shotId": "synthesis",
+      "visualKind": "topology",
+      "shotStart": 684.524,
+      "events": [
+        {
+          "id": "synthesis:visual:01",
+          "label": "MODEL · decide",
+          "cueIndex": 0,
+          "cueText": "现在可以把整套系统折回一句话：",
+          "narrationStart": 684.774,
+          "activeStart": 0,
+          "renderedStart": 684.984,
+          "deltaSeconds": 0.21,
+          "strategy": "proportional"
+        },
+        {
+          "id": "synthesis:visual:02",
+          "label": "HARNESS · orchestrate",
+          "cueIndex": 2,
+          "cueText": "Agent 是围绕目标持续感知和行动的系统；",
+          "narrationStart": 690.329,
+          "activeStart": 5.344,
+          "renderedStart": 690.329,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "synthesis:visual:03",
+          "label": "TOOLS · act",
+          "cueIndex": 4,
+          "cueText": "执行工具、保存状态、控制权限、处理失败，",
+          "narrationStart": 698.475,
+          "activeStart": 13.491,
+          "renderedStart": 698.475,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "synthesis:visual:04",
+          "label": "STATE · remember",
+          "cueIndex": 5,
+          "cueText": "并留下可评测的 Trace。简单确定的任务，",
+          "narrationStart": 702.178,
+          "activeStart": 17.193,
+          "renderedStart": 702.178,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        },
+        {
+          "id": "synthesis:visual:05",
+          "label": "EVALS · verify",
+          "cueIndex": 7,
+          "cueText": "反馈能改变下一步时，Agent 才真正有价值。",
+          "narrationStart": 710.509,
+          "activeStart": 25.525,
+          "renderedStart": 710.509,
+          "deltaSeconds": 0,
+          "strategy": "proportional"
+        }
+      ]
+    }
+  ]
+}

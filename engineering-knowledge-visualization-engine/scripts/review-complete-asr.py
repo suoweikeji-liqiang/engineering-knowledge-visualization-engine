@@ -58,7 +58,10 @@ def transcribe(path: Path) -> str:
             response = requests.post(f"{endpoint}/chat/completions", headers=headers, json=payload, timeout=300)
             response.raise_for_status()
             heard = response.json()["choices"][0]["message"]["content"].strip()
-            refusal_markers = ("没有收到任何音频", "上传音频文件", "无法访问音频", "未提供音频")
+            refusal_markers = (
+                "没有收到任何音频", "上传音频文件", "无法访问音频", "未提供音频",
+                "我是文本生成AI", "无法处理音频", "无法接收或处理音频", "基于文本的AI助手",
+            )
             if not clean(heard) or any(marker in heard for marker in refusal_markers):
                 raise ValueError("MiMo returned an empty or no-audio transcription")
             return heard

@@ -37,11 +37,21 @@ for (const shot of shots) {
       if (!event || typeof event !== 'object') errors.push(`swimlane ${shot.id} must use explicit event objects`);
       else if (!lanes.has(event.from) || !lanes.has(event.to) || event.from === event.to || !event.label) errors.push(`swimlane ${shot.id} has invalid event ${JSON.stringify(event)}`);
     }
+    if ((shot.visual.events ?? []).some(event => event.label === 'next model call' && event.from === 'MODEL')) {
+      errors.push(`swimlane ${shot.id} labels a MODEL response as next model call`);
+    }
   }
   if (shot.visual?.kind === 'code') {
     const jsonLines = (shot.visual.lines ?? []).filter(line => !String(line).startsWith('validator:'));
     try { JSON.parse(jsonLines.join('\n')); } catch { errors.push(`code shot ${shot.id} must show valid JSON before validator output`); }
   }
+}
+
+const stopReasons = shots.find(shot => shot.id === 'stop-reasons');
+if (stopReasons?.visual?.edgeDirection !== 'outbound') errors.push('stop-reasons must direct arrows outward from RUNNING');
+for (const id of ['tool-result', 'stop-reasons', 'live-trace-start', 'live-trace-recover']) {
+  const shot = shots.find(item => item.id === id);
+  if (!shot?.visual?.cueIndexes?.length) errors.push(`${id} must declare explicit semantic cue indexes`);
 }
 
 const core = coverage.requirements ?? [];

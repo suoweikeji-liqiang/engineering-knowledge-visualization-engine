@@ -29,10 +29,13 @@ const events = timeline.shots.map((timing, index) => {
 
 const trace = {
   schemaVersion: '1.0',
-  runId: `agent-harness-complete-${timeline.storyFingerprint.slice(0, 12)}`,
+  traceKind: 'production-narrative',
+  runId: `production-narrative-${timeline.storyFingerprint.slice(0, 12)}`,
   objective: 'Produce a sourced, narrated, animated explanation of AI Agent and Harness.',
-  status: 'done',
-  stopReason: 'all-required-artifacts-generated-and-technical-gates-pass',
+  status: 'complete',
+  stopReason: 'frozen-story-artifacts-generated',
+  evidenceBoundary: 'Generated from the frozen storyboard and media timeline. This is not raw model/tool telemetry.',
+  productionTelemetryStillRequired: ['model request/response ids', 'tool call ids and arguments', 'tool results', 'state diffs', 'approval records', 'retry records', 'checkpoint and artifact hashes'],
   duration: timeline.duration,
   artifacts: [
     'ai-agent-harness-complete.mp4', 'subtitles.srt', 'chapters.json',
@@ -43,9 +46,9 @@ const trace = {
 };
 
 const encoded = JSON.stringify(trace).replaceAll('<', '\\u003c');
-const html = `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>Agent Run Trace</title>
+const html = `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>Production Narrative Trace</title>
 <style>body{margin:0;background:#f4ecdf;color:#292333;font:16px system-ui;padding:32px}h1{margin:0 0 8px}.meta{color:#766b64;margin-bottom:24px}.grid{display:grid;gap:10px}.event{background:#fffaf2;border:1px solid #d8ccbd;border-left:5px solid #2c8e92;border-radius:12px;padding:14px 18px;cursor:pointer}.event.open{border-left-color:#d85562}.head{display:flex;gap:16px;align-items:center}.time{font:13px ui-monospace;color:#765d91}.detail{display:none;margin-top:12px;white-space:pre-wrap;font:13px ui-monospace}.open .detail{display:block}</style>
-<h1>AI Agent 与 Harness · Run Trace</h1><div class="meta" id="meta"></div><div class="grid" id="grid"></div>
+<h1>AI Agent 与 Harness · Production Narrative Trace</h1><div class="meta">由冻结分镜与媒体时间线生成；不是原始模型/工具遥测。</div><div class="meta" id="meta"></div><div class="grid" id="grid"></div>
 <script>const trace=${encoded};const f=s=>{const m=Math.floor(s/60),x=(s%60).toFixed(1);return String(m).padStart(2,'0')+':'+String(x).padStart(4,'0')};document.querySelector('#meta').textContent=trace.status.toUpperCase()+' · '+trace.events.length+' events · '+f(trace.duration);document.querySelector('#grid').innerHTML=trace.events.map(e=>'<article class="event"><div class="head"><b>'+String(e.sequence).padStart(2,'0')+' · '+e.headline+'</b><span class="time">'+f(e.start)+' → '+f(e.end)+'</span></div><div class="detail">'+JSON.stringify(e,null,2)+'</div></article>').join('');document.querySelectorAll('.event').forEach(x=>x.onclick=()=>x.classList.toggle('open'));</script></html>`;
 
 await writeFile(resolve(example, 'final/trace.json'), `${JSON.stringify(trace, null, 2)}\n`, 'utf8');

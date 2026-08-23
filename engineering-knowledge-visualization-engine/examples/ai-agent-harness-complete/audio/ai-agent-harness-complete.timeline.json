@@ -1,9 +1,9 @@
 {
   "schemaVersion": "1.0",
   "storySlug": "ai-agent-harness-complete",
-  "storyFingerprint": "7839666e52fbc274f3f43bf9f392f91038810fbeec119d1c6b333570ca088b00",
+  "storyFingerprint": "9286a3e9230b9f8b6b020ce22947f486bbeb5511540bb82592e2e5740d7e7821",
   "provider": "mimo",
-  "duration": 758.061,
+  "duration": 764.8,
   "shots": [
     {
       "id": "hook",
@@ -170,8 +170,8 @@
     {
       "id": "live-trace-finish",
       "plannedDuration": 14.0,
-      "speechDuration": 27.394,
-      "duration": 27.594
+      "speechDuration": 34.133,
+      "duration": 34.333
     },
     {
       "id": "synthesis",

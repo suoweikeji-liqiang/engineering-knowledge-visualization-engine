@@ -3,6 +3,7 @@ import {Reference, all, chain, createRef, easeInOutCubic, linear, makeProject, t
 import storyDocument from '../../../examples/ai-agent-harness-complete/storyboard/story.json';
 import timeline from '../../../examples/ai-agent-harness-complete/audio/video.timeline.json';
 import captionTimeline from '../../../examples/ai-agent-harness-complete/audio/captions.timeline.json';
+import visualTimeline from '../../../examples/ai-agent-harness-complete/audio/visual-events.timeline.json';
 import {ASTEROID_WARM_THEME as C} from './theme';
 import {CINEMATIC_FONT as FONT, CINEMATIC_MONO as MONO} from './cinematic-sketch';
 
@@ -31,6 +32,7 @@ type Visual = {
   x?: string[];
   note?: string;
   callouts?: string[];
+  edgeDirection?: 'inbound' | 'outbound';
 };
 
 type CompleteShot = {
@@ -46,6 +48,7 @@ const captionsByShot = captionTimeline.cues.reduce<Record<string, (typeof captio
   (result[cue.shotId] ??= []).push(cue);
   return result;
 }, {});
+const visualEventsByShot = Object.fromEntries(visualTimeline.shots.map(shot => [shot.shotId, shot.events]));
 const ACCENTS = [C.red, C.cyan, C.yellow, C.purple, C.green] as const;
 
 type CompleteStage = {root: Reference<Layout>; body: Reference<Layout>; caption: Reference<Txt>; scan: Reference<Rect>};
@@ -98,6 +101,12 @@ function* ambientScan(stage: CompleteStage, duration: number) {
   yield* stage.scan().position.x(820, duration, linear);
 }
 
+function visualDelay(shotId: string, index: number): number {
+  const event = visualEventsByShot[shotId]?.[index];
+  if (!event) throw new Error(`Missing semantic visual cue ${shotId}:${index}`);
+  return event.activeStart;
+}
+
 function* enter(stage: CompleteStage, direction: number) {
   stage.root().position.x(34 * direction);
   stage.root().rotation(0.28 * direction);
@@ -119,7 +128,7 @@ function* captions(stage: CompleteStage, shotId: string, duration: number) {
   const entryOffset = 0.46;
   let elapsed = 0;
   for (const cue of cues) {
-    const cueStart = Math.max(0, cue.localStart - entryOffset);
+    const cueStart = Math.min(duration, Math.max(0, cue.localStart - entryOffset));
     const cueEnd = Math.min(duration, cue.localEnd - entryOffset);
     if (cueStart > elapsed) {
       yield* waitFor(cueStart - elapsed);
@@ -179,12 +188,9 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
   );
   yield* enter(stage, index % 2 ? 1 : -1);
   const active = duration - 0.74;
-  const statusStep = Math.max(0.55, (active * 0.72) / Math.max(1, refs.length));
   yield* all(
-    chain(
-      all(image().opacity(1, 0.4), image().scale(1, 0.55)),
-      ...refs.map(ref => chain(all(ref().opacity(1, 0.28), ref().position.x(0, 0.35)), waitFor(Math.max(0, statusStep - 0.35)))),
-    ),
+    all(image().opacity(1, 0.4), image().scale(1, 0.55)),
+    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.28), ref().position.x(0, 0.35)))),
     image().position.x(-405, active, easeInOutCubic),
     ambientScan(stage, active),
     captions(stage, shot.id, active),
@@ -223,7 +229,9 @@ function* compareShot(view: View2D, shot: CompleteShot, duration: number, index:
   yield* enter(stage, -1);
   const active = duration - 0.74;
   yield* all(
-    chain(all(left().opacity(1, 0.42), left().scale(1, 0.5)), divider().end(1, 0.55), all(right().opacity(1, 0.42), right().scale(1, 0.5))),
+    chain(waitFor(visualDelay(shot.id, 0)), all(left().opacity(1, 0.42), left().scale(1, 0.5))),
+    chain(waitFor((visualDelay(shot.id, 0) + visualDelay(shot.id, 1)) / 2), divider().end(1, 0.55)),
+    chain(waitFor(visualDelay(shot.id, 1)), all(right().opacity(1, 0.42), right().scale(1, 0.5))),
     captions(stage, shot.id, active),
     ambientScan(stage, active),
     waitFor(active),
@@ -265,12 +273,9 @@ function* evidenceShot(view: View2D, shot: CompleteShot, duration: number, index
   );
   yield* enter(stage, 1);
   const active = duration - 0.74;
-  const step = Math.max(0.7, (active * 0.7) / Math.max(1, refs.length));
   yield* all(
-    chain(
-      all(document().opacity(1, 0.4), document().scale(1, 0.52)),
-      ...refs.map(ref => chain(all(ref().opacity(1, 0.3), ref().position.x(0, 0.36)), waitFor(Math.max(0, step - 0.36)))),
-    ),
+    chain(waitFor(visualDelay(shot.id, 0)), all(document().opacity(1, 0.4), document().scale(1, 0.52))),
+    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex + 1)), all(ref().opacity(1, 0.3), ref().position.x(0, 0.36)))),
     document().rotation(0.8, active, easeInOutCubic),
     sourceImage().scale(1.018, active, easeInOutCubic),
     captions(stage, shot.id, active),
@@ -301,7 +306,15 @@ function* topologyShot(view: View2D, shot: CompleteShot, duration: number, index
         const [title, detail] = splitNode(item);
         return (
           <Layout ref={refs[idx]} x={x} y={y} opacity={0} scale={0.76}>
-            <Line points={[[0, 0], [-x * 0.52, -y * 0.52]]} stroke={`${ACCENTS[idx % ACCENTS.length]}88`} lineWidth={4} endArrow arrowSize={12} />
+            <Line
+              points={shot.visual.edgeDirection === 'outbound'
+                ? [[-x * 0.52, -y * 0.52], [-x * 0.34, -y * 0.34]]
+                : [[-x * 0.34, -y * 0.34], [-x * 0.52, -y * 0.52]]}
+              stroke={`${ACCENTS[idx % ACCENTS.length]}88`}
+              lineWidth={5}
+              endArrow
+              arrowSize={18}
+            />
             {paperCard(title, detail || 'system capability', ACCENTS[idx % ACCENTS.length], 300, 132)}
           </Layout>
         );
@@ -321,7 +334,8 @@ function* topologyShot(view: View2D, shot: CompleteShot, duration: number, index
   yield* enter(stage, 1);
   const active = duration - 0.74;
   yield* all(
-    chain(all(center().opacity(1, 0.4), center().scale(1, 0.55)), ...refs.map(ref => all(ref().opacity(1, 0.3), ref().scale(1, 0.4)))),
+    all(center().opacity(1, 0.4), center().scale(1, 0.55)),
+    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.3), ref().scale(1, 0.4)))),
     center().rotation(1.2, active, linear),
     ambientScan(stage, active),
     captions(stage, shot.id, active),
@@ -353,12 +367,9 @@ function* stackShot(view: View2D, shot: CompleteShot, duration: number, index: n
   );
   yield* enter(stage, -1);
   const active = duration - 0.74;
-  const layerStep = Math.max(0.5, (active * 0.68) / Math.max(1, refs.length + 1));
   yield* all(
-    chain(
-      ...refs.map(ref => chain(all(ref().opacity(1, 0.25), ref().scale(1, 0.32)), waitFor(Math.max(0, layerStep - 0.32)))),
-      all(output().opacity(1, 0.38), output().scale(1, 0.48)),
-    ),
+    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.25), ref().scale(1, 0.32)))),
+    chain(waitFor(visualDelay(shot.id, refs.length)), all(output().opacity(1, 0.38), output().scale(1, 0.48))),
     captions(stage, shot.id, active),
     ambientScan(stage, active),
     waitFor(active),
@@ -389,14 +400,16 @@ function* codeShot(view: View2D, shot: CompleteShot, duration: number, index: nu
   );
   yield* enter(stage, 1);
   const active = duration - 0.74;
-  const lineStep = Math.max(0.55, (active * 0.76) / Math.max(1, refs.length));
-  const scanLines = refs.map((ref, idx) => chain(
-    ref().fill('#D5A42D2E', 0.16),
-    waitFor(Math.max(0, lineStep - 0.32)),
-    ref().fill(shot.visual.focus?.includes(idx + 1) ? '#D5A42D22' : '#FFFFFF00', 0.16),
+  const focusIndexes = (shot.visual.focus?.length ? shot.visual.focus : refs.map((_, idx) => idx + 1)).map(value => value - 1);
+  const scanLines = focusIndexes.map((lineIndex, cueIndex) => chain(
+    waitFor(visualDelay(shot.id, cueIndex)),
+    refs[lineIndex]().fill('#D5A42D2E', 0.16),
+    waitFor(0.24),
+    refs[lineIndex]().fill('#D5A42D22', 0.16),
   ));
   yield* all(
-    chain(all(editor().opacity(1, 0.35), editor().scale(1, 0.45)), ...scanLines),
+    all(editor().opacity(1, 0.35), editor().scale(1, 0.45)),
+    ...scanLines,
     captions(stage, shot.id, active),
     ambientScan(stage, active),
     waitFor(active),
@@ -410,12 +423,12 @@ function* gatesShot(view: View2D, shot: CompleteShot, duration: number, index: n
   const refs = gates.map(() => createRef<Layout>());
   const pulse = createRef<Circle>();
   const output = createRef<Layout>();
-  const startX = -650;
-  const step = gates.length > 1 ? 1050 / (gates.length - 1) : 0;
+  const startX = -430;
+  const step = gates.length > 1 ? 860 / (gates.length - 1) : 0;
   stage.body().add(
     <>
-      <Line points={[[startX - 130, 55], [650, 55]]} stroke={C.line} lineWidth={8} radius={18} />
-      <Layout x={startX - 180} y={55}>{paperCard(shot.visual.input ?? 'INPUT', 'untrusted request', C.yellow, 240, 120)}</Layout>
+      <Line points={[[-680, 55], [680, 55]]} stroke={C.line} lineWidth={8} radius={18} />
+      <Layout x={-680} y={55}>{paperCard(shot.visual.input ?? 'INPUT', 'untrusted request', C.yellow, 240, 120)}</Layout>
       {gates.map((gate, idx) => (
         <Layout ref={refs[idx]} x={startX + idx * step} y={55} opacity={0} scale={0.8}>
           <Rect width={190} height={190} radius={28} fill={C.panel} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={4}>
@@ -424,14 +437,21 @@ function* gatesShot(view: View2D, shot: CompleteShot, duration: number, index: n
           </Rect>
         </Layout>
       ))}
-      <Layout ref={output} x={730} y={55} opacity={0}>{paperCard(shot.visual.output ?? 'OUTPUT', 'allowed action', C.green, 260, 120)}</Layout>
-      <Circle ref={pulse} x={startX - 180} y={55} width={28} height={28} fill={C.red} shadowColor={C.red} shadowBlur={25} />
+      <Layout ref={output} x={680} y={55} opacity={0}>{paperCard(shot.visual.output ?? 'OUTPUT', 'allowed action', C.green, 260, 120)}</Layout>
+      <Circle ref={pulse} x={-680} y={55} width={28} height={28} fill={C.red} shadowColor={C.red} shadowBlur={25} />
     </>,
   );
   yield* enter(stage, -1);
   const active = duration - 0.74;
-  const moves = refs.map((ref, idx) => chain(pulse().position.x(startX + idx * step, 0.42, linear), all(ref().opacity(1, 0.24), ref().scale(1, 0.3))));
-  yield* all(chain(...moves, pulse().position.x(730, 0.5, linear), output().opacity(1, 0.3)), captions(stage, shot.id, active), ambientScan(stage, active), waitFor(active));
+  const moves = refs.map((_, idx) => pulse().position.x(startX + idx * step, Math.max(0.42, active * 0.72 / Math.max(1, refs.length + 1)), linear));
+  yield* all(
+    chain(...moves, pulse().position.x(680, 0.5, linear)),
+    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.24), ref().scale(1, 0.3)))),
+    chain(waitFor(visualDelay(shot.id, refs.length)), output().opacity(1, 0.3)),
+    captions(stage, shot.id, active),
+    ambientScan(stage, active),
+    waitFor(active),
+  );
   yield* exit(stage, 1);
 }
 
@@ -470,9 +490,8 @@ function* swimlaneShot(view: View2D, shot: CompleteShot, duration: number, index
   );
   yield* enter(stage, 1);
   const active = duration - 0.74;
-  const eventStep = Math.max(0.55, (active * 0.78) / Math.max(1, refs.length));
   yield* all(
-    chain(...refs.map(ref => chain(ref().opacity(1, 0.28), waitFor(Math.max(0, eventStep - 0.28))))),
+    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), ref().opacity(1, 0.28))),
     captions(stage, shot.id, active),
     ambientScan(stage, active),
     waitFor(active),
@@ -501,7 +520,8 @@ function* loopShot(view: View2D, shot: CompleteShot, duration: number, index: nu
   const moveDuration = Math.max(0.42, (active * 0.62) / Math.max(1, pathPoints.length * 2 + 1));
   const moves = [...pathPoints, positions[0], ...pathPoints, positions[0]].map(point => pulse().position(point, moveDuration, linear));
   yield* all(
-    chain(path().end(1, 1.35, easeInOutCubic), ...refs.map(ref => all(ref().opacity(1, 0.22), ref().scale(1, 0.3))), pulse().opacity(1, 0.2), ...moves, pulse().position(positions[0], 0.5, linear)),
+    chain(path().end(1, 1.35, easeInOutCubic), pulse().opacity(1, 0.2), ...moves, pulse().position(positions[0], 0.5, linear)),
+    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.22), ref().scale(1, 0.3)))),
     captions(stage, shot.id, active),
     ambientScan(stage, active),
     waitFor(active),
@@ -536,9 +556,8 @@ function* timelineShot(view: View2D, shot: CompleteShot, duration: number, index
   );
   yield* enter(stage, 1);
   const active = duration - 0.74;
-  const eventStep = Math.max(0.55, (active * 0.76) / Math.max(1, refs.length));
   yield* all(
-    chain(...refs.map(ref => chain(all(ref().opacity(1, 0.22), ref().position.x(0, 0.3)), waitFor(Math.max(0, eventStep - 0.3))))),
+    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.22), ref().position.x(0, 0.3)))),
     scan().position.y(230, active, linear),
     captions(stage, shot.id, active),
     ambientScan(stage, active),
@@ -575,20 +594,23 @@ function* barsShot(view: View2D, shot: CompleteShot, duration: number, index: nu
   yield* enter(stage, -1);
   const active = duration - 0.74;
   const after = shot.visual.after;
-  const grow = chain(...refs.map((ref, idx) => ref().height(390 * (bars[idx].value / max), 0.5, easeInOutCubic)));
+  const grow = all(...refs.map((ref, idx) => chain(
+    waitFor(visualDelay(shot.id, idx)),
+    ref().height(390 * (bars[idx].value / max), 0.5, easeInOutCubic),
+  )));
   const update = after?.length
     ? chain(
-        waitFor(Math.max(0, active * 0.42 - refs.length * 0.5)),
-        ...refs.map((ref, idx) => {
+        waitFor(visualDelay(shot.id, refs.length)),
+        all(...refs.map((ref, idx) => {
           const next = after[idx]?.value ?? bars[idx].value;
           return all(
             ref().height(390 * (next / Math.max(max, ...after.map(item => item.value))), 0.62, easeInOutCubic),
             values[idx]().text(String(next), 0.36),
           );
-        }),
+        })),
       )
     : waitFor(0);
-  yield* all(chain(grow, update), captions(stage, shot.id, active), ambientScan(stage, active), waitFor(active));
+  yield* all(grow, update, captions(stage, shot.id, active), ambientScan(stage, active), waitFor(active));
   yield* exit(stage, 1);
 }
 
@@ -613,7 +635,12 @@ function* curveShot(view: View2D, shot: CompleteShot, duration: number, index: n
   );
   yield* enter(stage, 1);
   const active = duration - 0.74;
-  yield* all(chain(...paths.map(ref => ref().end(1, 0.9, easeInOutCubic))), captions(stage, shot.id, active), ambientScan(stage, active), waitFor(active));
+  yield* all(
+    ...paths.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), ref().end(1, 0.9, easeInOutCubic))),
+    captions(stage, shot.id, active),
+    ambientScan(stage, active),
+    waitFor(active),
+  );
   yield* exit(stage, -1);
 }
 

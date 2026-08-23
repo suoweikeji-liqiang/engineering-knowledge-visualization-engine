@@ -1,10 +1,21 @@
 {
   "schemaVersion": "1.0",
-  "runId": "agent-harness-complete-7839666e52fb",
+  "traceKind": "production-narrative",
+  "runId": "production-narrative-9286a3e9230b",
   "objective": "Produce a sourced, narrated, animated explanation of AI Agent and Harness.",
-  "status": "done",
-  "stopReason": "all-required-artifacts-generated-and-technical-gates-pass",
-  "duration": 715.1518867924528,
+  "status": "complete",
+  "stopReason": "frozen-story-artifacts-generated",
+  "evidenceBoundary": "Generated from the frozen storyboard and media timeline. This is not raw model/tool telemetry.",
+  "productionTelemetryStillRequired": [
+    "model request/response ids",
+    "tool call ids and arguments",
+    "tool results",
+    "state diffs",
+    "approval records",
+    "retry records",
+    "checkpoint and artifact hashes"
+  ],
+  "duration": 714.7663551401869,
   "artifacts": [
     "ai-agent-harness-complete.mp4",
     "subtitles.srt",
@@ -22,8 +33,8 @@
       "headline": "答案出现了，任务还没完成",
       "visualKind": "character",
       "start": 0,
-      "end": 20.473,
-      "duration": 20.472641509433963,
+      "end": 20.281,
+      "duration": 20.28130841121495,
       "citations": [
         "openai-agent-guide"
       ],
@@ -47,9 +58,9 @@
       "id": "bare-model",
       "headline": "一次调用，只完成一次判断",
       "visualKind": "compare",
-      "start": 20.473,
-      "end": 40.923,
-      "duration": 20.45,
+      "start": 20.281,
+      "end": 40.54,
+      "duration": 20.258878504672897,
       "citations": [
         "openai-agent-guide"
       ],
@@ -68,9 +79,9 @@
       "id": "boundary",
       "headline": "Workflow 与 Agent 的边界",
       "visualKind": "evidence",
-      "start": 40.923,
-      "end": 64.486,
-      "duration": 23.56320754716981,
+      "start": 40.54,
+      "end": 63.883,
+      "duration": 23.342990654205607,
       "citations": [
         "openai-agent-guide",
         "anthropic-effective-agents"
@@ -91,9 +102,9 @@
       "id": "components",
       "headline": "Agent 的五个基本构件",
       "visualKind": "topology",
-      "start": 64.486,
-      "end": 84.085,
-      "duration": 19.599056603773583,
+      "start": 63.883,
+      "end": 83.299,
+      "duration": 19.415887850467286,
       "citations": [
         "openai-agent-guide",
         "microsoft-agent-harness"
@@ -118,9 +129,9 @@
       "id": "request-compose",
       "headline": "第一步：组装模型请求",
       "visualKind": "stack",
-      "start": 84.085,
-      "end": 107.747,
-      "duration": 23.662264150943397,
+      "start": 83.299,
+      "end": 106.74,
+      "duration": 23.441121495327103,
       "citations": [
         "openai-agent-guide"
       ],
@@ -146,9 +157,9 @@
       "id": "tool-decision",
       "headline": "第二步：模型提出 Tool Call",
       "visualKind": "code",
-      "start": 107.747,
-      "end": 130.625,
-      "duration": 22.877358490566035,
+      "start": 106.74,
+      "end": 129.404,
+      "duration": 22.663551401869157,
       "citations": [
         "openai-agent-guide"
       ],
@@ -169,9 +180,9 @@
       "id": "validate-route",
       "headline": "第三步：校验、权限与路由",
       "visualKind": "gates",
-      "start": 130.625,
-      "end": 153.764,
-      "duration": 23.139622641509433,
+      "start": 129.404,
+      "end": 152.327,
+      "duration": 22.923364485981306,
       "citations": [
         "openai-agent-guide",
         "owasp-prompt-injection"
@@ -192,9 +203,9 @@
       "id": "tool-result",
       "headline": "第四步：结果回流成为 Observation",
       "visualKind": "swimlane",
-      "start": 153.764,
-      "end": 177.805,
-      "duration": 24.04056603773585,
+      "start": 152.327,
+      "end": 176.143,
+      "duration": 23.815887850467288,
       "citations": [
         "react-paper",
         "openai-agent-guide"
@@ -227,7 +238,7 @@
         {
           "from": "MODEL",
           "to": "HARNESS",
-          "label": "next model call",
+          "label": "next decision / final response",
           "semanticType": "next-decision"
         }
       ],
@@ -247,9 +258,9 @@
       "id": "agent-loop",
       "headline": "Decision → Action → Observation",
       "visualKind": "loop",
-      "start": 177.805,
-      "end": 205.518,
-      "duration": 27.713207547169812,
+      "start": 176.143,
+      "end": 203.597,
+      "duration": 27.454205607476634,
       "citations": [
         "react-paper"
       ],
@@ -275,9 +286,9 @@
       "id": "stop-reasons",
       "headline": "没有 Stop Reason，就没有可靠 Agent",
       "visualKind": "topology",
-      "start": 205.518,
-      "end": 235.058,
-      "duration": 29.539622641509432,
+      "start": 203.597,
+      "end": 232.861,
+      "duration": 29.263551401869158,
       "citations": [
         "openai-agent-guide"
       ],
@@ -302,9 +313,9 @@
       "id": "planning-modes",
       "headline": "ReAct 与 Plan-and-Execute",
       "visualKind": "compare",
-      "start": 235.058,
-      "end": 257.832,
-      "duration": 22.77452830188679,
+      "start": 232.861,
+      "end": 255.422,
+      "duration": 22.561682242990653,
       "citations": [
         "react-paper",
         "anthropic-effective-agents"
@@ -325,9 +336,9 @@
       "id": "plan-update",
       "headline": "计划要随着证据更新",
       "visualKind": "timeline",
-      "start": 257.832,
-      "end": 282.648,
-      "duration": 24.816037735849054,
+      "start": 255.422,
+      "end": 280.007,
+      "duration": 24.584112149532707,
       "citations": [
         "anthropic-effective-agents"
       ],
@@ -353,9 +364,9 @@
       "id": "context-compose",
       "headline": "每一轮，都要重新组装 Context",
       "visualKind": "stack",
-      "start": 282.648,
-      "end": 306.65,
-      "duration": 24.00188679245283,
+      "start": 280.007,
+      "end": 303.784,
+      "duration": 23.777570093457943,
       "citations": [
         "microsoft-agent-harness",
         "anthropic-effective-agents"
@@ -381,9 +392,9 @@
       "id": "context-window",
       "headline": "Compaction 腾出空间，也会损失信息",
       "visualKind": "bars",
-      "start": 306.65,
-      "end": 331.925,
-      "duration": 25.275471698113208,
+      "start": 303.784,
+      "end": 328.823,
+      "duration": 25.039252336448598,
       "citations": [
         "microsoft-agent-harness"
       ],
@@ -403,11 +414,12 @@
       "id": "state-memory",
       "headline": "State、Memory、Artifact、Checkpoint",
       "visualKind": "topology",
-      "start": 331.925,
-      "end": 356.251,
-      "duration": 24.325471698113205,
+      "start": 328.823,
+      "end": 352.921,
+      "duration": 24.098130841121495,
       "citations": [
-        "microsoft-agent-harness"
+        "microsoft-agent-harness",
+        "microsoft-checkpoints"
       ],
       "semanticEvents": [
         "STATE · 当前进度",
@@ -430,9 +442,9 @@
       "id": "multi-agent",
       "headline": "Manager 与 Handoff 两种编排",
       "visualKind": "topology",
-      "start": 356.251,
-      "end": 378.766,
-      "duration": 22.51509433962264,
+      "start": 352.921,
+      "end": 375.226,
+      "duration": 22.30467289719626,
       "citations": [
         "openai-agent-guide",
         "anthropic-effective-agents"
@@ -459,9 +471,9 @@
       "id": "multi-agent-cost",
       "headline": "并行收益与协调成本",
       "visualKind": "curve",
-      "start": 378.766,
-      "end": 402.467,
-      "duration": 23.700943396226414,
+      "start": 375.226,
+      "end": 398.706,
+      "duration": 23.479439252336448,
       "citations": [
         "anthropic-effective-agents"
       ],
@@ -481,9 +493,9 @@
       "id": "structured-output",
       "headline": "坏 JSON 不能直接进入工具",
       "visualKind": "code",
-      "start": 402.467,
-      "end": 426.855,
-      "duration": 24.3877358490566,
+      "start": 398.706,
+      "end": 422.865,
+      "duration": 24.159813084112148,
       "citations": [
         "openai-agent-guide"
       ],
@@ -503,11 +515,11 @@
       "id": "retry-idempotency",
       "headline": "Retry 之前，先证明可以重放",
       "visualKind": "timeline",
-      "start": 426.855,
-      "end": 453.987,
-      "duration": 27.132075471698112,
+      "start": 422.865,
+      "end": 449.744,
+      "duration": 26.878504672897197,
       "citations": [
-        "microsoft-agent-harness"
+        "aws-idempotent-apis"
       ],
       "semanticEvents": [
         "upload · request id 7F2A",
@@ -531,11 +543,11 @@
       "id": "checkpoint-resume",
       "headline": "从检查点恢复，而不是从头猜",
       "visualKind": "character",
-      "start": 453.987,
-      "end": 479.009,
-      "duration": 25.022641509433964,
+      "start": 449.744,
+      "end": 474.533,
+      "duration": 24.78878504672897,
       "citations": [
-        "microsoft-agent-harness"
+        "microsoft-checkpoints"
       ],
       "semanticEvents": [
         "research ✓",
@@ -560,9 +572,9 @@
       "id": "prompt-injection",
       "headline": "工具结果也可能携带攻击指令",
       "visualKind": "gates",
-      "start": 479.009,
-      "end": 503.17,
-      "duration": 24.160377358490564,
+      "start": 474.533,
+      "end": 498.467,
+      "duration": 23.934579439252335,
       "citations": [
         "owasp-prompt-injection"
       ],
@@ -582,9 +594,9 @@
       "id": "sandbox-approval",
       "headline": "权限边界与 Human Approval",
       "visualKind": "gates",
-      "start": 503.17,
-      "end": 528.372,
-      "duration": 25.20188679245283,
+      "start": 498.467,
+      "end": 523.434,
+      "duration": 24.966355140186913,
       "citations": [
         "openai-agent-guide",
         "owasp-prompt-injection"
@@ -606,9 +618,9 @@
       "id": "guardrail-boundary",
       "headline": "Guardrail 是一层防线，不是护身符",
       "visualKind": "stack",
-      "start": 528.372,
-      "end": 554.033,
-      "duration": 25.66132075471698,
+      "start": 523.434,
+      "end": 548.855,
+      "duration": 25.421495327102804,
       "citations": [
         "owasp-prompt-injection",
         "openai-agent-guide"
@@ -635,9 +647,9 @@
       "id": "feedback-eval",
       "headline": "把重复失败，变成确定性反馈",
       "visualKind": "topology",
-      "start": 554.033,
-      "end": 579.879,
-      "duration": 25.846226415094335,
+      "start": 548.855,
+      "end": 574.46,
+      "duration": 25.60467289719626,
       "citations": [
         "anthropic-effective-agents",
         "openai-agent-guide"
@@ -666,9 +678,9 @@
       "id": "trace-metrics",
       "headline": "可观测，才能评测和改进",
       "visualKind": "bars",
-      "start": 579.879,
-      "end": 605.488,
-      "duration": 25.608490566037734,
+      "start": 574.46,
+      "end": 599.829,
+      "duration": 25.36915887850467,
       "citations": [
         "openai-agent-guide"
       ],
@@ -686,11 +698,11 @@
     {
       "sequence": 26,
       "id": "live-trace-start",
-      "headline": "Live Trace 01 · 从目标到第一轮工具结果",
+      "headline": "Narrative Trace 01 · 从目标到第一轮工具结果",
       "visualKind": "swimlane",
-      "start": 605.488,
-      "end": 632.069,
-      "duration": 26.581132075471697,
+      "start": 599.829,
+      "end": 626.162,
+      "duration": 26.332710280373828,
       "citations": [
         "openai-agent-guide"
       ],
@@ -746,13 +758,13 @@
     {
       "sequence": 27,
       "id": "live-trace-recover",
-      "headline": "Live Trace 02 · 失败恢复与人工批准",
+      "headline": "Narrative Trace 02 · 失败恢复与人工批准",
       "visualKind": "timeline",
-      "start": 632.069,
-      "end": 658.592,
-      "duration": 26.523584905660375,
+      "start": 626.162,
+      "end": 652.437,
+      "duration": 26.275700934579437,
       "citations": [
-        "microsoft-agent-harness",
+        "microsoft-checkpoints",
         "openai-agent-guide"
       ],
       "semanticEvents": [
@@ -777,11 +789,11 @@
     {
       "sequence": 28,
       "id": "live-trace-finish",
-      "headline": "Live Trace 03 · Artifact 与可回放证据",
+      "headline": "Narrative Trace 03 · Artifact 与证据边界",
       "visualKind": "character",
-      "start": 658.592,
-      "end": 684.625,
-      "duration": 26.032075471698114,
+      "start": 652.437,
+      "end": 684.524,
+      "duration": 32.086915887850466,
       "citations": [
         "openai-agent-guide"
       ],
@@ -789,8 +801,8 @@
         "video.mp4 ✓",
         "subtitles.srt ✓",
         "citations.json ✓",
-        "trace.json ✓",
-        "stop reason · DONE"
+        "trace kind · narrative",
+        "raw telemetry · external"
       ],
       "captionCueIds": [
         193,
@@ -800,7 +812,8 @@
         197,
         198,
         199,
-        200
+        200,
+        201
       ]
     },
     {
@@ -808,9 +821,9 @@
       "id": "synthesis",
       "headline": "MODEL 判断 · HARNESS 落地 · AGENT 完成目标",
       "visualKind": "topology",
-      "start": 684.625,
-      "end": 715.153,
-      "duration": 30.528301886792452,
+      "start": 684.524,
+      "end": 714.767,
+      "duration": 30.242990654205606,
       "citations": [
         "openai-agent-guide",
         "anthropic-effective-agents",
@@ -824,14 +837,14 @@
         "EVALS · verify"
       ],
       "captionCueIds": [
-        201,
         202,
         203,
         204,
         205,
         206,
         207,
-        208
+        208,
+        209
       ]
     }
   ]

@@ -9,6 +9,7 @@ const timeline = JSON.parse(await readFile(resolve(example, 'audio/video.timelin
 const asr = JSON.parse(await readFile(resolve(example, 'evaluation/asr-report.json'), 'utf8'));
 const subtitles = await readFile(resolve(example, 'final/subtitles.srt'), 'utf8');
 const captionTimeline = JSON.parse(await readFile(resolve(example, 'audio/captions.timeline.json'), 'utf8'));
+const visualTimeline = JSON.parse(await readFile(resolve(example, 'audio/visual-events.timeline.json'), 'utf8'));
 const trace = JSON.parse(await readFile(resolve(example, 'final/trace.json'), 'utf8'));
 
 function run(command, args) {
@@ -39,11 +40,16 @@ const subtitleCues = (subtitles.match(/--> /g) ?? []).length;
 const shotStarts = Object.fromEntries(timeline.shots.map((shot, index) => [shot.id, timeline.shots.slice(0, index).reduce((sum, item) => sum + item.duration, 0)]));
 const captionSync = captionTimeline.cues.map(cue => {
   const expected = cue.start;
-  const rendered = shotStarts[cue.shotId] + Math.max(0.46, cue.localStart);
+  const shotDuration = timeline.shots.find(shot => shot.id === cue.shotId).duration;
+  const activeStart = Math.min(shotDuration - 0.74, Math.max(0, cue.localStart - 0.46));
+  const rendered = shotStarts[cue.shotId] + 0.46 + activeStart;
   return {shotId: cue.shotId, delta: Math.abs(rendered - expected)};
 });
 const captionSyncWithin500ms = captionSync.filter(item => item.delta <= 0.5).length / captionSync.length;
 const maximumCaptionSyncDelta = Math.max(...captionSync.map(item => item.delta), 0);
+const visualEvents = visualTimeline.shots.flatMap(shot => shot.events);
+const semanticVisualSyncWithin500ms = visualEvents.filter(event => event.deltaSeconds <= 0.5).length / visualEvents.length;
+const maximumSemanticVisualDelta = Math.max(...visualEvents.map(event => event.deltaSeconds), 0);
 
 const checks = {
   durationMatchesTimeline: Math.abs(duration - timeline.duration) <= 0.1,
@@ -56,7 +62,8 @@ const checks = {
   asrAllSegmentsPass: asr.summary.segments === timeline.shots.length && asr.summary.below0_8 === 0 && asr.summary.errors === 0,
   subtitleCoverage: subtitleCues >= timeline.shots.length,
   captionTimelineWithin500ms: captionSyncWithin500ms >= 0.95,
-  traceDelivered: trace.status === 'done' && trace.events.length === timeline.shots.length,
+  semanticVisualEventsWithin500ms: semanticVisualSyncWithin500ms >= 0.95,
+  traceDelivered: trace.status === 'complete' && trace.traceKind === 'production-narrative' && trace.events.length === timeline.shots.length,
 };
 
 const report = {
@@ -78,7 +85,8 @@ const report = {
   motion: {freezeSegmentsOver3Seconds: freezeDurations.length, frozenSeconds, frozenFraction: frozenSeconds / duration, maximumFreezeSeconds},
   asr: asr.summary,
   subtitles: {cues: subtitleCues, within500ms: captionSyncWithin500ms, maximumDeltaSeconds: maximumCaptionSyncDelta},
-  trace: {runId: trace.runId, status: trace.status, events: trace.events.length},
+  visualEvents: {events: visualEvents.length, within500ms: semanticVisualSyncWithin500ms, maximumDeltaSeconds: maximumSemanticVisualDelta},
+  trace: {runId: trace.runId, status: trace.status, kind: trace.traceKind, events: trace.events.length},
   checks,
   pass: Object.values(checks).every(Boolean),
 };

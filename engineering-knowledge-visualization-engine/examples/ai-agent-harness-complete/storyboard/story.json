@@ -6,7 +6,7 @@
     "episode": "benchmark-02",
     "resolution": [1920, 1080],
     "fps": 30,
-    "playbackRate": 1.06,
+    "playbackRate": 1.07,
     "video": "examples/ai-agent-harness-complete/final/ai-agent-harness-complete.mp4",
     "audio": "examples/ai-agent-harness-complete/audio/ai-agent-harness-complete.wav",
     "poster": "examples/ai-agent-harness-complete/final/ai-agent-harness-complete-poster.png"
@@ -34,7 +34,7 @@
     {"id": "ch06", "title": "可靠性闯关", "shotIds": ["structured-output", "retry-idempotency", "checkpoint-resume"]},
     {"id": "ch07", "title": "安全与审批", "shotIds": ["prompt-injection", "sandbox-approval", "guardrail-boundary"]},
     {"id": "ch08", "title": "反馈、评测与可观测", "shotIds": ["feedback-eval", "trace-metrics"]},
-    {"id": "ch09", "title": "完整 Live Trace", "shotIds": ["live-trace-start", "live-trace-recover", "live-trace-finish"]},
+    {"id": "ch09", "title": "制作叙事 Trace", "shotIds": ["live-trace-start", "live-trace-recover", "live-trace-finish"]},
     {"id": "ch10", "title": "回到一张系统图", "shotIds": ["synthesis"]}
   ],
   "shots": [
@@ -147,7 +147,7 @@
       "sfx": ["data-pulse", "terminal-success"],
       "states": [],
       "scene": {"id": "scene.tool-result", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "swimlane"}, "camera": {"framing": "wide", "movement": "pan"}},
-      "visual": {"kind": "swimlane", "lanes": ["MODEL", "HARNESS", "TOOLS"], "events": [{"from": "MODEL", "to": "HARNESS", "label": "tool_call", "semanticType": "model-decision"}, {"from": "HARNESS", "to": "TOOLS", "label": "validate + execute", "semanticType": "validated-action"}, {"from": "TOOLS", "to": "HARNESS", "label": "search results", "semanticType": "raw-result"}, {"from": "HARNESS", "to": "MODEL", "label": "tool_result", "semanticType": "observation"}, {"from": "MODEL", "to": "HARNESS", "label": "next model call", "semanticType": "next-decision"}], "continuityKey": "tool-call"},
+      "visual": {"kind": "swimlane", "lanes": ["MODEL", "HARNESS", "TOOLS"], "events": [{"from": "MODEL", "to": "HARNESS", "label": "tool_call", "semanticType": "model-decision"}, {"from": "HARNESS", "to": "TOOLS", "label": "validate + execute", "semanticType": "validated-action"}, {"from": "TOOLS", "to": "HARNESS", "label": "search results", "semanticType": "raw-result"}, {"from": "HARNESS", "to": "MODEL", "label": "tool_result", "semanticType": "observation"}, {"from": "MODEL", "to": "HARNESS", "label": "next decision / final response", "semanticType": "next-decision"}], "cueIndexes": [0, 0, 1, 2, 5], "continuityKey": "tool-call"},
       "citations": ["react-paper", "openai-agent-guide"]
     },
     {
@@ -175,7 +175,7 @@
       "sfx": ["soft-tick", "impact"],
       "states": [],
       "scene": {"id": "scene.stop-reasons", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "state-machine"}, "camera": {"framing": "wide", "movement": "static"}},
-      "visual": {"kind": "topology", "center": "RUNNING", "nodes": ["DONE", "FAILED", "NEEDS HUMAN", "CANCELLED"], "meters": ["iterations 4/12", "time 38/120s", "budget ¥0.42/2.00"], "continuityKey": "agent-loop"},
+      "visual": {"kind": "topology", "center": "RUNNING", "nodes": ["DONE", "FAILED", "NEEDS HUMAN", "CANCELLED"], "edgeDirection": "outbound", "cueIndexes": [0, 1, 2, 3], "meters": ["iterations 4/12", "time 38/120s", "budget ¥0.42/2.00"], "continuityKey": "agent-loop"},
       "citations": ["openai-agent-guide"]
     },
     {
@@ -246,7 +246,7 @@
       "states": [],
       "scene": {"id": "scene.state-memory", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "four-quadrants"}, "camera": {"framing": "wide", "movement": "static"}},
       "visual": {"kind": "topology", "center": "SESSION", "nodes": ["STATE · 当前进度", "MEMORY · 跨任务经验", "ARTIFACT · 外部成果", "CHECKPOINT · 恢复快照"], "continuityKey": "context-stack"},
-      "citations": ["microsoft-agent-harness"]
+      "citations": ["microsoft-agent-harness", "microsoft-checkpoints"]
     },
     {
       "id": "multi-agent",
@@ -302,7 +302,7 @@
       "states": [],
       "scene": {"id": "scene.retry-idempotency", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "trace-inspector"}, "camera": {"framing": "wide", "movement": "follow"}},
       "visual": {"kind": "timeline", "events": ["upload · request id 7F2A", "timeout · response lost", "check idempotency key", "result already committed", "return existing artifact"], "continuityKey": "reliability-run"},
-      "citations": ["microsoft-agent-harness"]
+      "citations": ["aws-idempotent-apis"]
     },
     {
       "id": "checkpoint-resume",
@@ -316,7 +316,7 @@
       "states": [],
       "scene": {"id": "scene.checkpoint-resume", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "character-recovery"}, "camera": {"framing": "medium-wide", "movement": "pan"}},
       "visual": {"kind": "character", "asset": "xiaolan-recover-path.png", "status": ["research ✓", "script ✓", "voice ✓", "render ✕", "resume → frame 12,840"], "continuityKey": "reliability-run"},
-      "citations": ["microsoft-agent-harness"]
+      "citations": ["microsoft-checkpoints"]
     },
     {
       "id": "prompt-injection",
@@ -393,13 +393,13 @@
       "duration": 15,
       "speaker": "xiaolan",
       "dialogue": "现在把整条链路跑一遍。用户目标进入 Harness；它加载女声、片长、来源和品牌约束，建立计划并请求模型。模型先调用 search_sources，Harness 校验参数和网络范围后执行；十二条来源回流，模型选出四条一手材料，写入 citation manifest，再把脚本任务标为 running。",
-      "headline": "Live Trace 01 · 从目标到第一轮工具结果",
+      "headline": "Narrative Trace 01 · 从目标到第一轮工具结果",
       "diagram": "live-trace-start",
       "transition": "terminal-run",
       "sfx": ["task-inject", "data-pulse", "terminal-success"],
       "states": [],
       "scene": {"id": "scene.live-trace-start", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "interactive-trace"}, "camera": {"framing": "wide", "movement": "pan"}},
-      "visual": {"kind": "swimlane", "lanes": ["MODEL", "HARNESS", "TOOLS"], "events": [{"from": "HARNESS", "to": "MODEL", "label": "goal + constraints", "semanticType": "request"}, {"from": "MODEL", "to": "HARNESS", "label": "tool_call search_sources", "semanticType": "model-decision"}, {"from": "HARNESS", "to": "TOOLS", "label": "schema + network policy", "semanticType": "validated-action"}, {"from": "TOOLS", "to": "HARNESS", "label": "12 results", "semanticType": "raw-result"}, {"from": "HARNESS", "to": "MODEL", "label": "4 primary sources", "semanticType": "observation"}, {"from": "MODEL", "to": "HARNESS", "label": "state diff: script running", "semanticType": "state-update"}], "continuityKey": "live-trace"},
+      "visual": {"kind": "swimlane", "lanes": ["MODEL", "HARNESS", "TOOLS"], "events": [{"from": "HARNESS", "to": "MODEL", "label": "goal + constraints", "semanticType": "request"}, {"from": "MODEL", "to": "HARNESS", "label": "tool_call search_sources", "semanticType": "model-decision"}, {"from": "HARNESS", "to": "TOOLS", "label": "schema + network policy", "semanticType": "validated-action"}, {"from": "TOOLS", "to": "HARNESS", "label": "12 results", "semanticType": "raw-result"}, {"from": "HARNESS", "to": "MODEL", "label": "4 primary sources", "semanticType": "observation"}, {"from": "MODEL", "to": "HARNESS", "label": "state diff: script running", "semanticType": "state-update"}], "cueIndexes": [1, 3, 4, 5, 5, 7], "continuityKey": "live-trace"},
       "citations": ["openai-agent-guide"]
     },
     {
@@ -407,27 +407,27 @@
       "duration": 16,
       "speaker": "xiaolan",
       "dialogue": "渲染阶段第一次失败：浏览器在第十二页超时。Trace 显示音频和前十一页已经通过，Harness 不重跑上游，而是从 frame checkpoint 恢复，降低并发后重试。随后发布工具请求外部写入，审批门暂停循环；我确认标题、平台和文件指纹，才允许继续。一次恢复，一次人工批准，都留在同一条轨迹里。",
-      "headline": "Live Trace 02 · 失败恢复与人工批准",
+      "headline": "Narrative Trace 02 · 失败恢复与人工批准",
       "diagram": "live-trace-recovery",
       "transition": "trace-zoom",
       "sfx": ["impact", "connector-draw", "result-stamp"],
       "states": [],
       "scene": {"id": "scene.live-trace-recover", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "interactive-trace"}, "camera": {"framing": "wide", "movement": "follow"}},
-      "visual": {"kind": "timeline", "events": ["render page 12 · timeout", "checkpoint frame 12,840", "retry concurrency 4 → 2", "render complete", "publish · needs human", "approved by xiaolan"], "continuityKey": "live-trace"},
-      "citations": ["microsoft-agent-harness", "openai-agent-guide"]
+      "visual": {"kind": "timeline", "events": ["render page 12 · timeout", "checkpoint frame 12,840", "retry concurrency 4 → 2", "render complete", "publish · needs human", "approved by xiaolan"], "cueIndexes": [0, 3, 4, 4, 5, 6], "continuityKey": "live-trace"},
+      "citations": ["microsoft-checkpoints", "openai-agent-guide"]
     },
     {
       "id": "live-trace-finish",
       "duration": 14,
       "speaker": "xiaolan",
-      "dialogue": "最后，ASR 对女声逐段复核，视觉 QA 检查字幕和代码，评委按冻结量表打分。只有门槛全部通过，停止原因才写成 done；失败就返回对应阶段修复。最终 MP4、字幕、音频、来源清单和可交互 Trace 一起交付。你正在看的这条视频，就是这次 Agent Run 的 Artifact，旁边的轨迹解释了它如何被可靠地做出来。",
-      "headline": "Live Trace 03 · Artifact 与可回放证据",
+      "dialogue": "最后，ASR 对女声逐段复核，视觉 QA 检查字幕和代码，评委按冻结量表打分。只有门槛全部通过，停止原因才写成 done；失败就返回对应阶段修复。最终交付 MP4、字幕、来源和可交互制作轨迹。你正在看的视频是流水线 Artifact；这里的轨迹由冻结分镜生成，只示范应记录什么，不冒充原始模型遥测。生产系统还应追加调用标识、参数、审批和文件哈希。",
+      "headline": "Narrative Trace 03 · Artifact 与证据边界",
       "diagram": "live-trace-finish",
       "transition": "artifact-reveal",
       "sfx": ["terminal-success", "sparkle"],
       "states": [],
       "scene": {"id": "scene.live-trace-finish", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "artifact-delivery"}, "camera": {"framing": "medium-wide", "movement": "push-in"}},
-      "visual": {"kind": "character", "asset": "xiaolan-connect-modules.png", "status": ["video.mp4 ✓", "subtitles.srt ✓", "citations.json ✓", "trace.json ✓", "stop reason · DONE"], "continuityKey": "live-trace"},
+      "visual": {"kind": "character", "asset": "xiaolan-connect-modules.png", "status": ["video.mp4 ✓", "subtitles.srt ✓", "citations.json ✓", "trace kind · narrative", "raw telemetry · external"], "continuityKey": "live-trace"},
       "citations": ["openai-agent-guide"]
     },
     {
