@@ -14,6 +14,16 @@ const characterFiles = [
   'xiaolan-surprised.jpg',
   'xiaolan-pointing.jpg',
 ] as const;
+const visualAssets = [
+  {
+    source: resolve(exampleRoot, 'assets/metaphors/xiaolan-agent-loop.png'),
+    target: resolve(packageRoot, 'public/metaphors/xiaolan-agent-loop.png'),
+  },
+  {
+    source: resolve(exampleRoot, 'assets/evidence/openai-agent-guide-page-04.png'),
+    target: resolve(packageRoot, 'public/evidence/openai-agent-guide-page-04.png'),
+  },
+] as const;
 
 if (!existsSync(source)) {
   throw new Error(
@@ -24,6 +34,8 @@ if (!existsSync(source)) {
 mkdirSync(resolve(exampleRoot, 'public'), {recursive: true});
 mkdirSync(resolve(packageRoot, 'public'), {recursive: true});
 mkdirSync(characterPublic, {recursive: true});
+mkdirSync(resolve(packageRoot, 'public/metaphors'), {recursive: true});
+mkdirSync(resolve(packageRoot, 'public/evidence'), {recursive: true});
 
 for (const filename of characterFiles) {
   const source = resolve(characterSource, filename);
@@ -31,6 +43,13 @@ for (const filename of characterFiles) {
     throw new Error(`Character asset is missing: ${source}`);
   }
   copyFileSync(source, resolve(characterPublic, filename));
+}
+
+for (const asset of visualAssets) {
+  if (!existsSync(asset.source)) {
+    throw new Error(`Visual asset is missing: ${asset.source}`);
+  }
+  copyFileSync(asset.source, asset.target);
 }
 
 const ffmpeg = process.env.FFMPEG_PATH || 'ffmpeg';
@@ -62,3 +81,4 @@ if (result.status !== 0) {
 copyFileSync(examplePublic, rendererPublic);
 console.log(`Prepared browser narration: ${examplePublic}`);
 console.log(`Prepared ${characterFiles.length} Xiaolan character assets.`);
+console.log(`Prepared ${visualAssets.length} evidence/metaphor assets.`);

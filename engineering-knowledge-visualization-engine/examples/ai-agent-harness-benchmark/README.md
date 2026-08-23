@@ -2,7 +2,8 @@
 
 This benchmark validates the upgraded explanatory-video direction against a
 reference style built from a continuous technical canvas, animated diagrams,
-and an inspectable product-like execution trace.
+an inspectable product-like execution trace, character-led metaphor scenes,
+and primary-source evidence.
 
 The source of truth is `storyboard/story.json`. MiMo TTS resolves the real
 duration of every shot into `audio/ai-agent-harness-benchmark.timeline.json`.
@@ -11,6 +12,17 @@ scene durations.
 
 Generated WAV, MP4, frame extracts, and QA reports are local render artifacts
 and are excluded from Git.
+
+## Tracked visual assets
+
+- `assets/characters/`: user-owned Xiaolan identity frames;
+- `assets/metaphors/`: original cinematic analogy scenes generated from the
+  Xiaolan reference;
+- `assets/evidence/`: cropped primary-source previews with provenance notes.
+
+The benchmark's evidence insert uses page 4 of OpenAI's
+[A practical guide to building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf).
+It is shown as a source preview; the Chinese explanation is a paraphrase.
 
 ## Reproduce locally
 

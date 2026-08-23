@@ -370,6 +370,8 @@ function* hook(view: View2D) {
       all(right().opacity(1, 0.4), right().scale(1, 0.5)),
       mark().opacity(1, 0.25),
     ),
+    host().position.x(12, shots.hook - 0.8, easeInOutCubic),
+    host().rotation(0.35, shots.hook - 0.8, easeInOutCubic),
     waitFor(shots.hook - 0.8),
   );
   yield* exit(stage.root, 1);
@@ -377,6 +379,8 @@ function* hook(view: View2D) {
 
 function* singleCall(view: View2D) {
   const stage = makeStage(view, '02', copy['single-call'].headline, copy['single-call'].dialogue, C.yellow);
+  const evidence = createRef<Layout>();
+  const pipeline = createRef<Layout>();
   const input = createRef<Rect>();
   const model = createRef<Rect>();
   const output = createRef<Rect>();
@@ -385,29 +389,51 @@ function* singleCall(view: View2D) {
   const blocked = createRef<Layout>();
   stage.body().add(
     <>
-      <Rect ref={input} opacity={0}>{nodeCard('INPUT', '用户指令', C.primary, -520, -30)}</Rect>
-      <Rect ref={model} opacity={0}>{nodeCard('MODEL', '生成判断', C.cyan, 0, -30)}</Rect>
-      <Rect ref={output} opacity={0}>{nodeCard('OUTPUT', '文本答案', C.purple, 520, -30)}</Rect>
-      <Line ref={line1} points={[[-380, -30], [-145, -30]]} stroke={C.cyan} lineWidth={5} endArrow arrowSize={14} end={0} />
-      <Line ref={line2} points={[[145, -30], [380, -30]]} stroke={C.purple} lineWidth={5} endArrow arrowSize={14} end={0} />
-      <Layout ref={blocked} y={175} opacity={0}>
-        <Line points={[[-620, 0], [500, 0]]} stroke={C.line} lineWidth={3} lineDash={[16, 12]} />
-        <Rect x={610} width={210} height={74} radius={18} fill={'#F8E5E5'} stroke={C.red} lineWidth={2}>
-          <Txt fontFamily={MONO} fontSize={24} fontWeight={700} fill={C.red} text={'TASK OPEN'} />
+      <Layout ref={evidence} opacity={0} scale={0.96}>
+        <Layout x={-525} y={5} rotation={-2}>
+          <Rect x={8} y={10} width={390} height={520} radius={18} fill={'#DCCFC0'} />
+          <Rect width={390} height={520} radius={18} fill={C.paper} stroke={C.line} lineWidth={2} shadowColor={'#6D594033'} shadowBlur={28}>
+            <Img src={'/evidence/openai-agent-guide-page-04.png'} width={354} height={458} radius={8} />
+          </Rect>
+          <Rect y={-266} width={104} height={24} radius={4} fill={`${C.tape}B8`} rotation={3} />
+        </Layout>
+        <Rect x={260} y={5} width={830} height={500} radius={[28, 22, 30, 24]} fill={C.panel} stroke={C.line} lineWidth={2} shadowColor={'#6D594022'} shadowBlur={24}>
+          <Txt x={-345} y={-205} width={90} textAlign={'left'} fontFamily={MONO} fontSize={20} fontWeight={800} fill={C.red} text={'SOURCE 01'} />
+          <Txt x={40} y={-142} width={690} textAlign={'left'} fontFamily={FONT} fontSize={44} fontWeight={800} fill={C.primary} text={'单轮 LLM，并不等于 Agent'} />
+          <Rect x={-50} y={-98} width={500} height={18} radius={8} fill={`${C.yellow}33`} rotation={-1} />
+          <Txt x={40} y={-20} width={690} textAlign={'left'} fontFamily={FONT} fontSize={27} lineHeight={48} fill={C.soft} text={'官方定义强调三个差别：\n• 模型需要管理工作流\n• 动态选择外部工具\n• 识别完成、失败与退出条件'} />
+          <Txt x={40} y={202} width={690} textAlign={'left'} fontFamily={MONO} fontSize={18} fill={C.purple} text={'OPENAI · A PRACTICAL GUIDE TO BUILDING AGENTS · P.4'} />
         </Rect>
       </Layout>
-      {handNote('一次回答，还不是任务完成', C.red, -260, 255, -1.2)}
+      <Layout ref={pipeline} opacity={0}>
+        <Rect ref={input} opacity={0}>{nodeCard('INPUT', '用户指令', C.primary, -520, -30)}</Rect>
+        <Rect ref={model} opacity={0}>{nodeCard('MODEL', '生成判断', C.cyan, 0, -30)}</Rect>
+        <Rect ref={output} opacity={0}>{nodeCard('OUTPUT', '文本答案', C.purple, 520, -30)}</Rect>
+        <Line ref={line1} points={[[-380, -30], [-145, -30]]} stroke={C.cyan} lineWidth={5} endArrow arrowSize={14} end={0} />
+        <Line ref={line2} points={[[145, -30], [380, -30]]} stroke={C.purple} lineWidth={5} endArrow arrowSize={14} end={0} />
+        <Layout ref={blocked} y={175} opacity={0}>
+          <Line points={[[-620, 0], [500, 0]]} stroke={C.line} lineWidth={3} lineDash={[16, 12]} />
+          <Rect x={610} width={210} height={74} radius={18} fill={'#F8E5E5'} stroke={C.red} lineWidth={2}>
+            <Txt fontFamily={MONO} fontSize={24} fontWeight={700} fill={C.red} text={'TASK OPEN'} />
+          </Rect>
+        </Layout>
+        {handNote('一次回答，还不是任务完成', C.red, -260, 255, -1.2)}
+      </Layout>
     </>,
   );
   yield* enter(stage.root, 1);
   yield* all(
     chain(
+      all(evidence().opacity(1, 0.35), evidence().scale(1, 0.45)),
+      waitFor(1.45),
+      all(evidence().opacity(0, 0.35), evidence().position.x(-80, 0.35)),
+      pipeline().opacity(1, 0.25),
       input().opacity(1, 0.25),
-      line1().end(1, 0.65),
+      line1().end(1, 0.55),
       model().opacity(1, 0.25),
-      line2().end(1, 0.65),
+      line2().end(1, 0.55),
       output().opacity(1, 0.25),
-      blocked().opacity(1, 0.45),
+      blocked().opacity(1, 0.4),
     ),
     waitFor(shots['single-call'] - 0.8),
   );
@@ -416,52 +442,76 @@ function* singleCall(view: View2D) {
 
 function* loopShot(view: View2D) {
   const stage = makeStage(view, '03', copy.loop.headline, copy.loop.dialogue, C.cyan);
+  const metaphor = createRef<Layout>();
+  const diagram = createRef<Layout>();
   const loopLine = createRef<Line>();
   const pulse = createRef<Circle>();
   const goal = createRef<Rect>();
   stage.body().add(
     <>
-      <Line
-        ref={loopLine}
-        points={[
-          [-520, 80],
-          [-260, -125],
-          [80, -125],
-          [350, 80],
-          [80, 250],
-          [-260, 250],
-          [-520, 80],
-        ]}
-        stroke={C.cyan}
-        lineWidth={5}
-        radius={38}
-        endArrow
-        arrowSize={14}
-        end={0}
-      />
-      {nodeCard('GOAL', '明确目标', C.primary, -520, 80, 240)}
-      {nodeCard('PLAN', '决定下一步', C.purple, -260, -125, 240)}
-      {nodeCard('ACT', '调用工具', C.yellow, 80, -125, 240)}
-      {nodeCard('OBSERVE', '读取结果', C.cyan, 350, 80, 260)}
-      {nodeCard('UPDATE', '更新状态', C.green, 80, 250, 240)}
-      <Circle ref={pulse} position={[-520, 80]} width={30} height={30} fill={C.primary} shadowColor={C.cyan} shadowBlur={24} />
-      <Rect ref={goal} x={580} y={220} width={260} height={86} radius={22} fill={'#E4F0E8'} stroke={C.green} lineWidth={3} opacity={0}>
-        <Txt fontFamily={MONO} fontSize={25} fontWeight={700} fill={C.green} text={'✓ DONE'} />
-      </Rect>
+      <Layout ref={metaphor} opacity={0} scale={0.97}>
+        <Rect x={9} y={10} width={1138} height={640} radius={[28, 22, 30, 24]} fill={'#DCCFC0'} rotation={0.8} />
+        <Rect width={1140} height={640} radius={[28, 22, 30, 24]} fill={C.paper} stroke={C.line} lineWidth={2} shadowColor={'#6D594044'} shadowBlur={32}>
+          <Img src={'/metaphors/xiaolan-agent-loop.png'} width={1100} height={619} radius={[20, 16, 22, 18]} />
+          <Rect y={245} width={760} height={64} radius={18} fill={'#FFF9F0E8'} stroke={C.line} lineWidth={2}>
+            <Txt fontFamily={'Kaiti SC, STKaiti, KaiTi, serif'} fontSize={30} fontWeight={800} fill={C.primary} text={'行动，是一步一步跨过去的'} />
+          </Rect>
+        </Rect>
+        <Rect x={-420} y={-326} width={116} height={26} radius={4} fill={`${C.tape}C0`} rotation={-3} />
+        <Rect x={420} y={-326} width={116} height={26} radius={4} fill={`${C.purple}45`} rotation={3} />
+      </Layout>
+      <Layout ref={diagram} opacity={0}>
+        <Line
+          ref={loopLine}
+          points={[
+            [-520, 80],
+            [-260, -125],
+            [80, -125],
+            [350, 80],
+            [80, 250],
+            [-260, 250],
+            [-520, 80],
+          ]}
+          stroke={C.cyan}
+          lineWidth={5}
+          radius={38}
+          endArrow
+          arrowSize={14}
+          end={0}
+        />
+        {nodeCard('GOAL', '明确目标', C.primary, -520, 80, 240)}
+        {nodeCard('PLAN', '决定下一步', C.purple, -260, -125, 240)}
+        {nodeCard('ACT', '调用工具', C.yellow, 80, -125, 240)}
+        {nodeCard('OBSERVE', '读取结果', C.cyan, 350, 80, 260)}
+        {nodeCard('UPDATE', '更新状态', C.green, 80, 250, 240)}
+        <Circle ref={pulse} position={[-520, 80]} width={30} height={30} fill={C.primary} shadowColor={C.cyan} shadowBlur={24} />
+        <Rect ref={goal} x={580} y={220} width={260} height={86} radius={22} fill={'#E4F0E8'} stroke={C.green} lineWidth={3} opacity={0}>
+          <Txt fontFamily={MONO} fontSize={25} fontWeight={700} fill={C.green} text={'✓ DONE'} />
+        </Rect>
+      </Layout>
     </>,
   );
   yield* enter(stage.root, -1);
   yield* all(
-    loopLine().end(1, 2.2, easeInOutCubic),
     chain(
-      pulse().position([-260, -125], 0.55, linear),
-      pulse().position([80, -125], 0.55, linear),
-      pulse().position([350, 80], 0.55, linear),
-      pulse().position([80, 250], 0.55, linear),
-      pulse().position([-260, 250], 0.55, linear),
-      pulse().position([-520, 80], 0.55, linear),
-      goal().opacity(1, 0.4),
+      metaphor().opacity(1, 0.3),
+      waitFor(1.4),
+      metaphor().opacity(0, 0.35),
+      diagram().opacity(1, 0.25),
+      loopLine().end(1, 2, easeInOutCubic),
     ),
+    chain(
+      waitFor(2.3),
+      pulse().position([-260, -125], 0.4, linear),
+      pulse().position([80, -125], 0.4, linear),
+      pulse().position([350, 80], 0.4, linear),
+      pulse().position([80, 250], 0.4, linear),
+      pulse().position([-260, 250], 0.4, linear),
+      pulse().position([-520, 80], 0.4, linear),
+      goal().opacity(1, 0.3),
+    ),
+    metaphor().scale(1.02, 2.05, easeInOutCubic),
+    metaphor().position.x(-18, 2.05, easeInOutCubic),
     waitFor(shots.loop - 0.8),
   );
   yield* exit(stage.root, 1);
@@ -591,6 +641,8 @@ function* failureShot(view: View2D) {
       retry().opacity(1, 0.35),
       focus().opacity(0, 0.35),
     ),
+    host().position.y(-8, shots.failure - 0.8, easeInOutCubic),
+    host().rotation(0.45, shots.failure - 0.8, easeInOutCubic),
     waitFor(shots.failure - 0.8),
   );
   yield* exit(stage.root, 1);
@@ -604,6 +656,7 @@ function* harnessShot(view: View2D) {
   const policy = createRef<Rect>();
   const tools = createRef<Rect>();
   const context = createRef<Rect>();
+  const dataPulse = createRef<Circle>();
   stage.body().add(
     <>
       <Rect ref={shell} width={1320} height={510} radius={42} fill={'#FFF9F0EE'} stroke={C.purple} lineWidth={4} opacity={0} scale={0.94} shadowColor={'#765D9144'} shadowBlur={35}>
@@ -620,6 +673,7 @@ function* harnessShot(view: View2D) {
       {connector([[305, -120], [125, -40]], C.purple)}
       {connector([[-305, 150], [-125, 40]], C.yellow)}
       {connector([[305, 150], [125, 40]], C.green)}
+      <Circle ref={dataPulse} x={-305} y={-120} width={18} height={18} fill={C.cyan} opacity={0} shadowColor={C.cyan} shadowBlur={20} />
       {handNote('模型之外，才是运行系统', C.purple, 485, -225, 1.5)}
     </>,
   );
@@ -631,6 +685,11 @@ function* harnessShot(view: View2D) {
       all(context().opacity(1, 0.35), memory().opacity(1, 0.35)),
       all(policy().opacity(1, 0.35), tools().opacity(1, 0.35)),
       model().rotation(360, 1.1, easeInOutCubic),
+      dataPulse().opacity(1, 0.2),
+      dataPulse().position([-125, -40], 0.45, linear),
+      dataPulse().position([125, 40], 0.45, linear),
+      dataPulse().position([305, 150], 0.45, linear),
+      dataPulse().opacity(0, 0.2),
     ),
     waitFor(shots.harness - 0.8),
   );
@@ -645,7 +704,11 @@ function* landingShot(view: View2D) {
   const line3 = createRef<Txt>();
   const result = createRef<Rect>();
   const progress = createRef<Rect>();
+  const terminalScan = createRef<Rect>();
   stage.body().add(
+    <Layout>
+    <Rect x={-42} y={-18} width={1280} height={458} radius={30} fill={`${C.purple}28`} stroke={`${C.purple}55`} lineWidth={2} rotation={-2.2} />
+    <Rect x={44} y={-14} width={1280} height={458} radius={30} fill={`${C.cyan}20`} stroke={`${C.cyan}55`} lineWidth={2} rotation={2} />
     <Rect width={1360} height={500} radius={30} fill={C.night} stroke={C.line} lineWidth={2} shadowColor={'#6D594033'} shadowBlur={30}>
       <Rect y={-215} width={1360} height={70} radius={[30, 30, 0, 0]} fill={C.night2}>
         <Circle x={-620} width={14} height={14} fill={C.red} />
@@ -665,7 +728,9 @@ function* landingShot(view: View2D) {
       <Rect ref={result} y={205} width={460} height={62} radius={31} fill={'#E4F0E8'} stroke={C.green} lineWidth={2} opacity={0}>
         <Txt fontFamily={MONO} fontSize={21} fontWeight={700} fill={C.green} text={'✓ COMPLETED · 7.42s'} />
       </Rect>
+      <Rect ref={terminalScan} y={-180} width={1260} height={3} fill={'#73C5C5'} opacity={0.14} shadowColor={'#73C5C5'} shadowBlur={10} />
     </Rect>,
+    </Layout>,
   );
   yield* enter(stage.root, -1);
   yield* all(
@@ -680,6 +745,7 @@ function* landingShot(view: View2D) {
       result().opacity(1, 0.35),
     ),
     progress().width(1200, 3.2, easeInOutCubic),
+    terminalScan().position.y(180, shots.landing - 0.8, linear),
     waitFor(shots.landing - 0.8),
   );
   yield* exit(stage.root, 1);
@@ -720,6 +786,8 @@ function* summaryShot(view: View2D) {
       all(runtime().opacity(1, 0.4), runtime().scale(1, 0.5)),
       all(result().opacity(1, 0.4), result().position.y(115, 0.5)),
     ),
+    host().position.x(10, shots.summary - 0.8, easeInOutCubic),
+    host().rotation(0.35, shots.summary - 0.8, easeInOutCubic),
     waitFor(shots.summary - 0.8),
   );
   yield* exit(stage.root, -1);

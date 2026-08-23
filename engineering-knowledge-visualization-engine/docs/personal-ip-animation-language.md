@@ -21,6 +21,22 @@ Technical evidence, diagrams, code, screenshots, and timelines remain separate
 visual modes. The character returns between them to restore continuity and
 intimacy.
 
+## Multi-form chapter rhythm
+
+A chapter should not hold one visual grammar for its full narration. Use a
+short two-part structure when the idea benefits from it:
+
+1. **Evidence → abstraction** — show a legible primary-source preview, then
+   translate it into a simplified system diagram.
+2. **Metaphor → mechanism** — let Xiaolan physically enact the idea, then cut
+   to the semantic loop or topology that explains it precisely.
+3. **Code perspective → execution result** — use layered source/terminal panes,
+   then land on one inspectable trace or completion state.
+
+Evidence assets must carry publisher, URL, page, and retrieval date. Generated
+metaphor art must contain no semantic labels; the renderer owns terminology and
+localization.
+
 ## Production rules
 
 - Character-led frames should occupy roughly 20–30% of a technical explainer.
@@ -73,5 +89,9 @@ The `ai-agent-harness-benchmark` uses three Xiaolan frames:
 - surprised reaction beside the failed execution trace;
 - pointing explainer beside `AGENT = MODEL × RUNTIME`.
 
-The loop, tool, Harness, and execution sections stay diagram-led so the personal
-IP strengthens the explanation without replacing it.
+The loop chapter now begins with Xiaolan crossing paper stepping stones in the
+Asteroid observatory before resolving into the semantic Agent loop. The
+single-call chapter starts with an OpenAI primary-source preview before reducing
+the claim to `INPUT → MODEL → OUTPUT`. Tool, Harness, and execution sections
+remain diagram-led so the personal IP strengthens the explanation without
+replacing it.
