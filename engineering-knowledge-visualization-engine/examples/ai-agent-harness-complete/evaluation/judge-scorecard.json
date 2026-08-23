@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0",
+  "decision": "reach-reference",
+  "exceedReference": false,
+  "artifact": {
+    "path": "final/ai-agent-harness-complete.mp4",
+    "sha256": "29b9b6022e046e1a5428f51989a28996eedadf42135a20df6126d386a6f10503",
+    "durationSeconds": 714.833333,
+    "sourceCommit": "a809e4a",
+    "aiDailyContractCommit": "0531f9d"
+  },
+  "panel": [
+    {
+      "role": "agent-harness-content-auditor",
+      "independent": true,
+      "scores": {"content": 24, "clarity": 13, "evidence": 8},
+      "veto": false,
+      "semanticAudit": {
+        "events": 129,
+        "conservativeMatches": 124,
+        "conservativeMatchRate": 0.9612,
+        "hardGate": "pass"
+      }
+    },
+    {
+      "role": "frozen-rubric-general-judge",
+      "independent": true,
+      "scores": {"content": 24, "clarity": 12, "animation": 13, "character": 7, "sound": 10, "brand": 7, "evidence": 7, "reuse": 7},
+      "total": 87,
+      "veto": false
+    },
+    {
+      "role": "motion-and-render-auditor",
+      "independent": true,
+      "scores": {"animation": 14.4, "character": 7.1, "brand": 7.5, "reuse": 7.7},
+      "estimatedTotal": 89.2,
+      "veto": false
+    },
+    {
+      "role": "audio-producer",
+      "independent": true,
+      "scores": {"sound": 10.5},
+      "veto": false
+    }
+  ],
+  "aggregate": {
+    "method": "median-per-dimension-across-applicable-independent-judges",
+    "scores": {
+      "content": 24,
+      "clarity": 12.5,
+      "animation": 13.7,
+      "character": 7.05,
+      "sound": 10.25,
+      "brand": 7.25,
+      "evidence": 7.5,
+      "reuse": 7.35
+    },
+    "total": 89.6
+  },
+  "hardGates": {
+    "all15CoreRequirementsHaveTimecodedNarrationAndVisualEvidence": true,
+    "noMajorTechnicalErrorFromIndependentEngineeringReview": true,
+    "naturalChineseFemaleVoice": true,
+    "noClippingTruncationOrAbnormalSilence": true,
+    "atLeast95PercentKeyEventsWithin500msOfNarration": true,
+    "fullHdTechnicalVisualsAndSubtitlesReadable": true,
+    "primaryClaimsHavePrimarySourceCitations": true,
+    "reproducibleFromFrozenAssetsAndAudioConfig": true,
+    "originalBrandAndShotDesign": true
+  },
+  "technicalEvidence": {
+    "qaPass": true,
+    "asrSegmentsPassing": "29/29",
+    "semanticEventsExplicitlyMapped": "129/129",
+    "semanticEventsWithin500ms": "129/129",
+    "maximumSemanticDeltaSeconds": 0.21,
+    "integratedLufs": -16.69,
+    "truePeakDb": -4.14,
+    "blackSegments": 0
+  },
+  "referenceThresholds": {
+    "reachMinimumTotal": 82,
+    "reachPassed": true,
+    "exceedMinimumTotal": 90,
+    "exceedPassed": false
+  },
+  "remainingGaps": [
+    "character performance still relies on three mostly static illustration scenes",
+    "cross-shot motion and semantic transitions remain less continuous than the references",
+    "production narrative trace is honest and inspectable but is not raw model and tool telemetry",
+    "the rubric's five-person immediate and delayed recall study was not run"
+  ]
+}
