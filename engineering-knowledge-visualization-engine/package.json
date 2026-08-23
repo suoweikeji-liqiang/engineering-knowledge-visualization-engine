@@ -12,6 +12,13 @@
     "examples:generate": "tsx scripts/generate-example-artifacts.ts",
     "benchmark:audio": "PYTHONPATH=../sandiao-science-studio/src python3 -m sandiao_studio audio examples/ai-agent-harness-benchmark/storyboard/story.json --tts-provider mimo",
     "benchmark:render": "pnpm --filter @repo/renderer-revideo render:benchmark",
+    "benchmark:complete:validate": "node scripts/validate-complete-benchmark.mjs",
+    "benchmark:complete:audio": "PYTHONPATH=../sandiao-science-studio/src python3 -m sandiao_studio audio examples/ai-agent-harness-complete/storyboard/story.json --tts-provider mimo",
+    "benchmark:complete:subtitles": "node scripts/generate-complete-subtitles.mjs",
+    "benchmark:complete:trace": "node scripts/generate-complete-trace.mjs",
+    "benchmark:complete:asr": "python3 scripts/review-complete-asr.py",
+    "benchmark:complete:qa": "node scripts/qa-complete-benchmark.mjs",
+    "benchmark:complete:render": "pnpm --filter @repo/renderer-revideo render:complete",
     "typecheck": "tsc -p tsconfig.base.json --noEmit"
   },
   "dependencies": {

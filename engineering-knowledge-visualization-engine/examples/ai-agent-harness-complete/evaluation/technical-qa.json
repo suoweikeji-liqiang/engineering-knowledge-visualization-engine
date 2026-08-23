@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.0",
+  "artifact": "final/ai-agent-harness-complete.mp4",
+  "media": {
+    "duration": 715.2,
+    "sizeBytes": 171514472,
+    "bitRate": 1918506,
+    "video": {
+      "index": 0,
+      "codec_name": "h264",
+      "codec_type": "video",
+      "width": 1920,
+      "height": 1080,
+      "r_frame_rate": "30/1"
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "aac",
+      "codec_type": "audio",
+      "sample_rate": "48000",
+      "channels": 2,
+      "r_frame_rate": "0/0"
+    }
+  },
+  "loudness": {
+    "integratedLufs": -16.69,
+    "truePeakDb": -4.12,
+    "rangeLu": 3.5
+  },
+  "blackSegments": [],
+  "motion": {
+    "freezeSegmentsOver3Seconds": 61,
+    "frozenSeconds": 228.53333700000007,
+    "frozenFraction": 0.3195376635906041,
+    "maximumFreezeSeconds": 5.333333
+  },
+  "asr": {
+    "segments": 29,
+    "meanSimilarity": 0.989,
+    "minimumSimilarity": 0.932,
+    "below0_8": 0,
+    "errors": 0
+  },
+  "subtitles": {
+    "cues": 208,
+    "within500ms": 1,
+    "maximumDeltaSeconds": 0.21000000000003638
+  },
+  "trace": {
+    "runId": "agent-harness-complete-7839666e52fb",
+    "status": "done",
+    "events": 29
+  },
+  "checks": {
+    "durationMatchesTimeline": true,
+    "fullHd": true,
+    "frameRate30": true,
+    "stereo48k": true,
+    "noSustainedBlackFrames": true,
+    "noLongVisualFreeze": true,
+    "loudnessInPlatformRange": true,
+    "asrAllSegmentsPass": true,
+    "subtitleCoverage": true,
+    "captionTimelineWithin500ms": true,
+    "traceDelivered": true
+  },
+  "pass": true
+}

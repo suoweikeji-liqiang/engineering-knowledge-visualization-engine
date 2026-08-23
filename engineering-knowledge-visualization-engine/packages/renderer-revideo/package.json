@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "editor": "revideo editor --projectFile ./src/project.tsx",
+    "editor:complete": "revideo editor --projectFile ./src/complete-project.tsx",
     "prepare:benchmark": "tsx src/prepare.ts",
-    "render:benchmark": "tsx src/prepare.ts && tsx src/render.ts"
+    "prepare:complete": "tsx src/prepare-complete.ts",
+    "render:benchmark": "tsx src/prepare.ts && tsx src/render.ts",
+    "render:complete": "tsx src/prepare-complete.ts && tsx src/render-complete.ts"
   },
   "dependencies": {
     "@revideo/2d": "0.11.0",

@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "1.0",
+  "storySlug": "ai-agent-harness-complete",
+  "storyFingerprint": "7839666e52fbc274f3f43bf9f392f91038810fbeec119d1c6b333570ca088b00",
+  "provider": "mimo",
+  "duration": 758.061,
+  "shots": [
+    {
+      "id": "hook",
+      "plannedDuration": 10.0,
+      "speechDuration": 21.501,
+      "duration": 21.701
+    },
+    {
+      "id": "bare-model",
+      "plannedDuration": 12.0,
+      "speechDuration": 21.477,
+      "duration": 21.677
+    },
+    {
+      "id": "boundary",
+      "plannedDuration": 12.0,
+      "speechDuration": 24.777,
+      "duration": 24.977
+    },
+    {
+      "id": "components",
+      "plannedDuration": 11.0,
+      "speechDuration": 20.575,
+      "duration": 20.775
+    },
+    {
+      "id": "request-compose",
+      "plannedDuration": 13.0,
+      "speechDuration": 24.882,
+      "duration": 25.082
+    },
+    {
+      "id": "tool-decision",
+      "plannedDuration": 13.0,
+      "speechDuration": 24.05,
+      "duration": 24.25
+    },
+    {
+      "id": "validate-route",
+      "plannedDuration": 13.0,
+      "speechDuration": 24.328,
+      "duration": 24.528
+    },
+    {
+      "id": "tool-result",
+      "plannedDuration": 13.0,
+      "speechDuration": 25.283,
+      "duration": 25.483
+    },
+    {
+      "id": "agent-loop",
+      "plannedDuration": 13.0,
+      "speechDuration": 29.176,
+      "duration": 29.376
+    },
+    {
+      "id": "stop-reasons",
+      "plannedDuration": 12.0,
+      "speechDuration": 31.112,
+      "duration": 31.312
+    },
+    {
+      "id": "planning-modes",
+      "plannedDuration": 13.0,
+      "speechDuration": 23.941,
+      "duration": 24.141
+    },
+    {
+      "id": "plan-update",
+      "plannedDuration": 11.0,
+      "speechDuration": 26.105,
+      "duration": 26.305
+    },
+    {
+      "id": "context-compose",
+      "plannedDuration": 13.0,
+      "speechDuration": 25.242,
+      "duration": 25.442
+    },
+    {
+      "id": "context-window",
+      "plannedDuration": 14.0,
+      "speechDuration": 26.592,
+      "duration": 26.792
+    },
+    {
+      "id": "state-memory",
+      "plannedDuration": 13.0,
+      "speechDuration": 25.585,
+      "duration": 25.785
+    },
+    {
+      "id": "multi-agent",
+      "plannedDuration": 13.0,
+      "speechDuration": 23.666,
+      "duration": 23.866
+    },
+    {
+      "id": "multi-agent-cost",
+      "plannedDuration": 11.0,
+      "speechDuration": 24.923,
+      "duration": 25.123
+    },
+    {
+      "id": "structured-output",
+      "plannedDuration": 13.0,
+      "speechDuration": 25.651,
+      "duration": 25.851
+    },
+    {
+      "id": "retry-idempotency",
+      "plannedDuration": 14.0,
+      "speechDuration": 28.56,
+      "duration": 28.76
+    },
+    {
+      "id": "checkpoint-resume",
+      "plannedDuration": 12.0,
+      "speechDuration": 26.324,
+      "duration": 26.524
+    },
+    {
+      "id": "prompt-injection",
+      "plannedDuration": 14.0,
+      "speechDuration": 25.41,
+      "duration": 25.61
+    },
+    {
+      "id": "sandbox-approval",
+      "plannedDuration": 13.0,
+      "speechDuration": 26.514,
+      "duration": 26.714
+    },
+    {
+      "id": "guardrail-boundary",
+      "plannedDuration": 11.0,
+      "speechDuration": 27.001,
+      "duration": 27.201
+    },
+    {
+      "id": "feedback-eval",
+      "plannedDuration": 14.0,
+      "speechDuration": 27.197,
+      "duration": 27.397
+    },
+    {
+      "id": "trace-metrics",
+      "plannedDuration": 13.0,
+      "speechDuration": 26.945,
+      "duration": 27.145
+    },
+    {
+      "id": "live-trace-start",
+      "plannedDuration": 15.0,
+      "speechDuration": 27.976,
+      "duration": 28.176
+    },
+    {
+      "id": "live-trace-recover",
+      "plannedDuration": 16.0,
+      "speechDuration": 27.915,
+      "duration": 28.115
+    },
+    {
+      "id": "live-trace-finish",
+      "plannedDuration": 14.0,
+      "speechDuration": 27.394,
+      "duration": 27.594
+    },
+    {
+      "id": "synthesis",
+      "plannedDuration": 16.0,
+      "speechDuration": 32.16,
+      "duration": 32.36
+    }
+  ]
+}

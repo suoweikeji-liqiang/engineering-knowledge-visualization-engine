@@ -21,5 +21,7 @@ packages/*/public/*.mp3
 packages/*/public/characters/
 packages/*/public/evidence/
 packages/*/public/metaphors/
+packages/*/public/complete/
 examples/*/public/*.wav
 examples/*/public/*.mp3
+examples/*/public/

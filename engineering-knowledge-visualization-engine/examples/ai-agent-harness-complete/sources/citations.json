@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0",
+  "retrievedAt": "2026-08-24",
+  "sources": [
+    {
+      "id": "openai-agent-guide",
+      "title": "A practical guide to building agents",
+      "publisher": "OpenAI",
+      "url": "https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf",
+      "tier": "primary",
+      "supports": ["agent definition", "model tools instructions", "tool use", "guardrails", "human intervention", "multi-agent orchestration"]
+    },
+    {
+      "id": "anthropic-effective-agents",
+      "title": "Building effective agents",
+      "publisher": "Anthropic",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "tier": "primary",
+      "supports": ["workflow versus agent", "orchestrator-workers", "evaluation feedback", "simple composable patterns"]
+    },
+    {
+      "id": "react-paper",
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "publisher": "Princeton University / Google Research",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "tier": "primary-research",
+      "supports": ["interleaved reasoning decisions and environment actions", "observation loop"]
+    },
+    {
+      "id": "microsoft-agent-harness",
+      "title": "Agent harness concepts",
+      "publisher": "Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/concepts/harness",
+      "tier": "primary-documentation",
+      "supports": ["harness boundary", "context and state", "execution lifecycle", "resilience and observability"]
+    },
+    {
+      "id": "owasp-prompt-injection",
+      "title": "LLM01: Prompt Injection",
+      "publisher": "OWASP",
+      "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+      "tier": "authoritative-security",
+      "supports": ["indirect prompt injection", "untrusted external content", "least privilege", "human approval", "defense in depth"]
+    },
+    {
+      "id": "reference-agent-harness-video",
+      "title": "AI Agent 工作原理是什么，Harness 又是什么，一个动画彻底搞懂",
+      "publisher": "轩辕的编程宇宙",
+      "url": "https://www.youtube.com/watch?v=B91bZL8wcAI",
+      "tier": "reference-production",
+      "supports": ["content baseline", "semantic animation density baseline", "continuous failure case baseline"]
+    },
+    {
+      "id": "reference-claude-code-video",
+      "title": "把 Claude Code 工作流程做成可交互动画",
+      "publisher": "轩辕的编程宇宙",
+      "url": "https://www.youtube.com/watch?v=L3nbNBYqJT4",
+      "tier": "reference-production",
+      "supports": ["inspectable request and tool flow baseline", "terminal and code animation baseline"]
+    }
+  ]
+}
