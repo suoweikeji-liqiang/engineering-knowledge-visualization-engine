@@ -12,3 +12,11 @@ coverage/
 out/
 tmp/
 .cache/
+examples/*/audio/*.wav
+examples/*/final/*.mp4
+examples/*/final/*.png
+examples/*/qa/
+packages/*/public/*.wav
+packages/*/public/*.mp3
+examples/*/public/*.wav
+examples/*/public/*.mp3

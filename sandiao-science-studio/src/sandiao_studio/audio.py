@@ -14,6 +14,9 @@ from .speech import resolve_speech_provider
 
 RATE = 44_100
 SPEECH_TAIL_SECONDS = 0.2
+SILENCE_TRIM_THRESHOLD_DB = -48.0
+SILENCE_TRIM_LEADING_SECONDS = 0.06
+SILENCE_TRIM_TRAILING_SECONDS = 0.12
 
 def _read_wav(path: Path) -> tuple[np.ndarray, int]:
     with wave.open(str(path), "rb") as wav:
@@ -29,6 +32,19 @@ def _resample(data: np.ndarray, length: int) -> np.ndarray:
     if len(data) == length: return data
     return np.interp(np.linspace(0, 1, length, endpoint=False),
                      np.linspace(0, 1, len(data), endpoint=False), data).astype(np.float32)
+
+
+def _trim_silence(data: np.ndarray) -> np.ndarray:
+    """Remove TTS container silence while preserving natural breath margins."""
+    if len(data) == 0:
+        return data
+    threshold = 10 ** (SILENCE_TRIM_THRESHOLD_DB / 20)
+    active = np.flatnonzero(np.abs(data) >= threshold)
+    if len(active) == 0:
+        return data
+    start = max(0, int(active[0]) - round(SILENCE_TRIM_LEADING_SECONDS * RATE))
+    end = min(len(data), int(active[-1]) + 1 + round(SILENCE_TRIM_TRAILING_SECONDS * RATE))
+    return data[start:end]
 
 
 def _write_wav(path: Path, data: np.ndarray) -> None:
@@ -70,6 +86,7 @@ def build_audio(story: Story, output: Path | None = None, provider: str = "auto"
                 speech.synthesize(shot.dialogue, char, clip)
             data, rate = _read_wav(clip)
             data = _resample(data, round(len(data)*RATE/rate))
+            data = _trim_silence(data)
             clips[shot.id] = data
             speech_duration = len(data) / RATE
         duration = max(shot.duration, speech_duration + SPEECH_TAIL_SECONDS)

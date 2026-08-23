@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "2.0",
+  "meta": {
+    "title": "为什么大模型不等于 Agent？",
+    "slug": "ai-agent-harness-benchmark",
+    "episode": "benchmark-01",
+    "resolution": [1920, 1080],
+    "fps": 30,
+    "video": "examples/ai-agent-harness-benchmark/final/ai-agent-harness-benchmark.mp4",
+    "audio": "examples/ai-agent-harness-benchmark/audio/ai-agent-harness-benchmark.wav",
+    "poster": "examples/ai-agent-harness-benchmark/final/ai-agent-harness-benchmark-poster.png"
+  },
+  "characters": [
+    {
+      "id": "observer",
+      "name": "观测员",
+      "palette": {
+        "primary": "#F43F5E",
+        "ink": "#F8FAFC",
+        "accent": "#22D3EE"
+      },
+      "voice": {
+        "mimo_model": "mimo-v2.5-tts-voicedesign",
+        "style": "自然的中国青年男声，像一位熟悉 AI 工程实践的技术主讲人，语速从容但有推进感。声音清晰、可信、有轻微的探索感，重点词自然强调；不要新闻播音腔，不要广告腔，不要夸张表演，不要机械断句。",
+        "mimo_optimize_text_preview": false
+      },
+      "renderer": {
+        "type": "procedural"
+      }
+    }
+  ],
+  "shots": [
+    {
+      "id": "hook",
+      "duration": 4.0,
+      "speaker": "observer",
+      "dialogue": "一个会聊天的大模型，为什么还不能直接变成 Agent？",
+      "headline": "大模型 ≠ Agent",
+      "diagram": "hook-question",
+      "transition": "focus-push",
+      "sfx": ["impact"],
+      "states": [],
+      "scene": {
+        "id": "scene.agent-hook",
+        "background": {"id": "background.observatory", "variant": "deep-space-grid"},
+        "layout": {"preset": "technical-canvas"},
+        "camera": {"framing": "close-up", "movement": "push-in"}
+      }
+    },
+    {
+      "id": "single-call",
+      "duration": 4.8,
+      "speaker": "observer",
+      "dialogue": "一次模型调用，只有输入和输出。真实任务却不会在答案出现时自动结束。",
+      "headline": "一次调用，只完成一次判断",
+      "diagram": "single-call-flow",
+      "transition": "diagram-draw",
+      "sfx": ["whoosh"],
+      "states": [],
+      "scene": {
+        "id": "scene.single-call",
+        "background": {"id": "background.observatory", "variant": "deep-space-grid"},
+        "layout": {"preset": "flow-diagram"},
+        "camera": {"framing": "wide", "movement": "pan"}
+      }
+    },
+    {
+      "id": "loop",
+      "duration": 5.4,
+      "speaker": "observer",
+      "dialogue": "Agent 必须反复规划、行动、观察结果，再决定下一步，直到目标真的完成。",
+      "headline": "PLAN → ACT → OBSERVE",
+      "diagram": "agent-loop",
+      "transition": "orbit-reveal",
+      "sfx": ["ding"],
+      "states": [],
+      "scene": {
+        "id": "scene.agent-loop",
+        "background": {"id": "background.observatory", "variant": "deep-space-grid"},
+        "layout": {"preset": "radial-loop"},
+        "camera": {"framing": "medium", "movement": "follow"}
+      }
+    },
+    {
+      "id": "tools",
+      "duration": 5.2,
+      "speaker": "observer",
+      "dialogue": "它还要搜索资料、读取文件、执行代码，并把工具返回的数据重新交给模型。",
+      "headline": "接入真实世界的工具",
+      "diagram": "tool-routing",
+      "transition": "panel-stack",
+      "sfx": ["whoosh", "ding"],
+      "states": [],
+      "scene": {
+        "id": "scene.tool-routing",
+        "background": {"id": "background.observatory", "variant": "deep-space-grid"},
+        "layout": {"preset": "tool-console"},
+        "camera": {"framing": "wide", "movement": "cut"}
+      }
+    },
+    {
+      "id": "failure",
+      "duration": 5.3,
+      "speaker": "observer",
+      "dialogue": "网络会超时，权限会拒绝，参数也可能出错。没有重试和状态管理，任务随时会断掉。",
+      "headline": "真实环境一定会失败",
+      "diagram": "failure-trace",
+      "transition": "trace-zoom",
+      "sfx": ["impact", "boing"],
+      "states": [],
+      "scene": {
+        "id": "scene.failure-trace",
+        "background": {"id": "background.observatory", "variant": "deep-space-grid"},
+        "layout": {"preset": "trace-inspector"},
+        "camera": {"framing": "close-up", "movement": "push-in"}
+      }
+    },
+    {
+      "id": "harness",
+      "duration": 6.2,
+      "speaker": "observer",
+      "dialogue": "Harness 就是模型外面的运行系统：它管理上下文、权限、记忆、工具调度，以及失败后的恢复。",
+      "headline": "Harness：模型外面的运行系统",
+      "diagram": "harness-architecture",
+      "transition": "architecture-build",
+      "sfx": ["whoosh", "sparkle"],
+      "states": [],
+      "scene": {
+        "id": "scene.harness-architecture",
+        "background": {"id": "background.observatory", "variant": "deep-space-grid"},
+        "layout": {"preset": "layered-architecture"},
+        "camera": {"framing": "wide", "movement": "pull-out"}
+      }
+    },
+    {
+      "id": "landing",
+      "duration": 5.4,
+      "speaker": "observer",
+      "dialogue": "模型负责判断下一步，Harness 负责让每一步可靠落地，并留下可以检查的执行轨迹。",
+      "headline": "从判断，到可靠落地",
+      "diagram": "live-agent-trace",
+      "transition": "terminal-run",
+      "sfx": ["ding", "sparkle"],
+      "states": [],
+      "scene": {
+        "id": "scene.live-agent-trace",
+        "background": {"id": "background.observatory", "variant": "deep-space-grid"},
+        "layout": {"preset": "interactive-simulator"},
+        "camera": {"framing": "medium", "movement": "pan"}
+      }
+    },
+    {
+      "id": "summary",
+      "duration": 4.5,
+      "speaker": "observer",
+      "dialogue": "所以，Agent 不是一个更会聊天的模型，而是一套能持续行动的系统。",
+      "headline": "AGENT = MODEL × RUNTIME",
+      "diagram": "summary-equation",
+      "transition": "brand-resolve",
+      "sfx": ["impact", "sparkle"],
+      "states": [],
+      "scene": {
+        "id": "scene.summary",
+        "background": {"id": "background.observatory", "variant": "deep-space-grid"},
+        "layout": {"preset": "hero-equation"},
+        "camera": {"framing": "close-up", "movement": "push-in"}
+      }
+    }
+  ]
+}

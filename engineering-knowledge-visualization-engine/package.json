@@ -10,6 +10,8 @@
     "bootstrap": "node scripts/bootstrap.ts",
     "lint": "echo 'lint not configured yet'",
     "examples:generate": "tsx scripts/generate-example-artifacts.ts",
+    "benchmark:audio": "PYTHONPATH=../sandiao-science-studio/src python3 -m sandiao_studio audio examples/ai-agent-harness-benchmark/storyboard/story.json --tts-provider mimo",
+    "benchmark:render": "pnpm --filter @repo/renderer-revideo render:benchmark",
     "typecheck": "tsc -p tsconfig.base.json --noEmit"
   },
   "dependencies": {
