@@ -35,6 +35,19 @@ intimacy.
 - Keep narration subtitles in the bottom safe zone and keep character labels
   inside their own paper frame.
 
+## Brand palette
+
+Use a `70 / 20 / 10` distribution instead of a full-screen cyber-dark theme:
+
+- **70% warm paper** — parchment background, cream cards, warm gray grid;
+- **20% technical ink** — terminal, code, trace header, and high-contrast inset;
+- **10% semantic accents** — planet purple, marker gold, observation red,
+  teal, and success green.
+
+The canonical renderer tokens live in
+`packages/renderer-revideo/src/theme.ts`. Domain packs may select a dominant
+accent, but should not replace the shared paper, ink, and character colors.
+
 ## Benchmark application
 
 The `ai-agent-harness-benchmark` uses three Xiaolan frames:

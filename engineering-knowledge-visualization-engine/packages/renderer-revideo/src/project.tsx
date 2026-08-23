@@ -24,23 +24,7 @@ import {
 } from '@revideo/core';
 import story from '../../../examples/ai-agent-harness-benchmark/storyboard/story.json';
 import timeline from '../../../examples/ai-agent-harness-benchmark/audio/ai-agent-harness-benchmark.timeline.json';
-
-const C = {
-  bg: '#070A10',
-  panel: '#111722',
-  panel2: '#171F2D',
-  line: '#2B3547',
-  soft: '#718096',
-  white: '#F8FAFC',
-  red: '#F43F5E',
-  cyan: '#22D3EE',
-  yellow: '#FBBF24',
-  green: '#34D399',
-  purple: '#A78BFA',
-  paper: '#FAF4E8',
-  ink: '#24202A',
-  tape: '#F6D365',
-};
+import {ASTEROID_WARM_THEME as C} from './theme';
 
 const FONT = 'PingFang SC, Noto Sans CJK SC, Microsoft YaHei, sans-serif';
 const MONO = 'JetBrains Mono, SFMono-Regular, Menlo, monospace';
@@ -57,7 +41,7 @@ function makeStage(
   number: string,
   headline: string,
   caption: string,
-  accent = C.red,
+  accent: string = C.red,
 ): Stage {
   const root = createRef<Layout>();
   const body = createRef<Layout>();
@@ -81,7 +65,7 @@ function makeStage(
         fontFamily={FONT}
         fontSize={56}
         fontWeight={700}
-        fill={C.white}
+        fill={C.primary}
         text={headline}
       />
       <Layout ref={body} position={[0, 35]} size={[1640, 650]} />
@@ -90,9 +74,11 @@ function makeStage(
         width={1640}
         height={112}
         radius={24}
-        fill={'#0D121BCC'}
+        fill={'#FFF9F0F2'}
         stroke={C.line}
         lineWidth={2}
+        shadowColor={'#6D594022'}
+        shadowBlur={24}
       >
         <Txt
           width={1500}
@@ -101,7 +87,7 @@ function makeStage(
           fontWeight={600}
           lineHeight={52}
           textAlign={'center'}
-          fill={C.white}
+          fill={C.primary}
           text={caption}
         />
       </Rect>
@@ -147,7 +133,7 @@ function nodeCard(
         fontFamily={MONO}
         fontSize={28}
         fontWeight={700}
-        fill={C.white}
+        fill={C.primary}
         text={label}
       />
       <Txt
@@ -163,7 +149,7 @@ function nodeCard(
   );
 }
 
-function connector(points: [number, number][], color = C.line) {
+function connector(points: [number, number][], color: string = C.line) {
   return (
     <Line
       points={points}
@@ -246,7 +232,7 @@ function* hook(view: View2D) {
         width={650}
         height={430}
         radius={34}
-        fill={'#0C121CCC'}
+        fill={'#FFF9F0F2'}
         stroke={C.line}
         lineWidth={2}
         opacity={0}
@@ -277,10 +263,10 @@ function* hook(view: View2D) {
         y={-18}
         width={160}
         height={160}
-        fill={'#111827'}
+        fill={'#E1F0EF'}
         stroke={C.cyan}
         lineWidth={6}
-        shadowColor={'#22D3EE77'}
+        shadowColor={'#2C8E9266'}
         shadowBlur={55}
         scale={0.45}
       >
@@ -321,14 +307,14 @@ function* singleCall(view: View2D) {
   const blocked = createRef<Layout>();
   stage.body().add(
     <>
-      <Rect ref={input} opacity={0}>{nodeCard('INPUT', '用户指令', C.white, -520, -30)}</Rect>
+      <Rect ref={input} opacity={0}>{nodeCard('INPUT', '用户指令', C.primary, -520, -30)}</Rect>
       <Rect ref={model} opacity={0}>{nodeCard('MODEL', '生成判断', C.cyan, 0, -30)}</Rect>
       <Rect ref={output} opacity={0}>{nodeCard('OUTPUT', '文本答案', C.purple, 520, -30)}</Rect>
       <Line ref={line1} points={[[-380, -30], [-145, -30]]} stroke={C.cyan} lineWidth={5} endArrow arrowSize={14} end={0} />
       <Line ref={line2} points={[[145, -30], [380, -30]]} stroke={C.purple} lineWidth={5} endArrow arrowSize={14} end={0} />
       <Layout ref={blocked} y={175} opacity={0}>
         <Line points={[[-620, 0], [500, 0]]} stroke={C.line} lineWidth={3} lineDash={[16, 12]} />
-        <Rect x={610} width={210} height={74} radius={18} fill={'#2B1420'} stroke={C.red} lineWidth={2}>
+        <Rect x={610} width={210} height={74} radius={18} fill={'#F8E5E5'} stroke={C.red} lineWidth={2}>
           <Txt fontFamily={MONO} fontSize={24} fontWeight={700} fill={C.red} text={'TASK OPEN'} />
         </Rect>
       </Layout>
@@ -374,13 +360,13 @@ function* loopShot(view: View2D) {
         arrowSize={14}
         end={0}
       />
-      {nodeCard('GOAL', '明确目标', C.white, -520, 80, 240)}
+      {nodeCard('GOAL', '明确目标', C.primary, -520, 80, 240)}
       {nodeCard('PLAN', '决定下一步', C.purple, -260, -125, 240)}
       {nodeCard('ACT', '调用工具', C.yellow, 80, -125, 240)}
       {nodeCard('OBSERVE', '读取结果', C.cyan, 350, 80, 260)}
       {nodeCard('UPDATE', '更新状态', C.green, 80, 250, 240)}
-      <Circle ref={pulse} position={[-520, 80]} width={30} height={30} fill={C.white} shadowColor={C.cyan} shadowBlur={24} />
-      <Rect ref={goal} x={580} y={220} width={260} height={86} radius={22} fill={'#10231D'} stroke={C.green} lineWidth={3} opacity={0}>
+      <Circle ref={pulse} position={[-520, 80]} width={30} height={30} fill={C.primary} shadowColor={C.cyan} shadowBlur={24} />
+      <Rect ref={goal} x={580} y={220} width={260} height={86} radius={22} fill={'#E4F0E8'} stroke={C.green} lineWidth={3} opacity={0}>
         <Txt fontFamily={MONO} fontSize={25} fontWeight={700} fill={C.green} text={'✓ DONE'} />
       </Rect>
     </>,
@@ -413,7 +399,7 @@ function toolPanel(
     <Rect x={x} width={470} height={330} radius={26} fill={C.panel} stroke={C.line} lineWidth={2}>
       <Rect y={-132} width={470} height={66} radius={[26, 26, 0, 0]} fill={C.panel2}>
         <Circle x={-190} width={12} height={12} fill={color} />
-        <Txt x={-15} width={350} textAlign={'left'} fontFamily={MONO} fontSize={23} fontWeight={700} fill={C.white} text={title} />
+        <Txt x={-15} width={350} textAlign={'left'} fontFamily={MONO} fontSize={23} fontWeight={700} fill={C.primary} text={title} />
       </Rect>
       <Txt y={-50} width={390} textAlign={'left'} fontFamily={MONO} fontSize={22} fill={C.cyan} text={`$ ${command}`} />
       <Line y={8} points={[[-195, 0], [195, 0]]} stroke={C.line} lineWidth={2} />
@@ -433,7 +419,7 @@ function* toolsShot(view: View2D) {
       <Rect ref={search} x={-500} y={50} opacity={0} scale={0.9}>{toolPanel('WEB SEARCH', 'search(query)', '12 sources\nranked by relevance', C.cyan, 0)}</Rect>
       <Rect ref={file} x={0} y={50} opacity={0} scale={0.9}>{toolPanel('FILE SYSTEM', 'read(report.md)', '8.4 KB loaded\nencoding: utf-8', C.purple, 0)}</Rect>
       <Rect ref={code} x={500} y={50} opacity={0} scale={0.9}>{toolPanel('TERMINAL', 'pnpm test', '87 passed\nexit code: 0', C.green, 0)}</Rect>
-      <Rect ref={router} y={-210} width={360} height={80} radius={40} fill={'#10252B'} stroke={C.cyan} lineWidth={3} opacity={0}>
+      <Rect ref={router} y={-210} width={360} height={80} radius={40} fill={'#E1F0EF'} stroke={C.cyan} lineWidth={3} opacity={0}>
         <Txt fontFamily={MONO} fontSize={26} fontWeight={700} fill={C.cyan} text={'TOOL ROUTER'} />
       </Rect>
       {connector([[0, -168], [-500, -115]], C.cyan)}
@@ -464,7 +450,7 @@ function traceRow(
   return (
     <Rect y={y} width={1160} height={86} radius={16} fill={C.panel2}>
       <Txt x={-520} width={90} textAlign={'left'} fontFamily={MONO} fontSize={21} fill={C.soft} text={step} />
-      <Txt x={-115} width={690} textAlign={'left'} fontFamily={MONO} fontSize={24} fill={C.white} text={label} />
+      <Txt x={-115} width={690} textAlign={'left'} fontFamily={MONO} fontSize={24} fill={C.primary} text={label} />
       <Rect x={470} width={150} height={48} radius={24} fill={`${color}22`} stroke={color} lineWidth={2}>
         <Txt fontFamily={MONO} fontSize={19} fontWeight={700} fill={color} text={status} />
       </Rect>
@@ -486,19 +472,19 @@ function* failureShot(view: View2D) {
     <Layout ref={host} opacity={0} scale={0.86}>
       {characterFrame('/characters/xiaolan-surprised.jpg', '等等，真实环境怎么可能永远成功？', 350, -635, 30, -3)}
     </Layout>
-    <Rect ref={note} x={-630} y={242} width={380} height={88} radius={18} fill={'#2B1420'} stroke={C.red} lineWidth={2} opacity={0} rotation={-1}>
-      <Txt width={330} fontFamily={FONT} fontSize={24} fontWeight={700} fill={C.white} text={'超时 · 拒绝 · 参数错误'} />
+    <Rect ref={note} x={-630} y={242} width={380} height={88} radius={18} fill={'#4A2931'} stroke={C.red} lineWidth={2} opacity={0} rotation={-1}>
+      <Txt width={330} fontFamily={FONT} fontSize={24} fontWeight={700} fill={C.onDark} text={'超时 · 拒绝 · 参数错误'} />
     </Rect>
-    <Rect x={190} width={1240} height={480} radius={30} fill={'#0C111A'} stroke={C.line} lineWidth={2}>
-      <Rect y={-205} width={1240} height={70} radius={[30, 30, 0, 0]} fill={C.panel2}>
-        <Txt x={-480} width={220} textAlign={'left'} fontFamily={MONO} fontSize={22} fontWeight={700} fill={C.white} text={'AGENT TRACE'} />
+    <Rect x={190} width={1240} height={480} radius={30} fill={C.panel} stroke={C.line} lineWidth={2} shadowColor={'#6D594022'} shadowBlur={28}>
+      <Rect y={-205} width={1240} height={70} radius={[30, 30, 0, 0]} fill={C.night}>
+        <Txt x={-480} width={220} textAlign={'left'} fontFamily={MONO} fontSize={22} fontWeight={700} fill={C.onDark} text={'AGENT TRACE'} />
         <Circle x={520} width={13} height={13} fill={C.green} />
-        <Txt x={410} width={180} textAlign={'right'} fontFamily={MONO} fontSize={18} fill={C.soft} text={'RUNNING'} />
+        <Txt x={410} width={180} textAlign={'right'} fontFamily={MONO} fontSize={18} fill={C.mutedOnDark} text={'RUNNING'} />
       </Rect>
       <Rect ref={row1} y={-105} opacity={0} scale={0.96}>{traceRow('01', 'plan  ·  locate quarterly report', 'DONE', C.green, 0)}</Rect>
       <Rect ref={row2} y={0} opacity={0} scale={0.96}>{traceRow('02', 'tool  ·  fetch remote document', 'TIMEOUT', C.red, 0)}</Rect>
       <Rect ref={row3} y={105} opacity={0} scale={0.96}>{traceRow('03', 'policy  ·  write /finance', 'DENIED', C.yellow, 0)}</Rect>
-      <Rect ref={retry} y={198} width={420} height={58} radius={29} fill={'#10252B'} stroke={C.cyan} lineWidth={2} opacity={0}>
+      <Rect ref={retry} y={198} width={420} height={58} radius={29} fill={'#E1F0EF'} stroke={C.cyan} lineWidth={2} opacity={0}>
         <Txt fontFamily={MONO} fontSize={20} fontWeight={700} fill={C.cyan} text={'↻ RETRY 2/3 · BACKOFF 4s'} />
       </Rect>
       <Rect ref={focus} y={0} width={1130} height={98} radius={19} stroke={C.red} lineWidth={4} opacity={0} shadowColor={C.red} shadowBlur={26} />
@@ -532,17 +518,17 @@ function* harnessShot(view: View2D) {
   const context = createRef<Rect>();
   stage.body().add(
     <>
-      <Rect ref={shell} width={1320} height={510} radius={42} fill={'#10141FDD'} stroke={C.purple} lineWidth={4} opacity={0} scale={0.94} shadowColor={'#A78BFA44'} shadowBlur={35}>
+      <Rect ref={shell} width={1320} height={510} radius={42} fill={'#FFF9F0EE'} stroke={C.purple} lineWidth={4} opacity={0} scale={0.94} shadowColor={'#765D9144'} shadowBlur={35}>
         <Txt x={-530} y={-215} width={220} textAlign={'left'} fontFamily={MONO} fontSize={23} fontWeight={700} fill={C.purple} text={'HARNESS'} />
       </Rect>
-      <Circle ref={model} width={230} height={230} fill={'#0C2630'} stroke={C.cyan} lineWidth={6} scale={0} shadowColor={'#22D3EE66'} shadowBlur={40}>
+      <Circle ref={model} width={230} height={230} fill={'#E1F0EF'} stroke={C.cyan} lineWidth={6} scale={0} shadowColor={'#2C8E9255'} shadowBlur={40}>
         <Txt fontFamily={MONO} fontSize={44} fontWeight={800} fill={C.cyan} text={'MODEL'} />
       </Circle>
-      <Rect ref={context} x={-420} y={-120} opacity={0}>{nodeCard('CONTEXT', '上下文窗口', C.white, 0, 0, 290)}</Rect>
+      <Rect ref={context} x={-420} y={-120} opacity={0}>{nodeCard('CONTEXT', '上下文窗口', C.primary, 0, 0, 290)}</Rect>
       <Rect ref={memory} x={420} y={-120} opacity={0}>{nodeCard('MEMORY', '长期状态', C.purple, 0, 0, 290)}</Rect>
       <Rect ref={policy} x={-420} y={150} opacity={0}>{nodeCard('POLICY', '权限与边界', C.yellow, 0, 0, 290)}</Rect>
       <Rect ref={tools} x={420} y={150} opacity={0}>{nodeCard('TOOLS', '调用与恢复', C.green, 0, 0, 290)}</Rect>
-      {connector([[-305, -120], [-125, -40]], C.white)}
+      {connector([[-305, -120], [-125, -40]], C.primary)}
       {connector([[305, -120], [125, -40]], C.purple)}
       {connector([[-305, 150], [-125, 40]], C.yellow)}
       {connector([[305, 150], [125, 40]], C.green)}
@@ -571,23 +557,23 @@ function* landingShot(view: View2D) {
   const result = createRef<Rect>();
   const progress = createRef<Rect>();
   stage.body().add(
-    <Rect width={1360} height={500} radius={30} fill={'#090D14'} stroke={C.line} lineWidth={2}>
-      <Rect y={-215} width={1360} height={70} radius={[30, 30, 0, 0]} fill={C.panel2}>
+    <Rect width={1360} height={500} radius={30} fill={C.night} stroke={C.line} lineWidth={2} shadowColor={'#6D594033'} shadowBlur={30}>
+      <Rect y={-215} width={1360} height={70} radius={[30, 30, 0, 0]} fill={C.night2}>
         <Circle x={-620} width={14} height={14} fill={C.red} />
         <Circle x={-590} width={14} height={14} fill={C.yellow} />
         <Circle x={-560} width={14} height={14} fill={C.green} />
-        <Txt x={0} fontFamily={MONO} fontSize={20} fill={C.soft} text={'agent-run / trace-8F21'} />
+        <Txt x={0} fontFamily={MONO} fontSize={20} fill={C.mutedOnDark} text={'agent-run / trace-8F21'} />
       </Rect>
-      <Rect ref={run} y={-132} width={1200} height={60} radius={14} fill={'#101722'} opacity={0}>
-        <Txt x={0} width={1080} textAlign={'left'} fontFamily={MONO} fontSize={22} fill={C.cyan} text={'$ agent run "summarize the latest AI report"'} />
+      <Rect ref={run} y={-132} width={1200} height={60} radius={14} fill={'#403947'} opacity={0}>
+        <Txt x={0} width={1080} textAlign={'left'} fontFamily={MONO} fontSize={22} fill={'#73C5C5'} text={'$ agent run "summarize the latest AI report"'} />
       </Rect>
-      <Txt ref={line1} x={0} y={-48} width={1040} textAlign={'left'} fontFamily={MONO} fontSize={22} fill={C.soft} text={'○ planning execution graph'} opacity={0} />
-      <Txt ref={line2} x={0} y={18} width={1040} textAlign={'left'} fontFamily={MONO} fontSize={22} fill={C.soft} text={'○ reading 12 verified sources'} opacity={0} />
-      <Txt ref={line3} x={0} y={84} width={1040} textAlign={'left'} fontFamily={MONO} fontSize={22} fill={C.soft} text={'○ validating citations and output'} opacity={0} />
-      <Rect y={155} width={1200} height={10} radius={5} fill={C.line}>
+      <Txt ref={line1} x={0} y={-48} width={1040} textAlign={'left'} fontFamily={MONO} fontSize={22} fill={C.mutedOnDark} text={'○ planning execution graph'} opacity={0} />
+      <Txt ref={line2} x={0} y={18} width={1040} textAlign={'left'} fontFamily={MONO} fontSize={22} fill={C.mutedOnDark} text={'○ reading 12 verified sources'} opacity={0} />
+      <Txt ref={line3} x={0} y={84} width={1040} textAlign={'left'} fontFamily={MONO} fontSize={22} fill={C.mutedOnDark} text={'○ validating citations and output'} opacity={0} />
+      <Rect y={155} width={1200} height={10} radius={5} fill={'#5B5362'}>
         <Rect ref={progress} x={-600} width={0} height={10} radius={5} fill={C.cyan} offset={[-1, 0]} />
       </Rect>
-      <Rect ref={result} y={205} width={460} height={62} radius={31} fill={'#10231D'} stroke={C.green} lineWidth={2} opacity={0}>
+      <Rect ref={result} y={205} width={460} height={62} radius={31} fill={'#E4F0E8'} stroke={C.green} lineWidth={2} opacity={0}>
         <Txt fontFamily={MONO} fontSize={21} fontWeight={700} fill={C.green} text={'✓ COMPLETED · 7.42s'} />
       </Rect>
     </Rect>,
@@ -623,13 +609,13 @@ function* summaryShot(view: View2D) {
       <Layout ref={host} opacity={0} scale={0.9}>
         {characterFrame('/characters/xiaolan-pointing.jpg', '小兰结论  //  模型负责判断，系统负责行动', 560, -520, 10, -2)}
       </Layout>
-      <Rect ref={equation} x={360} y={10} width={830} height={440} radius={34} fill={'#0C111ADD'} stroke={C.line} lineWidth={2} opacity={0}>
+      <Rect ref={equation} x={360} y={10} width={830} height={440} radius={34} fill={'#FFF9F0F2'} stroke={C.line} lineWidth={2} opacity={0} shadowColor={'#6D594022'} shadowBlur={28}>
         <Rect ref={model} opacity={0} scale={0.8}>{nodeCard('MODEL', '判断', C.cyan, -235, -75, 270)}</Rect>
         <Txt ref={times} x={0} y={-75} fontFamily={MONO} fontSize={72} fontWeight={500} fill={C.soft} text={'×'} opacity={0} />
         <Rect ref={runtime} opacity={0} scale={0.8}>{nodeCard('RUNTIME', '持续行动', C.purple, 235, -75, 270)}</Rect>
         <Layout ref={result} y={130} opacity={0}>
-          <Rect width={610} height={110} radius={55} fill={'#28121A'} stroke={C.red} lineWidth={4} shadowColor={'#F43F5E66'} shadowBlur={34}>
-            <Txt fontFamily={MONO} fontSize={44} fontWeight={900} letterSpacing={5} fill={C.white} text={'=  AGENT'} />
+          <Rect width={610} height={110} radius={55} fill={'#F8E5E5'} stroke={C.red} lineWidth={4} shadowColor={'#D8556244'} shadowBlur={34}>
+            <Txt fontFamily={MONO} fontSize={44} fontWeight={900} letterSpacing={5} fill={C.primary} text={'=  AGENT'} />
           </Rect>
         </Layout>
       </Rect>
@@ -672,16 +658,16 @@ const scene = makeScene2D('agent-harness-benchmark', function* (view) {
         ref={grid}
         size={[2100, 1260]}
         spacing={64}
-        stroke={'#18202E'}
+        stroke={'#D8CCBD'}
         lineWidth={1}
         opacity={0.7}
       />
-      <Circle x={-820} y={-470} width={520} height={520} fill={'#F43F5E0B'} shadowColor={'#F43F5E22'} shadowBlur={100} />
-      <Circle x={860} y={420} width={620} height={620} fill={'#22D3EE08'} shadowColor={'#22D3EE20'} shadowBlur={120} />
-      <Line ref={scan} points={[[-960, 0], [960, 0]]} stroke={'#22D3EE22'} lineWidth={2} y={-540} />
+      <Circle x={-820} y={-470} width={520} height={520} fill={'#D8556210'} shadowColor={'#D8556222'} shadowBlur={100} />
+      <Circle x={860} y={420} width={620} height={620} fill={'#765D910A'} shadowColor={'#765D9120'} shadowBlur={120} />
+      <Line ref={scan} points={[[-960, 0], [960, 0]]} stroke={'#2C8E9222'} lineWidth={2} y={-540} />
       <Layout position={[735, -440]} layout direction={'row'} gap={12} alignItems={'center'}>
         <Circle width={16} height={16} fill={C.red} shadowColor={C.red} shadowBlur={18} />
-        <Txt fontFamily={FONT} fontSize={24} fontWeight={700} letterSpacing={2} fill={C.white} text={'小行星 AI 观测站'} />
+        <Txt fontFamily={FONT} fontSize={24} fontWeight={700} letterSpacing={2} fill={C.primary} text={'小行星 AI 观测站'} />
       </Layout>
       <Audio src={'/benchmark-audio.mp3'} play={true} />
     </>,
