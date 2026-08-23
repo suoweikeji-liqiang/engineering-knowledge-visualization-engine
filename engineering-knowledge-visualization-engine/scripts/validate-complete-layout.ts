@@ -44,6 +44,7 @@ function visualEntries(shot: Shot): TextEntry[] {
     case 'timeline': addMany('timeline-event', visual.events ?? [], 1080, 46, {maxFontSize: 22, minFontSize: 14, maxLines: 1}); break;
     case 'bars':
       addMany('bar-label', visual.bars ?? [], 160, 48, {maxFontSize: 20, minFontSize: 13, maxLines: 2});
+      addMany('bar-after-label', visual.after ?? [], 160, 48, {maxFontSize: 20, minFontSize: 13, maxLines: 2});
       items.push(entry(shot.id, 'chart-note', visual.note, 660, 50, {maxFontSize: 21, minFontSize: 14, maxLines: 2}));
       break;
     case 'curve':

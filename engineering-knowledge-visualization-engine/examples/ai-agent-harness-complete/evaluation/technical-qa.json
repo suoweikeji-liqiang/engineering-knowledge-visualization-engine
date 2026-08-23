@@ -3,8 +3,8 @@
   "artifact": "final/ai-agent-harness-complete.mp4",
   "media": {
     "duration": 714.833333,
-    "sizeBytes": 187415814,
-    "bitRate": 2097449,
+    "sizeBytes": 187421800,
+    "bitRate": 2097516,
     "video": {
       "index": 0,
       "codec_name": "h264",
@@ -24,14 +24,14 @@
   },
   "loudness": {
     "integratedLufs": -16.69,
-    "truePeakDb": -3.86,
+    "truePeakDb": -3.95,
     "rangeLu": 3.5
   },
   "blackSegments": [],
   "motion": {
-    "freezeSegmentsOver3Seconds": 56,
-    "frozenSeconds": 203.73333200000005,
-    "frozenFraction": 0.2850081586780174,
+    "freezeSegmentsOver3Seconds": 55,
+    "frozenSeconds": 200.73333200000005,
+    "frozenFraction": 0.2808113762092849,
     "maximumFreezeSeconds": 5.233333
   },
   "asr": {
@@ -55,7 +55,7 @@
     "maximumDeltaSeconds": 0.21
   },
   "layout": {
-    "textContainers": 385,
+    "textContainers": 388,
     "textOverflowRisks": 0,
     "minimumSelectedFontSize": 17,
     "characterAspectPreserved": true,

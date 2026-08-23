@@ -628,8 +628,10 @@ function* barsShot(view: View2D, shot: CompleteShot, duration: number, index: nu
   const stage = makeCompleteStage(view, index, shot, C.yellow);
   const bars = shot.visual.bars ?? [];
   const max = Math.max(...bars.map(item => item.value), 1);
+  const groups = bars.map(() => createRef<Layout>());
   const refs = bars.map(() => createRef<Rect>());
   const values = bars.map(() => createRef<Txt>());
+  const labels = bars.map(() => createRef<Txt>());
   const available = 1220;
   const gap = available / Math.max(1, bars.length);
   stage.body().add(
@@ -639,9 +641,9 @@ function* barsShot(view: View2D, shot: CompleteShot, duration: number, index: nu
         const x = -610 + idx * gap;
         const height = 390 * (bar.value / max);
         return (
-          <Layout x={x}>
+          <Layout ref={groups[idx]} x={x}>
             <Rect ref={refs[idx]} y={250} width={Math.min(190, gap - 30)} height={0} offset={[0, 1]} radius={[14, 14, 0, 0]} fill={ACCENTS[idx % ACCENTS.length]} stroke={C.primary} lineWidth={3} />
-            <Txt y={282} width={Math.min(190, gap - 30)} height={48} textWrap={true} fontFamily={FONT} fontSize={fitText(bar.label, Math.min(190, gap - 30), 48, {maxFontSize: 20, minFontSize: 13, maxLines: 2}).fontSize} lineHeight={23} fontWeight={750} fill={C.primary} text={bar.label} />
+            <Txt ref={labels[idx]} y={282} width={Math.min(190, gap - 30)} height={48} textWrap={true} fontFamily={FONT} fontSize={fitText(bar.label, Math.min(190, gap - 30), 48, {maxFontSize: 20, minFontSize: 13, maxLines: 2}).fontSize} lineHeight={23} fontWeight={750} fill={C.primary} text={bar.label} />
             <Txt ref={values[idx]} y={210 - height} width={180} fontFamily={MONO} fontSize={23} fontWeight={900} fill={ACCENTS[idx % ACCENTS.length]} text={String(bar.value)} />
           </Layout>
         );
@@ -660,10 +662,17 @@ function* barsShot(view: View2D, shot: CompleteShot, duration: number, index: nu
     ? chain(
         waitFor(visualDelay(shot.id, refs.length)),
         all(...refs.map((ref, idx) => {
-          const next = after[idx]?.value ?? bars[idx].value;
+          const next = after[idx];
+          if (!next) return all(ref().height(0, 0.5, easeInOutCubic), groups[idx]().opacity(0, 0.42));
+          const nextHeight = 390 * (next.value / Math.max(max, ...after.map(item => item.value)));
+          const afterGap = available / after.length;
+          const afterX = -afterGap * (after.length - 1) / 2 + idx * afterGap;
           return all(
-            ref().height(390 * (next / Math.max(max, ...after.map(item => item.value))), 0.62, easeInOutCubic),
-            values[idx]().text(String(next), 0.36),
+            groups[idx]().position.x(afterX, 0.62, easeInOutCubic),
+            ref().height(nextHeight, 0.62, easeInOutCubic),
+            values[idx]().position.y(210 - nextHeight, 0.62, easeInOutCubic),
+            values[idx]().text(String(next.value), 0.36),
+            labels[idx]().text(next.label, 0.36),
           );
         })),
       )
