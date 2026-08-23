@@ -6,11 +6,14 @@ import captionTimeline from '../../../examples/ai-agent-harness-complete/audio/c
 import visualTimeline from '../../../examples/ai-agent-harness-complete/audio/visual-events.timeline.json';
 import {ASTEROID_WARM_THEME as C} from './theme';
 import {CINEMATIC_FONT as FONT, CINEMATIC_MONO as MONO} from './cinematic-sketch';
+import {CHARACTER_CONTAINED_SIZE, fitText} from './layout-contracts';
 
 type Visual = {
   kind: string;
   asset?: string;
   characterAsset?: string;
+  assetFit?: 'contain';
+  performanceLabel?: string;
   status?: string[];
   left?: {title: string; items: string[]};
   right?: {title: string; items: string[]};
@@ -33,6 +36,7 @@ type Visual = {
   note?: string;
   callouts?: string[];
   edgeDirection?: 'inbound' | 'outbound';
+  continuityKey?: string;
 };
 
 type CompleteShot = {
@@ -42,7 +46,7 @@ type CompleteShot = {
   visual: Visual;
 };
 
-const story = storyDocument as unknown as {shots: CompleteShot[]};
+const story = storyDocument as unknown as {shots: CompleteShot[]; chapters: Array<{id: string; shotIds: string[]}>};
 const durations = Object.fromEntries(timeline.shots.map(shot => [shot.id, shot.duration]));
 const captionsByShot = captionTimeline.cues.reduce<Record<string, (typeof captionTimeline.cues)[number][]>>((result, cue) => {
   (result[cue.shotId] ??= []).push(cue);
@@ -51,7 +55,14 @@ const captionsByShot = captionTimeline.cues.reduce<Record<string, (typeof captio
 const visualEventsByShot = Object.fromEntries(visualTimeline.shots.map(shot => [shot.shotId, shot.events]));
 const ACCENTS = [C.red, C.cyan, C.yellow, C.purple, C.green] as const;
 
-type CompleteStage = {root: Reference<Layout>; body: Reference<Layout>; caption: Reference<Txt>; scan: Reference<Rect>};
+type CompleteStage = {root: Reference<Layout>; body: Reference<Layout>; caption: Reference<Txt>; scan: Reference<Rect>; direction: number};
+
+function continuityDirection(shot: CompleteShot, index: number): number {
+  const key = shot.visual.continuityKey;
+  if (!key) return index % 2 ? 1 : -1;
+  const hash = [...key].reduce((total, character) => total + character.codePointAt(0)!, 0);
+  return hash % 2 ? 1 : -1;
+}
 
 function splitCaption(text: string, maxChars = 34): string[] {
   const clauses = text.split(/(?<=[。！？；])/u).map(item => item.trim()).filter(Boolean);
@@ -94,7 +105,7 @@ function makeCompleteStage(view: View2D, index: number, shot: CompleteShot, acce
       </Layout>
     </Layout>,
   );
-  return {root, body, caption, scan};
+  return {root, body, caption, scan, direction: continuityDirection(shot, index)};
 }
 
 function* ambientScan(stage: CompleteStage, duration: number) {
@@ -107,7 +118,8 @@ function visualDelay(shotId: string, index: number): number {
   return event.activeStart;
 }
 
-function* enter(stage: CompleteStage, direction: number) {
+function* enter(stage: CompleteStage) {
+  const direction = stage.direction;
   stage.root().position.x(34 * direction);
   stage.root().rotation(0.28 * direction);
   yield* all(
@@ -118,7 +130,8 @@ function* enter(stage: CompleteStage, direction: number) {
   );
 }
 
-function* exit(stage: CompleteStage, direction: number) {
+function* exit(stage: CompleteStage) {
+  const direction = stage.direction;
   yield* all(stage.root().opacity(0, 0.28), stage.root().scale(1.012, 0.28), stage.root().position.x(-24 * direction, 0.28));
   stage.root().remove();
 }
@@ -146,13 +159,15 @@ function* captions(stage: CompleteStage, shotId: string, duration: number) {
 }
 
 function paperCard(title: string, detail: string, color: string, width = 300, height = 140) {
+  const titleFit = fitText(title, width - 48, 42, {maxFontSize: 22, minFontSize: 15, maxLines: 2});
+  const detailFit = fitText(detail, width - 48, 56, {maxFontSize: 19, minFontSize: 13, maxLines: 2});
   return (
     <Layout>
       <Rect x={6} y={7} width={width} height={height} radius={[20, 25, 18, 23]} fill={'#E4D6C5'} rotation={0.7} />
       <Rect width={width} height={height} radius={[23, 18, 25, 20]} fill={C.panel} stroke={color} lineWidth={3} shadowColor={`${color}28`} shadowBlur={16}>
         <Circle x={-width / 2 + 27} y={-height / 2 + 25} width={11} height={11} fill={color} />
-        <Txt y={-25} width={width - 42} fontFamily={MONO} fontSize={22} fontWeight={850} fill={C.primary} text={title} />
-        <Txt y={27} width={width - 42} fontFamily={FONT} fontSize={19} lineHeight={28} fill={C.soft} text={detail} />
+        <Txt y={-25} width={width - 48} height={42} textWrap={true} fontFamily={MONO} fontSize={titleFit.fontSize} lineHeight={titleFit.lineHeight} fontWeight={850} fill={C.primary} text={title} />
+        <Txt y={27} width={width - 48} height={56} textWrap={true} fontFamily={FONT} fontSize={detailFit.fontSize} lineHeight={detailFit.lineHeight} fill={C.soft} text={detail} />
       </Rect>
     </Layout>
   );
@@ -162,52 +177,79 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
   const accent = ACCENTS[index % ACCENTS.length];
   const stage = makeCompleteStage(view, index, shot, accent);
   const image = createRef<Layout>();
+  const portrait = createRef<Img>();
+  const liveDot = createRef<Circle>();
   const statuses = shot.visual.status ?? [];
   const refs = statuses.map(() => createRef<Layout>());
   const asset = shot.visual.asset ?? shot.visual.characterAsset ?? 'xiaolan-evidence-bridge.png';
+  const performanceLabel = shot.visual.performanceLabel ?? '现场讲解';
   stage.body().add(
     <>
       <Layout ref={image} x={-420} opacity={0} scale={0.94} rotation={-1.2}>
         <Rect x={9} y={12} width={860} height={600} radius={28} fill={'#DCCDBA'} />
-        <Rect width={860} height={600} radius={26} fill={C.paper} stroke={C.line} lineWidth={3} shadowColor={'#6D594044'} shadowBlur={28}>
-          <Img src={`/complete/characters/${asset}`} width={824} height={564} radius={18} />
+        <Rect width={860} height={600} radius={26} fill={C.paper} stroke={C.line} lineWidth={3} shadowColor={'#6D594044'} shadowBlur={28} clip>
+          <Img
+            ref={portrait}
+            y={-34}
+            src={`/complete/characters/${asset}`}
+            width={CHARACTER_CONTAINED_SIZE.width}
+            height={CHARACTER_CONTAINED_SIZE.height}
+            radius={18}
+          />
+          <Rect y={252} width={824} height={68} radius={16} fill={'#FFF9F0EE'} stroke={accent} lineWidth={2}>
+            <Circle ref={liveDot} x={-365} width={13} height={13} fill={accent} shadowColor={accent} shadowBlur={18} />
+            <Txt x={18} width={690} textAlign={'left'} fontFamily={MONO} fontSize={19} fontWeight={800} fill={C.primary} text={`XIAOLAN · ${performanceLabel}`} />
+          </Rect>
         </Rect>
         <Rect y={-310} width={126} height={28} radius={5} fill={`${C.tape}D8`} rotation={3} />
       </Layout>
       <Layout x={480} layout direction={'column'} gap={17}>
         {statuses.map((item, idx) => (
-          <Layout ref={refs[idx]} opacity={0} x={42}>
+          <Layout ref={refs[idx]} opacity={0} x={42} scale={0.94}>
             <Rect width={610} height={86} radius={[15, 20, 16, 18]} fill={C.panel} stroke={idx === statuses.length - 1 ? accent : C.line} lineWidth={2.5}>
               <Txt x={-254} width={62} textAlign={'left'} fontFamily={MONO} fontSize={20} fontWeight={850} fill={accent} text={String(idx + 1).padStart(2, '0')} />
-              <Txt x={32} width={470} textAlign={'left'} fontFamily={MONO} fontSize={22} fontWeight={700} fill={C.primary} text={item} />
+              <Txt x={32} width={470} height={64} textWrap={true} textAlign={'left'} fontFamily={MONO} fontSize={fitText(item, 470, 64, {maxFontSize: 22, minFontSize: 15, maxLines: 2}).fontSize} lineHeight={27} fontWeight={700} fill={C.primary} text={item} />
             </Rect>
           </Layout>
         ))}
       </Layout>
     </>,
   );
-  yield* enter(stage, index % 2 ? 1 : -1);
+  yield* enter(stage);
   const active = duration - 0.74;
   yield* all(
     all(image().opacity(1, 0.4), image().scale(1, 0.55)),
-    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.28), ref().position.x(0, 0.35)))),
+    ...refs.map((ref, cueIndex) => chain(
+      waitFor(visualDelay(shot.id, cueIndex)),
+      all(ref().opacity(1, 0.24), ref().position.x(0, 0.34), ref().scale(1.035, 0.28, easeInOutCubic)),
+      ref().scale(1, 0.16, easeInOutCubic),
+    )),
     image().position.x(-405, active, easeInOutCubic),
+    tween(active, value => {
+      const phase = value * Math.PI * 4;
+      portrait().position.x(Math.sin(phase) * 6);
+      portrait().position.y(-34 + Math.cos(phase * 0.7) * 4);
+      portrait().scale(1.006 + Math.sin(phase * 0.5) * 0.006);
+      liveDot().scale(0.88 + Math.sin(phase * 1.4) * 0.16);
+      liveDot().shadowBlur(12 + (Math.sin(phase * 1.4) + 1) * 8);
+    }),
     ambientScan(stage, active),
     captions(stage, shot.id, active),
     waitFor(active),
   );
-  yield* exit(stage, index % 2 ? 1 : -1);
+  yield* exit(stage);
 }
 
 function compareBoard(title: string, items: string[], color: string) {
+  const titleFit = fitText(title, 610, 60, {maxFontSize: 28, minFontSize: 18, maxLines: 2});
   return (
     <Rect width={710} height={560} radius={[28, 22, 30, 24]} fill={C.panel} stroke={color} lineWidth={3} shadowColor={`${color}28`} shadowBlur={24}>
-      <Txt y={-224} width={610} fontFamily={MONO} fontSize={28} fontWeight={900} fill={color} text={title} />
+      <Txt y={-224} width={610} height={60} textWrap={true} fontFamily={MONO} fontSize={titleFit.fontSize} lineHeight={titleFit.lineHeight} fontWeight={900} fill={color} text={title} />
       <Line y={-178} points={[[-300, 0], [300, 0]]} stroke={`${color}66`} lineWidth={3} />
       {items.map((item, idx) => (
         <Layout y={-105 + idx * 92}>
           <Circle x={-275} width={15} height={15} fill={color} />
-          <Txt x={25} width={530} textAlign={'left'} fontFamily={FONT} fontSize={27} fontWeight={650} fill={C.primary} text={item} />
+          <Txt x={25} width={530} height={76} textWrap={true} textAlign={'left'} fontFamily={FONT} fontSize={fitText(item, 530, 76, {maxFontSize: 27, minFontSize: 17, maxLines: 3}).fontSize} lineHeight={31} fontWeight={650} fill={C.primary} text={item} />
         </Layout>
       ))}
     </Rect>
@@ -226,7 +268,7 @@ function* compareShot(view: View2D, shot: CompleteShot, duration: number, index:
       <Line ref={divider} points={[[0, -285], [0, 285]]} stroke={C.yellow} lineWidth={5} lineDash={[14, 12]} end={0} />
     </>,
   );
-  yield* enter(stage, -1);
+  yield* enter(stage);
   const active = duration - 0.74;
   yield* all(
     chain(waitFor(visualDelay(shot.id, 0)), all(left().opacity(1, 0.42), left().scale(1, 0.5))),
@@ -236,7 +278,7 @@ function* compareShot(view: View2D, shot: CompleteShot, duration: number, index:
     ambientScan(stage, active),
     waitFor(active),
   );
-  yield* exit(stage, 1);
+  yield* exit(stage);
 }
 
 function* evidenceShot(view: View2D, shot: CompleteShot, duration: number, index: number) {
@@ -259,9 +301,21 @@ function* evidenceShot(view: View2D, shot: CompleteShot, duration: number, index
       <Layout x={390} layout direction={'column'} gap={22}>
         {callouts.map((item, idx) => (
           <Layout ref={refs[idx]} opacity={0} x={46}>
-            <Rect width={690} height={126} radius={[20, 24, 19, 22]} fill={C.panel} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={3}>
+            <Rect width={690} height={140} radius={[20, 24, 19, 22]} fill={C.panel} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={3} clip>
               <Txt x={-286} width={64} textAlign={'left'} fontFamily={MONO} fontSize={20} fontWeight={900} fill={ACCENTS[idx % ACCENTS.length]} text={`0${idx + 1}`} />
-              <Txt x={34} width={540} textAlign={'left'} fontFamily={FONT} fontSize={27} fontWeight={750} fill={C.primary} text={item} />
+              <Txt
+                x={34}
+                width={540}
+                height={108}
+                textWrap={true}
+                textAlign={'left'}
+                fontFamily={FONT}
+                fontSize={fitText(item, 540, 108, {maxFontSize: 27, minFontSize: 17, maxLines: 3}).fontSize}
+                lineHeight={31}
+                fontWeight={750}
+                fill={C.primary}
+                text={item}
+              />
             </Rect>
           </Layout>
         ))}
@@ -271,7 +325,7 @@ function* evidenceShot(view: View2D, shot: CompleteShot, duration: number, index
       </Layout>
     </>,
   );
-  yield* enter(stage, 1);
+  yield* enter(stage);
   const active = duration - 0.74;
   yield* all(
     all(document().opacity(1, 0.4), document().scale(1, 0.52)),
@@ -282,7 +336,7 @@ function* evidenceShot(view: View2D, shot: CompleteShot, duration: number, index
     ambientScan(stage, active),
     waitFor(active),
   );
-  yield* exit(stage, -1);
+  yield* exit(stage);
 }
 
 function splitNode(value: string): [string, string] {
@@ -326,12 +380,12 @@ function* topologyShot(view: View2D, shot: CompleteShot, duration: number, index
       </Layout>
       {(shot.visual.meters ?? []).map((meter, idx) => (
         <Rect x={-510 + idx * 510} y={292} width={440} height={52} radius={26} fill={'#EEE3D5'} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={2}>
-          <Txt fontFamily={MONO} fontSize={18} fontWeight={750} fill={C.primary} text={meter} />
+          <Txt width={400} height={38} textWrap={true} fontFamily={MONO} fontSize={fitText(meter, 400, 38, {maxFontSize: 18, minFontSize: 13, maxLines: 2}).fontSize} lineHeight={22} fontWeight={750} fill={C.primary} text={meter} />
         </Rect>
       ))}
     </>,
   );
-  yield* enter(stage, 1);
+  yield* enter(stage);
   const active = duration - 0.74;
   yield* all(
     all(center().opacity(1, 0.4), center().scale(1, 0.55)),
@@ -341,7 +395,7 @@ function* topologyShot(view: View2D, shot: CompleteShot, duration: number, index
     captions(stage, shot.id, active),
     waitFor(active),
   );
-  yield* exit(stage, -1);
+  yield* exit(stage);
 }
 
 function* stackShot(view: View2D, shot: CompleteShot, duration: number, index: number) {
@@ -356,7 +410,7 @@ function* stackShot(view: View2D, shot: CompleteShot, duration: number, index: n
           <Layout ref={refs[idx]} y={-245 + idx * (480 / Math.max(1, layers.length - 1))} x={idx * 18} opacity={0} scale={0.92}>
             <Rect width={760 - idx * 24} height={82} radius={[14, 18, 15, 17]} fill={idx % 2 ? '#EEE3D5' : C.panel} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={2.5}>
               <Txt x={-310 + idx * 12} width={90} textAlign={'left'} fontFamily={MONO} fontSize={18} fontWeight={900} fill={ACCENTS[idx % ACCENTS.length]} text={String(idx + 1).padStart(2, '0')} />
-              <Txt x={45} width={520} textAlign={'left'} fontFamily={MONO} fontSize={22} fontWeight={700} fill={C.primary} text={layer} />
+              <Txt x={45} width={520} height={62} textWrap={true} textAlign={'left'} fontFamily={MONO} fontSize={fitText(layer, 520, 62, {maxFontSize: 22, minFontSize: 15, maxLines: 2}).fontSize} lineHeight={27} fontWeight={700} fill={C.primary} text={layer} />
             </Rect>
           </Layout>
         ))}
@@ -365,7 +419,7 @@ function* stackShot(view: View2D, shot: CompleteShot, duration: number, index: n
       <Layout ref={output} x={520} opacity={0} scale={0.7}>{paperCard(shot.visual.output ?? 'OUTPUT', 'assembled by harness', C.red, 430, 210)}</Layout>
     </>,
   );
-  yield* enter(stage, -1);
+  yield* enter(stage);
   const active = duration - 0.74;
   yield* all(
     ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.25), ref().scale(1, 0.32)))),
@@ -374,7 +428,7 @@ function* stackShot(view: View2D, shot: CompleteShot, duration: number, index: n
     ambientScan(stage, active),
     waitFor(active),
   );
-  yield* exit(stage, 1);
+  yield* exit(stage);
 }
 
 function* codeShot(view: View2D, shot: CompleteShot, duration: number, index: number) {
@@ -392,13 +446,13 @@ function* codeShot(view: View2D, shot: CompleteShot, duration: number, index: nu
         {lines.map((line, idx) => (
           <Rect ref={refs[idx]} y={-195 + idx * 72} width={1320} height={58} radius={8} fill={'#FFFFFF00'}>
             <Txt x={-610} width={54} textAlign={'right'} fontFamily={MONO} fontSize={19} fill={'#71697A'} text={String(idx + 1).padStart(2, '0')} />
-            <Txt x={25} width={1160} textAlign={'left'} fontFamily={MONO} fontSize={25} fill={shot.visual.focus?.includes(idx + 1) ? '#F1CF72' : C.onDark} text={line} />
+            <Txt x={25} width={1160} height={46} textWrap={false} textAlign={'left'} fontFamily={MONO} fontSize={fitText(line, 1160, 46, {maxFontSize: 25, minFontSize: 15, maxLines: 1}).fontSize} fill={shot.visual.focus?.includes(idx + 1) ? '#F1CF72' : C.onDark} text={line} />
           </Rect>
         ))}
       </Rect>
     </Layout>,
   );
-  yield* enter(stage, 1);
+  yield* enter(stage);
   const active = duration - 0.74;
   const focusIndexes = (shot.visual.focus?.length ? shot.visual.focus : refs.map((_, idx) => idx + 1)).map(value => value - 1);
   const scanLines = focusIndexes.map((lineIndex, cueIndex) => chain(
@@ -414,7 +468,7 @@ function* codeShot(view: View2D, shot: CompleteShot, duration: number, index: nu
     ambientScan(stage, active),
     waitFor(active),
   );
-  yield* exit(stage, -1);
+  yield* exit(stage);
 }
 
 function* gatesShot(view: View2D, shot: CompleteShot, duration: number, index: number) {
@@ -432,7 +486,7 @@ function* gatesShot(view: View2D, shot: CompleteShot, duration: number, index: n
       {gates.map((gate, idx) => (
         <Layout ref={refs[idx]} x={startX + idx * step} y={55} opacity={0} scale={0.8}>
           <Rect width={190} height={190} radius={28} fill={C.panel} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={4}>
-            <Txt width={158} fontFamily={MONO} fontSize={20} fontWeight={850} fill={C.primary} text={gate} />
+            <Txt width={154} height={118} textWrap={true} fontFamily={MONO} fontSize={fitText(gate, 154, 118, {maxFontSize: 20, minFontSize: 13, maxLines: 4}).fontSize} lineHeight={24} fontWeight={850} fill={C.primary} text={gate} />
             <Rect y={78} width={84} height={20} radius={4} fill={`${ACCENTS[idx % ACCENTS.length]}44`} rotation={3} />
           </Rect>
         </Layout>
@@ -441,7 +495,7 @@ function* gatesShot(view: View2D, shot: CompleteShot, duration: number, index: n
       <Circle ref={pulse} x={-680} y={55} width={28} height={28} fill={C.red} shadowColor={C.red} shadowBlur={25} />
     </>,
   );
-  yield* enter(stage, -1);
+  yield* enter(stage);
   const active = duration - 0.74;
   const moves = refs.map((_, idx) => pulse().position.x(startX + idx * step, Math.max(0.42, active * 0.72 / Math.max(1, refs.length + 1)), linear));
   yield* all(
@@ -452,7 +506,7 @@ function* gatesShot(view: View2D, shot: CompleteShot, duration: number, index: n
     ambientScan(stage, active),
     waitFor(active),
   );
-  yield* exit(stage, 1);
+  yield* exit(stage);
 }
 
 function* swimlaneShot(view: View2D, shot: CompleteShot, duration: number, index: number) {
@@ -483,14 +537,14 @@ function* swimlaneShot(view: View2D, shot: CompleteShot, duration: number, index
           <Layout ref={refs[idx]} opacity={0}>
             <Line points={[[laneX[from], y], [laneX[to], y]]} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={4} endArrow arrowSize={13} />
             <Rect x={(laneX[from] + laneX[to]) / 2} y={y - 25} width={360} height={46} radius={14} fill={C.panel} stroke={C.line} lineWidth={2}>
-              <Txt fontFamily={MONO} fontSize={17} fontWeight={700} fill={C.primary} text={label} />
+              <Txt width={328} height={34} textWrap={true} fontFamily={MONO} fontSize={fitText(label, 328, 34, {maxFontSize: 17, minFontSize: 12, maxLines: 2}).fontSize} lineHeight={19} fontWeight={700} fill={C.primary} text={label} />
             </Rect>
           </Layout>
         );
       })}
     </>,
   );
-  yield* enter(stage, 1);
+  yield* enter(stage);
   const active = duration - 0.74;
   yield* all(
     ...refs.map((ref, eventIndex) => cueIndexByEvent[eventIndex] < 0
@@ -500,7 +554,7 @@ function* swimlaneShot(view: View2D, shot: CompleteShot, duration: number, index
     ambientScan(stage, active),
     waitFor(active),
   );
-  yield* exit(stage, -1);
+  yield* exit(stage);
 }
 
 function* loopShot(view: View2D, shot: CompleteShot, duration: number, index: number) {
@@ -518,7 +572,7 @@ function* loopShot(view: View2D, shot: CompleteShot, duration: number, index: nu
       <Circle ref={pulse} position={positions[0]} width={30} height={30} fill={C.red} shadowColor={C.red} shadowBlur={24} opacity={0} />
     </>,
   );
-  yield* enter(stage, -1);
+  yield* enter(stage);
   const active = duration - 0.74;
   const pathPoints = positions.slice(1, nodes.length);
   const moveDuration = Math.max(0.42, (active * 0.62) / Math.max(1, pathPoints.length * 2 + 1));
@@ -530,7 +584,7 @@ function* loopShot(view: View2D, shot: CompleteShot, duration: number, index: nu
     ambientScan(stage, active),
     waitFor(active),
   );
-  yield* exit(stage, 1);
+  yield* exit(stage);
 }
 
 function* timelineShot(view: View2D, shot: CompleteShot, duration: number, index: number) {
@@ -548,7 +602,7 @@ function* timelineShot(view: View2D, shot: CompleteShot, duration: number, index
           <Layout ref={refs[idx]} y={-190 + idx * (405 / Math.max(1, events.length - 1))} opacity={0} x={30}>
             <Circle x={-620} width={18} height={18} fill={ACCENTS[idx % ACCENTS.length]} />
             <Txt x={-560} width={72} textAlign={'left'} fontFamily={MONO} fontSize={18} fill={C.mutedOnDark} text={String(idx + 1).padStart(2, '0')} />
-            <Txt x={30} width={1080} textAlign={'left'} fontFamily={MONO} fontSize={22} fill={C.onDark} text={typeof event === 'string' ? event : event.label} />
+            <Txt x={30} width={1080} height={46} textWrap={false} textAlign={'left'} fontFamily={MONO} fontSize={fitText(typeof event === 'string' ? event : event.label, 1080, 46, {maxFontSize: 22, minFontSize: 14, maxLines: 1}).fontSize} fill={C.onDark} text={typeof event === 'string' ? event : event.label} />
             <Rect x={600} width={130} height={38} radius={19} fill={`${ACCENTS[idx % ACCENTS.length]}2A`} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={1.5}>
               <Txt fontFamily={MONO} fontSize={15} fontWeight={800} fill={ACCENTS[idx % ACCENTS.length]} text={idx === events.length - 1 ? 'DONE' : 'EVENT'} />
             </Rect>
@@ -558,7 +612,7 @@ function* timelineShot(view: View2D, shot: CompleteShot, duration: number, index
       </Rect>
     </>,
   );
-  yield* enter(stage, 1);
+  yield* enter(stage);
   const active = duration - 0.74;
   yield* all(
     ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.22), ref().position.x(0, 0.3)))),
@@ -567,7 +621,7 @@ function* timelineShot(view: View2D, shot: CompleteShot, duration: number, index
     ambientScan(stage, active),
     waitFor(active),
   );
-  yield* exit(stage, -1);
+  yield* exit(stage);
 }
 
 function* barsShot(view: View2D, shot: CompleteShot, duration: number, index: number) {
@@ -587,15 +641,15 @@ function* barsShot(view: View2D, shot: CompleteShot, duration: number, index: nu
         return (
           <Layout x={x}>
             <Rect ref={refs[idx]} y={250} width={Math.min(190, gap - 30)} height={0} offset={[0, 1]} radius={[14, 14, 0, 0]} fill={ACCENTS[idx % ACCENTS.length]} stroke={C.primary} lineWidth={3} />
-            <Txt y={282} width={200} fontFamily={FONT} fontSize={20} fontWeight={750} fill={C.primary} text={bar.label} />
+            <Txt y={282} width={Math.min(190, gap - 30)} height={48} textWrap={true} fontFamily={FONT} fontSize={fitText(bar.label, Math.min(190, gap - 30), 48, {maxFontSize: 20, minFontSize: 13, maxLines: 2}).fontSize} lineHeight={23} fontWeight={750} fill={C.primary} text={bar.label} />
             <Txt ref={values[idx]} y={210 - height} width={180} fontFamily={MONO} fontSize={23} fontWeight={900} fill={ACCENTS[idx % ACCENTS.length]} text={String(bar.value)} />
           </Layout>
         );
       })}
-      {shot.visual.note ? <Rect x={350} y={-255} width={720} height={68} radius={18} fill={'#FFF4C7'} stroke={C.yellow} lineWidth={2}><Txt width={660} fontFamily={FONT} fontSize={21} fill={C.primary} text={shot.visual.note} /></Rect> : null}
+      {shot.visual.note ? <Rect x={350} y={-255} width={720} height={68} radius={18} fill={'#FFF4C7'} stroke={C.yellow} lineWidth={2} clip><Txt width={660} height={50} textWrap={true} fontFamily={FONT} fontSize={fitText(shot.visual.note, 660, 50, {maxFontSize: 21, minFontSize: 14, maxLines: 2}).fontSize} lineHeight={25} fill={C.primary} text={shot.visual.note} /></Rect> : null}
     </>,
   );
-  yield* enter(stage, -1);
+  yield* enter(stage);
   const active = duration - 0.74;
   const after = shot.visual.after;
   const grow = all(...refs.map((ref, idx) => chain(
@@ -615,7 +669,7 @@ function* barsShot(view: View2D, shot: CompleteShot, duration: number, index: nu
       )
     : waitFor(0);
   yield* all(grow, update, captions(stage, shot.id, active), ambientScan(stage, active), waitFor(active));
-  yield* exit(stage, 1);
+  yield* exit(stage);
 }
 
 function* curveShot(view: View2D, shot: CompleteShot, duration: number, index: number) {
@@ -631,13 +685,13 @@ function* curveShot(view: View2D, shot: CompleteShot, duration: number, index: n
         <Line points={[[-610, 240], [610, 240]]} stroke={C.primary} lineWidth={3} />
         <Line points={[[-610, 240], [-610, -240]]} stroke={C.primary} lineWidth={3} />
         {series.map((item, idx) => <Line ref={paths[idx]} points={points(item.values)} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={7} radius={18} end={0} />)}
-        {labels.map((label, idx) => <Txt x={-560 + idx * (1120 / Math.max(1, labels.length - 1))} y={276} width={220} fontFamily={MONO} fontSize={17} fill={C.soft} text={label} />)}
-        {series.map((item, idx) => <Layout x={360} y={-235 + idx * 48}><Line points={[[-190, 0], [-130, 0]]} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={7} /><Txt x={50} width={300} textAlign={'left'} fontFamily={MONO} fontSize={18} fontWeight={800} fill={C.primary} text={item.label} /></Layout>)}
+        {labels.map((label, idx) => <Txt x={-560 + idx * (1120 / Math.max(1, labels.length - 1))} y={276} width={200} height={42} textWrap={true} fontFamily={MONO} fontSize={fitText(label, 200, 42, {maxFontSize: 17, minFontSize: 12, maxLines: 2}).fontSize} lineHeight={20} fill={C.soft} text={label} />)}
+        {series.map((item, idx) => <Layout x={360} y={-235 + idx * 48}><Line points={[[-190, 0], [-130, 0]]} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={7} /><Txt x={50} width={300} height={38} textWrap={true} textAlign={'left'} fontFamily={MONO} fontSize={fitText(item.label, 300, 38, {maxFontSize: 18, minFontSize: 13, maxLines: 2}).fontSize} lineHeight={21} fontWeight={800} fill={C.primary} text={item.label} /></Layout>)}
       </Rect>
-      {shot.visual.note ? <Rect y={-285} width={760} height={52} radius={18} fill={'#FFF4C7'}><Txt fontFamily={FONT} fontSize={18} fill={C.primary} text={shot.visual.note} /></Rect> : null}
+      {shot.visual.note ? <Rect y={-285} width={760} height={52} radius={18} fill={'#FFF4C7'} clip><Txt width={710} height={38} textWrap={true} fontFamily={FONT} fontSize={fitText(shot.visual.note, 710, 38, {maxFontSize: 18, minFontSize: 13, maxLines: 2}).fontSize} lineHeight={21} fill={C.primary} text={shot.visual.note} /></Rect> : null}
     </>,
   );
-  yield* enter(stage, 1);
+  yield* enter(stage);
   const active = duration - 0.74;
   yield* all(
     ...paths.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), ref().end(1, 0.9, easeInOutCubic))),
@@ -645,7 +699,7 @@ function* curveShot(view: View2D, shot: CompleteShot, duration: number, index: n
     ambientScan(stage, active),
     waitFor(active),
   );
-  yield* exit(stage, -1);
+  yield* exit(stage);
 }
 
 function* runShot(view: View2D, shot: CompleteShot, index: number) {
@@ -676,6 +730,7 @@ function* runSequence(view: View2D) {
 const scene = makeScene2D('ai-agent-harness-complete', function* (view) {
   const grid = createRef<Grid>();
   const scan = createRef<Line>();
+  const chapterPulse = createRef<Circle>();
   view.fill(C.bg);
   view.add(
     <>
@@ -683,6 +738,13 @@ const scene = makeScene2D('ai-agent-harness-complete', function* (view) {
       <Circle x={-820} y={-470} width={520} height={520} fill={'#D8556210'} shadowColor={'#D8556222'} shadowBlur={100} />
       <Circle x={860} y={420} width={620} height={620} fill={'#765D910A'} shadowColor={'#765D9120'} shadowBlur={120} />
       <Line ref={scan} points={[[-960, 0], [960, 0]]} stroke={'#2C8E9222'} lineWidth={2} y={-540} />
+      <Layout y={-504}>
+        <Line points={[[-360, 0], [360, 0]]} stroke={'#B8AA994F'} lineWidth={2} />
+        {story.chapters.map((_, index) => (
+          <Circle x={-360 + index * (720 / Math.max(1, story.chapters.length - 1))} width={7} height={7} fill={'#B8AA99'} />
+        ))}
+        <Circle ref={chapterPulse} x={-360} width={13} height={13} fill={C.red} shadowColor={C.red} shadowBlur={20} />
+      </Layout>
       <Layout position={[735, -448]} layout direction={'row'} gap={12} alignItems={'center'}>
         <Circle width={15} height={15} fill={C.red} shadowColor={C.red} shadowBlur={18} />
         <Txt fontFamily={FONT} fontSize={22} fontWeight={750} letterSpacing={2} fill={C.primary} text={'小行星 AI 观测站'} />
@@ -695,6 +757,8 @@ const scene = makeScene2D('ai-agent-harness-complete', function* (view) {
     tween(timeline.duration, value => {
       scan().y(-540 + 1080 * value);
       grid().rotation(linear(value, 0, 1));
+      chapterPulse().x(-360 + 720 * value);
+      chapterPulse().scale(0.88 + Math.sin(value * Math.PI * story.shots.length * 2) * 0.15);
     }),
   );
 });

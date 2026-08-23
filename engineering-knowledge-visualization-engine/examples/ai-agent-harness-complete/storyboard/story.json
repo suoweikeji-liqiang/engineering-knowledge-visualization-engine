@@ -49,7 +49,7 @@
       "sfx": ["impact", "whoosh"],
       "states": [],
       "scene": {"id": "scene.hook", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "character-task"}, "camera": {"framing": "medium-wide", "movement": "push-in"}},
-      "visual": {"kind": "character", "asset": "xiaolan-evidence-bridge.png", "status": ["脚本 ✓", "证据 ○", "画面 ○", "音频 ○", "成片 ○"], "cueIndexes": [2, 3, 3, 3, 4], "continuityKey": "episode-task"},
+      "visual": {"kind": "character", "asset": "xiaolan-evidence-bridge.png", "assetFit": "contain", "performanceLabel": "发现任务断点", "status": ["脚本 ✓", "证据 ○", "画面 ○", "音频 ○", "成片 ○"], "cueIndexes": [2, 3, 3, 3, 4], "continuityKey": "episode-task"},
       "citations": ["openai-agent-guide"]
     },
     {
@@ -315,7 +315,7 @@
       "sfx": ["task-inject", "connector-draw", "terminal-success"],
       "states": [],
       "scene": {"id": "scene.checkpoint-resume", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "character-recovery"}, "camera": {"framing": "medium-wide", "movement": "pan"}},
-      "visual": {"kind": "character", "asset": "xiaolan-recover-path.png", "status": ["render process ✕", "checkpoint found ✓", "script + voice ✓", "downstream only ↻", "fingerprint verified ✓"], "cueIndexes": [0, 2, 3, 4, 5], "continuityKey": "reliability-run"},
+      "visual": {"kind": "character", "asset": "xiaolan-recover-path.png", "assetFit": "contain", "performanceLabel": "恢复制作现场", "status": ["render process ✕", "checkpoint found ✓", "script + voice ✓", "downstream only ↻", "fingerprint verified ✓"], "cueIndexes": [0, 2, 3, 4, 5], "continuityKey": "reliability-run"},
       "citations": ["microsoft-checkpoints"]
     },
     {
@@ -427,7 +427,7 @@
       "sfx": ["terminal-success", "sparkle"],
       "states": [],
       "scene": {"id": "scene.live-trace-finish", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "artifact-delivery"}, "camera": {"framing": "medium-wide", "movement": "push-in"}},
-      "visual": {"kind": "character", "asset": "xiaolan-connect-modules.png", "status": ["video.mp4 ✓", "subtitles.srt ✓", "citations.json ✓", "trace kind · narrative", "raw telemetry · external"], "cueIndexes": [3, 3, 4, 6, 7], "continuityKey": "live-trace"},
+      "visual": {"kind": "character", "asset": "xiaolan-connect-modules.png", "assetFit": "contain", "performanceLabel": "核对交付证据", "status": ["video.mp4 ✓", "subtitles.srt ✓", "citations.json ✓", "trace kind · narrative", "raw telemetry · external"], "cueIndexes": [3, 3, 4, 6, 7], "continuityKey": "live-trace"},
       "citations": ["openai-agent-guide"]
     },
     {

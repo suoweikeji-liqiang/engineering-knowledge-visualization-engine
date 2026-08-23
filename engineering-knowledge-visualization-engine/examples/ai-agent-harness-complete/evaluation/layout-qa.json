@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "textContainers": 385,
+  "textOverflowRisks": [],
+  "minimumSelectedFontSize": 17,
+  "characterAssets": [
+    {
+      "file": "xiaolan-evidence-bridge.png",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "xiaolan-connect-modules.png",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "xiaolan-recover-path.png",
+      "width": 1672,
+      "height": 941
+    }
+  ],
+  "characterViewport": {
+    "width": 824,
+    "height": 520
+  },
+  "characterContainedSize": {
+    "width": 824,
+    "height": 463.7464114832536
+  },
+  "characterAspectPreserved": true,
+  "characterShotsDeclareContain": true,
+  "pass": true
+}

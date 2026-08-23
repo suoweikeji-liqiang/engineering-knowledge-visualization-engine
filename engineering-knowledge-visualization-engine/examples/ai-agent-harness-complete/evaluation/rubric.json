@@ -11,6 +11,8 @@
     "audio-has-no-clipping-truncation-or-abnormal-silence",
     "at-least-95-percent-key-events-within-500ms-of-narration",
     "1080p-code-terminal-chart-evidence-and-subtitles-are-readable",
+    "character-assets-preserve-source-aspect-ratio",
+    "all-text-containers-pass-overflow-audit-at-1080p",
     "primary-claims-have-visible-or-packaged-primary-source-citations",
     "render-is-reproducible-from-frozen-story-assets-and-audio-config",
     "brand-and-shot-design-are-original-not-frame-by-frame-copy"

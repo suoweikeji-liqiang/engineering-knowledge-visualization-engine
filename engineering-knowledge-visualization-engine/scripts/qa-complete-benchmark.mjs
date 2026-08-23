@@ -11,6 +11,7 @@ const subtitles = await readFile(resolve(example, 'final/subtitles.srt'), 'utf8'
 const captionTimeline = JSON.parse(await readFile(resolve(example, 'audio/captions.timeline.json'), 'utf8'));
 const visualTimeline = JSON.parse(await readFile(resolve(example, 'audio/visual-events.timeline.json'), 'utf8'));
 const trace = JSON.parse(await readFile(resolve(example, 'final/trace.json'), 'utf8'));
+const layout = JSON.parse(await readFile(resolve(example, 'evaluation/layout-qa.json'), 'utf8'));
 
 function run(command, args) {
   const result = spawnSync(command, args, {encoding: 'utf8'});
@@ -68,6 +69,8 @@ const checks = {
     visualTimeline.mappingPolicy?.mode === 'explicit-human-semantic'
     && visualTimeline.mappingPolicy?.proportionalFallbackAllowed === false
     && explicitSemanticVisualEvents === visualEvents.length,
+  noTextOverflowRisks: layout.pass === true && layout.textOverflowRisks.length === 0,
+  characterAspectPreserved: layout.characterAspectPreserved === true && layout.characterShotsDeclareContain === true,
   traceDelivered: trace.status === 'complete' && trace.traceKind === 'production-narrative' && trace.events.length === timeline.shots.length,
 };
 
@@ -97,6 +100,14 @@ const report = {
     proportionalFallbackAllowed: visualTimeline.mappingPolicy?.proportionalFallbackAllowed,
     within500ms: semanticVisualSyncWithin500ms,
     maximumDeltaSeconds: maximumSemanticVisualDelta,
+  },
+  layout: {
+    textContainers: layout.textContainers,
+    textOverflowRisks: layout.textOverflowRisks.length,
+    minimumSelectedFontSize: layout.minimumSelectedFontSize,
+    characterAspectPreserved: layout.characterAspectPreserved,
+    characterShotsDeclareContain: layout.characterShotsDeclareContain,
+    characterContainedSize: layout.characterContainedSize,
   },
   trace: {runId: trace.runId, status: trace.status, kind: trace.traceKind, events: trace.events.length},
   checks,
