@@ -23,6 +23,8 @@
       "@repo/core/*": ["packages/core/src/*"],
       "@repo/domain-hvac": ["packages/domain-hvac/src/index.ts"],
       "@repo/domain-hvac/*": ["packages/domain-hvac/src/*"],
+      "@repo/domain-ai": ["packages/domain-ai/src/index.ts"],
+      "@repo/domain-ai/*": ["packages/domain-ai/src/*"],
       "@repo/generator-manim": ["packages/generator-manim/src/index.ts"],
       "@repo/generator-manim/*": ["packages/generator-manim/src/*"],
       "@repo/composer-remotion": ["packages/composer-remotion/src/index.ts"],
