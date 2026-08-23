@@ -45,6 +45,7 @@ function makeStage(
 ): Stage {
   const root = createRef<Layout>();
   const body = createRef<Layout>();
+  const markerWidth = Math.min(1100, Math.max(280, headline.length * 54));
   view.add(
     <Layout ref={root} size={[1920, 1080]} opacity={0} scale={0.985}>
       <Layout position={[-760, -430]} layout direction={'row'} gap={20} alignItems={'center'}>
@@ -58,6 +59,14 @@ function makeStage(
           text={`OBSERVATION ${number}`}
         />
       </Layout>
+      <Rect
+        position={[-760 + markerWidth / 2, -326]}
+        width={markerWidth}
+        height={20}
+        radius={8}
+        fill={`${accent}22`}
+        rotation={-0.45}
+      />
       <Txt
         position={[0, -365]}
         width={1520}
@@ -69,39 +78,63 @@ function makeStage(
         text={headline}
       />
       <Layout ref={body} position={[0, 35]} size={[1640, 650]} />
-      <Rect
-        position={[0, 430]}
-        width={1640}
-        height={112}
-        radius={24}
-        fill={'#FFF9F0F2'}
-        stroke={C.line}
-        lineWidth={2}
-        shadowColor={'#6D594022'}
-        shadowBlur={24}
-      >
-        <Txt
-          width={1500}
-          fontFamily={FONT}
-          fontSize={36}
-          fontWeight={600}
-          lineHeight={52}
-          textAlign={'center'}
-          fill={C.primary}
-          text={caption}
+      <Layout position={[0, 430]}>
+        <Rect
+          x={7}
+          y={7}
+          width={1638}
+          height={110}
+          radius={[21, 27, 23, 25]}
+          fill={'#E7DACA'}
+          rotation={0.25}
         />
-      </Rect>
+        <Rect
+          width={1640}
+          height={112}
+          radius={[24, 20, 26, 22]}
+          fill={'#FFF9F0F2'}
+          stroke={C.line}
+          lineWidth={2}
+          shadowColor={'#6D594022'}
+          shadowBlur={24}
+        >
+          <Txt
+            width={1500}
+            fontFamily={FONT}
+            fontSize={36}
+            fontWeight={600}
+            lineHeight={52}
+            textAlign={'center'}
+            fill={C.primary}
+            text={caption}
+          />
+        </Rect>
+        <Rect x={-710} y={-57} width={112} height={24} radius={4} fill={`${C.tape}A8`} rotation={-2.5} />
+        <Rect x={710} y={-57} width={112} height={24} radius={4} fill={`${accent}42`} rotation={2.5} />
+      </Layout>
     </Layout>,
   );
   return {root, body};
 }
 
-function* enter(stage: Reference<Layout>) {
-  yield* all(stage().opacity(1, 0.35), stage().scale(1, 0.5, easeInOutCubic));
+function* enter(stage: Reference<Layout>, direction = 1) {
+  stage().position.x(38 * direction);
+  stage().rotation(0.35 * direction);
+  yield* all(
+    stage().opacity(1, 0.35),
+    stage().scale(1, 0.5, easeInOutCubic),
+    stage().position.x(0, 0.5, easeInOutCubic),
+    stage().rotation(0, 0.5, easeInOutCubic),
+  );
 }
 
-function* exit(stage: Reference<Layout>) {
-  yield* all(stage().opacity(0, 0.3), stage().scale(1.01, 0.3));
+function* exit(stage: Reference<Layout>, direction = 1) {
+  yield* all(
+    stage().opacity(0, 0.3),
+    stage().scale(1.01, 0.3),
+    stage().position.x(-26 * direction, 0.3, easeInOutCubic),
+    stage().rotation(-0.2 * direction, 0.3),
+  );
   stage().remove();
 }
 
@@ -113,52 +146,97 @@ function nodeCard(
   y: number,
   width = 270,
 ) {
+  const rotation = x === 0 ? -0.35 : x < 0 ? -0.7 : 0.65;
   return (
-    <Rect
-      position={[x, y]}
-      width={width}
-      height={146}
-      radius={24}
-      fill={C.panel}
-      stroke={color}
-      lineWidth={3}
-      shadowColor={`${color}55`}
-      shadowBlur={20}
-    >
-      <Circle position={[-width / 2 + 34, -38]} width={12} height={12} fill={color} />
-      <Txt
-        position={[8, -30]}
-        width={width - 64}
-        textAlign={'left'}
-        fontFamily={MONO}
-        fontSize={28}
-        fontWeight={700}
-        fill={C.primary}
-        text={label}
+    <Layout position={[x, y]} rotation={rotation}>
+      <Rect
+        x={6}
+        y={7}
+        width={width}
+        height={146}
+        radius={[20, 26, 18, 25]}
+        fill={'#E5D8C8'}
+        rotation={0.8}
       />
-      <Txt
-        position={[0, 30]}
-        width={width - 44}
-        textAlign={'center'}
-        fontFamily={FONT}
-        fontSize={23}
-        fill={C.soft}
-        text={detail}
-      />
-    </Rect>
+      <Rect
+        width={width}
+        height={146}
+        radius={[24, 19, 26, 21]}
+        fill={C.panel}
+        stroke={color}
+        lineWidth={3}
+        shadowColor={`${color}38`}
+        shadowBlur={18}
+      >
+        <Circle position={[-width / 2 + 34, -38]} width={12} height={12} fill={color} />
+        <Txt
+          position={[8, -30]}
+          width={width - 64}
+          textAlign={'left'}
+          fontFamily={MONO}
+          fontSize={28}
+          fontWeight={700}
+          fill={C.primary}
+          text={label}
+        />
+        <Txt
+          position={[0, 30]}
+          width={width - 44}
+          textAlign={'center'}
+          fontFamily={FONT}
+          fontSize={23}
+          fill={C.soft}
+          text={detail}
+        />
+      </Rect>
+      <Rect x={width / 2 - 42} y={-73} width={66} height={18} radius={3} fill={`${color}36`} rotation={4} />
+    </Layout>
   );
 }
 
 function connector(points: [number, number][], color: string = C.line) {
   return (
-    <Line
-      points={points}
-      stroke={color}
-      lineWidth={5}
-      endArrow
-      arrowSize={14}
-      radius={18}
-    />
+    <Layout>
+      <Line
+        points={points.map(([x, y]) => [x + 2, y + 3] as [number, number])}
+        stroke={`${color}28`}
+        lineWidth={9}
+        radius={18}
+      />
+      <Line
+        points={points}
+        stroke={color}
+        lineWidth={4}
+        endArrow
+        arrowSize={14}
+        radius={18}
+      />
+    </Layout>
+  );
+}
+
+function handNote(
+  text: string,
+  color: string,
+  x: number,
+  y: number,
+  rotation = -2,
+) {
+  const width = Math.max(220, text.length * 30);
+  return (
+    <Layout position={[x, y]} rotation={rotation}>
+      <Rect width={width} height={44} radius={12} fill={`${color}28`} />
+      <Line points={[[-width / 2 + 8, 17], [width / 2 - 6, 13]]} stroke={`${color}88`} lineWidth={8} radius={8} />
+      <Txt
+        y={-4}
+        width={width - 20}
+        fontFamily={'Kaiti SC, STKaiti, KaiTi, serif'}
+        fontSize={25}
+        fontWeight={700}
+        fill={C.primary}
+        text={text}
+      />
+    </Layout>
   );
 }
 
@@ -281,7 +359,7 @@ function* hook(view: View2D) {
       </Rect>
     </>,
   );
-  yield* enter(stage.root);
+  yield* enter(stage.root, -1);
   yield* all(
     chain(
       all(host().opacity(1, 0.45), host().scale(1, 0.55)),
@@ -294,7 +372,7 @@ function* hook(view: View2D) {
     ),
     waitFor(shots.hook - 0.8),
   );
-  yield* exit(stage.root);
+  yield* exit(stage.root, 1);
 }
 
 function* singleCall(view: View2D) {
@@ -318,9 +396,10 @@ function* singleCall(view: View2D) {
           <Txt fontFamily={MONO} fontSize={24} fontWeight={700} fill={C.red} text={'TASK OPEN'} />
         </Rect>
       </Layout>
+      {handNote('一次回答，还不是任务完成', C.red, -260, 255, -1.2)}
     </>,
   );
-  yield* enter(stage.root);
+  yield* enter(stage.root, 1);
   yield* all(
     chain(
       input().opacity(1, 0.25),
@@ -332,7 +411,7 @@ function* singleCall(view: View2D) {
     ),
     waitFor(shots['single-call'] - 0.8),
   );
-  yield* exit(stage.root);
+  yield* exit(stage.root, -1);
 }
 
 function* loopShot(view: View2D) {
@@ -371,7 +450,7 @@ function* loopShot(view: View2D) {
       </Rect>
     </>,
   );
-  yield* enter(stage.root);
+  yield* enter(stage.root, -1);
   yield* all(
     loopLine().end(1, 2.2, easeInOutCubic),
     chain(
@@ -385,7 +464,7 @@ function* loopShot(view: View2D) {
     ),
     waitFor(shots.loop - 0.8),
   );
-  yield* exit(stage.root);
+  yield* exit(stage.root, 1);
 }
 
 function toolPanel(
@@ -396,15 +475,19 @@ function toolPanel(
   x: number,
 ) {
   return (
-    <Rect x={x} width={470} height={330} radius={26} fill={C.panel} stroke={C.line} lineWidth={2}>
-      <Rect y={-132} width={470} height={66} radius={[26, 26, 0, 0]} fill={C.panel2}>
-        <Circle x={-190} width={12} height={12} fill={color} />
-        <Txt x={-15} width={350} textAlign={'left'} fontFamily={MONO} fontSize={23} fontWeight={700} fill={C.primary} text={title} />
+    <Layout x={x} rotation={x < 0 ? -0.5 : x > 0 ? 0.45 : -0.15}>
+      <Rect x={7} y={8} width={470} height={330} radius={[22, 28, 24, 20]} fill={'#E2D5C5'} rotation={0.8} />
+      <Rect width={470} height={330} radius={[26, 21, 27, 23]} fill={C.panel} stroke={C.line} lineWidth={2} shadowColor={'#6D594026'} shadowBlur={18}>
+        <Rect y={-132} width={470} height={66} radius={[26, 21, 0, 0]} fill={C.panel2}>
+          <Circle x={-190} width={12} height={12} fill={color} />
+          <Txt x={-15} width={350} textAlign={'left'} fontFamily={MONO} fontSize={23} fontWeight={700} fill={C.primary} text={title} />
+        </Rect>
+        <Txt y={-50} width={390} textAlign={'left'} fontFamily={MONO} fontSize={22} fill={C.cyan} text={`$ ${command}`} />
+        <Line y={8} points={[[-195, 0], [195, 0]]} stroke={C.line} lineWidth={2} />
+        <Txt y={70} width={390} textAlign={'left'} fontFamily={MONO} fontSize={21} lineHeight={34} fill={C.soft} text={result} />
       </Rect>
-      <Txt y={-50} width={390} textAlign={'left'} fontFamily={MONO} fontSize={22} fill={C.cyan} text={`$ ${command}`} />
-      <Line y={8} points={[[-195, 0], [195, 0]]} stroke={C.line} lineWidth={2} />
-      <Txt y={70} width={390} textAlign={'left'} fontFamily={MONO} fontSize={21} lineHeight={34} fill={C.soft} text={result} />
-    </Rect>
+      <Rect y={-170} width={88} height={22} radius={4} fill={`${color}44`} rotation={-3} />
+    </Layout>
   );
 }
 
@@ -425,9 +508,10 @@ function* toolsShot(view: View2D) {
       {connector([[0, -168], [-500, -115]], C.cyan)}
       {connector([[0, -168], [0, -115]], C.purple)}
       {connector([[0, -168], [500, -115]], C.green)}
+      {handNote('工具是行动接口', C.yellow, -610, -215, -2)}
     </>,
   );
-  yield* enter(stage.root);
+  yield* enter(stage.root, 1);
   yield* all(
     chain(
       router().opacity(1, 0.35),
@@ -437,7 +521,7 @@ function* toolsShot(view: View2D) {
     ),
     waitFor(shots.tools - 0.8),
   );
-  yield* exit(stage.root);
+  yield* exit(stage.root, -1);
 }
 
 function traceRow(
@@ -448,13 +532,17 @@ function traceRow(
   y: number,
 ) {
   return (
-    <Rect y={y} width={1160} height={86} radius={16} fill={C.panel2}>
-      <Txt x={-520} width={90} textAlign={'left'} fontFamily={MONO} fontSize={21} fill={C.soft} text={step} />
-      <Txt x={-115} width={690} textAlign={'left'} fontFamily={MONO} fontSize={24} fill={C.primary} text={label} />
-      <Rect x={470} width={150} height={48} radius={24} fill={`${color}22`} stroke={color} lineWidth={2}>
-        <Txt fontFamily={MONO} fontSize={19} fontWeight={700} fill={color} text={status} />
+    <Layout y={y}>
+      <Rect x={3} y={4} width={1156} height={84} radius={[13, 18, 15, 17]} fill={'#E0D4C5'} rotation={0.15} />
+      <Rect width={1160} height={86} radius={[16, 13, 18, 14]} fill={C.panel2}>
+        <Rect x={-574} width={8} height={62} radius={4} fill={color} opacity={0.75} />
+        <Txt x={-520} width={90} textAlign={'left'} fontFamily={MONO} fontSize={21} fill={C.soft} text={step} />
+        <Txt x={-115} width={690} textAlign={'left'} fontFamily={MONO} fontSize={24} fill={C.primary} text={label} />
+        <Rect x={470} width={150} height={48} radius={24} fill={`${color}22`} stroke={color} lineWidth={2}>
+          <Txt fontFamily={MONO} fontSize={19} fontWeight={700} fill={color} text={status} />
+        </Rect>
       </Rect>
-    </Rect>
+    </Layout>
   );
 }
 
@@ -491,7 +579,7 @@ function* failureShot(view: View2D) {
     </Rect>,
     </>,
   );
-  yield* enter(stage.root);
+  yield* enter(stage.root, -1);
   yield* all(
     chain(
       all(host().opacity(1, 0.4), host().scale(1, 0.5)),
@@ -505,7 +593,7 @@ function* failureShot(view: View2D) {
     ),
     waitFor(shots.failure - 0.8),
   );
-  yield* exit(stage.root);
+  yield* exit(stage.root, 1);
 }
 
 function* harnessShot(view: View2D) {
@@ -532,9 +620,10 @@ function* harnessShot(view: View2D) {
       {connector([[305, -120], [125, -40]], C.purple)}
       {connector([[-305, 150], [-125, 40]], C.yellow)}
       {connector([[305, 150], [125, 40]], C.green)}
+      {handNote('模型之外，才是运行系统', C.purple, 485, -225, 1.5)}
     </>,
   );
-  yield* enter(stage.root);
+  yield* enter(stage.root, 1);
   yield* all(
     chain(
       all(shell().opacity(1, 0.5), shell().scale(1, 0.65)),
@@ -545,7 +634,7 @@ function* harnessShot(view: View2D) {
     ),
     waitFor(shots.harness - 0.8),
   );
-  yield* exit(stage.root);
+  yield* exit(stage.root, -1);
 }
 
 function* landingShot(view: View2D) {
@@ -578,7 +667,7 @@ function* landingShot(view: View2D) {
       </Rect>
     </Rect>,
   );
-  yield* enter(stage.root);
+  yield* enter(stage.root, -1);
   yield* all(
     chain(
       run().opacity(1, 0.3),
@@ -593,7 +682,7 @@ function* landingShot(view: View2D) {
     progress().width(1200, 3.2, easeInOutCubic),
     waitFor(shots.landing - 0.8),
   );
-  yield* exit(stage.root);
+  yield* exit(stage.root, 1);
 }
 
 function* summaryShot(view: View2D) {
@@ -621,7 +710,7 @@ function* summaryShot(view: View2D) {
       </Rect>
     </>,
   );
-  yield* enter(stage.root);
+  yield* enter(stage.root, 1);
   yield* all(
     chain(
       all(host().opacity(1, 0.4), host().scale(1, 0.5)),
@@ -633,7 +722,7 @@ function* summaryShot(view: View2D) {
     ),
     waitFor(shots.summary - 0.8),
   );
-  yield* exit(stage.root);
+  yield* exit(stage.root, -1);
 }
 
 function* runSequence(view: View2D) {

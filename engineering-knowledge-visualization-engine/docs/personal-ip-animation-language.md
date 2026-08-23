@@ -48,6 +48,23 @@ The canonical renderer tokens live in
 `packages/renderer-revideo/src/theme.ts`. Domain packs may select a dominant
 accent, but should not replace the shared paper, ink, and character colors.
 
+## Tactile motion grammar
+
+- **Paper cards** use a slightly rotated backing sheet, uneven corner radii,
+  restrained shadow, and one translucent tape tab.
+- **Connectors** use a broad translucent under-stroke plus a narrower arrow so
+  diagrams feel drawn without sacrificing engineering precision.
+- **Marker lines** underline chapter headlines with the chapter accent color.
+- **Handwritten notes** are reserved for personal judgments and conceptual
+  turns, not labels that already exist in the diagram.
+- **Chapter transitions** alternate a 38 px left/right paper-slide with a small
+  rotation and keep the complete enter/exit motion inside the existing 0.8 s
+  timing budget.
+
+These motifs should be implemented as renderer helpers and reused across domain
+packs. A domain changes entities and diagrams; it does not invent a new card,
+subtitle, or transition language.
+
 ## Benchmark application
 
 The `ai-agent-harness-benchmark` uses three Xiaolan frames:
