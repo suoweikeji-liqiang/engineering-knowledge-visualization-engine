@@ -50,6 +50,7 @@ const maximumCaptionSyncDelta = Math.max(...captionSync.map(item => item.delta),
 const visualEvents = visualTimeline.shots.flatMap(shot => shot.events);
 const semanticVisualSyncWithin500ms = visualEvents.filter(event => event.deltaSeconds <= 0.5).length / visualEvents.length;
 const maximumSemanticVisualDelta = Math.max(...visualEvents.map(event => event.deltaSeconds), 0);
+const explicitSemanticVisualEvents = visualEvents.filter(event => event.strategy === 'explicit').length;
 
 const checks = {
   durationMatchesTimeline: Math.abs(duration - timeline.duration) <= 0.1,
@@ -63,6 +64,10 @@ const checks = {
   subtitleCoverage: subtitleCues >= timeline.shots.length,
   captionTimelineWithin500ms: captionSyncWithin500ms >= 0.95,
   semanticVisualEventsWithin500ms: semanticVisualSyncWithin500ms >= 0.95,
+  semanticVisualEventsExplicitlyMapped:
+    visualTimeline.mappingPolicy?.mode === 'explicit-human-semantic'
+    && visualTimeline.mappingPolicy?.proportionalFallbackAllowed === false
+    && explicitSemanticVisualEvents === visualEvents.length,
   traceDelivered: trace.status === 'complete' && trace.traceKind === 'production-narrative' && trace.events.length === timeline.shots.length,
 };
 
@@ -85,7 +90,14 @@ const report = {
   motion: {freezeSegmentsOver3Seconds: freezeDurations.length, frozenSeconds, frozenFraction: frozenSeconds / duration, maximumFreezeSeconds},
   asr: asr.summary,
   subtitles: {cues: subtitleCues, within500ms: captionSyncWithin500ms, maximumDeltaSeconds: maximumCaptionSyncDelta},
-  visualEvents: {events: visualEvents.length, within500ms: semanticVisualSyncWithin500ms, maximumDeltaSeconds: maximumSemanticVisualDelta},
+  visualEvents: {
+    events: visualEvents.length,
+    explicitlyMapped: explicitSemanticVisualEvents,
+    mappingMode: visualTimeline.mappingPolicy?.mode,
+    proportionalFallbackAllowed: visualTimeline.mappingPolicy?.proportionalFallbackAllowed,
+    within500ms: semanticVisualSyncWithin500ms,
+    maximumDeltaSeconds: maximumSemanticVisualDelta,
+  },
   trace: {runId: trace.runId, status: trace.status, kind: trace.traceKind, events: trace.events.length},
   checks,
   pass: Object.values(checks).every(Boolean),

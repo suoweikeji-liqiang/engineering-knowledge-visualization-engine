@@ -266,7 +266,7 @@ function* evidenceShot(view: View2D, shot: CompleteShot, duration: number, index
           </Layout>
         ))}
         <Rect width={690} height={58} radius={18} fill={'#FFF4C7'} stroke={C.yellow} lineWidth={2}>
-          <Txt fontFamily={MONO} fontSize={18} fontWeight={750} fill={C.primary} text={'PRIMARY SOURCE · OpenAI agent guide · p.4'} />
+          <Txt fontFamily={MONO} fontSize={18} fontWeight={750} fill={C.primary} text={'PRIMARY SOURCES · OpenAI p.4 + Anthropic'} />
         </Rect>
       </Layout>
     </>,
@@ -274,8 +274,8 @@ function* evidenceShot(view: View2D, shot: CompleteShot, duration: number, index
   yield* enter(stage, 1);
   const active = duration - 0.74;
   yield* all(
-    chain(waitFor(visualDelay(shot.id, 0)), all(document().opacity(1, 0.4), document().scale(1, 0.52))),
-    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex + 1)), all(ref().opacity(1, 0.3), ref().position.x(0, 0.36)))),
+    all(document().opacity(1, 0.4), document().scale(1, 0.52)),
+    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.3), ref().position.x(0, 0.36)))),
     document().rotation(0.8, active, easeInOutCubic),
     sourceImage().scale(1.018, active, easeInOutCubic),
     captions(stage, shot.id, active),
@@ -460,6 +460,8 @@ function* swimlaneShot(view: View2D, shot: CompleteShot, duration: number, index
   const lanes = shot.visual.lanes ?? ['MODEL', 'HARNESS', 'TOOLS'];
   const events = shot.visual.events ?? [];
   const refs = events.map(() => createRef<Layout>());
+  let semanticCueIndex = 0;
+  const cueIndexByEvent = events.map(event => typeof event !== 'string' && event.semanticType === 'prior-context' ? -1 : semanticCueIndex++);
   const laneX = lanes.map((_, idx) => -560 + idx * (1120 / Math.max(1, lanes.length - 1)));
   stage.body().add(
     <>
@@ -491,7 +493,9 @@ function* swimlaneShot(view: View2D, shot: CompleteShot, duration: number, index
   yield* enter(stage, 1);
   const active = duration - 0.74;
   yield* all(
-    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), ref().opacity(1, 0.28))),
+    ...refs.map((ref, eventIndex) => cueIndexByEvent[eventIndex] < 0
+      ? ref().opacity(1, 0.01)
+      : chain(waitFor(visualDelay(shot.id, cueIndexByEvent[eventIndex])), ref().opacity(1, 0.28))),
     captions(stage, shot.id, active),
     ambientScan(stage, active),
     waitFor(active),

@@ -3,11 +3,12 @@ import path from 'node:path';
 
 const root = process.cwd();
 const example = path.join(root, 'examples', 'ai-agent-harness-complete');
-const [story, citations, coverage, rubric] = await Promise.all([
+const [story, citations, coverage, rubric, visualTimeline] = await Promise.all([
   fs.readFile(path.join(example, 'storyboard', 'story.json'), 'utf8').then(JSON.parse),
   fs.readFile(path.join(example, 'sources', 'citations.json'), 'utf8').then(JSON.parse),
   fs.readFile(path.join(example, 'evaluation', 'coverage.json'), 'utf8').then(JSON.parse),
   fs.readFile(path.join(example, 'evaluation', 'rubric.json'), 'utf8').then(JSON.parse),
+  fs.readFile(path.join(example, 'audio', 'visual-events.timeline.json'), 'utf8').then(JSON.parse),
 ]);
 
 const errors = [];
@@ -49,9 +50,14 @@ for (const shot of shots) {
 
 const stopReasons = shots.find(shot => shot.id === 'stop-reasons');
 if (stopReasons?.visual?.edgeDirection !== 'outbound') errors.push('stop-reasons must direct arrows outward from RUNNING');
-for (const id of ['tool-result', 'stop-reasons', 'live-trace-start', 'live-trace-recover']) {
-  const shot = shots.find(item => item.id === id);
-  if (!shot?.visual?.cueIndexes?.length) errors.push(`${id} must declare explicit semantic cue indexes`);
+for (const shot of shots) {
+  if (!Array.isArray(shot?.visual?.cueIndexes)) errors.push(`${shot.id} must declare explicit semantic cue indexes`);
+}
+const timedVisualEvents = (visualTimeline.shots ?? []).flatMap(shot => shot.events ?? []);
+if (visualTimeline.mappingPolicy?.mode !== 'explicit-human-semantic') errors.push('visual timing must use explicit human semantic mapping');
+if (visualTimeline.mappingPolicy?.proportionalFallbackAllowed !== false) errors.push('proportional visual cue fallback must be forbidden');
+if (!timedVisualEvents.length || timedVisualEvents.some(event => event.strategy !== 'explicit')) {
+  errors.push('every timed semantic visual event must use an explicit cue index');
 }
 
 const core = coverage.requirements ?? [];
@@ -87,6 +93,8 @@ const report = {
   cjkNarrationCharacters: cjkCount,
   plannedDurationSeconds: Number(shots.reduce((sum, shot) => sum + Number(shot.duration || 0), 0).toFixed(3)),
   semanticVisualFamilies: [...visualKinds].sort(),
+  semanticVisualEvents: timedVisualEvents.length,
+  semanticVisualMapping: visualTimeline.mappingPolicy?.mode,
   coreCoverage: core.length,
   femaleVoice: voice.mimo_voice,
   errors,

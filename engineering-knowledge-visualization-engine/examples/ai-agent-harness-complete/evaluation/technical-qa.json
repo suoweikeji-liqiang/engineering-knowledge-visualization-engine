@@ -3,8 +3,8 @@
   "artifact": "final/ai-agent-harness-complete.mp4",
   "media": {
     "duration": 714.833333,
-    "sizeBytes": 170619049,
-    "bitRate": 1909469,
+    "sizeBytes": 172711771,
+    "bitRate": 1932889,
     "video": {
       "index": 0,
       "codec_name": "h264",
@@ -24,14 +24,14 @@
   },
   "loudness": {
     "integratedLufs": -16.69,
-    "truePeakDb": -3.82,
+    "truePeakDb": -4.14,
     "rangeLu": 3.5
   },
   "blackSegments": [],
   "motion": {
-    "freezeSegmentsOver3Seconds": 59,
-    "frozenSeconds": 215.90000099999997,
-    "frozenFraction": 0.3020284463987076,
+    "freezeSegmentsOver3Seconds": 55,
+    "frozenSeconds": 201.23333300000004,
+    "frozenFraction": 0.28151084135300114,
     "maximumFreezeSeconds": 5.233333
   },
   "asr": {
@@ -47,7 +47,10 @@
     "maximumDeltaSeconds": 0.21000000000003638
   },
   "visualEvents": {
-    "events": 131,
+    "events": 129,
+    "explicitlyMapped": 129,
+    "mappingMode": "explicit-human-semantic",
+    "proportionalFallbackAllowed": false,
     "within500ms": 1,
     "maximumDeltaSeconds": 0.21
   },
@@ -69,6 +72,7 @@
     "subtitleCoverage": true,
     "captionTimelineWithin500ms": true,
     "semanticVisualEventsWithin500ms": true,
+    "semanticVisualEventsExplicitlyMapped": true,
     "traceDelivered": true
   },
   "pass": true

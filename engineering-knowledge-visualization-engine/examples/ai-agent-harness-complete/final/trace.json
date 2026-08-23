@@ -215,7 +215,7 @@
           "from": "MODEL",
           "to": "HARNESS",
           "label": "tool_call",
-          "semanticType": "model-decision"
+          "semanticType": "prior-context"
         },
         {
           "from": "HARNESS",
@@ -343,11 +343,11 @@
         "anthropic-effective-agents"
       ],
       "semanticEvents": [
-        "research · done",
-        "script · running",
+        "reference · missing subtitles",
         "ASR task · inserted",
-        "assets · blocked",
-        "render · pending"
+        "character/background · mismatch",
+        "asset step · reopened",
+        "plan · evidence updated"
       ],
       "captionCueIds": [
         75,
@@ -522,11 +522,11 @@
         "aws-idempotent-apis"
       ],
       "semanticEvents": [
-        "upload · request id 7F2A",
-        "timeout · response lost",
-        "check idempotency key",
-        "result already committed",
-        "return existing artifact"
+        "timeout · outcome unknown",
+        "classify retryable",
+        "backoff + idempotency key",
+        "upload already committed",
+        "avoid duplicate publish"
       ],
       "captionCueIds": [
         124,
@@ -550,11 +550,11 @@
         "microsoft-checkpoints"
       ],
       "semanticEvents": [
-        "research ✓",
-        "script ✓",
-        "voice ✓",
-        "render ✕",
-        "resume → frame 12,840"
+        "render process ✕",
+        "checkpoint found ✓",
+        "script + voice ✓",
+        "downstream only ↻",
+        "fingerprint verified ✓"
       ],
       "captionCueIds": [
         131,
@@ -626,11 +626,11 @@
         "openai-agent-guide"
       ],
       "semanticEvents": [
+        "input filtering + output checks",
+        "classifiers + policies",
         "authn + authz",
-        "sandbox + least privilege",
-        "approval",
-        "input/output guardrails",
-        "audit + incident response"
+        "sandbox + audit",
+        "least privilege"
       ],
       "captionCueIds": [
         154,
@@ -659,7 +659,7 @@
         "citation check",
         "ASR review",
         "visual QA",
-        "human review"
+        "executable constraints"
       ],
       "captionCueIds": [
         161,
@@ -771,7 +771,7 @@
         "render page 12 · timeout",
         "checkpoint frame 12,840",
         "retry concurrency 4 → 2",
-        "render complete",
+        "retry render · concurrency 2",
         "publish · needs human",
         "approved by xiaolan"
       ],

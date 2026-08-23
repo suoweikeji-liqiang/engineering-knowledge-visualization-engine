@@ -8,7 +8,7 @@
 - `sources/citations.json`：一手资料与参考片清单。
 - `evaluation/coverage.json`：15 项 Agent/Harness 核心知识映射。
 - `evaluation/rubric.json`：冻结的硬门槛、100 分量表和盲评协议。
-- `audio/*.timeline.json`：MiMo 女声真实时长、视频节拍、统一字幕 cue，以及语义动画绑定旁白的视觉事件契约。
+- `audio/*.timeline.json`：MiMo 女声真实时长、视频节拍、统一字幕 cue，以及 129 个语义动画事件逐一人工绑定旁白的视觉事件契约；不允许按时长比例回退。
 - `audio/sfx.timeline.json`：跨 10 章的 19 个 cue-locked 事件音效；最终混音另含旁白侧链压低的 ambient bed。
 - `evaluation/asr-report.json`、`technical-qa.json`：逐段盲 ASR 与音画/黑帧/冻结段/字幕同步门槛。
 - `final/trace.json`、`trace-viewer.html`：29 个镜头事件的机器可读制作叙事 Trace 与交互查看器；文件明确声明它不是原始模型/工具遥测。

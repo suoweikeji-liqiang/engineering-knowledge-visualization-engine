@@ -6,19 +6,19 @@
       "chapterId": "ch01",
       "shotId": "hook",
       "cue": "impact",
-      "start": 0.25
+      "start": 7.762
     },
     {
       "chapterId": "ch01",
       "shotId": "components",
       "cue": "sparkle",
-      "start": 79.04
+      "start": 72.296
     },
     {
       "chapterId": "ch02",
       "shotId": "request-compose",
       "cue": "paper-settle",
-      "start": 83.549
+      "start": 85.928
     },
     {
       "chapterId": "ch02",
@@ -30,55 +30,55 @@
       "chapterId": "ch03",
       "shotId": "agent-loop",
       "cue": "data-pulse",
-      "start": 176.393
+      "start": 180.893
     },
     {
       "chapterId": "ch03",
       "shotId": "plan-update",
       "cue": "soft-tick",
-      "start": 277.844
+      "start": 274.419
     },
     {
       "chapterId": "ch04",
       "shotId": "context-compose",
       "cue": "paper-settle",
-      "start": 280.257
+      "start": 284.306
     },
     {
       "chapterId": "ch04",
       "shotId": "state-memory",
       "cue": "result-stamp",
-      "start": 349.075
+      "start": 340.997
     },
     {
       "chapterId": "ch05",
       "shotId": "multi-agent",
       "cue": "connector-draw",
-      "start": 353.171
+      "start": 356.186
     },
     {
       "chapterId": "ch05",
       "shotId": "multi-agent-cost",
       "cue": "soft-tick",
-      "start": 397.02
+      "start": 382.408
     },
     {
       "chapterId": "ch06",
       "shotId": "structured-output",
       "cue": "editor-open",
-      "start": 398.956
+      "start": 405.104
     },
     {
       "chapterId": "ch06",
       "shotId": "checkpoint-resume",
       "cue": "terminal-success",
-      "start": 471.91
+      "start": 465.729
     },
     {
       "chapterId": "ch07",
       "shotId": "prompt-injection",
       "cue": "impact",
-      "start": 474.783
+      "start": 489.192
     },
     {
       "chapterId": "ch07",
@@ -90,13 +90,13 @@
       "chapterId": "ch08",
       "shotId": "feedback-eval",
       "cue": "soft-tick",
-      "start": 549.105
+      "start": 554.538
     },
     {
       "chapterId": "ch08",
       "shotId": "trace-metrics",
       "cue": "curve-draw",
-      "start": 598.035
+      "start": 589.462
     },
     {
       "chapterId": "ch09",
@@ -108,13 +108,13 @@
       "chapterId": "ch09",
       "shotId": "live-trace-finish",
       "cue": "sparkle",
-      "start": 682.5
+      "start": 678.267
     },
     {
       "chapterId": "ch10",
       "shotId": "synthesis",
       "cue": "impact",
-      "start": 684.774
+      "start": 687.551
     }
   ]
 }
