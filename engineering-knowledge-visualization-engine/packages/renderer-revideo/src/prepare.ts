@@ -7,6 +7,13 @@ const exampleRoot = resolve(packageRoot, '../../examples/ai-agent-harness-benchm
 const source = resolve(exampleRoot, 'audio/ai-agent-harness-benchmark.wav');
 const examplePublic = resolve(exampleRoot, 'public/benchmark-audio.mp3');
 const rendererPublic = resolve(packageRoot, 'public/benchmark-audio.mp3');
+const characterSource = resolve(exampleRoot, 'assets/characters');
+const characterPublic = resolve(packageRoot, 'public/characters');
+const characterFiles = [
+  'xiaolan-desk.jpg',
+  'xiaolan-surprised.jpg',
+  'xiaolan-pointing.jpg',
+] as const;
 
 if (!existsSync(source)) {
   throw new Error(
@@ -16,6 +23,15 @@ if (!existsSync(source)) {
 
 mkdirSync(resolve(exampleRoot, 'public'), {recursive: true});
 mkdirSync(resolve(packageRoot, 'public'), {recursive: true});
+mkdirSync(characterPublic, {recursive: true});
+
+for (const filename of characterFiles) {
+  const source = resolve(characterSource, filename);
+  if (!existsSync(source)) {
+    throw new Error(`Character asset is missing: ${source}`);
+  }
+  copyFileSync(source, resolve(characterPublic, filename));
+}
 
 const ffmpeg = process.env.FFMPEG_PATH || 'ffmpeg';
 const result = spawnSync(
@@ -45,3 +61,4 @@ if (result.status !== 0) {
 // directory. Keep both generated copies until that upstream split is removed.
 copyFileSync(examplePublic, rendererPublic);
 console.log(`Prepared browser narration: ${examplePublic}`);
+console.log(`Prepared ${characterFiles.length} Xiaolan character assets.`);

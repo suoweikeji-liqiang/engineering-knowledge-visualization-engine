@@ -18,5 +18,6 @@ examples/*/final/*.png
 examples/*/qa/
 packages/*/public/*.wav
 packages/*/public/*.mp3
+packages/*/public/characters/
 examples/*/public/*.wav
 examples/*/public/*.mp3

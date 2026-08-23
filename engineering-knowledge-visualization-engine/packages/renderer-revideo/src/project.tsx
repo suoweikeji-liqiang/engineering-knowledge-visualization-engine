@@ -2,6 +2,7 @@ import {
   Audio,
   Circle,
   Grid,
+  Img,
   Layout,
   Line,
   Rect,
@@ -36,6 +37,9 @@ const C = {
   yellow: '#FBBF24',
   green: '#34D399',
   purple: '#A78BFA',
+  paper: '#FAF4E8',
+  ink: '#24202A',
+  tape: '#F6D365',
 };
 
 const FONT = 'PingFang SC, Noto Sans CJK SC, Microsoft YaHei, sans-serif';
@@ -172,39 +176,130 @@ function connector(points: [number, number][], color = C.line) {
   );
 }
 
+function characterFrame(
+  src: string,
+  label: string,
+  width: number,
+  x: number,
+  y: number,
+  rotation = -2,
+) {
+  const height = width * 0.558;
+  return (
+    <Layout position={[x, y]} rotation={rotation}>
+      <Rect
+        width={width + 34}
+        height={height + 72}
+        radius={26}
+        fill={C.paper}
+        shadowColor={'#00000088'}
+        shadowBlur={36}
+        shadowOffset={[0, 16]}
+      >
+        <Img
+          y={-18}
+          src={src}
+          width={width}
+          height={height}
+          radius={18}
+        />
+        <Txt
+          y={height / 2 + 17}
+          width={width - 20}
+          textAlign={'left'}
+          fontFamily={FONT}
+          fontSize={22}
+          fontWeight={700}
+          fill={C.ink}
+          text={label}
+        />
+      </Rect>
+      <Rect
+        y={-height / 2 - 40}
+        width={132}
+        height={34}
+        radius={6}
+        fill={`${C.tape}DD`}
+        rotation={3}
+      />
+    </Layout>
+  );
+}
+
 function* hook(view: View2D) {
   const stage = makeStage(view, '01', copy.hook.headline, copy.hook.dialogue);
   const orb = createRef<Circle>();
   const mark = createRef<Txt>();
   const left = createRef<Rect>();
   const right = createRef<Rect>();
+  const host = createRef<Layout>();
+  const question = createRef<Rect>();
   stage.body().add(
     <>
+      <Layout ref={host} opacity={0} scale={0.92}>
+        {characterFrame('/characters/xiaolan-desk.jpg', '小兰的观测手账  //  先别急着叫它 Agent', 610, -490, 15)}
+      </Layout>
+      <Rect
+        ref={question}
+        x={405}
+        y={10}
+        width={650}
+        height={430}
+        radius={34}
+        fill={'#0C121CCC'}
+        stroke={C.line}
+        lineWidth={2}
+        opacity={0}
+      >
+        <Txt
+          y={-165}
+          width={540}
+          textAlign={'left'}
+          fontFamily={FONT}
+          fontSize={27}
+          fontWeight={700}
+          fill={C.yellow}
+          text={'一个会聊天的大模型'}
+        />
+        <Txt
+          y={-112}
+          width={540}
+          textAlign={'left'}
+          fontFamily={FONT}
+          fontSize={25}
+          fill={C.soft}
+          text={'为什么还不能直接变成 Agent？'}
+        />
+      </Rect>
       <Circle
         ref={orb}
-        width={230}
-        height={230}
+        x={405}
+        y={-18}
+        width={160}
+        height={160}
         fill={'#111827'}
         stroke={C.cyan}
-        lineWidth={7}
+        lineWidth={6}
         shadowColor={'#22D3EE77'}
         shadowBlur={55}
         scale={0.45}
       >
-        <Txt fontFamily={MONO} fontSize={52} fontWeight={800} fill={C.cyan} text={'LLM'} />
+        <Txt fontFamily={MONO} fontSize={40} fontWeight={800} fill={C.cyan} text={'LLM'} />
       </Circle>
-      <Txt ref={mark} x={0} y={206} fontFamily={FONT} fontSize={100} fill={C.red} text={'≠'} opacity={0} />
-      <Rect ref={left} x={-470} y={50} opacity={0} scale={0.8}>
-        {nodeCard('CHAT', '回答一条消息', C.purple, 0, 0, 320)}
+      <Txt ref={mark} x={405} y={92} fontFamily={FONT} fontSize={62} fill={C.red} text={'≠'} opacity={0} />
+      <Rect ref={left} x={245} y={160} opacity={0} scale={0.8}>
+        {nodeCard('CHAT', '回答一条消息', C.purple, 0, 0, 270)}
       </Rect>
-      <Rect ref={right} x={470} y={50} opacity={0} scale={0.8}>
-        {nodeCard('AGENT', '完成一个目标', C.red, 0, 0, 320)}
+      <Rect ref={right} x={565} y={160} opacity={0} scale={0.8}>
+        {nodeCard('AGENT', '完成一个目标', C.red, 0, 0, 270)}
       </Rect>
     </>,
   );
   yield* enter(stage.root);
   yield* all(
     chain(
+      all(host().opacity(1, 0.45), host().scale(1, 0.55)),
+      question().opacity(1, 0.3),
       orb().scale(1.08, 0.6, easeInOutCubic),
       orb().scale(1, 0.25),
       all(left().opacity(1, 0.4), left().scale(1, 0.5)),
@@ -384,25 +479,37 @@ function* failureShot(view: View2D) {
   const row3 = createRef<Rect>();
   const retry = createRef<Rect>();
   const focus = createRef<Rect>();
+  const host = createRef<Layout>();
+  const note = createRef<Rect>();
   stage.body().add(
-    <Rect width={1280} height={480} radius={30} fill={'#0C111A'} stroke={C.line} lineWidth={2}>
-      <Rect y={-205} width={1280} height={70} radius={[30, 30, 0, 0]} fill={C.panel2}>
-        <Txt x={-500} width={220} textAlign={'left'} fontFamily={MONO} fontSize={22} fontWeight={700} fill={C.white} text={'AGENT TRACE'} />
-        <Circle x={540} width={13} height={13} fill={C.green} />
-        <Txt x={430} width={180} textAlign={'right'} fontFamily={MONO} fontSize={18} fill={C.soft} text={'RUNNING'} />
+    <>
+    <Layout ref={host} opacity={0} scale={0.86}>
+      {characterFrame('/characters/xiaolan-surprised.jpg', '等等，真实环境怎么可能永远成功？', 350, -635, 30, -3)}
+    </Layout>
+    <Rect ref={note} x={-630} y={242} width={380} height={88} radius={18} fill={'#2B1420'} stroke={C.red} lineWidth={2} opacity={0} rotation={-1}>
+      <Txt width={330} fontFamily={FONT} fontSize={24} fontWeight={700} fill={C.white} text={'超时 · 拒绝 · 参数错误'} />
+    </Rect>
+    <Rect x={190} width={1240} height={480} radius={30} fill={'#0C111A'} stroke={C.line} lineWidth={2}>
+      <Rect y={-205} width={1240} height={70} radius={[30, 30, 0, 0]} fill={C.panel2}>
+        <Txt x={-480} width={220} textAlign={'left'} fontFamily={MONO} fontSize={22} fontWeight={700} fill={C.white} text={'AGENT TRACE'} />
+        <Circle x={520} width={13} height={13} fill={C.green} />
+        <Txt x={410} width={180} textAlign={'right'} fontFamily={MONO} fontSize={18} fill={C.soft} text={'RUNNING'} />
       </Rect>
-      <Rect ref={row1} y={-105} opacity={0}>{traceRow('01', 'plan  ·  locate quarterly report', 'DONE', C.green, 0)}</Rect>
-      <Rect ref={row2} y={0} opacity={0}>{traceRow('02', 'tool  ·  fetch remote document', 'TIMEOUT', C.red, 0)}</Rect>
-      <Rect ref={row3} y={105} opacity={0}>{traceRow('03', 'policy  ·  write /finance', 'DENIED', C.yellow, 0)}</Rect>
+      <Rect ref={row1} y={-105} opacity={0} scale={0.96}>{traceRow('01', 'plan  ·  locate quarterly report', 'DONE', C.green, 0)}</Rect>
+      <Rect ref={row2} y={0} opacity={0} scale={0.96}>{traceRow('02', 'tool  ·  fetch remote document', 'TIMEOUT', C.red, 0)}</Rect>
+      <Rect ref={row3} y={105} opacity={0} scale={0.96}>{traceRow('03', 'policy  ·  write /finance', 'DENIED', C.yellow, 0)}</Rect>
       <Rect ref={retry} y={198} width={420} height={58} radius={29} fill={'#10252B'} stroke={C.cyan} lineWidth={2} opacity={0}>
         <Txt fontFamily={MONO} fontSize={20} fontWeight={700} fill={C.cyan} text={'↻ RETRY 2/3 · BACKOFF 4s'} />
       </Rect>
-      <Rect ref={focus} y={0} width={1190} height={98} radius={19} stroke={C.red} lineWidth={4} opacity={0} shadowColor={C.red} shadowBlur={26} />
+      <Rect ref={focus} y={0} width={1130} height={98} radius={19} stroke={C.red} lineWidth={4} opacity={0} shadowColor={C.red} shadowBlur={26} />
     </Rect>,
+    </>,
   );
   yield* enter(stage.root);
   yield* all(
     chain(
+      all(host().opacity(1, 0.4), host().scale(1, 0.5)),
+      note().opacity(1, 0.3),
       row1().opacity(1, 0.35),
       row2().opacity(1, 0.35),
       all(focus().opacity(1, 0.25), focus().scale(1.02, 0.25)),
@@ -509,25 +616,34 @@ function* summaryShot(view: View2D) {
   const times = createRef<Txt>();
   const runtime = createRef<Rect>();
   const result = createRef<Layout>();
+  const host = createRef<Layout>();
+  const equation = createRef<Rect>();
   stage.body().add(
     <>
-      <Rect ref={model} opacity={0} scale={0.8}>{nodeCard('MODEL', '判断', C.cyan, -470, 0, 330)}</Rect>
-      <Txt ref={times} fontFamily={MONO} fontSize={86} fontWeight={500} fill={C.soft} text={'×'} opacity={0} />
-      <Rect ref={runtime} opacity={0} scale={0.8}>{nodeCard('RUNTIME', '持续行动', C.purple, 470, 0, 330)}</Rect>
-      <Layout ref={result} y={200} opacity={0}>
-        <Rect width={760} height={120} radius={60} fill={'#28121A'} stroke={C.red} lineWidth={4} shadowColor={'#F43F5E66'} shadowBlur={34}>
-          <Txt fontFamily={MONO} fontSize={48} fontWeight={900} letterSpacing={5} fill={C.white} text={'=  AGENT'} />
-        </Rect>
+      <Layout ref={host} opacity={0} scale={0.9}>
+        {characterFrame('/characters/xiaolan-pointing.jpg', '小兰结论  //  模型负责判断，系统负责行动', 560, -520, 10, -2)}
       </Layout>
+      <Rect ref={equation} x={360} y={10} width={830} height={440} radius={34} fill={'#0C111ADD'} stroke={C.line} lineWidth={2} opacity={0}>
+        <Rect ref={model} opacity={0} scale={0.8}>{nodeCard('MODEL', '判断', C.cyan, -235, -75, 270)}</Rect>
+        <Txt ref={times} x={0} y={-75} fontFamily={MONO} fontSize={72} fontWeight={500} fill={C.soft} text={'×'} opacity={0} />
+        <Rect ref={runtime} opacity={0} scale={0.8}>{nodeCard('RUNTIME', '持续行动', C.purple, 235, -75, 270)}</Rect>
+        <Layout ref={result} y={130} opacity={0}>
+          <Rect width={610} height={110} radius={55} fill={'#28121A'} stroke={C.red} lineWidth={4} shadowColor={'#F43F5E66'} shadowBlur={34}>
+            <Txt fontFamily={MONO} fontSize={44} fontWeight={900} letterSpacing={5} fill={C.white} text={'=  AGENT'} />
+          </Rect>
+        </Layout>
+      </Rect>
     </>,
   );
   yield* enter(stage.root);
   yield* all(
     chain(
+      all(host().opacity(1, 0.4), host().scale(1, 0.5)),
+      equation().opacity(1, 0.35),
       all(model().opacity(1, 0.4), model().scale(1, 0.5)),
       times().opacity(1, 0.3),
       all(runtime().opacity(1, 0.4), runtime().scale(1, 0.5)),
-      all(result().opacity(1, 0.4), result().position.y(170, 0.5)),
+      all(result().opacity(1, 0.4), result().position.y(115, 0.5)),
     ),
     waitFor(shots.summary - 0.8),
   );
