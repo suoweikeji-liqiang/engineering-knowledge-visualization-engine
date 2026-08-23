@@ -4,15 +4,16 @@
   "exceedReference": false,
   "artifact": {
     "path": "final/ai-agent-harness-complete.mp4",
-    "sha256": "29b9b6022e046e1a5428f51989a28996eedadf42135a20df6126d386a6f10503",
+    "sha256": "9fb0aab321d22adaf826440aff3c3c55816b10a497374e732e6431239238aacd",
     "durationSeconds": 714.833333,
-    "sourceCommit": "a809e4a",
-    "aiDailyContractCommit": "0531f9d"
+    "sourceCommit": "0333473",
+    "aiDailyContractCommit": "8e8dab6"
   },
   "panel": [
     {
       "role": "agent-harness-content-auditor",
       "independent": true,
+      "carriedForwardBecauseContentIsUnchanged": true,
       "scores": {"content": 24, "clarity": 13, "evidence": 8},
       "veto": false,
       "semanticAudit": {
@@ -25,20 +26,21 @@
     {
       "role": "frozen-rubric-general-judge",
       "independent": true,
-      "scores": {"content": 24, "clarity": 12, "animation": 13, "character": 7, "sound": 10, "brand": 7, "evidence": 7, "reuse": 7},
-      "total": 87,
+      "scores": {"content": 24, "clarity": 12, "animation": 14, "character": 8, "sound": 10, "brand": 7, "evidence": 7, "reuse": 7},
+      "total": 89,
       "veto": false
     },
     {
       "role": "motion-and-render-auditor",
       "independent": true,
-      "scores": {"animation": 14.4, "character": 7.1, "brand": 7.5, "reuse": 7.7},
-      "estimatedTotal": 89.2,
+      "scores": {"animation": 14.5, "character": 7.8, "brand": 7.6, "reuse": 7.8},
+      "finalShaFollowup": "compaction morph verified on 9fb0aab3; no overflow or stale labels",
       "veto": false
     },
     {
       "role": "audio-producer",
       "independent": true,
+      "carriedForwardBecauseAudioTrackIsUnchanged": true,
       "scores": {"sound": 10.5},
       "veto": false
     }
@@ -48,14 +50,14 @@
     "scores": {
       "content": 24,
       "clarity": 12.5,
-      "animation": 13.7,
-      "character": 7.05,
+      "animation": 14.25,
+      "character": 7.9,
       "sound": 10.25,
-      "brand": 7.25,
+      "brand": 7.3,
       "evidence": 7.5,
-      "reuse": 7.35
+      "reuse": 7.4
     },
-    "total": 89.6
+    "total": 91.1
   },
   "hardGates": {
     "all15CoreRequirementsHaveTimecodedNarrationAndVisualEvidence": true,
@@ -64,6 +66,8 @@
     "noClippingTruncationOrAbnormalSilence": true,
     "atLeast95PercentKeyEventsWithin500msOfNarration": true,
     "fullHdTechnicalVisualsAndSubtitlesReadable": true,
+    "characterAssetsPreserveSourceAspectRatio": true,
+    "allTextContainersPassOverflowAuditAt1080p": true,
     "primaryClaimsHavePrimarySourceCitations": true,
     "reproducibleFromFrozenAssetsAndAudioConfig": true,
     "originalBrandAndShotDesign": true
@@ -73,20 +77,24 @@
     "asrSegmentsPassing": "29/29",
     "semanticEventsExplicitlyMapped": "129/129",
     "semanticEventsWithin500ms": "129/129",
+    "textContainersPassingOverflowAudit": "388/388",
+    "characterAspectPreserved": "1672:941 -> 824:463.746",
     "maximumSemanticDeltaSeconds": 0.21,
     "integratedLufs": -16.69,
-    "truePeakDb": -4.14,
+    "truePeakDb": -3.95,
     "blackSegments": 0
   },
   "referenceThresholds": {
     "reachMinimumTotal": 82,
     "reachPassed": true,
     "exceedMinimumTotal": 90,
+    "exceedScoreThresholdPassed": true,
+    "comparativeDimensionWinsPassed": false,
     "exceedPassed": false
   },
   "remainingGaps": [
-    "character performance still relies on three mostly static illustration scenes",
-    "cross-shot motion and semantic transitions remain less continuous than the references",
+    "character performance still relies on three flattened illustrations with micro-motion rather than reusable expression and pose states",
+    "continuity-key transitions preserve direction but do not yet use overlapping shared-element morphs",
     "production narrative trace is honest and inspectable but is not raw model and tool telemetry",
     "the rubric's five-person immediate and delayed recall study was not run"
   ]
