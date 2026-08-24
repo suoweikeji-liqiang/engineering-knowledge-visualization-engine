@@ -3,7 +3,6 @@ import {Reference, all, createRef, easeInOutCubic, makeProject, tween} from '@re
 import storyDocument from '../../../examples/qwen-ui-agent-hosted/storyboard/story.json';
 import timelineDocument from '../../../examples/qwen-ui-agent-hosted/audio/video.timeline.json';
 import captionDocument from '../../../examples/qwen-ui-agent-hosted/audio/captions.timeline.json';
-import lipSyncDocument from '../../../examples/qwen-ui-agent-hosted/audio/lip-sync.timeline.json';
 import {ASTEROID_WARM_THEME as C} from './theme';
 import {CINEMATIC_FONT as FONT, CINEMATIC_MONO as MONO} from './cinematic-sketch';
 import {fitText} from './layout-contracts';
@@ -34,7 +33,7 @@ type HostedShot = {
   id: string;
   headline: string;
   dialogue: string;
-  hostNarrative: {role: string; mode: string; hostOnScreen: boolean; asset?: string; action?: string; rig?: {system: 'xiaolan-rig-v1'; pose: XiaolanRigPose; action: XiaolanRigAction; lipSync: 'voice-rms'}};
+  hostNarrative: {role: string; mode: string; hostOnScreen: boolean; asset?: string; action?: string; rig?: {system: 'xiaolan-rig-v1'; pose: XiaolanRigPose; action: XiaolanRigAction; lipSync: 'none'}};
   visual: HostedVisual;
 };
 type CaptionCue = {shotId: string; localStart: number; localEnd: number; text: string};
@@ -42,7 +41,6 @@ type CaptionCue = {shotId: string; localStart: number; localEnd: number; text: s
 const story = storyDocument as unknown as {shots: HostedShot[]; chapters: Array<{id: string; title: string; shotIds: string[]}>};
 const timeline = timelineDocument as unknown as {duration: number; shots: Array<{id: string; duration: number}>};
 const captions = captionDocument as unknown as {cues: CaptionCue[]};
-const lipSync = lipSyncDocument as unknown as {shots: Record<string, {frameRate: number; values: number[]}>};
 const durations = Object.fromEntries(timeline.shots.map(shot => [shot.id, shot.duration]));
 const captionsByShot = captions.cues.reduce<Record<string, CaptionCue[]>>((result, cue) => {
   (result[cue.shotId] ??= []).push(cue);
@@ -167,7 +165,7 @@ function addPhone(stage: Stage, shot: HostedShot, channels = false): Runtime {
 
 function addStageActor(stage: Stage, shot: HostedShot, side: 'left' | 'right'): XiaolanRigRuntime {
   const x = side === 'left' ? -630 : 630;
-  const rig = shot.hostNarrative.rig ?? {system: 'xiaolan-rig-v1' as const, pose: 'pointing' as const, action: 'idle-talk' as const, lipSync: 'voice-rms' as const};
+  const rig = shot.hostNarrative.rig ?? {system: 'xiaolan-rig-v1' as const, pose: 'pointing' as const, action: 'idle-talk' as const, lipSync: 'none' as const};
   const labels: Record<XiaolanRigAction, string> = {
     'idle-talk': '小兰 · 主持讲解',
     'react-surprise': '小兰 · 捕捉变化',
@@ -393,7 +391,6 @@ function* runShot(view: View2D, shot: HostedShot, index: number) {
   const stage = makeStage(view, shot, index);
   const runtime = buildVisual(stage, shot);
   const cues = captionsByShot[shot.id] ?? [];
-  const lip = lipSync.shots[shot.id];
   yield* tween(0.42, value => {
     stage.root().opacity(easeInOutCubic(value));
     stage.root().scale(0.985 + 0.015 * easeInOutCubic(value));
@@ -402,8 +399,7 @@ function* runShot(view: View2D, shot: HostedShot, index: number) {
   yield* tween(active, value => {
     stage.body().position.y(24 + Math.sin(value * Math.PI * 2) * 3);
     const localTime = 0.42 + value * active;
-    const mouthFrame = lip ? Math.min(lip.values.length - 1, Math.max(0, Math.floor(localTime * lip.frameRate))) : 0;
-    runtime.update(value, localTime, lip?.values[mouthFrame] ?? 0);
+    runtime.update(value, localTime, 0);
     const cue = cues.find(item => localTime >= item.localStart && localTime < item.localEnd) ?? cues.at(-1);
     if (cue) stage.caption().text(cue.text);
   });

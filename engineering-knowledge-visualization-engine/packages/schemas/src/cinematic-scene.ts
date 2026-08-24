@@ -194,11 +194,11 @@ export type CharacterRigAsset = {
     faceAnchors: {
       leftEye: {normalizedX: number; normalizedY: number};
       rightEye: {normalizedX: number; normalizedY: number};
-      mouth: {normalizedX: number; normalizedY: number};
+      mouth?: {normalizedX: number; normalizedY: number};
     };
   }>;
   blinkIntervalSeconds: {min: number; max: number};
-  lipSync: "voice-rms-envelope";
+  lipSync: "voice-rms-envelope" | "disabled";
   accumulationKey: string;
 };
 

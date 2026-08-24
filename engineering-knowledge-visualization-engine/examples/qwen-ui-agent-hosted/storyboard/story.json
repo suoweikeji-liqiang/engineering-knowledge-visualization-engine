@@ -79,7 +79,7 @@
       "sfx": ["connector-draw", "character-point"],
       "states": [],
       "scene": {"id": "scene.proactive-loop", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "host-diagram"}, "camera": {"framing": "wide", "movement": "pan"}},
-      "hostNarrative": {"role": "bridge", "mode": "host-diagram", "hostOnScreen": true, "asset": "xiaolan-pointing.png", "action": "沿主动服务路径指向确认节点", "rig": {"system": "xiaolan-rig-v1", "pose": "pointing", "action": "point-emphasis", "lipSync": "voice-rms"}},
+      "hostNarrative": {"role": "bridge", "mode": "host-diagram", "hostOnScreen": true, "asset": "xiaolan-pointing.png", "action": "沿主动服务路径指向确认节点", "rig": {"system": "xiaolan-rig-v1", "pose": "pointing", "action": "point-emphasis", "lipSync": "none"}},
       "visual": {"kind": "flow", "nodes": ["现实信号", "理解影响", "准备方案", "用户确认", "跨端执行"], "emphasis": 3, "cueIndexes": [0, 1, 2, 3, 4]},
       "citations": ["qwen-ui-agent-report"]
     },
@@ -109,7 +109,7 @@
       "sfx": ["data-pulse", "character-present"],
       "states": [],
       "scene": {"id": "scene.cross-platform", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "host-diagram"}, "camera": {"framing": "wide", "movement": "pan"}},
-      "hostNarrative": {"role": "bridge", "mode": "host-diagram", "hostOnScreen": true, "asset": "xiaolan-presenting.png", "action": "把四个平台连成同一条任务路径", "rig": {"system": "xiaolan-rig-v1", "pose": "presenting", "action": "explain-open", "lipSync": "voice-rms"}},
+      "hostNarrative": {"role": "bridge", "mode": "host-diagram", "hostOnScreen": true, "asset": "xiaolan-presenting.png", "action": "把四个平台连成同一条任务路径", "rig": {"system": "xiaolan-rig-v1", "pose": "presenting", "action": "explain-open", "lipSync": "none"}},
       "visual": {"kind": "platforms", "nodes": ["MOBILE", "BROWSER", "DEEP SEARCH", "COMPUTER"], "center": "STATEFUL TASK", "cueIndexes": [0, 1, 2, 3, 4]},
       "citations": ["qwen-ui-agent-report"]
     },
@@ -139,7 +139,7 @@
       "sfx": ["document-settle", "marker-draw"],
       "states": [],
       "scene": {"id": "scene.primary-evidence", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "host-evidence"}, "camera": {"framing": "wide", "movement": "push-in"}},
-      "hostNarrative": {"role": "warn", "mode": "host-evidence", "hostOnScreen": true, "asset": "xiaolan-thinking.png", "action": "标记报告中的完整跨端轨迹", "rig": {"system": "xiaolan-rig-v1", "pose": "thinking", "action": "think-focus", "lipSync": "voice-rms"}},
+      "hostNarrative": {"role": "warn", "mode": "host-evidence", "hostOnScreen": true, "asset": "xiaolan-thinking.png", "action": "标记报告中的完整跨端轨迹", "rig": {"system": "xiaolan-rig-v1", "pose": "thinking", "action": "think-focus", "lipSync": "none"}},
       "visual": {"kind": "evidence", "asset": "qwen-report-page-05.png", "sourceLabel": "TECHNICAL REPORT · FIGURE 2 · P.5", "cueIndexes": [0, 2, 4]},
       "citations": ["qwen-ui-agent-report"]
     },
@@ -169,7 +169,7 @@
       "sfx": ["character-return", "result-stamp"],
       "states": [],
       "scene": {"id": "scene.synthesis", "background": {"id": "background.observatory", "variant": "warm-night"}, "layout": {"preset": "host-synthesis"}, "camera": {"framing": "medium", "movement": "pull-out"}},
-      "hostNarrative": {"role": "resolve", "mode": "host-synthesis", "hostOnScreen": true, "asset": "xiaolan-presenting.png", "action": "回到航班案例并给出适用边界", "rig": {"system": "xiaolan-rig-v1", "pose": "presenting", "action": "resolve-wave", "lipSync": "voice-rms"}},
+      "hostNarrative": {"role": "resolve", "mode": "host-synthesis", "hostOnScreen": true, "asset": "xiaolan-presenting.png", "action": "回到航班案例并给出适用边界", "rig": {"system": "xiaolan-rig-v1", "pose": "presenting", "action": "resolve-wave", "lipSync": "none"}},
       "visual": {"kind": "host-result", "demoStart": 50, "demoEnd": 65, "result": "SIGNAL → PLAN → APPROVAL → ACTION", "cueIndexes": [0, 2, 4]},
       "citations": ["qwen-ui-agent-report", "qwen-ui-agent-flight-demo"]
     }

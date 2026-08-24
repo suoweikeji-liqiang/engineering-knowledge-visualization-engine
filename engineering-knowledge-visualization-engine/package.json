@@ -20,7 +20,7 @@
     "benchmark:complete:asr": "python3 scripts/review-complete-asr.py",
     "benchmark:complete:qa": "tsx scripts/validate-complete-layout.ts && node scripts/qa-complete-benchmark.mjs",
     "benchmark:complete:render": "pnpm benchmark:complete:validate && pnpm benchmark:complete:visual-cues && pnpm --filter @repo/renderer-revideo render:complete",
-    "qwen-ui-agent:audio": "PYTHONPATH=../sandiao-science-studio/src python3 -m sandiao_studio audio examples/qwen-ui-agent-hosted/storyboard/story.json --tts-provider mimo && node scripts/generate-qwen-ui-agent-subtitles.mjs && node scripts/generate-qwen-ui-agent-lipsync.mjs",
+    "qwen-ui-agent:audio": "PYTHONPATH=../sandiao-science-studio/src python3 -m sandiao_studio audio examples/qwen-ui-agent-hosted/storyboard/story.json --tts-provider mimo && node scripts/generate-qwen-ui-agent-subtitles.mjs",
     "qwen-ui-agent:render": "pnpm --filter @repo/renderer-revideo render:qwen-ui-agent",
     "qwen-ui-agent:asr": "ASR_STORY_SLUG=qwen-ui-agent-hosted python3 scripts/review-complete-asr.py",
     "qwen-ui-agent:qa": "node scripts/qa-qwen-ui-agent.mjs",

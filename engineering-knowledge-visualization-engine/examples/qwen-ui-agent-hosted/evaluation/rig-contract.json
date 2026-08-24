@@ -6,23 +6,20 @@
     {
       "pose": "pointing",
       "asset": "xiaolan-pointing.png",
-      "upperBodyCut": 0.54,
-      "mouthAnchor": {"normalizedX": 0.47, "normalizedY": 0.365}
+      "upperBodyCut": 0.54
     },
     {
       "pose": "thinking",
       "asset": "xiaolan-thinking.png",
-      "upperBodyCut": 0.55,
-      "mouthAnchor": {"normalizedX": 0.447, "normalizedY": 0.387}
+      "upperBodyCut": 0.55
     },
     {
       "pose": "presenting",
       "asset": "xiaolan-presenting.png",
-      "upperBodyCut": 0.56,
-      "mouthAnchor": {"normalizedX": 0.535, "normalizedY": 0.364}
+      "upperBodyCut": 0.56
     }
   ],
-  "bones": ["root", "torso", "head", "gaze", "mouth", "gesture"],
+  "bones": ["root", "torso", "head", "gaze", "gesture"],
   "actions": [
     "idle-talk",
     "react-surprise",
@@ -32,10 +29,8 @@
     "resolve-wave"
   ],
   "lipSync": {
-    "driver": "voice-rms",
-    "envelope": "../audio/lip-sync.timeline.json",
-    "minimumFrameRate": 20,
-    "range": [0, 1]
+    "driver": "none",
+    "sourceMouth": "embedded-static"
   },
   "episodeBindings": [
     {"shotId": "proactive-loop", "pose": "pointing", "action": "point-emphasis"},
@@ -46,7 +41,8 @@
   "qualityGates": {
     "minimumRiggedHostRatio": 0.75,
     "requireAspectPreservingSourceAssets": true,
-    "requireAudioDrivenLipSync": true,
+    "requireAudioDrivenLipSync": false,
+    "requireStaticMouth": true,
     "allowStaticEstablishingShot": true
   },
   "accumulationKey": "ai/character/xiaolan/rig/v1"

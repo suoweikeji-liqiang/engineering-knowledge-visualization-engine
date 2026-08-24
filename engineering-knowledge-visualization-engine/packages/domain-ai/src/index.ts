@@ -243,16 +243,15 @@ export const AI_CHARACTER_RIGS: CharacterRigAsset[] = [
       {id: "torso", parent: "root", pivot: {normalizedX: 0.5, normalizedY: 0.72}, maxRotationDegrees: 2},
       {id: "head", parent: "torso", pivot: {normalizedX: 0.5, normalizedY: 0.54}, maxRotationDegrees: 4, maxTranslation: {x: 5, y: 7}},
       {id: "gaze", parent: "head", pivot: {normalizedX: 0.5, normalizedY: 0.29}, maxTranslation: {x: 3, y: 2}},
-      {id: "mouth", parent: "head", pivot: {normalizedX: 0.5, normalizedY: 0.39}, maxTranslation: {x: 0, y: 4}},
       {id: "gesture", parent: "torso", pivot: {normalizedX: 0.86, normalizedY: 0.37}, maxRotationDegrees: 6}
     ],
     actions: [
-      {id: "idle-talk", durationHintSeconds: 4, loop: true, activeBones: ["root", "torso", "head", "gaze", "mouth"], audioDriven: "voice-rms", narrativeRoles: ["notice", "question", "investigate", "bridge", "warn", "resolve"]},
-      {id: "react-surprise", durationHintSeconds: 1.1, loop: false, activeBones: ["root", "head", "gaze", "mouth"], audioDriven: "voice-rms", narrativeRoles: ["notice", "question"]},
-      {id: "point-emphasis", durationHintSeconds: 1.4, loop: false, activeBones: ["torso", "head", "gaze", "mouth", "gesture"], audioDriven: "voice-rms", narrativeRoles: ["bridge", "warn"]},
-      {id: "think-focus", durationHintSeconds: 3.2, loop: true, activeBones: ["root", "head", "gaze", "mouth"], audioDriven: "voice-rms", narrativeRoles: ["investigate", "warn"]},
-      {id: "explain-open", durationHintSeconds: 2.2, loop: true, activeBones: ["root", "torso", "head", "gaze", "mouth", "gesture"], audioDriven: "voice-rms", narrativeRoles: ["bridge"]},
-      {id: "resolve-wave", durationHintSeconds: 2.4, loop: false, activeBones: ["root", "torso", "head", "gaze", "mouth", "gesture"], audioDriven: "voice-rms", narrativeRoles: ["resolve"]}
+      {id: "idle-talk", durationHintSeconds: 4, loop: true, activeBones: ["root", "torso", "head", "gaze"], narrativeRoles: ["notice", "question", "investigate", "bridge", "warn", "resolve"]},
+      {id: "react-surprise", durationHintSeconds: 1.1, loop: false, activeBones: ["root", "head", "gaze"], narrativeRoles: ["notice", "question"]},
+      {id: "point-emphasis", durationHintSeconds: 1.4, loop: false, activeBones: ["torso", "head", "gaze", "gesture"], narrativeRoles: ["bridge", "warn"]},
+      {id: "think-focus", durationHintSeconds: 3.2, loop: true, activeBones: ["root", "head", "gaze"], narrativeRoles: ["investigate", "warn"]},
+      {id: "explain-open", durationHintSeconds: 2.2, loop: true, activeBones: ["root", "torso", "head", "gaze", "gesture"], narrativeRoles: ["bridge"]},
+      {id: "resolve-wave", durationHintSeconds: 2.4, loop: false, activeBones: ["root", "torso", "head", "gaze", "gesture"], narrativeRoles: ["resolve"]}
     ],
     sourcePoseAssets: [
       {pose: "pointing", assetRef: "ai/character/xiaolan/stage/pointing", intrinsicSize: {width: 1367, height: 1151}, upperBodyCut: 0.54, faceAnchors: {leftEye: {normalizedX: 0.446, normalizedY: 0.278}, rightEye: {normalizedX: 0.556, normalizedY: 0.278}, mouth: {normalizedX: 0.47, normalizedY: 0.365}}},
@@ -260,7 +259,7 @@ export const AI_CHARACTER_RIGS: CharacterRigAsset[] = [
       {pose: "presenting", assetRef: "ai/character/xiaolan/stage/presenting", intrinsicSize: {width: 1448, height: 1086}, upperBodyCut: 0.56, faceAnchors: {leftEye: {normalizedX: 0.479, normalizedY: 0.267}, rightEye: {normalizedX: 0.573, normalizedY: 0.267}, mouth: {normalizedX: 0.535, normalizedY: 0.364}}}
     ],
     blinkIntervalSeconds: {min: 2.8, max: 5.2},
-    lipSync: "voice-rms-envelope",
+    lipSync: "disabled",
     accumulationKey: "ai/character/xiaolan/rig/v1"
   }
 ];
