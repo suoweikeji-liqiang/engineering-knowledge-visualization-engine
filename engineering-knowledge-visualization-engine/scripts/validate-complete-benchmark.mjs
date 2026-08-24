@@ -3,17 +3,20 @@ import path from 'node:path';
 
 const root = process.cwd();
 const example = path.join(root, 'examples', 'ai-agent-harness-complete');
-const [story, citations, coverage, rubric, visualTimeline] = await Promise.all([
+const [story, citations, coverage, rubric, visualTimeline, alignment, captions] = await Promise.all([
   fs.readFile(path.join(example, 'storyboard', 'story.json'), 'utf8').then(JSON.parse),
   fs.readFile(path.join(example, 'sources', 'citations.json'), 'utf8').then(JSON.parse),
   fs.readFile(path.join(example, 'evaluation', 'coverage.json'), 'utf8').then(JSON.parse),
   fs.readFile(path.join(example, 'evaluation', 'rubric.json'), 'utf8').then(JSON.parse),
   fs.readFile(path.join(example, 'audio', 'visual-events.timeline.json'), 'utf8').then(JSON.parse),
+  fs.readFile(path.join(example, 'audio', 'forced-alignment.timeline.json'), 'utf8').then(JSON.parse),
+  fs.readFile(path.join(example, 'audio', 'captions.timeline.json'), 'utf8').then(JSON.parse),
 ]);
 
 const errors = [];
 const shots = story.shots ?? [];
 const shotIds = new Set(shots.map(shot => shot.id));
+const alignmentById = new Map((alignment.shots ?? []).map(shot => [shot.id, shot]));
 const citationIds = new Set((citations.sources ?? []).map(source => source.id));
 
 if (shots.length < 25) errors.push(`expected at least 25 shots, got ${shots.length}`);
@@ -45,6 +48,14 @@ for (const shot of shots) {
   if (shot.visual?.kind === 'code') {
     const jsonLines = (shot.visual.lines ?? []).filter(line => !String(line).startsWith('validator:'));
     try { JSON.parse(jsonLines.join('\n')); } catch { errors.push(`code shot ${shot.id} must show valid JSON before validator output`); }
+  }
+  const aligned = alignmentById.get(shot.id);
+  if (!aligned) errors.push(`shot ${shot.id} has no forced alignment`);
+  else {
+    if ((aligned.cues ?? []).map(cue => cue.text).join('') !== shot.dialogue) errors.push(`shot ${shot.id} forced-alignment text differs from frozen narration`);
+    if (!(aligned.cues ?? []).length || aligned.cues.some((cue, index) => !Number.isFinite(cue.start) || !Number.isFinite(cue.end) || cue.start < 0 || cue.end <= cue.start || cue.end > aligned.audioDuration + 0.1 || (index > 0 && cue.start < aligned.cues[index - 1].end))) {
+      errors.push(`shot ${shot.id} has invalid or non-monotonic forced-alignment cue times`);
+    }
   }
 }
 
@@ -113,10 +124,19 @@ for (const shot of shots) {
 }
 const timedVisualEvents = (visualTimeline.shots ?? []).flatMap(shot => shot.events ?? []);
 if (visualTimeline.mappingPolicy?.mode !== 'explicit-human-semantic') errors.push('visual timing must use explicit human semantic mapping');
+if (visualTimeline.mappingPolicy?.timingSource !== 'forced-alignment-word-timestamps') errors.push('visual timing must use forced-alignment word timestamps');
 if (visualTimeline.mappingPolicy?.proportionalFallbackAllowed !== false) errors.push('proportional visual cue fallback must be forbidden');
-if (!timedVisualEvents.length || timedVisualEvents.some(event => event.strategy !== 'explicit')) {
-  errors.push('every timed semantic visual event must use an explicit cue index');
+if (!timedVisualEvents.length || timedVisualEvents.some(event => event.strategy !== 'explicit-forced-alignment')) {
+  errors.push('every timed semantic visual event must use an explicit cue index backed by forced alignment');
 }
+if (alignment.storyFingerprint !== captions.alignment?.storyFingerprint) errors.push('caption and forced-alignment fingerprints must match');
+if (alignment.proportionalFallbackAllowed !== false) errors.push('forced alignment must forbid proportional fallback');
+if (alignment.metrics?.shots !== shots.length) errors.push('forced alignment must cover every shot');
+if (Number(alignment.metrics?.meanTranscriptSimilarity ?? 0) < 0.85) errors.push('forced-alignment mean transcript similarity is too low');
+if (Number(alignment.metrics?.minimumTranscriptSimilarity ?? 0) < 0.55) errors.push('forced-alignment minimum transcript similarity is too low');
+if (Number(alignment.metrics?.minimumMatchedTargetCharacterRatio ?? 0) < 0.55) errors.push('forced-alignment minimum matched character ratio is too low');
+if ((captions.cues ?? []).some(cue => cue.timingSource !== 'forced-alignment')) errors.push('every caption cue must come from forced alignment');
+if ((captions.cues ?? []).some((cue, index) => cue.end <= cue.start || (index > 0 && cue.start < captions.cues[index - 1].start))) errors.push('caption cues must be globally monotonic');
 
 const core = coverage.requirements ?? [];
 if (core.length !== 15) errors.push(`expected exactly 15 core requirements, got ${core.length}`);
@@ -153,6 +173,8 @@ const report = {
   semanticVisualFamilies: [...visualKinds].sort(),
   semanticVisualEvents: timedVisualEvents.length,
   semanticVisualMapping: visualTimeline.mappingPolicy?.mode,
+  visualTimingSource: visualTimeline.mappingPolicy?.timingSource,
+  forcedAlignment: alignment.metrics,
   topologyCompositionCounts,
   maximumSingleCompositionShare,
   performanceStates,

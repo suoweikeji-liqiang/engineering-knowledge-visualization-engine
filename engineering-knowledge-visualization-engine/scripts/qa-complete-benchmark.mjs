@@ -1,4 +1,5 @@
 import {readFile, writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 
@@ -10,6 +11,8 @@ const asr = JSON.parse(await readFile(resolve(example, 'evaluation/asr-report.js
 const subtitles = await readFile(resolve(example, 'final/subtitles.srt'), 'utf8');
 const captionTimeline = JSON.parse(await readFile(resolve(example, 'audio/captions.timeline.json'), 'utf8'));
 const visualTimeline = JSON.parse(await readFile(resolve(example, 'audio/visual-events.timeline.json'), 'utf8'));
+const alignment = JSON.parse(await readFile(resolve(example, 'audio/forced-alignment.timeline.json'), 'utf8'));
+const narrationMasterSha256 = createHash('sha256').update(await readFile(resolve(example, 'audio/ai-agent-harness-complete.wav'))).digest('hex');
 const trace = JSON.parse(await readFile(resolve(example, 'final/trace.json'), 'utf8'));
 const layout = JSON.parse(await readFile(resolve(example, 'evaluation/layout-qa.json'), 'utf8'));
 
@@ -51,7 +54,8 @@ const maximumCaptionSyncDelta = Math.max(...captionSync.map(item => item.delta),
 const visualEvents = visualTimeline.shots.flatMap(shot => shot.events);
 const semanticVisualSyncWithin500ms = visualEvents.filter(event => event.deltaSeconds <= 0.5).length / visualEvents.length;
 const maximumSemanticVisualDelta = Math.max(...visualEvents.map(event => event.deltaSeconds), 0);
-const explicitSemanticVisualEvents = visualEvents.filter(event => event.strategy === 'explicit').length;
+const explicitSemanticVisualEvents = visualEvents.filter(event => event.strategy === 'explicit-forced-alignment').length;
+const alignmentIntegrity = alignment.shots.every(shot => shot.cues?.length && shot.cues.every((cue, index) => cue.start >= 0 && cue.end > cue.start && cue.end <= shot.audioDuration + 0.1 && (index === 0 || cue.start >= shot.cues[index - 1].end)));
 
 const checks = {
   durationMatchesTimeline: Math.abs(duration - timeline.duration) <= 0.1,
@@ -63,10 +67,22 @@ const checks = {
   loudnessInPlatformRange: Number(loudness.input_i) >= -18 && Number(loudness.input_i) <= -14,
   asrAllSegmentsPass: asr.summary.segments === timeline.shots.length && asr.summary.below0_8 === 0 && asr.summary.errors === 0,
   subtitleCoverage: subtitleCues >= timeline.shots.length,
+  captionsUseForcedAlignment:
+    captionTimeline.alignment?.storyFingerprint === alignment.storyFingerprint
+    && captionTimeline.cues.every(cue => cue.timingSource === 'forced-alignment'),
+  forcedAlignmentCoverage:
+    alignment.proportionalFallbackAllowed === false
+    && alignment.narrationMasterSha256 === narrationMasterSha256
+    && alignment.metrics?.shots === timeline.shots.length
+    && alignment.metrics?.meanTranscriptSimilarity >= 0.85
+    && alignment.metrics?.minimumTranscriptSimilarity >= 0.55
+    && alignment.metrics?.minimumMatchedTargetCharacterRatio >= 0.55,
+  forcedAlignmentCueIntegrity: alignmentIntegrity,
   captionTimelineWithin500ms: captionSyncWithin500ms >= 0.95,
   semanticVisualEventsWithin500ms: semanticVisualSyncWithin500ms >= 0.95,
   semanticVisualEventsExplicitlyMapped:
     visualTimeline.mappingPolicy?.mode === 'explicit-human-semantic'
+    && visualTimeline.mappingPolicy?.timingSource === 'forced-alignment-word-timestamps'
     && visualTimeline.mappingPolicy?.proportionalFallbackAllowed === false
     && explicitSemanticVisualEvents === visualEvents.length,
   noTextOverflowRisks: layout.pass === true && layout.textOverflowRisks.length === 0,
@@ -98,10 +114,12 @@ const report = {
   motion: {freezeSegmentsOver3Seconds: freezeDurations.length, frozenSeconds, frozenFraction: frozenSeconds / duration, maximumFreezeSeconds},
   asr: asr.summary,
   subtitles: {cues: subtitleCues, within500ms: captionSyncWithin500ms, maximumDeltaSeconds: maximumCaptionSyncDelta},
+  forcedAlignment: {method: alignment.method, model: alignment.model, metrics: alignment.metrics},
   visualEvents: {
     events: visualEvents.length,
     explicitlyMapped: explicitSemanticVisualEvents,
     mappingMode: visualTimeline.mappingPolicy?.mode,
+    timingSource: visualTimeline.mappingPolicy?.timingSource,
     proportionalFallbackAllowed: visualTimeline.mappingPolicy?.proportionalFallbackAllowed,
     within500ms: semanticVisualSyncWithin500ms,
     maximumDeltaSeconds: maximumSemanticVisualDelta,

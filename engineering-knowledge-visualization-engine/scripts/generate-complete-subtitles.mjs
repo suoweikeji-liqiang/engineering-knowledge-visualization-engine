@@ -1,10 +1,13 @@
 import {readFile, writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
 const example = resolve(root, 'examples/ai-agent-harness-complete');
 const story = JSON.parse(await readFile(resolve(example, 'storyboard/story.json'), 'utf8'));
 const sourceTimeline = JSON.parse(await readFile(resolve(example, 'audio/ai-agent-harness-complete.timeline.json'), 'utf8'));
+const alignment = JSON.parse(await readFile(resolve(example, 'audio/forced-alignment.timeline.json'), 'utf8'));
+const narrationMasterSha256 = createHash('sha256').update(await readFile(resolve(example, 'audio/ai-agent-harness-complete.wav'))).digest('hex');
 const playbackRate = Number(story.meta.playbackRate ?? 1);
 const timeline = {
   ...sourceTimeline,
@@ -17,22 +20,6 @@ const timeline = {
   })),
 };
 
-function splitCaption(text, maxChars = 24) {
-  const clauses = text.split(/(?<=[。！？；，、：])/u).map(item => item.trim()).filter(Boolean);
-  const result = [];
-  let current = '';
-  for (const clause of clauses) {
-    if (current && current.length + clause.length > maxChars) {
-      result.push(current);
-      current = clause;
-    } else {
-      current += clause;
-    }
-  }
-  if (current) result.push(current);
-  return result.length ? result : [text];
-}
-
 function stamp(seconds) {
   const millis = Math.max(0, Math.round(seconds * 1000));
   const hours = Math.floor(millis / 3_600_000);
@@ -43,28 +30,35 @@ function stamp(seconds) {
 }
 
 const shots = new Map(story.shots.map(shot => [shot.id, shot]));
+const alignedShots = new Map(alignment.shots.map(shot => [shot.id, shot]));
+if (alignment.storyFingerprint !== sourceTimeline.storyFingerprint) {
+  throw new Error(`Forced alignment fingerprint mismatch: ${alignment.storyFingerprint} / ${sourceTimeline.storyFingerprint}`);
+}
+if (alignment.narrationMasterSha256 !== narrationMasterSha256) {
+  throw new Error(`Forced alignment audio hash mismatch: ${alignment.narrationMasterSha256} / ${narrationMasterSha256}`);
+}
+if (alignment.proportionalFallbackAllowed !== false) {
+  throw new Error('Forced alignment must explicitly forbid proportional timing fallback.');
+}
 const cues = [];
 let cursor = 0;
 for (const timing of timeline.shots) {
   const shot = shots.get(timing.id);
   if (!shot) throw new Error(`Timeline references unknown shot: ${timing.id}`);
-  const chunks = splitCaption(shot.dialogue);
-  const weights = chunks.map(chunk => Math.max(1, [...chunk].length));
-  const totalWeight = weights.reduce((sum, value) => sum + value, 0);
-  const speechStart = cursor + 0.25;
-  const speechSpan = Math.min(timing.speechDuration, Math.max(0, timing.duration - 0.25));
-  let local = speechStart;
-  chunks.forEach((chunk, index) => {
-    const duration = speechSpan * (weights[index] / totalWeight);
+  const aligned = alignedShots.get(timing.id);
+  if (!aligned?.cues?.length) throw new Error(`Missing forced-alignment cues for ${timing.id}`);
+  aligned.cues.forEach(chunk => {
+    const localStart = Math.min(timing.duration, Math.max(0, chunk.start / playbackRate));
+    const localEnd = Math.min(timing.duration, Math.max(localStart + 0.05, chunk.end / playbackRate));
     cues.push({
-      start: local,
-      end: local + duration,
-      localStart: local - cursor,
-      localEnd: local + duration - cursor,
-      text: chunk,
+      start: cursor + localStart,
+      end: cursor + localEnd,
+      localStart,
+      localEnd,
+      text: chunk.text,
       shotId: timing.id,
+      timingSource: 'forced-alignment',
     });
-    local += duration;
   });
   cursor += timing.duration;
 }
@@ -85,6 +79,6 @@ const chapters = story.chapters.map(chapter => {
 
 await writeFile(resolve(example, 'final/subtitles.srt'), srt, 'utf8');
 await writeFile(resolve(example, 'final/chapters.json'), `${JSON.stringify(chapters, null, 2)}\n`, 'utf8');
-await writeFile(resolve(example, 'audio/captions.timeline.json'), `${JSON.stringify({schemaVersion: '1.0', storySlug: story.slug, cues}, null, 2)}\n`, 'utf8');
+await writeFile(resolve(example, 'audio/captions.timeline.json'), `${JSON.stringify({schemaVersion: '1.0', storySlug: story.meta.slug, alignment: {method: alignment.method, model: alignment.model, storyFingerprint: alignment.storyFingerprint}, cues}, null, 2)}\n`, 'utf8');
 await writeFile(resolve(example, 'audio/video.timeline.json'), `${JSON.stringify(timeline, null, 2)}\n`, 'utf8');
 console.log(JSON.stringify({cues: cues.length, chapters: chapters.length, duration: timeline.duration}, null, 2));

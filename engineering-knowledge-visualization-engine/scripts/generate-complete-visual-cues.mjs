@@ -61,7 +61,7 @@ const shots = timeline.shots.map(timing => {
       activeStart: Number(activeStart.toFixed(3)),
       renderedStart: Number(renderedStart.toFixed(3)),
       deltaSeconds: Number(Math.abs(renderedStart - cue.start).toFixed(3)),
-      strategy: 'explicit',
+      strategy: 'explicit-forced-alignment',
     };
   });
   const result = {shotId: shot.id, visualKind: shot.visual.kind, shotStart: Number(shotStart.toFixed(3)), events};
@@ -76,6 +76,7 @@ const manifest = {
   contract: 'semantic-visual-events-are-triggered-from-this-manifest',
   mappingPolicy: {
     mode: 'explicit-human-semantic',
+    timingSource: 'forced-alignment-word-timestamps',
     requiresCueIndexForEveryEvent: true,
     proportionalFallbackAllowed: false,
     excludedStaticContextEvents: [

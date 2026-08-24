@@ -3,8 +3,8 @@
   "artifact": "final/ai-agent-harness-complete.mp4",
   "media": {
     "duration": 714.833333,
-    "sizeBytes": 265730240,
-    "bitRate": 2973898,
+    "sizeBytes": 265008107,
+    "bitRate": 2965817,
     "video": {
       "index": 0,
       "codec_name": "h264",
@@ -30,9 +30,9 @@
   "blackSegments": [],
   "motion": {
     "freezeSegmentsOver3Seconds": 4,
-    "frozenSeconds": 12.966666,
-    "frozenFraction": 0.018139425515569792,
-    "maximumFreezeSeconds": 3.733333
+    "frozenSeconds": 13.333334,
+    "frozenFraction": 0.018652367460318193,
+    "maximumFreezeSeconds": 3.666667
   },
   "asr": {
     "segments": 29,
@@ -44,15 +44,27 @@
   "subtitles": {
     "cues": 209,
     "within500ms": 1,
-    "maximumDeltaSeconds": 0.21000000000003638
+    "maximumDeltaSeconds": 0.4600000000000364
+  },
+  "forcedAlignment": {
+    "method": "faster-whisper-word-timestamps-plus-frozen-text-alignment",
+    "model": "base",
+    "metrics": {
+      "shots": 29,
+      "meanTranscriptSimilarity": 0.8663,
+      "minimumTranscriptSimilarity": 0.5852,
+      "meanMatchedTargetCharacterRatio": 0.8595,
+      "minimumMatchedTargetCharacterRatio": 0.5891
+    }
   },
   "visualEvents": {
     "events": 129,
     "explicitlyMapped": 129,
     "mappingMode": "explicit-human-semantic",
+    "timingSource": "forced-alignment-word-timestamps",
     "proportionalFallbackAllowed": false,
     "within500ms": 1,
-    "maximumDeltaSeconds": 0.21
+    "maximumDeltaSeconds": 0.46
   },
   "layout": {
     "textContainers": 400,
@@ -292,6 +304,9 @@
     "loudnessInPlatformRange": true,
     "asrAllSegmentsPass": true,
     "subtitleCoverage": true,
+    "captionsUseForcedAlignment": true,
+    "forcedAlignmentCoverage": true,
+    "forcedAlignmentCueIntegrity": true,
     "captionTimelineWithin500ms": true,
     "semanticVisualEventsWithin500ms": true,
     "semanticVisualEventsExplicitlyMapped": true,
