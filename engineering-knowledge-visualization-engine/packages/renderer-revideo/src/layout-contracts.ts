@@ -42,6 +42,15 @@ export const XIAOLAN_PERFORMANCE_V1 = {
   motionProfiles: ['scan-and-mark', 'error-to-success', 'assemble-and-present'],
 } as const;
 
+export const XIAOLAN_PERFORMANCE_V2 = {
+  ...XIAOLAN_PERFORMANCE_V1,
+  id: 'xiaolan-performance-v2',
+  minimumBeatsPerShot: 3,
+  beatFields: ['id', 'cueIndex', 'pose', 'gaze', 'gesture', 'expression', 'asset', 'transition'],
+  transitions: ['cut-in', 'match-cut', 'reaction-pop'],
+  presentation: 'semantic-reaction-insert',
+} as const;
+
 export type XiaolanPerformanceState = CharacterPerformanceState;
 export type XiaolanMotionProfile = CharacterMotionProfile;
 

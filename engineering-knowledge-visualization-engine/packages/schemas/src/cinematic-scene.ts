@@ -55,6 +55,17 @@ export type CinematicSoundCue = {
 export type CharacterPerformanceState = "investigate" | "recover" | "synthesize";
 export type CharacterMotionProfile = "scan-and-mark" | "error-to-success" | "assemble-and-present";
 
+export type CharacterPerformanceBeat = {
+  id: string;
+  cueIndex: number;
+  pose: string;
+  gaze: "viewer" | "object" | "path" | "offscreen";
+  gesture: string;
+  expression: string;
+  assetRef: string;
+  transition: "cut-in" | "match-cut" | "reaction-pop";
+};
+
 export type CharacterPerformanceAsset = {
   schemaVersion: "1.0";
   id: string;
@@ -65,6 +76,7 @@ export type CharacterPerformanceAsset = {
   gesture: string;
   motionProfile: CharacterMotionProfile;
   focusTarget: string;
+  beats: CharacterPerformanceBeat[];
   action: string;
   gaze: "viewer" | "object" | "path" | "offscreen";
   assetRef: string;

@@ -7,7 +7,7 @@
     "resolution": [1920, 1080],
     "fps": 30,
     "playbackRate": 1.07,
-    "designSystem": {"cardSystem": "card-system-v2", "sceneGrammar": "scene-grammar-v2", "performanceSystem": "xiaolan-performance-v1", "indexTreatment": "detached-badge", "contentAlignment": "intrinsic-centered", "evidenceRelationship": "source-connector-callout"},
+    "designSystem": {"cardSystem": "card-system-v2", "sceneGrammar": "scene-grammar-v2", "performanceSystem": "xiaolan-performance-v2", "indexTreatment": "detached-badge", "contentAlignment": "intrinsic-centered", "evidenceRelationship": "source-connector-callout"},
     "video": "examples/ai-agent-harness-complete/final/ai-agent-harness-complete.mp4",
     "audio": "examples/ai-agent-harness-complete/audio/ai-agent-harness-complete.wav",
     "poster": "examples/ai-agent-harness-complete/final/ai-agent-harness-complete-poster.png"
@@ -50,7 +50,7 @@
       "sfx": ["impact", "whoosh"],
       "states": [],
       "scene": {"id": "scene.hook", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "character-task"}, "camera": {"framing": "medium-wide", "movement": "push-in"}},
-      "visual": {"kind": "character", "asset": "xiaolan-evidence-bridge.png", "assetFit": "contain", "performanceLabel": "发现任务断点", "performance": {"state": "investigate", "emotion": "focused", "gesture": "annotate", "motionProfile": "scan-and-mark", "focusTarget": "evidence gap"}, "status": ["脚本 ✓", "证据 ○", "画面 ○", "音频 ○", "成片 ○"], "cueIndexes": [2, 3, 3, 3, 4], "continuityKey": "episode-task"},
+      "visual": {"kind": "character", "asset": "xiaolan-evidence-bridge.png", "assetFit": "contain", "performanceLabel": "发现任务断点", "performance": {"state": "investigate", "emotion": "focused", "gesture": "annotate", "motionProfile": "scan-and-mark", "focusTarget": "evidence gap", "beats": [{"id": "notice-gap", "cueIndex": 0, "pose": "close-up-think", "gaze": "object", "gesture": "chin-touch", "expression": "curious", "asset": "char_thinking.jpg", "transition": "cut-in"}, {"id": "mark-gap", "cueIndex": 2, "pose": "standing-point", "gaze": "path", "gesture": "point", "expression": "focused", "asset": "char_pointing.jpg", "transition": "match-cut"}, {"id": "state-proof", "cueIndex": 4, "pose": "present-sign", "gaze": "viewer", "gesture": "hold-proof", "expression": "resolved", "asset": "char_sign.jpg", "transition": "reaction-pop"}]}, "status": ["脚本 ✓", "证据 ○", "画面 ○", "音频 ○", "成片 ○"], "cueIndexes": [2, 3, 3, 3, 4], "continuityKey": "episode-task"},
       "citations": ["openai-agent-guide"]
     },
     {
@@ -316,7 +316,7 @@
       "sfx": ["task-inject", "connector-draw", "terminal-success"],
       "states": [],
       "scene": {"id": "scene.checkpoint-resume", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "character-recovery"}, "camera": {"framing": "medium-wide", "movement": "pan"}},
-      "visual": {"kind": "character", "asset": "xiaolan-recover-path.png", "assetFit": "contain", "performanceLabel": "恢复制作现场", "performance": {"state": "recover", "emotion": "determined", "gesture": "reroute", "motionProfile": "error-to-success", "focusTarget": "checkpoint path"}, "status": ["render process ✕", "checkpoint found ✓", "script + voice ✓", "downstream only ↻", "fingerprint verified ✓"], "cueIndexes": [0, 2, 3, 4, 5], "continuityKey": "reliability-run"},
+      "visual": {"kind": "character", "asset": "xiaolan-recover-path.png", "assetFit": "contain", "performanceLabel": "恢复制作现场", "performance": {"state": "recover", "emotion": "determined", "gesture": "reroute", "motionProfile": "error-to-success", "focusTarget": "checkpoint path", "beats": [{"id": "notice-error", "cueIndex": 0, "pose": "desk-alert", "gaze": "object", "gesture": "brace", "expression": "surprised", "asset": "char_surprised.jpg", "transition": "reaction-pop"}, {"id": "find-checkpoint", "cueIndex": 2, "pose": "close-up-think", "gaze": "path", "gesture": "chin-touch", "expression": "determined", "asset": "char_thinking.jpg", "transition": "match-cut"}, {"id": "confirm-recovery", "cueIndex": 4, "pose": "present-sign", "gaze": "viewer", "gesture": "hold-proof", "expression": "relieved", "asset": "char_sign.jpg", "transition": "cut-in"}]}, "status": ["render process ✕", "checkpoint found ✓", "script + voice ✓", "downstream only ↻", "fingerprint verified ✓"], "cueIndexes": [0, 2, 3, 4, 5], "continuityKey": "reliability-run"},
       "citations": ["microsoft-checkpoints"]
     },
     {
@@ -428,7 +428,7 @@
       "sfx": ["terminal-success", "sparkle"],
       "states": [],
       "scene": {"id": "scene.live-trace-finish", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "artifact-delivery"}, "camera": {"framing": "medium-wide", "movement": "push-in"}},
-      "visual": {"kind": "character", "asset": "xiaolan-connect-modules.png", "assetFit": "contain", "performanceLabel": "核对交付证据", "performance": {"state": "synthesize", "emotion": "confident", "gesture": "present", "motionProfile": "assemble-and-present", "focusTarget": "artifact stack"}, "status": ["video.mp4 ✓", "subtitles.srt ✓", "citations.json ✓", "trace kind · narrative", "raw telemetry · external"], "cueIndexes": [3, 3, 4, 6, 7], "continuityKey": "live-trace"},
+      "visual": {"kind": "character", "asset": "xiaolan-connect-modules.png", "assetFit": "contain", "performanceLabel": "核对交付证据", "performance": {"state": "synthesize", "emotion": "confident", "gesture": "present", "motionProfile": "assemble-and-present", "focusTarget": "artifact stack", "beats": [{"id": "review-artifacts", "cueIndex": 0, "pose": "desk-review", "gaze": "object", "gesture": "review", "expression": "attentive", "asset": "char_desk.jpg", "transition": "cut-in"}, {"id": "connect-proof", "cueIndex": 2, "pose": "standing-point", "gaze": "path", "gesture": "point", "expression": "confident", "asset": "char_pointing.jpg", "transition": "match-cut"}, {"id": "close-episode", "cueIndex": 4, "pose": "host-wave", "gaze": "viewer", "gesture": "wave", "expression": "warm", "asset": "char_outro.jpg", "transition": "reaction-pop"}]}, "status": ["video.mp4 ✓", "subtitles.srt ✓", "citations.json ✓", "trace kind · narrative", "raw telemetry · external"], "cueIndexes": [3, 3, 4, 6, 7], "continuityKey": "live-trace"},
       "citations": ["openai-agent-guide"]
     },
     {

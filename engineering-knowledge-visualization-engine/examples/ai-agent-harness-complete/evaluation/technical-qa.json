@@ -3,8 +3,8 @@
   "artifact": "final/ai-agent-harness-complete.mp4",
   "media": {
     "duration": 714.833333,
-    "sizeBytes": 184621075,
-    "bitRate": 2066171,
+    "sizeBytes": 184984962,
+    "bitRate": 2070244,
     "video": {
       "index": 0,
       "codec_name": "h264",
@@ -24,7 +24,7 @@
   },
   "loudness": {
     "integratedLufs": -16.69,
-    "truePeakDb": -4.14,
+    "truePeakDb": -4.01,
     "rangeLu": 3.5
   },
   "blackSegments": [],
@@ -55,7 +55,7 @@
     "maximumDeltaSeconds": 0.21
   },
   "layout": {
-    "textContainers": 388,
+    "textContainers": 397,
     "textOverflowRisks": 0,
     "minimumSelectedFontSize": 17,
     "characterAspectPreserved": true,
@@ -101,7 +101,7 @@
     "maximumSingleCompositionShare": 0.16666666666666666,
     "sceneGrammarV2Declared": true,
     "performanceSystem": {
-      "id": "xiaolan-performance-v1",
+      "id": "xiaolan-performance-v2",
       "states": [
         "investigate",
         "recover",
@@ -118,13 +118,44 @@
         "scan-and-mark",
         "error-to-success",
         "assemble-and-present"
-      ]
+      ],
+      "minimumBeatsPerShot": 3,
+      "beatFields": [
+        "id",
+        "cueIndex",
+        "pose",
+        "gaze",
+        "gesture",
+        "expression",
+        "asset",
+        "transition"
+      ],
+      "transitions": [
+        "cut-in",
+        "match-cut",
+        "reaction-pop"
+      ],
+      "presentation": "semantic-reaction-insert"
     },
     "performanceStates": [
       "investigate",
       "recover",
       "synthesize"
     ],
+    "performanceBeatsPerShot": {
+      "hook": 3,
+      "checkpoint-resume": 3,
+      "live-trace-finish": 3
+    },
+    "performancePoseAssets": [
+      "char_thinking.jpg",
+      "char_pointing.jpg",
+      "char_sign.jpg",
+      "char_surprised.jpg",
+      "char_desk.jpg",
+      "char_outro.jpg"
+    ],
+    "performanceBeatsPass": true,
     "performanceSystemDeclared": true
   },
   "trace": {

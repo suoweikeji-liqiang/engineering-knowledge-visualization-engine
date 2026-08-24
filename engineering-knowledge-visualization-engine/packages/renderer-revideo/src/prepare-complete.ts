@@ -8,7 +8,7 @@ const source = resolve(exampleRoot, 'audio/ai-agent-harness-complete.wav');
 const timeline = JSON.parse(readFileSync(resolve(exampleRoot, 'audio/video.timeline.json'), 'utf8')) as {duration: number; playbackRate: number};
 const story = JSON.parse(readFileSync(resolve(exampleRoot, 'storyboard/story.json'), 'utf8')) as {
   chapters: Array<{id: string; shotIds: string[]}>;
-  shots: Array<{id: string; sfx?: string[]}>;
+  shots: Array<{id: string; sfx?: string[]; visual?: {performance?: {beats?: Array<{asset: string}>}}}>;
 };
 const visualTimeline = JSON.parse(readFileSync(resolve(exampleRoot, 'audio/visual-events.timeline.json'), 'utf8')) as {
   shots: Array<{shotId: string; events: Array<{narrationStart: number}>}>;
@@ -21,14 +21,23 @@ const characterSource = resolve(exampleRoot, 'assets/characters');
 const characterPublic = resolve(packageRoot, 'public/complete/characters');
 const evidenceSource = resolve(exampleRoot, 'assets/evidence');
 const evidencePublic = resolve(packageRoot, 'public/complete/evidence');
+const posePublic = resolve(packageRoot, 'public/complete/poses');
 const characterFiles = ['xiaolan-evidence-bridge.png', 'xiaolan-connect-modules.png', 'xiaolan-recover-path.png'] as const;
 const evidenceFiles = ['openai-agent-guide-page-04.png'] as const;
+const poseFiles = [...new Set(story.shots.flatMap(shot => shot.visual?.performance?.beats?.map(beat => beat.asset) ?? []))];
+const aiDailyRoot = [
+  process.env.AI_DAILY_REPO,
+  resolve(packageRoot, '../../../../ai_daily_brief_factory_v3'),
+  resolve(packageRoot, '../../../ai_daily_brief_factory_v3'),
+].filter((candidate): candidate is string => Boolean(candidate)).find(candidate => existsSync(candidate));
+const poseSource = aiDailyRoot ? resolve(aiDailyRoot, 'templates/cinematic_context_deck/assets/avatar') : '';
 
 if (!existsSync(source)) throw new Error(`MiMo female narration is missing: ${source}\nRun "pnpm benchmark:complete:audio" first.`);
 mkdirSync(resolve(exampleRoot, 'public/complete'), {recursive: true});
 mkdirSync(resolve(packageRoot, 'public/complete'), {recursive: true});
 mkdirSync(characterPublic, {recursive: true});
 mkdirSync(evidencePublic, {recursive: true});
+mkdirSync(posePublic, {recursive: true});
 
 for (const filename of characterFiles) {
   const input = resolve(characterSource, filename);
@@ -39,6 +48,12 @@ for (const filename of evidenceFiles) {
   const input = resolve(evidenceSource, filename);
   if (!existsSync(input)) throw new Error(`Evidence asset is missing: ${input}`);
   copyFileSync(input, resolve(evidencePublic, filename));
+}
+if (poseFiles.length && !aiDailyRoot) throw new Error('Character pose assets require the sibling ai_daily_brief_factory_v3 checkout or AI_DAILY_REPO.');
+for (const filename of poseFiles) {
+  const input = resolve(poseSource, filename);
+  if (!existsSync(input)) throw new Error(`Character pose asset is missing: ${input}`);
+  copyFileSync(input, resolve(posePublic, filename));
 }
 
 const ffmpeg = process.env.FFMPEG_PATH || 'ffmpeg';
@@ -113,5 +128,5 @@ const result = spawnSync(ffmpeg, [
 if (result.status !== 0) throw new Error(`Failed to prepare browser audio with ${ffmpeg}`);
 copyFileSync(examplePublic, rendererPublic);
 console.log(`Prepared complete female narration: ${examplePublic}`);
-console.log(`Prepared ${characterFiles.length} character assets and ${evidenceFiles.length} evidence assets.`);
+console.log(`Prepared ${characterFiles.length} character scenes, ${poseFiles.length} performance poses, and ${evidenceFiles.length} evidence assets.`);
 console.log(`Prepared ${sfxEvents.length} cue-locked SFX events across ${story.chapters.length} chapters.`);

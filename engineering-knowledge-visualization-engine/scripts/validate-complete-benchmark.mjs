@@ -60,14 +60,25 @@ if (Object.keys(topologyCompositionCounts).length < 5) errors.push('topology sho
 if (maximumSingleCompositionShare > 0.34) errors.push(`one topology composition dominates ${(maximumSingleCompositionShare * 100).toFixed(1)}% of topology shots`);
 
 const requiredPerformanceFields = ['state', 'emotion', 'gesture', 'motionProfile', 'focusTarget'];
+const requiredPerformanceBeatFields = ['id', 'cueIndex', 'pose', 'gaze', 'gesture', 'expression', 'asset', 'transition'];
 const requiredPerformanceStates = ['investigate', 'recover', 'synthesize'];
 const characterShots = shots.filter(shot => shot.visual?.kind === 'character');
 const performanceStates = characterShots.map(shot => shot.visual?.performance?.state);
-if (story.meta?.designSystem?.performanceSystem !== 'xiaolan-performance-v1') errors.push('story must declare xiaolan-performance-v1');
+const performancePoseAssets = new Set();
+if (story.meta?.designSystem?.performanceSystem !== 'xiaolan-performance-v2') errors.push('story must declare xiaolan-performance-v2');
 for (const shot of characterShots) {
   if (requiredPerformanceFields.some(field => !String(shot.visual?.performance?.[field] ?? '').trim())) errors.push(`character shot ${shot.id} must declare a complete performance state`);
+  const beats = shot.visual?.performance?.beats ?? [];
+  if (beats.length < 3) errors.push(`character shot ${shot.id} must declare at least three performance beats`);
+  beats.forEach((beat, index) => {
+    if (requiredPerformanceBeatFields.some(field => beat[field] === undefined || !String(beat[field]).trim())) errors.push(`character shot ${shot.id} has an incomplete performance beat`);
+    if (!Number.isInteger(beat.cueIndex) || beat.cueIndex < 0 || beat.cueIndex >= shot.visual.cueIndexes.length) errors.push(`character shot ${shot.id} beat ${beat.id} has an invalid cueIndex`);
+    if (index > 0 && beat.cueIndex <= beats[index - 1].cueIndex) errors.push(`character shot ${shot.id} performance beats must advance in cue order`);
+    performancePoseAssets.add(beat.asset);
+  });
 }
 for (const state of requiredPerformanceStates) if (!performanceStates.includes(state)) errors.push(`character performance state ${state} is not represented`);
+if (performancePoseAssets.size < 5) errors.push(`character performance must use at least five distinct pose assets, got ${performancePoseAssets.size}`);
 
 const stopReasons = shots.find(shot => shot.id === 'stop-reasons');
 if (stopReasons?.visual?.edgeDirection !== 'outbound') errors.push('stop-reasons must direct arrows outward from RUNNING');
@@ -119,6 +130,7 @@ const report = {
   topologyCompositionCounts,
   maximumSingleCompositionShare,
   performanceStates,
+  performancePoseAssets: [...performancePoseAssets],
   coreCoverage: core.length,
   femaleVoice: voice.mimo_voice,
   errors,

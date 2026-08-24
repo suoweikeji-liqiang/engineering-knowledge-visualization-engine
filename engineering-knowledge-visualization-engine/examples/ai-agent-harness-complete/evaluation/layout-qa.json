@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "textContainers": 388,
+  "textContainers": 397,
   "textOverflowRisks": [],
   "minimumSelectedFontSize": 17,
   "characterAssets": [
@@ -68,7 +68,7 @@
   "maximumSingleCompositionShare": 0.16666666666666666,
   "sceneGrammarV2Declared": true,
   "performanceSystem": {
-    "id": "xiaolan-performance-v1",
+    "id": "xiaolan-performance-v2",
     "states": [
       "investigate",
       "recover",
@@ -85,13 +85,44 @@
       "scan-and-mark",
       "error-to-success",
       "assemble-and-present"
-    ]
+    ],
+    "minimumBeatsPerShot": 3,
+    "beatFields": [
+      "id",
+      "cueIndex",
+      "pose",
+      "gaze",
+      "gesture",
+      "expression",
+      "asset",
+      "transition"
+    ],
+    "transitions": [
+      "cut-in",
+      "match-cut",
+      "reaction-pop"
+    ],
+    "presentation": "semantic-reaction-insert"
   },
   "performanceStates": [
     "investigate",
     "recover",
     "synthesize"
   ],
+  "performanceBeatsPerShot": {
+    "hook": 3,
+    "checkpoint-resume": 3,
+    "live-trace-finish": 3
+  },
+  "performancePoseAssets": [
+    "char_thinking.jpg",
+    "char_pointing.jpg",
+    "char_sign.jpg",
+    "char_surprised.jpg",
+    "char_desk.jpg",
+    "char_outro.jpg"
+  ],
+  "performanceBeatsPass": true,
   "performanceSystemDeclared": true,
   "pass": true
 }

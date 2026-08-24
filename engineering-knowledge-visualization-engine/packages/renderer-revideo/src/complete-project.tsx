@@ -27,6 +27,16 @@ type Visual = {
     gesture: string;
     motionProfile: XiaolanMotionProfile;
     focusTarget: string;
+    beats?: Array<{
+      id: string;
+      cueIndex: number;
+      pose: string;
+      gaze: 'viewer' | 'object' | 'path' | 'offscreen';
+      gesture: string;
+      expression: string;
+      asset: string;
+      transition: 'cut-in' | 'match-cut' | 'reaction-pop';
+    }>;
   };
   status?: string[];
   left?: {title: string; items: string[]};
@@ -210,7 +220,10 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
     gesture: 'annotate',
     motionProfile: 'scan-and-mark',
     focusTarget: 'evidence',
+    beats: [],
   };
+  const performanceBeats = performance.beats ?? [];
+  const poseRefs = performanceBeats.map(() => createRef<Layout>());
   stage.body().add(
     <>
       <Layout ref={image} x={-420} opacity={0} scale={0.94} rotation={-1.2}>
@@ -234,6 +247,18 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
           <Circle x={-108} width={10} height={10} fill={accent} shadowColor={accent} shadowBlur={12} />
           <Txt x={10} width={208} textAlign={'left'} fontFamily={MONO} fontSize={15} fontWeight={850} fill={C.onDark} text={`${performance.state.toUpperCase()} · ${performance.emotion.toUpperCase()}`} />
         </Rect>
+        {performanceBeats.map((beat, beatIndex) => (
+          <Layout ref={poseRefs[beatIndex]} x={beat.transition === 'cut-in' ? 310 : 250} y={26} opacity={0} scale={beat.transition === 'reaction-pop' ? 0.82 : 0.94} rotation={beatIndex % 2 ? 1.1 : -1.1}>
+            <Rect x={6} y={7} width={286} height={190} radius={[16, 20, 15, 18]} fill={'#DCCFBE88'} />
+            <Rect width={286} height={190} radius={[16, 20, 15, 18]} fill={'#FFFCF7'} stroke={accent} lineWidth={2} shadowColor={'#6D594033'} shadowBlur={18}>
+              <Img y={-14} src={`/complete/poses/${beat.asset}`} width={268} height={150} radius={11} />
+              <Rect y={76} width={268} height={28} radius={[0, 0, 9, 9]} fill={C.night}>
+                <Circle x={-116} width={8} height={8} fill={accent} />
+                <Txt x={8} width={220} textAlign={'left'} fontFamily={MONO} fontSize={17} fontWeight={850} fill={C.onDark} text={beat.expression.toUpperCase()} />
+              </Rect>
+            </Rect>
+          </Layout>
+        ))}
       </Layout>
       <Layout x={480}>
         {statuses.map((item, idx) => {
@@ -256,6 +281,22 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
   );
   yield* enter(stage);
   const active = duration - 0.74;
+  const poseAnimations = performanceBeats.map((beat, beatIndex) => {
+    const start = visualDelay(shot.id, beat.cueIndex);
+    const nextStart = performanceBeats[beatIndex + 1] ? visualDelay(shot.id, performanceBeats[beatIndex + 1].cueIndex) : active;
+    const hasNextBeat = beatIndex < performanceBeats.length - 1;
+    const transitionDuration = hasNextBeat ? 0.58 : 0.38;
+    const hold = Math.max(0, nextStart - start - transitionDuration);
+    return chain(
+      waitFor(start),
+      all(poseRefs[beatIndex]().opacity(1, 0.2), poseRefs[beatIndex]().scale(1.02, 0.26, easeInOutCubic), poseRefs[beatIndex]().position.x(250, 0.26, easeInOutCubic), poseRefs[beatIndex]().position.y(18, 0.26, easeInOutCubic)),
+      poseRefs[beatIndex]().scale(1, 0.12, easeInOutCubic),
+      waitFor(hold),
+      hasNextBeat
+        ? all(poseRefs[beatIndex]().opacity(0, 0.2), poseRefs[beatIndex]().scale(0.97, 0.2), poseRefs[beatIndex]().position.y(12, 0.2))
+        : waitFor(0),
+    );
+  });
   yield* all(
     all(image().opacity(1, 0.4), image().scale(1, 0.55)),
     ...refs.map((ref, cueIndex) => chain(
@@ -263,6 +304,7 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
       all(ref().opacity(1, 0.24), ref().position.x(0, 0.34), ref().scale(1.035, 0.28, easeInOutCubic)),
       ref().scale(1, 0.16, easeInOutCubic),
     )),
+    ...poseAnimations,
     image().position.x(-405, active, easeInOutCubic),
     tween(active, value => {
       const phase = value * Math.PI * 4;

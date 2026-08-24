@@ -6,7 +6,7 @@ import {
   CHARACTER_VIEWPORT,
   CARD_SYSTEM_V2,
   SCENE_GRAMMAR_V2,
-  XIAOLAN_PERFORMANCE_V1,
+  XIAOLAN_PERFORMANCE_V2,
   detachedBadgeX,
   fitText,
   type TextFitOptions,
@@ -30,7 +30,10 @@ function visualEntries(shot: Shot): TextEntry[] {
     values.forEach(value => items.push(entry(shot.id, role, typeof value === 'string' ? value : (value as any)?.label, width, height, options)));
   };
   switch (visual.kind) {
-    case 'character': addMany('status', visual.status ?? [], 470, 64, {maxFontSize: 22, minFontSize: 15, maxLines: 2}); break;
+    case 'character':
+      addMany('status', visual.status ?? [], 470, 64, {maxFontSize: 22, minFontSize: 15, maxLines: 2});
+      (visual.performance?.beats ?? []).forEach((beat: any) => items.push(entry(shot.id, 'performance-expression', beat.expression, 220, 28, {maxFontSize: 17, minFontSize: 17, maxLines: 1})));
+      break;
     case 'compare':
       items.push(entry(shot.id, 'compare-title', visual.left?.title, 610, 60, {maxFontSize: 28, minFontSize: 18, maxLines: 2}));
       items.push(entry(shot.id, 'compare-title', visual.right?.title, 610, 60, {maxFontSize: 28, minFontSize: 18, maxLines: 2}));
@@ -104,9 +107,20 @@ async function main() {
     && maximumSingleCompositionShare <= SCENE_GRAMMAR_V2.maximumSingleCompositionShare;
   const characterShots = story.shots.filter(shot => shot.visual.kind === 'character');
   const performanceStates = characterShots.map(shot => shot.visual.performance?.state).filter(Boolean);
-  const performanceSystemDeclared = story.meta.designSystem?.performanceSystem === XIAOLAN_PERFORMANCE_V1.id
-    && characterShots.every(shot => XIAOLAN_PERFORMANCE_V1.requiredFields.every(field => typeof shot.visual.performance?.[field] === 'string' && shot.visual.performance[field].length > 0))
-    && XIAOLAN_PERFORMANCE_V1.states.every(state => performanceStates.includes(state));
+  const performanceBeatsPerShot = Object.fromEntries(characterShots.map(shot => [shot.id, shot.visual.performance?.beats?.length ?? 0]));
+  const performancePoseAssets = [...new Set(characterShots.flatMap(shot => shot.visual.performance?.beats?.map((beat: any) => beat.asset) ?? []))];
+  const performanceBeatsPass = characterShots.every(shot => {
+    const beats = shot.visual.performance?.beats ?? [];
+    const cueCount = shot.visual.cueIndexes?.length ?? 0;
+    return beats.length >= XIAOLAN_PERFORMANCE_V2.minimumBeatsPerShot
+      && beats.every((beat: any) => XIAOLAN_PERFORMANCE_V2.beatFields.every(field => beat[field] !== undefined && String(beat[field]).length > 0))
+      && beats.every((beat: any) => Number.isInteger(beat.cueIndex) && beat.cueIndex >= 0 && beat.cueIndex < cueCount)
+      && beats.every((beat: any, idx: number) => idx === 0 || beat.cueIndex > beats[idx - 1].cueIndex);
+  }) && performancePoseAssets.length >= 5;
+  const performanceSystemDeclared = story.meta.designSystem?.performanceSystem === XIAOLAN_PERFORMANCE_V2.id
+    && characterShots.every(shot => XIAOLAN_PERFORMANCE_V2.requiredFields.every(field => typeof shot.visual.performance?.[field] === 'string' && shot.visual.performance[field].length > 0))
+    && XIAOLAN_PERFORMANCE_V2.states.every(state => performanceStates.includes(state))
+    && performanceBeatsPass;
   const report = {
     schemaVersion: '1.0',
     textContainers: measured.length,
@@ -126,8 +140,11 @@ async function main() {
     distinctTopologyCompositions,
     maximumSingleCompositionShare,
     sceneGrammarV2Declared,
-    performanceSystem: XIAOLAN_PERFORMANCE_V1,
+    performanceSystem: XIAOLAN_PERFORMANCE_V2,
     performanceStates,
+    performanceBeatsPerShot,
+    performancePoseAssets,
+    performanceBeatsPass,
     performanceSystemDeclared,
     pass: overflowRisks.length === 0
       && characterAspectPreserved

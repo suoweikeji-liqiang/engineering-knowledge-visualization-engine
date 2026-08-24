@@ -136,6 +136,11 @@ export const AI_CHARACTER_PERFORMANCE_ASSETS: CharacterPerformanceAsset[] = [
     gesture: "annotate",
     motionProfile: "scan-and-mark",
     focusTarget: "evidence gap",
+    beats: [
+      {id: "notice-gap", cueIndex: 0, pose: "close-up-think", gaze: "object", gesture: "chin-touch", expression: "curious", assetRef: "ai/character/xiaolan/pose/thinking", transition: "cut-in"},
+      {id: "mark-gap", cueIndex: 2, pose: "standing-point", gaze: "path", gesture: "point", expression: "focused", assetRef: "ai/character/xiaolan/pose/pointing", transition: "match-cut"},
+      {id: "state-proof", cueIndex: 4, pose: "present-sign", gaze: "viewer", gesture: "hold-proof", expression: "resolved", assetRef: "ai/character/xiaolan/pose/sign", transition: "reaction-pop"}
+    ],
     action: "从来源文档中提取关键句，并把荧光标记延展成技术图解",
     gaze: "object",
     assetRef: "ai/character/xiaolan/evidence-bridge",
@@ -154,6 +159,11 @@ export const AI_CHARACTER_PERFORMANCE_ASSETS: CharacterPerformanceAsset[] = [
     gesture: "present",
     motionProfile: "assemble-and-present",
     focusTarget: "artifact stack",
+    beats: [
+      {id: "review-artifacts", cueIndex: 0, pose: "desk-review", gaze: "object", gesture: "review", expression: "attentive", assetRef: "ai/character/xiaolan/pose/desk", transition: "cut-in"},
+      {id: "connect-proof", cueIndex: 2, pose: "standing-point", gaze: "path", gesture: "point", expression: "confident", assetRef: "ai/character/xiaolan/pose/pointing", transition: "match-cut"},
+      {id: "close-episode", cueIndex: 4, pose: "host-wave", gaze: "viewer", gesture: "wave", expression: "warm", assetRef: "ai/character/xiaolan/pose/outro", transition: "reaction-pop"}
+    ],
     action: "把分散模块接入同一条信号路径，建立系统关系",
     gaze: "path",
     assetRef: "ai/character/xiaolan/connect-modules",
@@ -172,6 +182,11 @@ export const AI_CHARACTER_PERFORMANCE_ASSETS: CharacterPerformanceAsset[] = [
     gesture: "reroute",
     motionProfile: "error-to-success",
     focusTarget: "checkpoint path",
+    beats: [
+      {id: "notice-error", cueIndex: 0, pose: "desk-alert", gaze: "object", gesture: "brace", expression: "surprised", assetRef: "ai/character/xiaolan/pose/surprised", transition: "reaction-pop"},
+      {id: "find-checkpoint", cueIndex: 2, pose: "close-up-think", gaze: "path", gesture: "chin-touch", expression: "determined", assetRef: "ai/character/xiaolan/pose/thinking", transition: "match-cut"},
+      {id: "confirm-recovery", cueIndex: 4, pose: "present-sign", gaze: "viewer", gesture: "hold-proof", expression: "relieved", assetRef: "ai/character/xiaolan/pose/sign", transition: "cut-in"}
+    ],
     action: "面对失败分支重新规划路径，并把错误状态转回可执行流程",
     gaze: "path",
     assetRef: "ai/character/xiaolan/recover-path",
