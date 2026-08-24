@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0",
+  "decision": "reach-reference",
+  "exceedReference": false,
+  "candidateArtifact": {
+    "sha256": "1045222c41655b9007f8336b1f0e7dd3c415e052dd35c0cdb4c2bd628b4a57a3",
+    "sourceCommit": "7242e90",
+    "aiDailyContractCommit": "08ede3d"
+  },
+  "packet": {
+    "builder": "scripts/build-blind-comparison.mjs",
+    "durationSecondsPerCandidate": 60,
+    "construction": "six ten-second stratified best-work samples per source",
+    "resolution": "1920x1080",
+    "frameRate": 30,
+    "integratedLufs": {"X": -15.92, "Y": -15.88, "Z": -15.52},
+    "labelsWereScoredBeforeUnblinding": true,
+    "mapping": {"X": "reference-b", "Y": "candidate", "Z": "reference-a"}
+  },
+  "independentPanels": [
+    {
+      "role": "general-judge",
+      "scores": {
+        "X": {"clarity": 7.2, "animation": 6.2, "character": 0.5, "sound": 8.1, "brand": 6.3, "evidence": 9.1},
+        "Y": {"clarity": 9.4, "animation": 9.4, "character": 9.5, "sound": 9.1, "brand": 9.2, "evidence": 7.5},
+        "Z": {"clarity": 8.5, "animation": 8.4, "character": 4.0, "sound": 8.4, "brand": 9.5, "evidence": 6.7}
+      },
+      "ranking": ["Y", "Z", "X"]
+    },
+    {
+      "role": "motion-and-render-auditor",
+      "scores": {
+        "X": {"clarity": 6.1, "animation": 4.7, "character": 0.8, "brand": 4.2},
+        "Y": {"clarity": 9.2, "animation": 7.7, "character": 9.0, "brand": 9.4},
+        "Z": {"clarity": 7.2, "animation": 8.4, "character": 1.1, "brand": 8.1}
+      },
+      "ranking": ["Y", "Z", "X"],
+      "animationOnlyRanking": ["Z", "Y", "X"]
+    },
+    {
+      "role": "content-auditor",
+      "scores": {
+        "X": {"clarity": 6.8, "evidence": 9.0},
+        "Y": {"clarity": 9.3, "evidence": 8.0},
+        "Z": {"clarity": 8.3, "evidence": 7.2}
+      },
+      "ranking": ["Y", "X", "Z"]
+    },
+    {
+      "role": "audio-producer",
+      "scores": {
+        "X": {"sound": 8.1, "audioVisualSync": 8.0},
+        "Y": {"sound": 6.4, "audioVisualSync": 8.8},
+        "Z": {"sound": 8.8, "audioVisualSync": 9.7}
+      },
+      "ranking": ["Z", "X", "Y"]
+    }
+  ],
+  "aggregateMedians": {
+    "X": {"clarity": 6.8, "animation": 5.45, "character": 0.65, "sound": 8.1, "brand": 5.25, "evidence": 9.05},
+    "Y": {"clarity": 9.3, "animation": 8.55, "character": 9.25, "sound": 7.75, "brand": 9.3, "evidence": 7.75},
+    "Z": {"clarity": 8.3, "animation": 8.4, "character": 2.55, "sound": 8.6, "brand": 8.8, "evidence": 6.95}
+  },
+  "candidateAgainstStrongestReference": {
+    "clarity": {"margin": 1.0, "minimumMarginPassed": true},
+    "animation": {"margin": 0.15, "minimumMarginPassed": false},
+    "character": {"margin": 6.7, "minimumMarginPassed": true, "eligibleForFrozenExceedRule": false},
+    "sound": {"margin": -0.85, "minimumMarginPassed": false},
+    "brand": {"margin": 0.5, "minimumMarginPassed": false, "eligibleForFrozenExceedRule": false},
+    "evidence": {"margin": -1.3, "minimumMarginPassed": false}
+  },
+  "motionEvidence": {
+    "candidateFrozenFraction": 0.0181,
+    "referenceAFrozenFraction": 0.0444,
+    "candidateMaximumFreezeSeconds": 3.733,
+    "referenceAMaximumFreezeSeconds": 5.867,
+    "interpretation": "The candidate has more continuous low-amplitude motion, while the reference still wins one auditor's animation score through richer high-salience state changes."
+  },
+  "frozenExceedRule": {
+    "eligibleDimensions": ["content", "clarity", "animation", "sound", "evidence"],
+    "minimumWinningMargin": 1,
+    "minimumWinningDimensions": 3,
+    "mustIncludeClarityOrAnimation": true,
+    "verifiedWinningDimensions": ["clarity"],
+    "comparativeDimensionWinsPassed": false
+  },
+  "limitations": [
+    "The anonymous panel used four independent AI auditors, not the rubric's five human target viewers.",
+    "The delayed recall study was not run.",
+    "The packet uses stratified best-work samples rather than full-length films, so it supports dimension comparison but not audience-retention claims.",
+    "Content was not compared as a blind numeric dimension because the three sampled films do not cover identical scopes."
+  ]
+}
