@@ -4,10 +4,10 @@
   "exceedReference": false,
   "artifact": {
     "path": "final/ai-agent-harness-complete.mp4",
-    "sha256": "bea4060816226f9c40bad477e728983767b0c80917a50fb11ea40f13d72e5dc7",
+    "sha256": "b8f46b68b2a1a54085527197d2fb13e45ea12a66b899fcb59a525443ef3805fa",
     "durationSeconds": 714.833333,
-    "sourceCommit": "a491a61",
-    "aiDailyContractCommit": "8897d83"
+    "sourceCommit": "d543405",
+    "aiDailyContractCommit": "5f479b3"
   },
   "panel": [
     {
@@ -26,18 +26,18 @@
     {
       "role": "frozen-rubric-general-judge",
       "independent": true,
-      "scores": {"content": 24, "clarity": 13, "animation": 14, "character": 8, "sound": 10, "brand": 7, "evidence": 7, "reuse": 7},
-      "total": 90,
+      "scores": {"content": 24, "clarity": 13.5, "animation": 15, "character": 8.5, "sound": 10, "brand": 7.5, "evidence": 7, "reuse": 8},
+      "total": 93.5,
       "veto": false,
-      "finalShaFollowup": "status, compare, and gate fixes verified on bea40608; 12/12 hard gates pass"
+      "finalShaFollowup": "six topology grammars and three character states verified on b8f46b68; 13/13 current hard gates pass"
     },
     {
       "role": "motion-and-render-auditor",
       "independent": true,
-      "scores": {"animation": 14.8, "character": 7.8, "brand": 7.7, "reuse": 7.8},
-      "cardSystemV2Score": 53.3,
-      "cardSystemV2Maximum": 60,
-      "finalShaFollowup": "runtime flex veto cleared on bea40608; detached badges, centered compare groups, and gate output are collision-free",
+      "scores": {"animation": 15.1, "character": 8.3, "brand": 7.8, "reuse": 7.9},
+      "visualSubtotal": 39.1,
+      "visualMaximum": 42,
+      "finalShaFollowup": "orbit, branch, quadrants, constellation, dashboard, and hero-map are visually distinct; no collision, overflow, direction, or aspect-ratio veto",
       "veto": false
     },
     {
@@ -52,15 +52,15 @@
     "method": "median-per-dimension-across-applicable-independent-judges",
     "scores": {
       "content": 24,
-      "clarity": 13,
-      "animation": 14.4,
-      "character": 7.9,
+      "clarity": 13.25,
+      "animation": 15.05,
+      "character": 8.4,
       "sound": 10.25,
-      "brand": 7.35,
+      "brand": 7.65,
       "evidence": 7.5,
-      "reuse": 7.4
+      "reuse": 7.95
     },
-    "total": 91.8
+    "total": 94.05
   },
   "hardGates": {
     "all15CoreRequirementsHaveTimecodedNarrationAndVisualEvidence": true,
@@ -72,6 +72,7 @@
     "characterAssetsPreserveSourceAspectRatio": true,
     "allTextContainersPassOverflowAuditAt1080p": true,
     "cardIndicesAreDetachedAndTextUsesContentAwareAlignment": true,
+    "topologyScenesDeclareDiverseCompositionsAndCharacterShotsDeclarePerformanceStates": true,
     "primaryClaimsHavePrimarySourceCitations": true,
     "reproducibleFromFrozenAssetsAndAudioConfig": true,
     "originalBrandAndShotDesign": true
@@ -84,12 +85,16 @@
     "textContainersPassingOverflowAudit": "388/388",
     "characterAspectPreserved": "1672:941 -> 824:463.746",
     "cardSystem": "card-system-v2",
-    "detachedBadgeGapPixels": 18,
-    "contentAlignment": "intrinsic-centered",
-    "evidenceRelationship": "source-connector-callout",
+    "sceneGrammar": "scene-grammar-v2",
+    "topologyCompositionCounts": {"orbit": 1, "branch": 1, "quadrants": 1, "constellation": 1, "dashboard": 1, "hero-map": 1},
+    "maximumSingleCompositionShare": 0.1667,
+    "performanceSystem": "xiaolan-performance-v1",
+    "performanceStates": ["investigate", "recover", "synthesize"],
+    "frozenFractionBefore": 0.2802,
+    "frozenFractionAfter": 0.2543,
     "maximumSemanticDeltaSeconds": 0.21,
     "integratedLufs": -16.69,
-    "truePeakDb": -3.95,
+    "truePeakDb": -4.14,
     "blackSegments": 0
   },
   "referenceThresholds": {
@@ -101,11 +106,11 @@
     "exceedPassed": false
   },
   "remainingGaps": [
-    "character performance still relies on three flattened illustrations with micro-motion rather than reusable expression and pose states",
-    "several chapters still reuse the center-plus-radial-card composition and neutral rounded-card material",
+    "character performance uses distinct states and motion profiles but still depends on three flattened illustrations rather than in-shot pose, gaze, gesture, and expression changes",
+    "non-topology shots still share the warm-paper frame, card entrance rhythm, and bottom caption stage",
     "continuity-key transitions preserve direction but do not yet use overlapping shared-element morphs",
     "evidence connectors do not yet anchor to exact source paragraphs and production narrative trace is not raw model telemetry",
-    "Card System V2 has not yet been validated by a second long-form template",
-    "the rubric's five-person immediate and delayed recall study was not run"
+    "Scene Grammar V2 has not yet been validated by a second long-form episode",
+    "the rubric's five-person immediate and delayed recall study and blind comparative dimension-win study were not run"
   ]
 }
