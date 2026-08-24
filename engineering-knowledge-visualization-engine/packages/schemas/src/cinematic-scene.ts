@@ -153,6 +153,55 @@ export type CharacterStageActor = {
   accumulationKey: string;
 };
 
+export type CharacterRigBoneName =
+  | "root"
+  | "torso"
+  | "head"
+  | "gaze"
+  | "mouth"
+  | "gesture";
+
+export type CharacterRigBone = {
+  id: CharacterRigBoneName;
+  parent?: CharacterRigBoneName;
+  pivot: {normalizedX: number; normalizedY: number};
+  maxRotationDegrees?: number;
+  maxTranslation?: {x: number; y: number};
+};
+
+export type CharacterRigAction = {
+  id: "idle-talk" | "react-surprise" | "point-emphasis" | "think-focus" | "explain-open" | "resolve-wave";
+  durationHintSeconds: number;
+  loop: boolean;
+  activeBones: CharacterRigBoneName[];
+  audioDriven?: "voice-rms";
+  narrativeRoles: HostNarrativeRole[];
+};
+
+export type CharacterRigAsset = {
+  schemaVersion: "1.0";
+  id: string;
+  characterId: string;
+  system: "xiaolan-rig-v1";
+  technique: "two-part-cutout";
+  bones: CharacterRigBone[];
+  actions: CharacterRigAction[];
+  sourcePoseAssets: Array<{
+    pose: "pointing" | "thinking" | "presenting";
+    assetRef: string;
+    intrinsicSize: {width: number; height: number};
+    upperBodyCut: number;
+    faceAnchors: {
+      leftEye: {normalizedX: number; normalizedY: number};
+      rightEye: {normalizedX: number; normalizedY: number};
+      mouth: {normalizedX: number; normalizedY: number};
+    };
+  }>;
+  blinkIntervalSeconds: {min: number; max: number};
+  lipSync: "voice-rms-envelope";
+  accumulationKey: string;
+};
+
 export type TopologyComposition =
   | "orbit"
   | "branch"

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "system": "xiaolan-rig-v1",
+  "technique": "two-part-cutout",
+  "sourcePoses": [
+    {
+      "pose": "pointing",
+      "asset": "xiaolan-pointing.png",
+      "upperBodyCut": 0.54,
+      "mouthAnchor": {"normalizedX": 0.498, "normalizedY": 0.362}
+    },
+    {
+      "pose": "thinking",
+      "asset": "xiaolan-thinking.png",
+      "upperBodyCut": 0.55,
+      "mouthAnchor": {"normalizedX": 0.452, "normalizedY": 0.379}
+    },
+    {
+      "pose": "presenting",
+      "asset": "xiaolan-presenting.png",
+      "upperBodyCut": 0.56,
+      "mouthAnchor": {"normalizedX": 0.528, "normalizedY": 0.325}
+    }
+  ],
+  "bones": ["root", "torso", "head", "gaze", "mouth", "gesture"],
+  "actions": [
+    "idle-talk",
+    "react-surprise",
+    "point-emphasis",
+    "think-focus",
+    "explain-open",
+    "resolve-wave"
+  ],
+  "lipSync": {
+    "driver": "voice-rms",
+    "envelope": "../audio/lip-sync.timeline.json",
+    "minimumFrameRate": 20,
+    "range": [0, 1]
+  },
+  "episodeBindings": [
+    {"shotId": "proactive-loop", "pose": "pointing", "action": "point-emphasis"},
+    {"shotId": "cross-platform", "pose": "presenting", "action": "explain-open"},
+    {"shotId": "primary-evidence", "pose": "thinking", "action": "think-focus"},
+    {"shotId": "synthesis", "pose": "presenting", "action": "resolve-wave"}
+  ],
+  "qualityGates": {
+    "minimumRiggedHostRatio": 0.75,
+    "requireAspectPreservingSourceAssets": true,
+    "requireAudioDrivenLipSync": true,
+    "allowStaticEstablishingShot": true
+  },
+  "accumulationKey": "ai/character/xiaolan/rig/v1"
+}

@@ -3,9 +3,11 @@ import {Reference, all, createRef, easeInOutCubic, makeProject, tween} from '@re
 import storyDocument from '../../../examples/qwen-ui-agent-hosted/storyboard/story.json';
 import timelineDocument from '../../../examples/qwen-ui-agent-hosted/audio/video.timeline.json';
 import captionDocument from '../../../examples/qwen-ui-agent-hosted/audio/captions.timeline.json';
+import lipSyncDocument from '../../../examples/qwen-ui-agent-hosted/audio/lip-sync.timeline.json';
 import {ASTEROID_WARM_THEME as C} from './theme';
 import {CINEMATIC_FONT as FONT, CINEMATIC_MONO as MONO} from './cinematic-sketch';
 import {fitText} from './layout-contracts';
+import {addXiaolanRig, type XiaolanRigAction, type XiaolanRigPose, type XiaolanRigRuntime} from './xiaolan-rig';
 
 type Bar = {label: string; value: number};
 type HostedVisual = {
@@ -32,7 +34,7 @@ type HostedShot = {
   id: string;
   headline: string;
   dialogue: string;
-  hostNarrative: {role: string; mode: string; hostOnScreen: boolean; asset?: string; action?: string};
+  hostNarrative: {role: string; mode: string; hostOnScreen: boolean; asset?: string; action?: string; rig?: {system: 'xiaolan-rig-v1'; pose: XiaolanRigPose; action: XiaolanRigAction; lipSync: 'voice-rms'}};
   visual: HostedVisual;
 };
 type CaptionCue = {shotId: string; localStart: number; localEnd: number; text: string};
@@ -40,6 +42,7 @@ type CaptionCue = {shotId: string; localStart: number; localEnd: number; text: s
 const story = storyDocument as unknown as {shots: HostedShot[]; chapters: Array<{id: string; title: string; shotIds: string[]}>};
 const timeline = timelineDocument as unknown as {duration: number; shots: Array<{id: string; duration: number}>};
 const captions = captionDocument as unknown as {cues: CaptionCue[]};
+const lipSync = lipSyncDocument as unknown as {shots: Record<string, {frameRate: number; values: number[]}>};
 const durations = Object.fromEntries(timeline.shots.map(shot => [shot.id, shot.duration]));
 const captionsByShot = captions.cues.reduce<Record<string, CaptionCue[]>>((result, cue) => {
   (result[cue.shotId] ??= []).push(cue);
@@ -48,7 +51,7 @@ const captionsByShot = captions.cues.reduce<Record<string, CaptionCue[]>>((resul
 const ACCENTS = [C.red, C.cyan, C.purple, C.yellow, C.green] as const;
 
 type Stage = {root: Reference<Layout>; body: Reference<Layout>; caption: Reference<Txt>; index: number; accent: string};
-type Runtime = {update: (value: number) => void};
+type Runtime = {update: (value: number, localSeconds: number, mouthOpen: number) => void};
 
 function clamp01(value: number): number {
   return Math.max(0, Math.min(1, value));
@@ -162,24 +165,22 @@ function addPhone(stage: Stage, shot: HostedShot, channels = false): Runtime {
   }};
 }
 
-function addStageActor(stage: Stage, filename: string, side: 'left' | 'right'): Reference<Layout> {
-  const actor = createRef<Layout>();
+function addStageActor(stage: Stage, shot: HostedShot, side: 'left' | 'right'): XiaolanRigRuntime {
   const x = side === 'left' ? -630 : 630;
-  const size = filename.includes('presenting') ? {width: 500, height: 375} : filename.includes('thinking') ? {width: 470, height: 395} : {width: 470, height: 396};
-  stage.body().add(
-    <Layout ref={actor} x={x} y={70} opacity={0} scale={0.92}>
-      <Circle y={22} width={410} height={410} fill={`${stage.accent}0D`} shadowColor={`${stage.accent}20`} shadowBlur={42} />
-      <Img src={`/qwen-ui-agent/characters/${filename}`} width={size.width} height={size.height} />
-      <Rect y={211} width={300} height={40} radius={20} fill={C.night} stroke={`${stage.accent}88`} lineWidth={2}>
-        <Txt fontFamily={MONO} fontSize={17} fontWeight={850} letterSpacing={1.3} fill={C.onDark} text={'XIAOLAN · FIELD HOST'} />
-      </Rect>
-    </Layout>,
-  );
-  return actor;
+  const rig = shot.hostNarrative.rig ?? {system: 'xiaolan-rig-v1' as const, pose: 'pointing' as const, action: 'idle-talk' as const, lipSync: 'voice-rms' as const};
+  const labels: Record<XiaolanRigAction, string> = {
+    'idle-talk': '小兰 · 主持讲解',
+    'react-surprise': '小兰 · 捕捉变化',
+    'point-emphasis': '小兰 · 指向确认',
+    'think-focus': '小兰 · 核对证据',
+    'explain-open': '小兰 · 串联任务',
+    'resolve-wave': '小兰 · 收束判断',
+  };
+  return addXiaolanRig(stage.body(), {pose: rig.pose, action: rig.action, width: 620, x, y: 56, accent: stage.accent, label: labels[rig.action]});
 }
 
 function addFlow(stage: Stage, shot: HostedShot): Runtime {
-  const actor = addStageActor(stage, shot.hostNarrative.asset ?? 'xiaolan-pointing.png', 'left');
+  const actor = addStageActor(stage, shot, 'left');
   const nodes = shot.visual.nodes ?? [];
   const boxes = nodes.map(() => createRef<Rect>());
   const paths = nodes.slice(1).map(() => createRef<Line>());
@@ -197,9 +198,10 @@ function addFlow(stage: Stage, shot: HostedShot): Runtime {
       ))}
     </>,
   );
-  return {update: value => {
-    actor().opacity(phase(value, 0, 0.12));
-    actor().scale(0.92 + 0.08 * phase(value, 0, 0.14));
+  return {update: (value, localSeconds, mouthOpen) => {
+    actor.root().opacity(phase(value, 0, 0.12));
+    actor.root().scale(0.92 + 0.08 * phase(value, 0, 0.14));
+    actor.update(value, localSeconds, mouthOpen);
     boxes.forEach((box, index) => {
       const start = 0.08 + index * 0.12;
       box().opacity(phase(value, start, start + 0.1));
@@ -210,7 +212,7 @@ function addFlow(stage: Stage, shot: HostedShot): Runtime {
 }
 
 function addPlatforms(stage: Stage, shot: HostedShot): Runtime {
-  const actor = addStageActor(stage, shot.hostNarrative.asset ?? 'xiaolan-presenting.png', 'right');
+  const actor = addStageActor(stage, shot, 'right');
   const nodes = shot.visual.nodes ?? [];
   const refs = nodes.map(() => createRef<Rect>());
   const links = nodes.map(() => createRef<Line>());
@@ -229,9 +231,10 @@ function addPlatforms(stage: Stage, shot: HostedShot): Runtime {
       ))}
     </>,
   );
-  return {update: value => {
-    actor().opacity(phase(value, 0.12, 0.25));
-    actor().scale(0.92 + 0.08 * phase(value, 0.12, 0.25));
+  return {update: (value, localSeconds, mouthOpen) => {
+    actor.root().opacity(phase(value, 0.12, 0.25));
+    actor.root().scale(0.92 + 0.08 * phase(value, 0.12, 0.25));
+    actor.update(value, localSeconds, mouthOpen);
     refs.forEach((ref, index) => {
       const start = 0.08 + index * 0.12;
       links[index]().end(phase(value, start, start + 0.12));
@@ -280,7 +283,7 @@ function addSteps(stage: Stage, shot: HostedShot): Runtime {
 }
 
 function addEvidence(stage: Stage, shot: HostedShot): Runtime {
-  const actor = addStageActor(stage, shot.hostNarrative.asset ?? 'xiaolan-thinking.png', 'right');
+  const actor = addStageActor(stage, shot, 'right');
   const board = createRef<Rect>();
   const marker = createRef<Line>();
   stage.body().add(
@@ -294,12 +297,13 @@ function addEvidence(stage: Stage, shot: HostedShot): Runtime {
       </Rect>
     </>,
   );
-  return {update: value => {
+  return {update: (value, localSeconds, mouthOpen) => {
     board().opacity(phase(value, 0, 0.12));
     board().scale(0.97 + 0.03 * phase(value, 0, 0.15));
     marker().end(phase(value, 0.32, 0.62));
-    actor().opacity(phase(value, 0.18, 0.34));
-    actor().scale(0.92 + 0.08 * phase(value, 0.18, 0.34));
+    actor.root().opacity(phase(value, 0.18, 0.34));
+    actor.root().scale(0.92 + 0.08 * phase(value, 0.18, 0.34));
+    actor.update(value, localSeconds, mouthOpen);
   }};
 }
 
@@ -340,15 +344,12 @@ function addBars(stage: Stage, shot: HostedShot): Runtime {
 }
 
 function addSynthesis(stage: Stage, shot: HostedShot): Runtime {
-  const image = createRef<Img>();
+  const rig = addXiaolanRig(stage.body(), {pose: shot.hostNarrative.rig?.pose ?? 'presenting', action: shot.hostNarrative.rig?.action ?? 'resolve-wave', width: 760, x: -440, y: 34, accent: stage.accent, label: '小兰 · 回到结论'});
   const phone = createRef<Layout>();
   const result = createRef<Rect>();
   stage.body().add(
     <>
-      <Rect x={-210} width={1180} height={620} radius={32} clip stroke={`${stage.accent}88`} lineWidth={3} fill={C.night}>
-        <Img ref={image} src={`/qwen-ui-agent/characters/${shot.hostNarrative.asset ?? 'char_outro.jpg'}`} width={1110} height={620} opacity={0.92} />
-        <Rect x={390} width={420} height={620} fill={'#201C25D0'} />
-      </Rect>
+      <Rect x={80} width={1460} height={620} radius={32} fill={`${C.night}0A`} stroke={`${stage.accent}55`} lineWidth={3} />
       <Layout ref={phone} x={435} y={-38} opacity={0} scale={0.9}>
         <Rect width={230} height={408} radius={36} fill={'#17141D'} shadowColor={'#17141D66'} shadowBlur={28} />
         <Rect width={208} height={370} radius={25} clip fill={'#050408'}>
@@ -360,8 +361,10 @@ function addSynthesis(stage: Stage, shot: HostedShot): Runtime {
       </Rect>
     </>,
   );
-  return {update: value => {
-    image().scale(1 + value * 0.025);
+  return {update: (value, localSeconds, mouthOpen) => {
+    rig.root().opacity(phase(value, 0, 0.16));
+    rig.root().scale(0.92 + 0.08 * phase(value, 0, 0.16));
+    rig.update(value, localSeconds, mouthOpen);
     phone().opacity(phase(value, 0.14, 0.3));
     phone().scale(0.9 + 0.1 * phase(value, 0.14, 0.3));
     result().opacity(phase(value, 0.48, 0.66));
@@ -390,15 +393,17 @@ function* runShot(view: View2D, shot: HostedShot, index: number) {
   const stage = makeStage(view, shot, index);
   const runtime = buildVisual(stage, shot);
   const cues = captionsByShot[shot.id] ?? [];
+  const lip = lipSync.shots[shot.id];
   yield* tween(0.42, value => {
     stage.root().opacity(easeInOutCubic(value));
     stage.root().scale(0.985 + 0.015 * easeInOutCubic(value));
   });
   const active = Math.max(0.2, duration - 0.78);
   yield* tween(active, value => {
-    runtime.update(value);
     stage.body().position.y(24 + Math.sin(value * Math.PI * 2) * 3);
     const localTime = 0.42 + value * active;
+    const mouthFrame = lip ? Math.min(lip.values.length - 1, Math.max(0, Math.floor(localTime * lip.frameRate))) : 0;
+    runtime.update(value, localTime, lip?.values[mouthFrame] ?? 0);
     const cue = cues.find(item => localTime >= item.localStart && localTime < item.localEnd) ?? cues.at(-1);
     if (cue) stage.caption().text(cue.text);
   });

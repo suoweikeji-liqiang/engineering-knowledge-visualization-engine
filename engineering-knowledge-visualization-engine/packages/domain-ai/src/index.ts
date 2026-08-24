@@ -1,4 +1,4 @@
-import type {CharacterPerformanceAsset, CharacterStageActor, CinematicSceneAsset, CinematicSoundCue, HostNarrativeTemplate, TopologySceneGrammar} from "@repo/schemas";
+import type {CharacterPerformanceAsset, CharacterRigAsset, CharacterStageActor, CinematicSceneAsset, CinematicSoundCue, HostNarrativeTemplate, TopologySceneGrammar} from "@repo/schemas";
 
 export const AI_HOST_NARRATIVE_TEMPLATES: HostNarrativeTemplate[] = [
   {
@@ -229,6 +229,40 @@ export const AI_CHARACTER_STAGE_ASSETS: CharacterStageActor[] = [
   {schemaVersion: "1.0", id: "xiaolan-stage-pointing", characterId: "xiaolan", assetRef: "ai/character/xiaolan/stage/pointing", intrinsicSize: {width: 1367, height: 1151}, pose: "pointing", gaze: "target", gesture: "point", interactionAnchor: {kind: "fingertip", normalizedX: 0.864, normalizedY: 0.372}, targetAnchor: "nearest-edge", interactionSfx: "character-point", compatibleVisualKinds: ["topology", "code", "bars", "curve"], targetBinding: "semantic-id", alphaRequired: true, accumulationKey: "ai/character/xiaolan/stage/pointing"},
   {schemaVersion: "1.0", id: "xiaolan-stage-thinking", characterId: "xiaolan", assetRef: "ai/character/xiaolan/stage/thinking", intrinsicSize: {width: 1369, height: 1149}, pose: "thinking", gaze: "target", gesture: "chin-touch", interactionAnchor: {kind: "gaze", normalizedX: 0.43, normalizedY: 0.3}, targetAnchor: "nearest-edge", interactionSfx: "character-think", compatibleVisualKinds: ["topology", "code", "bars", "curve"], targetBinding: "semantic-id", alphaRequired: true, accumulationKey: "ai/character/xiaolan/stage/thinking"},
   {schemaVersion: "1.0", id: "xiaolan-stage-presenting", characterId: "xiaolan", assetRef: "ai/character/xiaolan/stage/presenting", intrinsicSize: {width: 1448, height: 1086}, pose: "presenting", gaze: "viewer", gesture: "open-palm", interactionAnchor: {kind: "open-palm", normalizedX: 0.18, normalizedY: 0.5}, targetAnchor: "nearest-edge", interactionSfx: "character-present", compatibleVisualKinds: ["topology", "code", "bars", "curve"], targetBinding: "semantic-id", alphaRequired: true, accumulationKey: "ai/character/xiaolan/stage/presenting"}
+];
+
+export const AI_CHARACTER_RIGS: CharacterRigAsset[] = [
+  {
+    schemaVersion: "1.0",
+    id: "xiaolan-rig-v1",
+    characterId: "xiaolan",
+    system: "xiaolan-rig-v1",
+    technique: "two-part-cutout",
+    bones: [
+      {id: "root", pivot: {normalizedX: 0.5, normalizedY: 1}, maxTranslation: {x: 16, y: 18}},
+      {id: "torso", parent: "root", pivot: {normalizedX: 0.5, normalizedY: 0.72}, maxRotationDegrees: 2},
+      {id: "head", parent: "torso", pivot: {normalizedX: 0.5, normalizedY: 0.54}, maxRotationDegrees: 4, maxTranslation: {x: 5, y: 7}},
+      {id: "gaze", parent: "head", pivot: {normalizedX: 0.5, normalizedY: 0.29}, maxTranslation: {x: 3, y: 2}},
+      {id: "mouth", parent: "head", pivot: {normalizedX: 0.5, normalizedY: 0.39}, maxTranslation: {x: 0, y: 4}},
+      {id: "gesture", parent: "torso", pivot: {normalizedX: 0.86, normalizedY: 0.37}, maxRotationDegrees: 6}
+    ],
+    actions: [
+      {id: "idle-talk", durationHintSeconds: 4, loop: true, activeBones: ["root", "torso", "head", "gaze", "mouth"], audioDriven: "voice-rms", narrativeRoles: ["notice", "question", "investigate", "bridge", "warn", "resolve"]},
+      {id: "react-surprise", durationHintSeconds: 1.1, loop: false, activeBones: ["root", "head", "gaze", "mouth"], audioDriven: "voice-rms", narrativeRoles: ["notice", "question"]},
+      {id: "point-emphasis", durationHintSeconds: 1.4, loop: false, activeBones: ["torso", "head", "gaze", "mouth", "gesture"], audioDriven: "voice-rms", narrativeRoles: ["bridge", "warn"]},
+      {id: "think-focus", durationHintSeconds: 3.2, loop: true, activeBones: ["root", "head", "gaze", "mouth"], audioDriven: "voice-rms", narrativeRoles: ["investigate", "warn"]},
+      {id: "explain-open", durationHintSeconds: 2.2, loop: true, activeBones: ["root", "torso", "head", "gaze", "mouth", "gesture"], audioDriven: "voice-rms", narrativeRoles: ["bridge"]},
+      {id: "resolve-wave", durationHintSeconds: 2.4, loop: false, activeBones: ["root", "torso", "head", "gaze", "mouth", "gesture"], audioDriven: "voice-rms", narrativeRoles: ["resolve"]}
+    ],
+    sourcePoseAssets: [
+      {pose: "pointing", assetRef: "ai/character/xiaolan/stage/pointing", intrinsicSize: {width: 1367, height: 1151}, upperBodyCut: 0.54, faceAnchors: {leftEye: {normalizedX: 0.446, normalizedY: 0.278}, rightEye: {normalizedX: 0.556, normalizedY: 0.278}, mouth: {normalizedX: 0.498, normalizedY: 0.362}}},
+      {pose: "thinking", assetRef: "ai/character/xiaolan/stage/thinking", intrinsicSize: {width: 1369, height: 1149}, upperBodyCut: 0.55, faceAnchors: {leftEye: {normalizedX: 0.417, normalizedY: 0.24}, rightEye: {normalizedX: 0.519, normalizedY: 0.24}, mouth: {normalizedX: 0.452, normalizedY: 0.379}}},
+      {pose: "presenting", assetRef: "ai/character/xiaolan/stage/presenting", intrinsicSize: {width: 1448, height: 1086}, upperBodyCut: 0.56, faceAnchors: {leftEye: {normalizedX: 0.479, normalizedY: 0.267}, rightEye: {normalizedX: 0.573, normalizedY: 0.267}, mouth: {normalizedX: 0.528, normalizedY: 0.325}}}
+    ],
+    blinkIntervalSeconds: {min: 2.8, max: 5.2},
+    lipSync: "voice-rms-envelope",
+    accumulationKey: "ai/character/xiaolan/rig/v1"
+  }
 ];
 
 export const AI_TOPOLOGY_SCENE_GRAMMARS: TopologySceneGrammar[] = [

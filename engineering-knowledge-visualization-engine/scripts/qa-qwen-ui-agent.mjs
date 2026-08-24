@@ -8,6 +8,8 @@ const example = resolve(root, 'examples/qwen-ui-agent-hosted');
 const story = JSON.parse(readFileSync(resolve(example, 'storyboard/story.json'), 'utf8'));
 const timeline = JSON.parse(readFileSync(resolve(example, 'audio/video.timeline.json'), 'utf8'));
 const evaluation = JSON.parse(readFileSync(resolve(example, 'evaluation/priority-and-gates.json'), 'utf8'));
+const rigContract = JSON.parse(readFileSync(resolve(example, 'evaluation/rig-contract.json'), 'utf8'));
+const lipSync = JSON.parse(readFileSync(resolve(example, 'audio/lip-sync.timeline.json'), 'utf8'));
 const citations = JSON.parse(readFileSync(resolve(example, 'sources/citations.json'), 'utf8'));
 const finalPath = resolve(example, 'final/qwen-ui-agent-hosted.mp4');
 const asrPath = resolve(example, 'evaluation/asr-report.json');
@@ -32,9 +34,31 @@ check('official-demo-time', demoRatio >= evaluation.gates.officialDemoTimeRatio.
 const citedSourceIds = new Set(story.shots.flatMap(shot => shot.citations ?? []));
 const primarySources = citations.sources.filter(source => citedSourceIds.has(source.id) && ['official-repository', 'technical-report', 'official-demo'].includes(source.type));
 check('primary-sources', primarySources.length >= evaluation.gates.primarySourceCount.min, `${primarySources.length} primary sources`);
-check('case-callback', story.shots.at(-1)?.hostNarrative?.role === 'resolve' && story.narrativeCase?.callback, story.narrativeCase?.callback ?? 'missing');
+check('case-callback', Boolean(story.shots.at(-1)?.hostNarrative?.role === 'resolve' && story.narrativeCase?.callback), story.narrativeCase?.callback ?? 'missing');
 check('visual-cadence-contract', story.shots.every(shot => (shot.visual?.cueIndexes?.length ?? 0) >= 3), 'every shot has at least three semantic visual cues plus continuous ambient motion');
 check('template-is-additive', story.meta.template === 'xiaolan-hosted-case-study-v1' && story.meta.slug !== 'ai-agent-harness-complete', story.meta.template);
+
+const validPoses = new Set(rigContract.sourcePoses.map(pose => pose.pose));
+const validActions = new Set(rigContract.actions);
+const riggedHostShots = hostShots.filter(shot => shot.hostNarrative?.rig);
+const riggedHostRatio = riggedHostShots.length / hostShots.length;
+check('character-rig-system', story.meta.characterRig === rigContract.system && rigContract.system === 'xiaolan-rig-v1', `${story.meta.characterRig} / ${rigContract.system}`);
+check('character-rig-bindings', riggedHostShots.length === rigContract.episodeBindings.length && riggedHostShots.every(shot => {
+  const expected = rigContract.episodeBindings.find(binding => binding.shotId === shot.id);
+  const rig = shot.hostNarrative.rig;
+  return expected && rig.system === rigContract.system && rig.pose === expected.pose && rig.action === expected.action && rig.lipSync === 'voice-rms' && validPoses.has(rig.pose) && validActions.has(rig.action);
+}), `${riggedHostShots.length} bound host shots`);
+check('character-rig-coverage', riggedHostRatio >= rigContract.qualityGates.minimumRiggedHostRatio, `${riggedHostShots.length}/${hostShots.length} = ${(riggedHostRatio * 100).toFixed(1)}%`);
+
+const lipShots = Object.entries(lipSync.shots ?? {});
+const lipValues = lipShots.flatMap(([, shot]) => shot.values ?? []);
+const lipFrameCount = lipValues.length;
+const lipCoverage = story.shots.every(shot => {
+  const envelope = lipSync.shots?.[shot.id];
+  const duration = timingById.get(shot.id) ?? 0;
+  return envelope && envelope.frameRate >= rigContract.lipSync.minimumFrameRate && envelope.values.length >= Math.floor(duration * envelope.frameRate) && envelope.values.every(value => Number.isFinite(value) && value >= rigContract.lipSync.range[0] && value <= rigContract.lipSync.range[1]);
+});
+check('audio-driven-lip-sync', lipSync.source?.includes('MiMo') && lipShots.length === story.shots.length && lipCoverage, `${lipShots.length} shots, ${lipFrameCount} RMS frames`);
 if (existsSync(asrPath)) {
   const asr = JSON.parse(readFileSync(asrPath, 'utf8'));
   check('mimo-blind-asr', asr.summary?.segments === story.shots.length && asr.summary?.below0_8 === 0 && asr.summary?.errors === 0, JSON.stringify(asr.summary));
@@ -66,7 +90,7 @@ if (existsSync(finalPath)) {
   check('no-long-freezes', maximumFreezeSeconds < 8 && frozenSeconds / duration < 0.5, `max=${maximumFreezeSeconds.toFixed(3)}s, total=${frozenSeconds.toFixed(3)}s`);
 }
 
-const report = {schemaVersion: '1.0', generatedAt: new Date().toISOString(), result: failures.length ? 'fail' : 'pass', metrics: {hostRatio, demoRatio, demoSeconds, duration: timeline.duration}, checks};
+const report = {schemaVersion: '1.0', generatedAt: new Date().toISOString(), result: failures.length ? 'fail' : 'pass', metrics: {hostRatio, riggedHostRatio, riggedHostShots: riggedHostShots.length, lipSyncFrames: lipFrameCount, demoRatio, demoSeconds, duration: timeline.duration}, checks};
 mkdirSync(resolve(example, 'qa'), {recursive: true});
 writeFileSync(resolve(example, 'qa/qa-report.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
 console.log(JSON.stringify(report, null, 2));
