@@ -95,6 +95,13 @@ export type CharacterStageActor = {
   pose: "pointing" | "thinking" | "presenting";
   gaze: "viewer" | "target";
   gesture: "point" | "chin-touch" | "open-palm";
+  interactionAnchor: {
+    kind: "fingertip" | "gaze" | "open-palm";
+    normalizedX: number;
+    normalizedY: number;
+  };
+  targetAnchor: "nearest-edge";
+  interactionSfx: "character-think" | "character-point" | "character-present";
   compatibleVisualKinds: Array<"topology" | "code" | "bars" | "curve">;
   targetBinding: "semantic-id";
   alphaRequired: true;

@@ -3,8 +3,8 @@
   "artifact": "final/ai-agent-harness-complete.mp4",
   "media": {
     "duration": 714.833333,
-    "sizeBytes": 196868975,
-    "bitRate": 2203243,
+    "sizeBytes": 265730240,
+    "bitRate": 2973898,
     "video": {
       "index": 0,
       "codec_name": "h264",
@@ -24,15 +24,15 @@
   },
   "loudness": {
     "integratedLufs": -16.69,
-    "truePeakDb": -4.14,
+    "truePeakDb": -4.01,
     "rangeLu": 3.5
   },
   "blackSegments": [],
   "motion": {
-    "freezeSegmentsOver3Seconds": 45,
-    "frozenSeconds": 162.69999800000002,
-    "frozenFraction": 0.22760549975640268,
-    "maximumFreezeSeconds": 5.233333
+    "freezeSegmentsOver3Seconds": 4,
+    "frozenSeconds": 12.966666,
+    "frozenFraction": 0.018139425515569792,
+    "maximumFreezeSeconds": 3.733333
   },
   "asr": {
     "segments": 29,
@@ -205,6 +205,9 @@
         "pose",
         "gaze",
         "gesture",
+        "interactionAnchor",
+        "targetAnchor",
+        "interactionSfx",
         "targetId",
         "side",
         "cueIndex",
@@ -228,6 +231,9 @@
         "pop"
       ],
       "targetBinding": "semantic-id",
+      "sourceBinding": "normalized-gesture-anchor",
+      "targetPlacement": "nearest-edge",
+      "connectorTiming": "actor-first-then-tether",
       "alphaRequired": true,
       "minimumDistinctVisualKinds": 3
     },

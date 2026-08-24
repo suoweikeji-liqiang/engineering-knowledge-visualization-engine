@@ -9,8 +9,8 @@
 - `evaluation/coverage.json`：15 项 Agent/Harness 核心知识映射。
 - `evaluation/rubric.json`：冻结的硬门槛、100 分量表和盲评协议。
 - `audio/*.timeline.json`：MiMo 女声真实时长、视频节拍、统一字幕 cue，以及 129 个语义动画事件逐一人工绑定旁白的视觉事件契约；不允许按时长比例回退。
-- `audio/sfx.timeline.json`：跨 10 章的 19 个 cue-locked 事件音效；最终混音另含旁白侧链压低的 ambient bed。
-- `evaluation/asr-report.json`、`layout-qa.json`、`technical-qa.json`：逐段盲 ASR、角色图片比例、400 个文本容器、Card System V2、Scene Grammar V2、Character Performance V2 的 cue-bound 姿态节拍、Character Stage V3 的真实 alpha 与语义目标绑定，以及音画/黑帧/冻结段/字幕同步门槛。
+- `audio/sfx.timeline.json`：跨 10 章的 19 个章节事件音效，加 3 个角色交互专属 cue；最终混音另含旁白侧链压低的 ambient bed。
+- `evaluation/asr-report.json`、`layout-qa.json`、`technical-qa.json`：逐段盲 ASR、角色图片比例、400 个文本容器、Card System V2、Scene Grammar V2、Character Performance V2 的 cue-bound 姿态节拍、Character Stage V3 的真实 alpha、归一化手势锚点、最近语义边缘与专属音效绑定，以及音画/黑帧/冻结段/字幕同步门槛。
 - `evaluation/judge-scorecard.json`：四位独立评委对固定成片 SHA 的最终评分、硬门槛和仍未超过参考片的差距记录。
 - `final/trace.json`、`trace-viewer.html`：29 个镜头事件的机器可读制作叙事 Trace 与交互查看器；文件明确声明它不是原始模型/工具遥测。
 - `final/*.mp4`：最终渲染，默认不进入 Git；生成源、字幕、Trace 与 QA 报告进入 Git。
@@ -34,6 +34,9 @@ pnpm benchmark:complete:asr
 pnpm benchmark:complete:trace
 pnpm benchmark:complete:render
 pnpm benchmark:complete:qa
+
+# 先把两支参考片下载到本机，再生成不含映射密钥的 X/Y/Z 盲评包
+REFERENCE_A=/path/to/reference-a.mp4 REFERENCE_B=/path/to/reference-b.mp4 node scripts/build-blind-comparison.mjs
 ```
 
 只有 `evaluation/rubric.json` 的全部硬门槛通过、盲评总分达到要求，才允许把目标标记为完成。

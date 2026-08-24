@@ -47,6 +47,13 @@ type Visual = {
     pose: 'pointing' | 'thinking' | 'presenting';
     gaze: 'viewer' | 'target';
     gesture: 'point' | 'chin-touch' | 'open-palm';
+    interactionAnchor: {
+      kind: 'fingertip' | 'gaze' | 'open-palm';
+      normalizedX: number;
+      normalizedY: number;
+    };
+    targetAnchor: 'nearest-edge';
+    interactionSfx: 'character-think' | 'character-point' | 'character-present';
     targetId: string;
     side: 'left' | 'right';
     cueIndex: number;
@@ -149,7 +156,14 @@ function makeCompleteStage(view: View2D, index: number, shot: CompleteShot, acce
 }
 
 function* ambientScan(stage: CompleteStage, duration: number) {
-  yield* stage.scan().position.x(820, duration, linear);
+  const direction = stage.direction;
+  yield* all(
+    stage.scan().position.x(820, duration, linear),
+    tween(duration, value => {
+      stage.body().position.x(Math.sin(value * Math.PI * 2) * 7 * direction);
+      stage.body().position.y(18 + Math.sin(value * Math.PI * 2) * 3);
+    }),
+  );
 }
 
 function visualDelay(shotId: string, index: number): number {
@@ -161,6 +175,7 @@ function visualDelay(shotId: string, index: number): number {
 type StageActorRuntime = {
   root: Reference<Layout>;
   connector: Reference<Line>;
+  source: Reference<Circle>;
   target: Reference<Circle>;
   finalX: number;
   finalY: number;
@@ -175,6 +190,7 @@ function addStageActor(stage: CompleteStage, shot: CompleteShot, accent: string,
   if (!spec) return null;
   const root = createRef<Layout>();
   const connector = createRef<Line>();
+  const source = createRef<Circle>();
   const target = createRef<Circle>();
   const viewport = spec.pose === 'presenting' ? {width: 500, height: 430} : {width: 470, height: 430};
   const size = containSize(spec.intrinsicSize.width, spec.intrinsicSize.height, viewport.width, viewport.height);
@@ -183,13 +199,21 @@ function addStageActor(stage: CompleteStage, shot: CompleteShot, accent: string,
   const startX = finalX + (spec.entrance === 'slide' ? (spec.side === 'left' ? -110 : 110) : 0);
   const startY = finalY + (spec.entrance === 'rise' ? 90 : 0);
   const sourcePoint: [number, number] = [
-    finalX + (spec.side === 'left' ? size.width * 0.31 : -size.width * 0.31),
-    finalY - size.height * 0.16,
+    finalX + (spec.interactionAnchor.normalizedX - 0.5) * size.width,
+    finalY + (spec.interactionAnchor.normalizedY - 0.5) * size.height,
+  ];
+  const direction = spec.side === 'left' ? 1 : -1;
+  const connectorPoints: Array<[number, number]> = [
+    sourcePoint,
+    [sourcePoint[0] + direction * 44, sourcePoint[1]],
+    [targetPoint[0] - direction * 38, targetPoint[1]],
+    targetPoint,
   ];
   stage.body().add(
     <>
-      <Line ref={connector} points={[sourcePoint, targetPoint]} stroke={`${accent}AA`} lineWidth={3} lineDash={[12, 9]} endArrow arrowSize={16} end={0} opacity={0} />
-      <Circle ref={target} position={targetPoint} width={24} height={24} fill={`${accent}22`} stroke={accent} lineWidth={3} opacity={0} shadowColor={accent} shadowBlur={18} />
+      <Line ref={connector} points={connectorPoints} stroke={`${accent}AA`} lineWidth={3} lineDash={[12, 9]} radius={12} endArrow arrowSize={14} end={0} opacity={0} />
+      <Circle ref={source} position={sourcePoint} width={11} height={11} fill={accent} stroke={'#FFFFFF'} lineWidth={2} opacity={0} shadowColor={accent} shadowBlur={14} />
+      <Circle ref={target} position={targetPoint} width={18} height={18} fill={`${accent}18`} stroke={accent} lineWidth={3} opacity={0} shadowColor={accent} shadowBlur={16} />
       <Layout ref={root} x={startX} y={startY} opacity={0} scale={spec.entrance === 'pop' ? 0.84 : 0.96}>
         <Circle y={30} width={size.width * 0.82} height={size.height * 0.82} fill={`${accent}0D`} shadowColor={`${accent}22`} shadowBlur={38} />
         <Img src={`/complete/stage-actors/${spec.asset}`} width={size.width} height={size.height} />
@@ -200,7 +224,7 @@ function addStageActor(stage: CompleteStage, shot: CompleteShot, accent: string,
       </Layout>
     </>,
   );
-  return {root, connector, target, finalX, finalY, startX, startY, cueIndex: spec.cueIndex, entrance: spec.entrance};
+  return {root, connector, source, target, finalX, finalY, startX, startY, cueIndex: spec.cueIndex, entrance: spec.entrance};
 }
 
 function* animateStageActor(runtime: StageActorRuntime, shotId: string, active: number) {
@@ -208,16 +232,19 @@ function* animateStageActor(runtime: StageActorRuntime, shotId: string, active: 
   yield* waitFor(start);
   yield* all(
     runtime.root().opacity(1, 0.3),
-    runtime.root().position.x(runtime.finalX, 0.5, easeInOutCubic),
-    runtime.root().position.y(runtime.finalY, 0.5, easeInOutCubic),
-    runtime.root().scale(1, 0.5, easeInOutCubic),
+    runtime.root().position.x(runtime.finalX, 0.48, easeInOutCubic),
+    runtime.root().position.y(runtime.finalY, 0.48, easeInOutCubic),
+    runtime.root().scale(1, 0.48, easeInOutCubic),
+  );
+  yield* all(
     runtime.connector().opacity(0.82, 0.22),
-    runtime.connector().end(1, 0.55, easeInOutCubic),
+    runtime.connector().end(1, 0.42, easeInOutCubic),
+    runtime.source().opacity(1, 0.18),
     runtime.target().opacity(1, 0.24),
   );
-  yield* runtime.target().scale(1.35, 0.2, easeInOutCubic);
-  yield* runtime.target().scale(1, 0.2, easeInOutCubic);
-  const remaining = Math.max(0, active - start - 0.95);
+  yield* all(runtime.source().scale(1.35, 0.18, easeInOutCubic), runtime.target().scale(1.38, 0.18, easeInOutCubic));
+  yield* all(runtime.source().scale(1, 0.18, easeInOutCubic), runtime.target().scale(1, 0.18, easeInOutCubic));
+  const remaining = Math.max(0, active - start - 1.26);
   yield* tween(remaining, value => {
     runtime.root().position.y(runtime.finalY + Math.sin(value * Math.PI * 3) * 4);
     runtime.target().shadowBlur(12 + Math.sin(value * Math.PI * 6) * 6);
@@ -675,8 +702,9 @@ function* topologyShot(view: View2D, shot: CompleteShot, duration: number, index
     </Layout>,
   );
   const topologyTargetIndex = actorSpec ? nodes.findIndex(node => splitNode(node)[0] === actorSpec.targetId || node === actorSpec.targetId) : -1;
+  const targetEdgeOffset = geometry.nodeWidth * diagramScale / 2;
   const topologyTarget: [number, number] = topologyTargetIndex >= 0
-    ? [diagramX + geometry.nodes[topologyTargetIndex][0] * diagramScale, geometry.nodes[topologyTargetIndex][1] * diagramScale]
+    ? [diagramX + geometry.nodes[topologyTargetIndex][0] * diagramScale + (actorSpec?.side === 'left' ? -targetEdgeOffset : targetEdgeOffset), geometry.nodes[topologyTargetIndex][1] * diagramScale]
     : [diagramX + geometry.center[0] * diagramScale, geometry.center[1] * diagramScale];
   const stageActor = addStageActor(stage, shot, accent, topologyTarget);
   yield* enter(stage);
@@ -763,7 +791,7 @@ function* codeShot(view: View2D, shot: CompleteShot, duration: number, index: nu
     </Layout>,
   );
   const codeTargetIndex = actorSpec ? Math.max(0, lines.findIndex(line => line === actorSpec.targetId)) : 0;
-  const codeTarget: [number, number] = [editorX - 360 * editorScale, (-195 + codeTargetIndex * 72) * editorScale];
+  const codeTarget: [number, number] = [editorX + (actorSpec?.side === 'left' ? -565 : 565) * editorScale, (-195 + codeTargetIndex * 72) * editorScale];
   const stageActor = addStageActor(stage, shot, C.purple, codeTarget);
   yield* enter(stage);
   const active = duration - 0.74;
@@ -977,7 +1005,8 @@ function* barsShot(view: View2D, shot: CompleteShot, duration: number, index: nu
   );
   const barTargetIndex = actorSpec ? Math.max(0, bars.findIndex(bar => bar.label === actorSpec.targetId)) : 0;
   const barTargetHeight = 390 * (bars[barTargetIndex].value / max);
-  const barTarget: [number, number] = [chartX + (-610 + barTargetIndex * gap) * chartScale, (250 - barTargetHeight) * chartScale];
+  const barTargetWidth = Math.min(190, gap - 30);
+  const barTarget: [number, number] = [chartX + (-610 + barTargetIndex * gap + (actorSpec?.side === 'left' ? -barTargetWidth / 2 : barTargetWidth / 2)) * chartScale, (268 - barTargetHeight) * chartScale];
   const stageActor = addStageActor(stage, shot, C.yellow, barTarget);
   yield* enter(stage);
   const active = duration - 0.74;

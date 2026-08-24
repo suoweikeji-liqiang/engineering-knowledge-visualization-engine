@@ -198,9 +198,9 @@ export const AI_CHARACTER_PERFORMANCE_ASSETS: CharacterPerformanceAsset[] = [
 ];
 
 export const AI_CHARACTER_STAGE_ASSETS: CharacterStageActor[] = [
-  {schemaVersion: "1.0", id: "xiaolan-stage-pointing", characterId: "xiaolan", assetRef: "ai/character/xiaolan/stage/pointing", intrinsicSize: {width: 1367, height: 1151}, pose: "pointing", gaze: "target", gesture: "point", compatibleVisualKinds: ["topology", "code", "bars", "curve"], targetBinding: "semantic-id", alphaRequired: true, accumulationKey: "ai/character/xiaolan/stage/pointing"},
-  {schemaVersion: "1.0", id: "xiaolan-stage-thinking", characterId: "xiaolan", assetRef: "ai/character/xiaolan/stage/thinking", intrinsicSize: {width: 1369, height: 1149}, pose: "thinking", gaze: "target", gesture: "chin-touch", compatibleVisualKinds: ["topology", "code", "bars", "curve"], targetBinding: "semantic-id", alphaRequired: true, accumulationKey: "ai/character/xiaolan/stage/thinking"},
-  {schemaVersion: "1.0", id: "xiaolan-stage-presenting", characterId: "xiaolan", assetRef: "ai/character/xiaolan/stage/presenting", intrinsicSize: {width: 1448, height: 1086}, pose: "presenting", gaze: "viewer", gesture: "open-palm", compatibleVisualKinds: ["topology", "code", "bars", "curve"], targetBinding: "semantic-id", alphaRequired: true, accumulationKey: "ai/character/xiaolan/stage/presenting"}
+  {schemaVersion: "1.0", id: "xiaolan-stage-pointing", characterId: "xiaolan", assetRef: "ai/character/xiaolan/stage/pointing", intrinsicSize: {width: 1367, height: 1151}, pose: "pointing", gaze: "target", gesture: "point", interactionAnchor: {kind: "fingertip", normalizedX: 0.864, normalizedY: 0.372}, targetAnchor: "nearest-edge", interactionSfx: "character-point", compatibleVisualKinds: ["topology", "code", "bars", "curve"], targetBinding: "semantic-id", alphaRequired: true, accumulationKey: "ai/character/xiaolan/stage/pointing"},
+  {schemaVersion: "1.0", id: "xiaolan-stage-thinking", characterId: "xiaolan", assetRef: "ai/character/xiaolan/stage/thinking", intrinsicSize: {width: 1369, height: 1149}, pose: "thinking", gaze: "target", gesture: "chin-touch", interactionAnchor: {kind: "gaze", normalizedX: 0.43, normalizedY: 0.3}, targetAnchor: "nearest-edge", interactionSfx: "character-think", compatibleVisualKinds: ["topology", "code", "bars", "curve"], targetBinding: "semantic-id", alphaRequired: true, accumulationKey: "ai/character/xiaolan/stage/thinking"},
+  {schemaVersion: "1.0", id: "xiaolan-stage-presenting", characterId: "xiaolan", assetRef: "ai/character/xiaolan/stage/presenting", intrinsicSize: {width: 1448, height: 1086}, pose: "presenting", gaze: "viewer", gesture: "open-palm", interactionAnchor: {kind: "open-palm", normalizedX: 0.18, normalizedY: 0.5}, targetAnchor: "nearest-edge", interactionSfx: "character-present", compatibleVisualKinds: ["topology", "code", "bars", "curve"], targetBinding: "semantic-id", alphaRequired: true, accumulationKey: "ai/character/xiaolan/stage/presenting"}
 ];
 
 export const AI_TOPOLOGY_SCENE_GRAMMARS: TopologySceneGrammar[] = [
@@ -282,7 +282,10 @@ export const AI_SOUND_CUES: CinematicSoundCue[] = [
   {id: "soft-step", semanticRole: "enter", family: "foley", durationHintMs: 240, mixPriority: "ambient"},
   {id: "task-inject", semanticRole: "enter", family: "signal", durationHintMs: 380, mixPriority: "support"},
   {id: "soft-tick", semanticRole: "confirm", family: "ui", durationHintMs: 140, mixPriority: "ambient"},
-  {id: "character-return", semanticRole: "resolve", family: "character", durationHintMs: 540, mixPriority: "support"}
+  {id: "character-return", semanticRole: "resolve", family: "character", durationHintMs: 540, mixPriority: "support"},
+  {id: "character-think", semanticRole: "connect", family: "character", durationHintMs: 420, mixPriority: "support"},
+  {id: "character-point", semanticRole: "connect", family: "character", durationHintMs: 360, mixPriority: "foreground"},
+  {id: "character-present", semanticRole: "resolve", family: "character", durationHintMs: 460, mixPriority: "support"}
 ];
 
 export const AI_REVIEW_RULES = [

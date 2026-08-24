@@ -80,7 +80,7 @@ for (const shot of characterShots) {
 for (const state of requiredPerformanceStates) if (!performanceStates.includes(state)) errors.push(`character performance state ${state} is not represented`);
 if (performancePoseAssets.size < 5) errors.push(`character performance must use at least five distinct pose assets, got ${performancePoseAssets.size}`);
 
-const requiredActorStageFields = ['asset', 'intrinsicSize', 'pose', 'gaze', 'gesture', 'targetId', 'side', 'cueIndex', 'entrance', 'layer'];
+const requiredActorStageFields = ['asset', 'intrinsicSize', 'pose', 'gaze', 'gesture', 'interactionAnchor', 'targetAnchor', 'interactionSfx', 'targetId', 'side', 'cueIndex', 'entrance', 'layer'];
 const actorStageShots = shots.filter(shot => shot.visual?.actorStage);
 const actorStageVisualKinds = new Set(actorStageShots.map(shot => shot.visual.kind));
 const actorStageAssets = new Set(actorStageShots.map(shot => shot.visual.actorStage.asset));
@@ -90,6 +90,10 @@ for (const shot of actorStageShots) {
   const actor = shot.visual.actorStage;
   if (requiredActorStageFields.some(field => actor[field] === undefined || !String(actor[field]).trim())) errors.push(`shot ${shot.id} has an incomplete character stage binding`);
   if (!Number.isInteger(actor.cueIndex) || actor.cueIndex < 0 || actor.cueIndex >= shot.visual.cueIndexes.length) errors.push(`shot ${shot.id} has an invalid character stage cueIndex`);
+  if (!['fingertip', 'gaze', 'open-palm'].includes(actor.interactionAnchor?.kind)
+    || !(actor.interactionAnchor?.normalizedX >= 0 && actor.interactionAnchor?.normalizedX <= 1)
+    || !(actor.interactionAnchor?.normalizedY >= 0 && actor.interactionAnchor?.normalizedY <= 1)) errors.push(`shot ${shot.id} has an invalid character interaction anchor`);
+  if (actor.targetAnchor !== 'nearest-edge') errors.push(`shot ${shot.id} must target the nearest semantic edge`);
   const targetExists = shot.visual.kind === 'topology'
     ? [...(shot.visual.nodes ?? []), shot.visual.center].includes(actor.targetId)
     : shot.visual.kind === 'code'

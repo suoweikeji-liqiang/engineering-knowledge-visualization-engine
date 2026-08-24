@@ -54,11 +54,14 @@ export const XIAOLAN_PERFORMANCE_V2 = {
 export const XIAOLAN_STAGE_V3 = {
   id: 'xiaolan-stage-v3',
   presentation: 'transparent-anchored-actor',
-  requiredFields: ['asset', 'intrinsicSize', 'pose', 'gaze', 'gesture', 'targetId', 'side', 'cueIndex', 'entrance', 'layer'],
+  requiredFields: ['asset', 'intrinsicSize', 'pose', 'gaze', 'gesture', 'interactionAnchor', 'targetAnchor', 'interactionSfx', 'targetId', 'side', 'cueIndex', 'entrance', 'layer'],
   supportedVisualKinds: ['topology', 'code', 'bars', 'curve'],
   poses: ['pointing', 'thinking', 'presenting'],
   entrances: ['slide', 'rise', 'pop'],
   targetBinding: 'semantic-id',
+  sourceBinding: 'normalized-gesture-anchor',
+  targetPlacement: 'nearest-edge',
+  connectorTiming: 'actor-first-then-tether',
   alphaRequired: true,
   minimumDistinctVisualKinds: 3,
 } as const;

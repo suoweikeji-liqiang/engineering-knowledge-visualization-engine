@@ -8,7 +8,7 @@ const source = resolve(exampleRoot, 'audio/ai-agent-harness-complete.wav');
 const timeline = JSON.parse(readFileSync(resolve(exampleRoot, 'audio/video.timeline.json'), 'utf8')) as {duration: number; playbackRate: number};
 const story = JSON.parse(readFileSync(resolve(exampleRoot, 'storyboard/story.json'), 'utf8')) as {
   chapters: Array<{id: string; shotIds: string[]}>;
-  shots: Array<{id: string; sfx?: string[]; visual?: {performance?: {beats?: Array<{asset: string}>}; actorStage?: {asset: string}}}>;
+  shots: Array<{id: string; sfx?: string[]; visual?: {performance?: {beats?: Array<{asset: string}>}; actorStage?: {asset: string; cueIndex: number; interactionSfx: string}}}>;
 };
 const visualTimeline = JSON.parse(readFileSync(resolve(exampleRoot, 'audio/visual-events.timeline.json'), 'utf8')) as {
   shots: Array<{shotId: string; events: Array<{narrationStart: number}>}>;
@@ -88,7 +88,7 @@ if (!existsSync(ambientBed)) {
 
 const shotsById = new Map(story.shots.map(shot => [shot.id, shot]));
 const visualById = new Map(visualTimeline.shots.map(shot => [shot.shotId, shot]));
-const sfxEvents = story.chapters.flatMap(chapter => {
+const chapterSfxEvents = story.chapters.flatMap(chapter => {
   const firstId = chapter.shotIds[0];
   const lastId = chapter.shotIds.at(-1) ?? firstId;
   return [...new Set([firstId, lastId])].map((shotId, pickIndex) => {
@@ -100,8 +100,18 @@ const sfxEvents = story.chapters.flatMap(chapter => {
     return {chapterId: chapter.id, shotId, cue, start: visualEvent.narrationStart};
   }).filter((event): event is {chapterId: string; shotId: string; cue: string; start: number} => Boolean(event));
 });
+const stageSfxEvents = story.shots.flatMap(shot => {
+  const actor = shot.visual?.actorStage;
+  const visual = visualById.get(shot.id);
+  const event = actor ? visual?.events[actor.cueIndex] : undefined;
+  return actor && event ? [{chapterId: 'character-stage', shotId: shot.id, cue: actor.interactionSfx, start: event.narrationStart}] : [];
+});
+const sfxEvents = [...chapterSfxEvents, ...stageSfxEvents];
 
 function sfxRecipe(name: string): {source: string; filter: string} {
+  if (name === 'character-think') return {source: 'sine=frequency=523.25:duration=0.34', filter: 'highpass=f=280,volume=0.07,tremolo=f=7:d=0.42,afade=t=out:st=0.10:d=0.24'};
+  if (name === 'character-point') return {source: 'anoisesrc=color=white:duration=0.24:amplitude=0.18', filter: 'highpass=f=1200,lowpass=f=5200,volume=0.07,afade=t=out:st=0.05:d=0.19'};
+  if (name === 'character-present') return {source: 'sine=frequency=783.99:duration=0.38', filter: 'highpass=f=360,volume=0.08,tremolo=f=9:d=0.55,afade=t=out:st=0.12:d=0.26'};
   if (/impact|stamp/u.test(name)) return {source: 'sine=frequency=105:duration=0.32', filter: 'lowpass=f=320,volume=0.18,afade=t=out:st=0.05:d=0.27'};
   if (/whoosh|draw|rise|pulse|inject/u.test(name)) return {source: 'anoisesrc=color=pink:duration=0.42:amplitude=0.24', filter: 'highpass=f=650,lowpass=f=4800,volume=0.09,afade=t=in:st=0:d=0.05,afade=t=out:st=0.17:d=0.25'};
   if (/success|sparkle|return/u.test(name)) return {source: 'sine=frequency=1046.5:duration=0.26', filter: 'highpass=f=420,volume=0.10,tremolo=f=12:d=0.65,afade=t=out:st=0.08:d=0.18'};
@@ -123,7 +133,7 @@ const sfxResult = spawnSync(ffmpeg, [
   '-filter_complex', [...sfxFilters, sfxMix].join(';'), '-map', '[out]', '-c:a', 'pcm_s16le', '-ar', '48000', '-ac', '2', sfxBed,
 ], {stdio: 'inherit'});
 if (sfxResult.status !== 0) throw new Error(`Failed to generate event SFX bed with ${ffmpeg}`);
-writeFileSync(resolve(exampleRoot, 'audio/sfx.timeline.json'), `${JSON.stringify({schemaVersion: '1.0', strategy: 'two-representative-events-per-chapter', events: sfxEvents}, null, 2)}\n`, 'utf8');
+writeFileSync(resolve(exampleRoot, 'audio/sfx.timeline.json'), `${JSON.stringify({schemaVersion: '1.0', strategy: 'two-representative-events-per-chapter-plus-character-stage', events: sfxEvents}, null, 2)}\n`, 'utf8');
 
 const result = spawnSync(ffmpeg, [
   '-hide_banner', '-loglevel', 'error', '-y', '-i', source, '-i', ambientBed, '-i', sfxBed,

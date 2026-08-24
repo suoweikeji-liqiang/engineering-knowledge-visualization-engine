@@ -180,6 +180,9 @@
       "pose",
       "gaze",
       "gesture",
+      "interactionAnchor",
+      "targetAnchor",
+      "interactionSfx",
       "targetId",
       "side",
       "cueIndex",
@@ -203,6 +206,9 @@
       "pop"
     ],
     "targetBinding": "semantic-id",
+    "sourceBinding": "normalized-gesture-anchor",
+    "targetPlacement": "nearest-edge",
+    "connectorTiming": "actor-first-then-tether",
     "alphaRequired": true,
     "minimumDistinctVisualKinds": 3
   },

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "strategy": "two-representative-events-per-chapter",
+  "strategy": "two-representative-events-per-chapter-plus-character-stage",
   "events": [
     {
       "chapterId": "ch01",
@@ -115,6 +115,24 @@
       "shotId": "synthesis",
       "cue": "impact",
       "start": 687.551
+    },
+    {
+      "chapterId": "character-stage",
+      "shotId": "components",
+      "cue": "character-think",
+      "start": 68.037
+    },
+    {
+      "chapterId": "character-stage",
+      "shotId": "structured-output",
+      "cue": "character-point",
+      "start": 407.153
+    },
+    {
+      "chapterId": "character-stage",
+      "shotId": "trace-metrics",
+      "cue": "character-present",
+      "start": 589.462
     }
   ]
 }
