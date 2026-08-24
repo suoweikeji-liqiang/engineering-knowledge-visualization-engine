@@ -4,11 +4,12 @@
   "exceedReference": false,
   "artifact": {
     "path": "final/ai-agent-harness-complete.mp4",
-    "sha256": "435d7792fb60adf84fcb8ec5493355f06a5ba1bd8f9d85dec1b0eb21e5f0f8b8",
+    "sha256": "503c18f8928e2392e903fa80b863c536c532b017a26eb30ba1eaae1f5243547d",
     "durationSeconds": 714.833333,
-    "sourceCommit": "f89596d",
-    "aiDailyContractCommit": "2dbe036",
-    "aiDailyPoseSourceCommit": "c29ff00"
+    "sourceCommit": "e5fd7c9",
+    "aiDailyContractCommit": "4064503",
+    "aiDailyPoseSourceCommit": "c29ff00",
+    "aiDailyCharacterStageCommit": "4064503"
   },
   "panel": [
     {
@@ -27,16 +28,16 @@
     {
       "role": "frozen-rubric-general-judge",
       "independent": true,
-      "scores": {"content": 24, "clarity": 13.5, "animation": 15.5, "character": 9, "sound": 10, "brand": 7.5, "evidence": 7, "reuse": 8},
-      "total": 94.5,
+      "scores": {"content": 24, "clarity": 13.75, "animation": 15.75, "character": 9.5, "sound": 10, "brand": 8, "evidence": 7, "reuse": 8},
+      "total": 96,
       "veto": false,
-      "finalShaFollowup": "nine cue-bound reaction beats were verified on ad44208c; the final 435d7792 follow-up only replaces approximate pose sizing with exact contain and retains 13/13 hard gates"
+      "finalShaFollowup": "the final 503c18f8 render adds three true-alpha Xiaolan stage interactions bound to exact topology, code, and bar-chart semantic targets; 13/13 hard gates pass"
     },
     {
       "role": "motion-and-render-auditor",
       "independent": true,
-      "overall": 92,
-      "finalShaFollowup": "all nine semantic reaction beats were visually verified on ad44208c; final 435d7792 removes the auditor's 0.28% pose compression via exact contain, while subtitles and status lists remain unobstructed",
+      "overall": 94,
+      "finalShaFollowup": "the final 503c18f8 render keeps all actor poses in safe areas, preserves real transparency and identity markers, and leaves headlines, subtitles, and technical content readable; the remaining weakness is generic rather than fingertip-aware connector anchoring",
       "veto": false
     },
     {
@@ -51,15 +52,15 @@
     "method": "frozen-rubric general-judge total with independent content, render, and audio specialty audits as no-veto corroboration",
     "scores": {
       "content": 24,
-      "clarity": 13.5,
-      "animation": 15.5,
-      "character": 9,
+      "clarity": 13.75,
+      "animation": 15.75,
+      "character": 9.5,
       "sound": 10,
-      "brand": 7.5,
+      "brand": 8,
       "evidence": 7,
       "reuse": 8
     },
-    "total": 94.5
+    "total": 96
   },
   "hardGates": {
     "all15CoreRequirementsHaveTimecodedNarrationAndVisualEvidence": true,
@@ -71,7 +72,7 @@
     "characterAssetsPreserveSourceAspectRatio": true,
     "allTextContainersPassOverflowAuditAt1080p": true,
     "cardIndicesAreDetachedAndTextUsesContentAwareAlignment": true,
-    "topologyScenesDeclareDiverseCompositionsAndCharacterShotsHaveAtLeastThreeCueBoundPoseBeats": true,
+    "topologyScenesDeclareDiverseCompositionsCharacterShotsHaveThreeCueBoundBeatsAndTransparentStageActorsBindSemanticTargets": true,
     "primaryClaimsHavePrimarySourceCitations": true,
     "reproducibleFromFrozenAssetsAndAudioConfig": true,
     "originalBrandAndShotDesign": true
@@ -81,7 +82,7 @@
     "asrSegmentsPassing": "29/29",
     "semanticEventsExplicitlyMapped": "129/129",
     "semanticEventsWithin500ms": "129/129",
-    "textContainersPassingOverflowAudit": "397/397",
+    "textContainersPassingOverflowAudit": "400/400",
     "characterAspectPreserved": "1672:941 -> 824:463.746",
     "cardSystem": "card-system-v2",
     "sceneGrammar": "scene-grammar-v2",
@@ -92,8 +93,17 @@
     "performanceBeatsPerShot": {"hook": 3, "checkpoint-resume": 3, "live-trace-finish": 3},
     "performancePoseAssets": ["char_thinking.jpg", "char_pointing.jpg", "char_sign.jpg", "char_surprised.jpg", "char_desk.jpg", "char_outro.jpg"],
     "performancePoseAspectPreserved": "6/6 source assets at 1376:768 -> 268:149.581395 with SHA-256 recorded",
+    "characterStage": "xiaolan-stage-v3",
+    "actorStageVisualKinds": ["topology", "code", "bars"],
+    "actorStageAssets": [
+      {"file": "xiaolan-thinking.png", "size": "1369x1149", "sha256": "badcc262df4a2ca56033f01d14900802662a96d2db0cf2ff869f10b22b27deed"},
+      {"file": "xiaolan-pointing.png", "size": "1367x1151", "sha256": "4b5c64e24257e8b68f372def1323f34717c8ea21358a1d38b25d94384e844bb3"},
+      {"file": "xiaolan-presenting.png", "size": "1448x1086", "sha256": "575ad7bb53541b05fff8499ee85c2e61eaf990a94a315a4452cf92cc6201eeb1"}
+    ],
+    "actorStageAlphaPreserved": "3/3 assets have true alpha range 0-255 and match declared intrinsic dimensions",
     "frozenFractionBefore": 0.2802,
-    "frozenFractionAfter": 0.2543,
+    "frozenFractionAfterPerformanceV2": 0.2543,
+    "frozenFractionAfterCharacterStageV3": 0.2276,
     "maximumSemanticDeltaSeconds": 0.21,
     "integratedLufs": -16.69,
     "truePeakDb": -4.14,
@@ -108,13 +118,15 @@
     "exceedPassed": false
   },
   "remainingGaps": [
-    "character performance now has cue-bound pose, gaze, gesture, and expression changes, but the six poses are still 16:9 reaction inserts rather than transparent layered bodies interacting directly with diagram nodes",
-    "pose changes are discrete cuts without body interpolation, gaze trajectories, lip sync, or continuous gesture animation",
-    "character performance covers 3 of 29 shots; future episodes should add it selectively at chapter turns without replacing technical diagrams",
+    "transparent Xiaolan actors now interact directly with semantic diagram targets, but connector origins are generic geometry rather than explicit fingertip or gaze anchors",
+    "the three character-stage poses are static transparent images without body interpolation, lip sync, or continuous gaze and gesture animation",
+    "topology, code, and bars are proven in this episode; curve is declared but not sampled, and swimlane/timeline do not yet have a character-stage interaction grammar",
+    "the thinking asset is slightly more realistic and the presenting asset slightly more anime-like, leaving minor cross-pose style drift",
+    "character-stage interactions do not yet have dedicated cue-bound sound effects",
     "non-topology shots still share the warm-paper frame, card entrance rhythm, and bottom caption stage",
     "continuity-key transitions preserve direction but do not yet use overlapping shared-element morphs",
     "evidence connectors do not yet anchor to exact source paragraphs and production narrative trace is not raw model telemetry",
-    "Scene Grammar V2 has not yet been validated by a second long-form episode",
-    "the rubric's five-person immediate and delayed recall study and blind comparative dimension-win study were not run"
+    "Scene Grammar V2 and Character Stage V3 have not yet been validated by a second long-form episode",
+    "the rubric's five-person immediate and delayed recall study and blind comparative dimension-win study were not run; the latter is why the artifact reaches but does not officially exceed the reference"
   ]
 }
