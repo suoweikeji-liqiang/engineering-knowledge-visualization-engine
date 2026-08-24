@@ -255,9 +255,9 @@ export const AI_CHARACTER_RIGS: CharacterRigAsset[] = [
       {id: "resolve-wave", durationHintSeconds: 2.4, loop: false, activeBones: ["root", "torso", "head", "gaze", "mouth", "gesture"], audioDriven: "voice-rms", narrativeRoles: ["resolve"]}
     ],
     sourcePoseAssets: [
-      {pose: "pointing", assetRef: "ai/character/xiaolan/stage/pointing", intrinsicSize: {width: 1367, height: 1151}, upperBodyCut: 0.54, faceAnchors: {leftEye: {normalizedX: 0.446, normalizedY: 0.278}, rightEye: {normalizedX: 0.556, normalizedY: 0.278}, mouth: {normalizedX: 0.498, normalizedY: 0.362}}},
-      {pose: "thinking", assetRef: "ai/character/xiaolan/stage/thinking", intrinsicSize: {width: 1369, height: 1149}, upperBodyCut: 0.55, faceAnchors: {leftEye: {normalizedX: 0.417, normalizedY: 0.24}, rightEye: {normalizedX: 0.519, normalizedY: 0.24}, mouth: {normalizedX: 0.452, normalizedY: 0.379}}},
-      {pose: "presenting", assetRef: "ai/character/xiaolan/stage/presenting", intrinsicSize: {width: 1448, height: 1086}, upperBodyCut: 0.56, faceAnchors: {leftEye: {normalizedX: 0.479, normalizedY: 0.267}, rightEye: {normalizedX: 0.573, normalizedY: 0.267}, mouth: {normalizedX: 0.528, normalizedY: 0.325}}}
+      {pose: "pointing", assetRef: "ai/character/xiaolan/stage/pointing", intrinsicSize: {width: 1367, height: 1151}, upperBodyCut: 0.54, faceAnchors: {leftEye: {normalizedX: 0.446, normalizedY: 0.278}, rightEye: {normalizedX: 0.556, normalizedY: 0.278}, mouth: {normalizedX: 0.47, normalizedY: 0.365}}},
+      {pose: "thinking", assetRef: "ai/character/xiaolan/stage/thinking", intrinsicSize: {width: 1369, height: 1149}, upperBodyCut: 0.55, faceAnchors: {leftEye: {normalizedX: 0.417, normalizedY: 0.24}, rightEye: {normalizedX: 0.519, normalizedY: 0.24}, mouth: {normalizedX: 0.447, normalizedY: 0.387}}},
+      {pose: "presenting", assetRef: "ai/character/xiaolan/stage/presenting", intrinsicSize: {width: 1448, height: 1086}, upperBodyCut: 0.56, faceAnchors: {leftEye: {normalizedX: 0.479, normalizedY: 0.267}, rightEye: {normalizedX: 0.573, normalizedY: 0.267}, mouth: {normalizedX: 0.535, normalizedY: 0.364}}}
     ],
     blinkIntervalSeconds: {min: 2.8, max: 5.2},
     lipSync: "voice-rms-envelope",

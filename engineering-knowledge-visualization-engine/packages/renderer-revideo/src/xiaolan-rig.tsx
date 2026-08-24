@@ -13,6 +13,7 @@ type PoseSpec = {
   cut: number;
   eyes: [Anchor, Anchor];
   mouth: Anchor;
+  mouthScale: {width: number; height: number};
   gesture: Anchor;
 };
 
@@ -20,17 +21,17 @@ const POSES: Record<XiaolanRigPose, PoseSpec> = {
   pointing: {
     filename: 'xiaolan-pointing.png', intrinsic: {width: 1367, height: 1151}, cut: 0.54,
     eyes: [{normalizedX: 0.446, normalizedY: 0.278}, {normalizedX: 0.556, normalizedY: 0.278}],
-    mouth: {normalizedX: 0.498, normalizedY: 0.362}, gesture: {normalizedX: 0.864, normalizedY: 0.372},
+    mouth: {normalizedX: 0.47, normalizedY: 0.365}, mouthScale: {width: 0.112, height: 0.061}, gesture: {normalizedX: 0.864, normalizedY: 0.372},
   },
   thinking: {
     filename: 'xiaolan-thinking.png', intrinsic: {width: 1369, height: 1149}, cut: 0.55,
     eyes: [{normalizedX: 0.417, normalizedY: 0.24}, {normalizedX: 0.519, normalizedY: 0.24}],
-    mouth: {normalizedX: 0.452, normalizedY: 0.379}, gesture: {normalizedX: 0.43, normalizedY: 0.3},
+    mouth: {normalizedX: 0.447, normalizedY: 0.387}, mouthScale: {width: 0.11, height: 0.058}, gesture: {normalizedX: 0.43, normalizedY: 0.3},
   },
   presenting: {
     filename: 'xiaolan-presenting.png', intrinsic: {width: 1448, height: 1086}, cut: 0.56,
     eyes: [{normalizedX: 0.479, normalizedY: 0.267}, {normalizedX: 0.573, normalizedY: 0.267}],
-    mouth: {normalizedX: 0.528, normalizedY: 0.325}, gesture: {normalizedX: 0.18, normalizedY: 0.5},
+    mouth: {normalizedX: 0.535, normalizedY: 0.364}, mouthScale: {width: 0.12, height: 0.068}, gesture: {normalizedX: 0.18, normalizedY: 0.5},
   },
 };
 
@@ -57,7 +58,8 @@ export function addXiaolanRig(parent: Layout, options: {
   const root = createRef<Layout>();
   const torso = createRef<Layout>();
   const upper = createRef<Layout>();
-  const mouth = createRef<Circle>();
+  const mouth = createRef<Layout>();
+  const mouthInner = createRef<Circle>();
   const eyelids = [createRef<Line>(), createRef<Line>()];
   const gaze = [createRef<Circle>(), createRef<Circle>()];
   const gesture = createRef<Circle>();
@@ -85,7 +87,9 @@ export function addXiaolanRig(parent: Layout, options: {
               <Circle ref={gaze[index]} x={eye[0]} y={localY - 1} width={3.6} height={3.6} fill={'#FFF8EE'} opacity={0.72} />
             </>;
           })}
-          <Circle ref={mouth} x={mouthPoint[0]} y={mouthPoint[1] - seamY + 1} width={23} height={2} fill={'#B85E73'} stroke={'#784052'} lineWidth={0.8} opacity={0.42} />
+          <Layout ref={mouth} x={mouthPoint[0]} y={mouthPoint[1] - seamY}>
+            <Circle ref={mouthInner} y={2} width={options.width * spec.mouthScale.width * 0.46} height={1} fill={'#7F3E4E'} stroke={'#9D5363'} lineWidth={0.7} opacity={0} />
+          </Layout>
         </Layout>
       </Layout>
       <Circle ref={gesture} x={gesturePoint[0]} y={gesturePoint[1]} width={18} height={18} fill={`${options.accent}18`} stroke={options.accent} lineWidth={3} opacity={0} shadowColor={options.accent} shadowBlur={18} />
@@ -128,9 +132,11 @@ export function addXiaolanRig(parent: Layout, options: {
         dot().position.x(eyePoints[index][0] + gazeX);
         dot().opacity(0.55 + mouthOpen * 0.25);
       });
-      mouth().height(1.5 + mouthOpen * 6.5);
-      mouth().width(22 + mouthOpen * 3);
-      mouth().opacity((0.28 + mouthOpen * 0.48) * (options.pose === 'thinking' ? 0.45 : 1));
+      const phoneme = Math.max(0, Math.min(1, mouthOpen));
+      mouth().scale.x(0.98 + phoneme * 0.04);
+      mouthInner().height(1 + phoneme * height * spec.mouthScale.height * 0.29);
+      mouthInner().width(options.width * spec.mouthScale.width * (0.32 + phoneme * 0.14));
+      mouthInner().opacity(phoneme < 0.08 ? 0 : 0.3 + phoneme * 0.42);
 
       const gestureStrength = options.action === 'point-emphasis' || options.action === 'explain-open' || options.action === 'resolve-wave'
         ? 0.5 + Math.sin(localSeconds * Math.PI * 1.8) * 0.5
