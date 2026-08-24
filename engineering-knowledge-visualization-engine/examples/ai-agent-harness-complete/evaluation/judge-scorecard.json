@@ -4,10 +4,10 @@
   "exceedReference": false,
   "artifact": {
     "path": "final/ai-agent-harness-complete.mp4",
-    "sha256": "9fb0aab321d22adaf826440aff3c3c55816b10a497374e732e6431239238aacd",
+    "sha256": "bea4060816226f9c40bad477e728983767b0c80917a50fb11ea40f13d72e5dc7",
     "durationSeconds": 714.833333,
-    "sourceCommit": "0333473",
-    "aiDailyContractCommit": "8e8dab6"
+    "sourceCommit": "a491a61",
+    "aiDailyContractCommit": "8897d83"
   },
   "panel": [
     {
@@ -26,15 +26,18 @@
     {
       "role": "frozen-rubric-general-judge",
       "independent": true,
-      "scores": {"content": 24, "clarity": 12, "animation": 14, "character": 8, "sound": 10, "brand": 7, "evidence": 7, "reuse": 7},
-      "total": 89,
-      "veto": false
+      "scores": {"content": 24, "clarity": 13, "animation": 14, "character": 8, "sound": 10, "brand": 7, "evidence": 7, "reuse": 7},
+      "total": 90,
+      "veto": false,
+      "finalShaFollowup": "status, compare, and gate fixes verified on bea40608; 12/12 hard gates pass"
     },
     {
       "role": "motion-and-render-auditor",
       "independent": true,
-      "scores": {"animation": 14.5, "character": 7.8, "brand": 7.6, "reuse": 7.8},
-      "finalShaFollowup": "compaction morph verified on 9fb0aab3; no overflow or stale labels",
+      "scores": {"animation": 14.8, "character": 7.8, "brand": 7.7, "reuse": 7.8},
+      "cardSystemV2Score": 53.3,
+      "cardSystemV2Maximum": 60,
+      "finalShaFollowup": "runtime flex veto cleared on bea40608; detached badges, centered compare groups, and gate output are collision-free",
       "veto": false
     },
     {
@@ -49,15 +52,15 @@
     "method": "median-per-dimension-across-applicable-independent-judges",
     "scores": {
       "content": 24,
-      "clarity": 12.5,
-      "animation": 14.25,
+      "clarity": 13,
+      "animation": 14.4,
       "character": 7.9,
       "sound": 10.25,
-      "brand": 7.3,
+      "brand": 7.35,
       "evidence": 7.5,
       "reuse": 7.4
     },
-    "total": 91.1
+    "total": 91.8
   },
   "hardGates": {
     "all15CoreRequirementsHaveTimecodedNarrationAndVisualEvidence": true,
@@ -68,6 +71,7 @@
     "fullHdTechnicalVisualsAndSubtitlesReadable": true,
     "characterAssetsPreserveSourceAspectRatio": true,
     "allTextContainersPassOverflowAuditAt1080p": true,
+    "cardIndicesAreDetachedAndTextUsesContentAwareAlignment": true,
     "primaryClaimsHavePrimarySourceCitations": true,
     "reproducibleFromFrozenAssetsAndAudioConfig": true,
     "originalBrandAndShotDesign": true
@@ -79,6 +83,10 @@
     "semanticEventsWithin500ms": "129/129",
     "textContainersPassingOverflowAudit": "388/388",
     "characterAspectPreserved": "1672:941 -> 824:463.746",
+    "cardSystem": "card-system-v2",
+    "detachedBadgeGapPixels": 18,
+    "contentAlignment": "intrinsic-centered",
+    "evidenceRelationship": "source-connector-callout",
     "maximumSemanticDeltaSeconds": 0.21,
     "integratedLufs": -16.69,
     "truePeakDb": -3.95,
@@ -94,8 +102,10 @@
   },
   "remainingGaps": [
     "character performance still relies on three flattened illustrations with micro-motion rather than reusable expression and pose states",
+    "several chapters still reuse the center-plus-radial-card composition and neutral rounded-card material",
     "continuity-key transitions preserve direction but do not yet use overlapping shared-element morphs",
-    "production narrative trace is honest and inspectable but is not raw model and tool telemetry",
+    "evidence connectors do not yet anchor to exact source paragraphs and production narrative trace is not raw model telemetry",
+    "Card System V2 has not yet been validated by a second long-form template",
     "the rubric's five-person immediate and delayed recall study was not run"
   ]
 }
