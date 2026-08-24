@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 384" width="128" height="384">
+  <g id="hvac-thermometer">
+    <rect x="36" y="20" width="56" height="280" rx="28" fill="#F4F6F9" stroke="#13223A" stroke-width="3.5"/>
+    <circle cx="64" cy="320" r="38" fill="#FA541C" stroke="#13223A" stroke-width="3.5"/>
+    <rect x="52" y="100" width="24" height="200" rx="8" fill="#FA541C"/>
+    <!-- Scale ticks -->
+    <line x1="78" y1="60" x2="88" y2="60" stroke="#13223A" stroke-width="2"/>
+    <line x1="78" y1="100" x2="92" y2="100" stroke="#13223A" stroke-width="2.5"/>
+    <line x1="78" y1="140" x2="88" y2="140" stroke="#13223A" stroke-width="2"/>
+    <line x1="78" y1="180" x2="92" y2="180" stroke="#13223A" stroke-width="2.5"/>
+    <line x1="78" y1="220" x2="88" y2="220" stroke="#13223A" stroke-width="2"/>
+    <line x1="78" y1="260" x2="92" y2="260" stroke="#13223A" stroke-width="2.5"/>
+  </g>
+</svg>

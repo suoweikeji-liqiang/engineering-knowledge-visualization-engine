@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs></defs>
+  <g id="ai-vector-database">
+    <path id="database-shell" d="M78 126v260c0 52 356 52 356 0V126" fill="#22C55E" fill-opacity=".10" stroke="#13223A" stroke-width="7"/>
+    <ellipse id="database-top" cx="256" cy="126" rx="178" ry="70" fill="#FFFFFF" stroke="#13223A" stroke-width="7"/>
+    <path id="database-band" d="M78 246c0 52 356 52 356 0M78 346c0 52 356 52 356 0" fill="none" stroke="#8FA6CB" stroke-width="4"/>
+    <g id="vector-points" fill="#22C55E"><circle cx="174" cy="116" r="12"/><circle cx="240" cy="98" r="12"/><circle cx="302" cy="138" r="12"/><circle cx="346" cy="102" r="12"/></g>
+    <path id="nearest-neighbor" d="M174 116l66-18 62 40 44-36" fill="none" stroke="#1FD6E2" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>

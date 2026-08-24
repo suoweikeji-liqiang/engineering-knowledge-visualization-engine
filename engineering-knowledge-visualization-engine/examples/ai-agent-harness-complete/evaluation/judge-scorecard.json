@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "1.0",
+  "decision": "reach-reference",
+  "exceedReference": false,
+  "artifact": {
+    "path": "final/ai-agent-harness-complete.mp4",
+    "sha256": "1045222c41655b9007f8336b1f0e7dd3c415e052dd35c0cdb4c2bd628b4a57a3",
+    "durationSeconds": 714.833333,
+    "sourceCommit": "7242e90",
+    "aiDailyContractCommit": "08ede3d",
+    "aiDailyPoseSourceCommit": "c29ff00",
+    "aiDailyCharacterStageCommit": "08ede3d"
+  },
+  "panel": [
+    {
+      "role": "agent-harness-content-auditor",
+      "independent": true,
+      "carriedForwardBecauseContentIsUnchanged": true,
+      "scores": {"content": 24, "clarity": 13, "evidence": 8},
+      "veto": false,
+      "blindComparison": {"X": {"clarity": 6.8, "evidence": 9.0}, "Y": {"clarity": 9.3, "evidence": 8.0}, "Z": {"clarity": 8.3, "evidence": 7.2}, "ranking": ["Y", "X", "Z"]},
+      "semanticAudit": {
+        "events": 129,
+        "conservativeMatches": 124,
+        "conservativeMatchRate": 0.9612,
+        "hardGate": "pass"
+      }
+    },
+    {
+      "role": "frozen-rubric-general-judge",
+      "independent": true,
+      "scores": {"content": 24, "clarity": 13.75, "animation": 15.75, "character": 9.5, "sound": 10, "brand": 8, "evidence": 7, "reuse": 8},
+      "total": 96,
+      "veto": false,
+      "blindComparison": {"X": {"clarity": 7.2, "animation": 6.2, "character": 0.5, "sound": 8.1, "brand": 6.3, "evidence": 9.1}, "Y": {"clarity": 9.4, "animation": 9.4, "character": 9.5, "sound": 9.1, "brand": 9.2, "evidence": 7.5}, "Z": {"clarity": 8.5, "animation": 8.4, "character": 4.0, "sound": 8.4, "brand": 9.5, "evidence": 6.7}, "ranking": ["Y", "Z", "X"]},
+      "finalShaFollowup": "the final 1045222c render binds connectors to gaze, fingertip, and open-palm source anchors, lands on nearest semantic edges, adds three cue-bound character sounds, and retains 13/13 hard gates"
+    },
+    {
+      "role": "motion-and-render-auditor",
+      "independent": true,
+      "overall": 94,
+      "blindComparison": {"X": {"clarity": 6.1, "animation": 4.7, "character": 0.8, "brand": 4.2}, "Y": {"clarity": 9.2, "animation": 7.7, "character": 9.0, "brand": 9.4}, "Z": {"clarity": 7.2, "animation": 8.4, "character": 1.1, "brand": 8.1}, "ranking": ["Y", "Z", "X"], "animationOnlyRanking": ["Z", "Y", "X"]},
+      "finalShaFollowup": "the final 1045222c render keeps exact gesture anchors and semantic target edges clear; Y ranks first overall, while Z still ranks first for continuous animation alone",
+      "veto": false
+    },
+    {
+      "role": "audio-producer",
+      "independent": true,
+      "carriedForwardBecauseAudioTrackIsUnchanged": false,
+      "scores": {"sound": 10},
+      "blindComparison": {"X": {"sound": 8.1, "audioVisualSync": 8.0}, "Y": {"sound": 6.4, "audioVisualSync": 8.8}, "Z": {"sound": 8.8, "audioVisualSync": 9.7}, "ranking": ["Z", "X", "Y"]},
+      "veto": false
+    }
+  ],
+  "aggregate": {
+    "method": "frozen-rubric general-judge total with independent content, render, and audio specialty audits as no-veto corroboration",
+    "scores": {
+      "content": 24,
+      "clarity": 13.75,
+      "animation": 15.75,
+      "character": 9.5,
+      "sound": 10,
+      "brand": 8,
+      "evidence": 7,
+      "reuse": 8
+    },
+    "total": 96
+  },
+  "hardGates": {
+    "all15CoreRequirementsHaveTimecodedNarrationAndVisualEvidence": true,
+    "noMajorTechnicalErrorFromIndependentEngineeringReview": true,
+    "naturalChineseFemaleVoice": true,
+    "noClippingTruncationOrAbnormalSilence": true,
+    "atLeast95PercentKeyEventsWithin500msOfNarration": true,
+    "fullHdTechnicalVisualsAndSubtitlesReadable": true,
+    "characterAssetsPreserveSourceAspectRatio": true,
+    "allTextContainersPassOverflowAuditAt1080p": true,
+    "cardIndicesAreDetachedAndTextUsesContentAwareAlignment": true,
+    "topologyScenesDeclareDiverseCompositionsCharacterShotsHaveThreeCueBoundBeatsAndTransparentStageActorsBindSemanticTargets": true,
+    "primaryClaimsHavePrimarySourceCitations": true,
+    "reproducibleFromFrozenAssetsAndAudioConfig": true,
+    "originalBrandAndShotDesign": true
+  },
+  "technicalEvidence": {
+    "qaPass": true,
+    "asrSegmentsPassing": "29/29",
+    "semanticEventsExplicitlyMapped": "129/129",
+    "semanticEventsWithin500ms": "129/129",
+    "textContainersPassingOverflowAudit": "400/400",
+    "characterAspectPreserved": "1672:941 -> 824:463.746",
+    "cardSystem": "card-system-v2",
+    "sceneGrammar": "scene-grammar-v2",
+    "topologyCompositionCounts": {"orbit": 1, "branch": 1, "quadrants": 1, "constellation": 1, "dashboard": 1, "hero-map": 1},
+    "maximumSingleCompositionShare": 0.1667,
+    "performanceSystem": "xiaolan-performance-v2",
+    "performanceStates": ["investigate", "recover", "synthesize"],
+    "performanceBeatsPerShot": {"hook": 3, "checkpoint-resume": 3, "live-trace-finish": 3},
+    "performancePoseAssets": ["char_thinking.jpg", "char_pointing.jpg", "char_sign.jpg", "char_surprised.jpg", "char_desk.jpg", "char_outro.jpg"],
+    "performancePoseAspectPreserved": "6/6 source assets at 1376:768 -> 268:149.581395 with SHA-256 recorded",
+    "characterStage": "xiaolan-stage-v3",
+    "actorStageVisualKinds": ["topology", "code", "bars"],
+    "actorStageAssets": [
+      {"file": "xiaolan-thinking.png", "size": "1369x1149", "sha256": "badcc262df4a2ca56033f01d14900802662a96d2db0cf2ff869f10b22b27deed"},
+      {"file": "xiaolan-pointing.png", "size": "1367x1151", "sha256": "4b5c64e24257e8b68f372def1323f34717c8ea21358a1d38b25d94384e844bb3"},
+      {"file": "xiaolan-presenting.png", "size": "1448x1086", "sha256": "575ad7bb53541b05fff8499ee85c2e61eaf990a94a315a4452cf92cc6201eeb1"}
+    ],
+    "actorStageAlphaPreserved": "3/3 assets have true alpha range 0-255 and match declared intrinsic dimensions",
+    "actorStageSourceAnchors": ["gaze", "fingertip", "open-palm"],
+    "actorStageTargetPlacement": "nearest semantic edge",
+    "actorStageConnectorTiming": "actor first, then tether",
+    "cueLockedSfxEvents": 22,
+    "frozenFractionBefore": 0.2802,
+    "frozenFractionAfterPerformanceV2": 0.2543,
+    "frozenFractionAfterCharacterStageV3": 0.2276,
+    "frozenFractionAfterReferencePolish": 0.0181,
+    "referenceAComparableFrozenFraction": 0.0444,
+    "maximumFreezeSeconds": 3.733,
+    "maximumSemanticDeltaSeconds": 0.21,
+    "integratedLufs": -16.69,
+    "truePeakDb": -4.01,
+    "blackSegments": 0
+  },
+  "referenceThresholds": {
+    "reachMinimumTotal": 82,
+    "reachPassed": true,
+    "exceedMinimumTotal": 90,
+    "exceedScoreThresholdPassed": true,
+    "comparativeDimensionWinsPassed": false,
+    "exceedPassed": false
+  },
+  "remainingGaps": [
+    "the three character-stage poses remain static transparent images without body interpolation, lip sync, or continuous gaze and gesture animation; the blind motion auditor still preferred reference A for animation alone",
+    "topology, code, and bars are proven in this episode; curve is declared but not sampled, and swimlane/timeline do not yet have a character-stage interaction grammar",
+    "the thinking asset is slightly more realistic and the presenting asset slightly more anime-like, leaving minor cross-pose style drift",
+    "three cue-bound character sounds now exist, but the blind audio producer still ranked the candidate behind both references because the voice remains more mechanical and the BGM/SFX bed feels thinner",
+    "non-topology shots still share the warm-paper frame, card entrance rhythm, and bottom caption stage",
+    "continuity-key transitions preserve direction but do not yet use overlapping shared-element morphs",
+    "evidence connectors do not yet anchor to exact source paragraphs and production narrative trace is not raw model telemetry",
+    "Scene Grammar V2 and Character Stage V3 have not yet been validated by a second long-form episode",
+    "a four-auditor anonymous comparison ranked the candidate first overall and verified clarity as a one-point win, but animation, sound, and evidence did not each clear the frozen one-point margin",
+    "the rubric's five-person human immediate and delayed recall study was not run"
+  ]
+}

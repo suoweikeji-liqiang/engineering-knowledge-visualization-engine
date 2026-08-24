@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "standard": "agent-harness-core-15",
+  "requirements": [
+    {"id": "core-01", "requirement": "模型是推理生成组件，不等于可持续行动的 Agent", "shotIds": ["bare-model", "synthesis"]},
+    {"id": "core-02", "requirement": "Agent 包含目标、模型、循环、工具和状态或环境", "shotIds": ["components"]},
+    {"id": "core-03", "requirement": "用户目标与约束进入系统", "shotIds": ["hook", "live-trace-start"]},
+    {"id": "core-04", "requirement": "Harness 组装指令、历史、状态和工具定义", "shotIds": ["request-compose", "context-compose"]},
+    {"id": "core-05", "requirement": "模型在直接回答与工具调用之间选择", "shotIds": ["tool-decision"]},
+    {"id": "core-06", "requirement": "Tool call 是包含工具名和参数的结构化请求", "shotIds": ["tool-decision", "structured-output"]},
+    {"id": "core-07", "requirement": "Harness 解析、参数校验、权限检查和路由", "shotIds": ["validate-route"]},
+    {"id": "core-08", "requirement": "工具在外部环境或沙箱内真实执行", "shotIds": ["validate-route", "sandbox-approval"]},
+    {"id": "core-09", "requirement": "工具结果作为 Observation 返回上下文", "shotIds": ["tool-result"]},
+    {"id": "core-10", "requirement": "模型读取结果后进入下一轮", "shotIds": ["tool-result", "agent-loop"]},
+    {"id": "core-11", "requirement": "循环以完成、失败、取消、人工介入或预算停止", "shotIds": ["stop-reasons"]},
+    {"id": "core-12", "requirement": "最终答案或 Artifact 返回用户", "shotIds": ["live-trace-finish"]},
+    {"id": "core-13", "requirement": "Harness 管理上下文、会话状态、记忆与压缩", "shotIds": ["context-compose", "context-window", "state-memory"]},
+    {"id": "core-14", "requirement": "超时、权限、坏参数等失败能够重试、修复或恢复", "shotIds": ["structured-output", "retry-idempotency", "checkpoint-resume", "live-trace-recover"]},
+    {"id": "core-15", "requirement": "Trace、日志和评测使执行可检查", "shotIds": ["feedback-eval", "trace-metrics", "live-trace-start", "live-trace-recover", "live-trace-finish"]}
+  ],
+  "additionalRequirements": [
+    {"id": "plus-01", "requirement": "ReAct 与 Plan-and-Execute 的差异", "shotIds": ["planning-modes", "plan-update"]},
+    {"id": "plus-02", "requirement": "多 Agent manager 与 handoff，以及协调代价", "shotIds": ["multi-agent", "multi-agent-cost"]},
+    {"id": "plus-03", "requirement": "Prompt Injection、最小权限、Sandbox、审批和分层防御", "shotIds": ["prompt-injection", "sandbox-approval", "guardrail-boundary"]},
+    {"id": "plus-04", "requirement": "同一案例贯穿 request、tool call、result、failure、recovery、approval、stop reason 与 artifact", "shotIds": ["live-trace-start", "live-trace-recover", "live-trace-finish"]}
+  ]
+}

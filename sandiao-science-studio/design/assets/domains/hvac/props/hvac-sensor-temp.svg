@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 256" width="128" height="256">
+  <g id="hvac-sensor-temp">
+    <rect x="48" y="16" width="32" height="150" rx="6" fill="#8C8C8C" stroke="#13223A" stroke-width="2"/>
+    <circle cx="64" cy="180" r="28" fill="#FA541C" stroke="#13223A" stroke-width="3"/>
+    <rect x="58" y="40" width="12" height="120" rx="4" fill="#FA541C"/>
+    <text x="64" y="240" fill="#13223A" font-family="'SF Mono', monospace" font-size="14" font-weight="bold" text-anchor="middle">℃ SENSOR</text>
+  </g>
+</svg>

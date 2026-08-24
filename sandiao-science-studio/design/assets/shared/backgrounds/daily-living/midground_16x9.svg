@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Daily Living: Midground Layer -->
+  <!-- Indoor AC Unit mounted high on right -->
+  <g transform="translate(1420, 120)">
+    <rect x="0" y="0" width="380" height="140" rx="18" fill="#FFFFFF" stroke="#13223A" stroke-width="3.5"/>
+    <!-- Louver air flap -->
+    <rect x="20" y="100" width="340" height="24" rx="6" fill="#F0F5FF" stroke="#13223A" stroke-width="2"/>
+    <!-- LED temperature display (16C) -->
+    <rect x="300" y="30" width="56" height="32" rx="6" fill="#101C31"/>
+    <text x="328" y="53" fill="#1FD6E2" font-family="'SF Mono', monospace" font-size="16" font-weight="bold" text-anchor="middle">16℃</text>
+  </g>
+  <!-- Modern Bookshelf on far left -->
+  <g transform="translate(60, 600)">
+    <rect x="0" y="0" width="160" height="240" rx="10" fill="#874D00" stroke="#13223A" stroke-width="3"/>
+    <rect x="15" y="20" width="30" height="80" rx="4" fill="#1890FF"/>
+    <rect x="50" y="20" width="24" height="80" rx="4" fill="#FA541C"/>
+    <rect x="80" y="35" width="28" height="65" rx="4" fill="#52C41A"/>
+  </g>
+</svg>

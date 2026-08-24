@@ -1,0 +1,1642 @@
+{
+  "schemaVersion": "1.0",
+  "contract": "semantic-visual-events-are-triggered-from-this-manifest",
+  "mappingPolicy": {
+    "mode": "explicit-human-semantic",
+    "timingSource": "forced-alignment-word-timestamps",
+    "requiresCueIndexForEveryEvent": true,
+    "proportionalFallbackAllowed": false,
+    "excludedStaticContextEvents": [
+      "boundary:primary-source-document",
+      "tool-result:tool_call-prior-context"
+    ]
+  },
+  "entryOffset": 0.46,
+  "events": 129,
+  "within500ms": 1,
+  "maximumDeltaSeconds": 0.46,
+  "shots": [
+    {
+      "shotId": "hook",
+      "visualKind": "character",
+      "shotStart": 0,
+      "events": [
+        {
+          "id": "hook:visual:01",
+          "label": "脚本 ✓",
+          "cueIndex": 2,
+          "cueText": "做成一条能发布的视频。几秒后，它给了我一段文案。",
+          "narrationStart": 5.626,
+          "activeStart": 5.166,
+          "renderedStart": 5.626,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "hook:visual:02",
+          "label": "证据 ○",
+          "cueIndex": 3,
+          "cueText": "任务完成了吗？没有。研究、核验、配图、配音、",
+          "narrationStart": 10.897,
+          "activeStart": 10.437,
+          "renderedStart": 10.897,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "hook:visual:03",
+          "label": "画面 ○",
+          "cueIndex": 3,
+          "cueText": "任务完成了吗？没有。研究、核验、配图、配音、",
+          "narrationStart": 10.897,
+          "activeStart": 10.437,
+          "renderedStart": 10.897,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "hook:visual:04",
+          "label": "音频 ○",
+          "cueIndex": 3,
+          "cueText": "任务完成了吗？没有。研究、核验、配图、配音、",
+          "narrationStart": 10.897,
+          "activeStart": 10.437,
+          "renderedStart": 10.897,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "hook:visual:05",
+          "label": "成片 ○",
+          "cueIndex": 4,
+          "cueText": "渲染、检查和发布，一个都没有自动发生。",
+          "narrationStart": 16.542,
+          "activeStart": 16.082,
+          "renderedStart": 16.542,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "bare-model",
+      "visualKind": "compare",
+      "shotStart": 20.281,
+      "events": [
+        {
+          "id": "bare-model:visual:01",
+          "label": "MODEL CALL",
+          "cueIndex": 0,
+          "cueText": "单次模型调用的边界很清楚：输入一组消息，",
+          "narrationStart": 20.281,
+          "activeStart": 0,
+          "renderedStart": 20.741,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "bare-model:visual:02",
+          "label": "REAL TASK",
+          "cueIndex": 5,
+          "cueText": "模型完成的是一次判断，不是一个跨环境的目标。",
+          "narrationStart": 36.356,
+          "activeStart": 15.615,
+          "renderedStart": 36.356,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "boundary",
+      "visualKind": "evidence",
+      "shotStart": 40.54,
+      "events": [
+        {
+          "id": "boundary:visual:01",
+          "label": "Agents independently accomplish tasks on your behalf.",
+          "cueIndex": 2,
+          "cueText": "Agent 则让模型根据当前结果，",
+          "narrationStart": 47.157,
+          "activeStart": 6.157,
+          "renderedStart": 47.157,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "boundary:visual:02",
+          "label": "Workflow 是步骤序列；Agent 让 LLM 控制执行",
+          "cueIndex": 1,
+          "cueText": "流程由人预先写死每一步；",
+          "narrationStart": 44.297,
+          "activeStart": 3.297,
+          "renderedStart": 44.297,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "boundary:visual:03",
+          "label": "路径不确定、需要反馈时才值得用 Agent",
+          "cueIndex": 5,
+          "cueText": "通常优先用流程；只有路径不确定、需要反馈的任务，",
+          "narrationStart": 58.222,
+          "activeStart": 17.222,
+          "renderedStart": 58.222,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "components",
+      "visualKind": "topology",
+      "shotStart": 63.883,
+      "events": [
+        {
+          "id": "components:visual:01",
+          "label": "GOAL",
+          "cueIndex": 1,
+          "cueText": "用户目标，负责判断的模型，能影响真实世界的工具，",
+          "narrationStart": 67.192,
+          "activeStart": 2.848,
+          "renderedStart": 67.192,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "components:visual:02",
+          "label": "MODEL",
+          "cueIndex": 1,
+          "cueText": "用户目标，负责判断的模型，能影响真实世界的工具，",
+          "narrationStart": 67.192,
+          "activeStart": 2.848,
+          "renderedStart": 67.192,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "components:visual:03",
+          "label": "TOOLS",
+          "cueIndex": 1,
+          "cueText": "用户目标，负责判断的模型，能影响真实世界的工具，",
+          "narrationStart": 67.192,
+          "activeStart": 2.848,
+          "renderedStart": 67.192,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "components:visual:04",
+          "label": "STATE",
+          "cueIndex": 2,
+          "cueText": "保存进度的状态，以及驱动这一切反复运行的循环。",
+          "narrationStart": 72.051,
+          "activeStart": 7.708,
+          "renderedStart": 72.051,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "components:visual:05",
+          "label": "LOOP",
+          "cueIndex": 2,
+          "cueText": "保存进度的状态，以及驱动这一切反复运行的循环。",
+          "narrationStart": 72.051,
+          "activeStart": 7.708,
+          "renderedStart": 72.051,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "request-compose",
+      "visualKind": "stack",
+      "shotStart": 83.299,
+      "events": [
+        {
+          "id": "request-compose:visual:01",
+          "label": "system instructions",
+          "cueIndex": 1,
+          "cueText": "Harness 先把系统指令、用户目标、",
+          "narrationStart": 86.505,
+          "activeStart": 2.746,
+          "renderedStart": 86.505,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "request-compose:visual:02",
+          "label": "user goal",
+          "cueIndex": 1,
+          "cueText": "Harness 先把系统指令、用户目标、",
+          "narrationStart": 86.505,
+          "activeStart": 2.746,
+          "renderedStart": 86.505,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "request-compose:visual:03",
+          "label": "history",
+          "cueIndex": 2,
+          "cueText": "会话历史、当前项目状态，以及可用工具的名称、",
+          "narrationStart": 90.215,
+          "activeStart": 6.456,
+          "renderedStart": 90.215,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "request-compose:visual:04",
+          "label": "workspace state",
+          "cueIndex": 2,
+          "cueText": "会话历史、当前项目状态，以及可用工具的名称、",
+          "narrationStart": 90.215,
+          "activeStart": 6.456,
+          "renderedStart": 90.215,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "request-compose:visual:05",
+          "label": "tool schemas",
+          "cueIndex": 3,
+          "cueText": "说明和参数 Schema，组装成模型请求。",
+          "narrationStart": 94.308,
+          "activeStart": 10.549,
+          "renderedStart": 94.308,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "request-compose:visual:06",
+          "label": "MODEL REQUEST",
+          "cueIndex": 3,
+          "cueText": "说明和参数 Schema，组装成模型请求。",
+          "narrationStart": 94.308,
+          "activeStart": 10.549,
+          "renderedStart": 94.308,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "tool-decision",
+      "visualKind": "code",
+      "shotStart": 106.74,
+      "events": [
+        {
+          "id": "tool-decision:visual:01",
+          "label": "  \"type\": \"tool_call\",",
+          "cueIndex": 1,
+          "cueText": "也可以返回结构化的 tool call。比如，",
+          "narrationStart": 109.45,
+          "activeStart": 2.25,
+          "renderedStart": 109.45,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "tool-decision:visual:02",
+          "label": "  \"name\": \"search_sources\",",
+          "cueIndex": 3,
+          "cueText": "于是选择 search_sources，",
+          "narrationStart": 114.516,
+          "activeStart": 7.316,
+          "renderedStart": 114.516,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "tool-decision:visual:03",
+          "label": "  \"arguments\": {\"query\": \"agent harness\"}",
+          "cueIndex": 4,
+          "cueText": "并给出 query、域名范围和时间条件。注意：",
+          "narrationStart": 117.039,
+          "activeStart": 9.839,
+          "renderedStart": 117.039,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "validate-route",
+      "visualKind": "gates",
+      "shotStart": 129.404,
+      "events": [
+        {
+          "id": "validate-route:visual:01",
+          "label": "parse",
+          "cueIndex": 0,
+          "cueText": "接下来才轮到 Harness：解析调用，",
+          "narrationStart": 129.404,
+          "activeStart": 0,
+          "renderedStart": 129.864,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "validate-route:visual:02",
+          "label": "schema",
+          "cueIndex": 1,
+          "cueText": "检查工具是否存在，用 Schema 校验参数，",
+          "narrationStart": 132.843,
+          "activeStart": 2.979,
+          "renderedStart": 132.843,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "validate-route:visual:03",
+          "label": "permission",
+          "cueIndex": 2,
+          "cueText": "再检查当前主体有没有网络权限，",
+          "narrationStart": 136.413,
+          "activeStart": 6.549,
+          "renderedStart": 136.413,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "validate-route:visual:04",
+          "label": "approval",
+          "cueIndex": 3,
+          "cueText": "以及这个动作是否需要人工批准。全部通过，",
+          "narrationStart": 139.684,
+          "activeStart": 9.82,
+          "renderedStart": 139.684,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "validate-route:visual:05",
+          "label": "route",
+          "cueIndex": 4,
+          "cueText": "路由器才会把请求交给搜索工具。坏参数、",
+          "narrationStart": 143.516,
+          "activeStart": 13.652,
+          "renderedStart": 143.516,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "validate-route:visual:06",
+          "label": "EXECUTE",
+          "cueIndex": 4,
+          "cueText": "路由器才会把请求交给搜索工具。坏参数、",
+          "narrationStart": 143.516,
+          "activeStart": 13.652,
+          "renderedStart": 143.516,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "tool-result",
+      "visualKind": "swimlane",
+      "shotStart": 152.327,
+      "events": [
+        {
+          "id": "tool-result:visual:01",
+          "label": "validate + execute",
+          "cueIndex": 0,
+          "cueText": "工具在浏览器、文件系统或沙箱里真正执行，",
+          "narrationStart": 152.327,
+          "activeStart": 0,
+          "renderedStart": 152.787,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "tool-result:visual:02",
+          "label": "search results",
+          "cueIndex": 1,
+          "cueText": "再返回结构化结果。",
+          "narrationStart": 156.907,
+          "activeStart": 4.119,
+          "renderedStart": 156.907,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "tool-result:visual:03",
+          "label": "tool_result",
+          "cueIndex": 2,
+          "cueText": "Harness 把 tool result 连同调用标识写回历史，",
+          "narrationStart": 158.645,
+          "activeStart": 5.858,
+          "renderedStart": 158.645,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "tool-result:visual:04",
+          "label": "next decision / final response",
+          "cueIndex": 5,
+          "cueText": "模型读取结果，修正计划，决定下一个动作。",
+          "narrationStart": 168.72,
+          "activeStart": 15.933,
+          "renderedStart": 168.72,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "agent-loop",
+      "visualKind": "loop",
+      "shotStart": 176.143,
+      "events": [
+        {
+          "id": "agent-loop:visual:01",
+          "label": "GOAL",
+          "cueIndex": 1,
+          "cueText": "理解目标，决定下一步，执行工具，观察结果，",
+          "narrationStart": 179.264,
+          "activeStart": 2.661,
+          "renderedStart": 179.264,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "agent-loop:visual:02",
+          "label": "DECIDE",
+          "cueIndex": 1,
+          "cueText": "理解目标，决定下一步，执行工具，观察结果，",
+          "narrationStart": 179.264,
+          "activeStart": 2.661,
+          "renderedStart": 179.264,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "agent-loop:visual:03",
+          "label": "ACT",
+          "cueIndex": 1,
+          "cueText": "理解目标，决定下一步，执行工具，观察结果，",
+          "narrationStart": 179.264,
+          "activeStart": 2.661,
+          "renderedStart": 179.264,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "agent-loop:visual:04",
+          "label": "OBSERVE",
+          "cueIndex": 1,
+          "cueText": "理解目标，决定下一步，执行工具，观察结果，",
+          "narrationStart": 179.264,
+          "activeStart": 2.661,
+          "renderedStart": 179.264,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "agent-loop:visual:05",
+          "label": "UPDATE",
+          "cueIndex": 2,
+          "cueText": "更新状态，再判断是否继续。ReAct 的关键，",
+          "narrationStart": 184.012,
+          "activeStart": 7.409,
+          "renderedStart": 184.012,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "stop-reasons",
+      "visualKind": "topology",
+      "shotStart": 203.597,
+      "events": [
+        {
+          "id": "stop-reasons:visual:01",
+          "label": "DONE",
+          "cueIndex": 0,
+          "cueText": "循环必须有出口。完成标准满足时返回 done；",
+          "narrationStart": 203.597,
+          "activeStart": 0,
+          "renderedStart": 204.057,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "stop-reasons:visual:02",
+          "label": "FAILED",
+          "cueIndex": 1,
+          "cueText": "工具持续失败时进入 failed；缺少权限、",
+          "narrationStart": 210.793,
+          "activeStart": 6.736,
+          "renderedStart": 210.793,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "stop-reasons:visual:03",
+          "label": "NEEDS HUMAN",
+          "cueIndex": 2,
+          "cueText": "信息或高风险批准时进入 needs human；",
+          "narrationStart": 215.223,
+          "activeStart": 11.166,
+          "renderedStart": 215.223,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "stop-reasons:visual:04",
+          "label": "CANCELLED",
+          "cueIndex": 3,
+          "cueText": "用户也可以取消。",
+          "narrationStart": 219.803,
+          "activeStart": 15.746,
+          "renderedStart": 219.803,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "planning-modes",
+      "visualKind": "compare",
+      "shotStart": 232.861,
+      "events": [
+        {
+          "id": "planning-modes:visual:01",
+          "label": "REACT",
+          "cueIndex": 0,
+          "cueText": "走一步看一步的 ReAct，适合环境变化快、",
+          "narrationStart": 232.861,
+          "activeStart": 0,
+          "renderedStart": 233.321,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "planning-modes:visual:02",
+          "label": "PLAN + EXECUTE",
+          "cueIndex": 2,
+          "cueText": "复杂项目更适合 Plan and Execute：",
+          "narrationStart": 238.833,
+          "activeStart": 5.512,
+          "renderedStart": 238.833,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "plan-update",
+      "visualKind": "timeline",
+      "shotStart": 255.422,
+      "events": [
+        {
+          "id": "plan-update:visual:01",
+          "label": "reference · missing subtitles",
+          "cueIndex": 0,
+          "cueText": "计划本身也是状态。研究阶段发现参考视频没有字幕，",
+          "narrationStart": 255.815,
+          "activeStart": 0,
+          "renderedStart": 255.882,
+          "deltaSeconds": 0.067,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "plan-update:visual:02",
+          "label": "ASR task · inserted",
+          "cueIndex": 1,
+          "cueText": "就要新增音频转写；视觉检查发现角色与背景不匹配，",
+          "narrationStart": 261.049,
+          "activeStart": 5.166,
+          "renderedStart": 261.049,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "plan-update:visual:03",
+          "label": "character/background · mismatch",
+          "cueIndex": 1,
+          "cueText": "就要新增音频转写；视觉检查发现角色与背景不匹配，",
+          "narrationStart": 261.049,
+          "activeStart": 5.166,
+          "renderedStart": 261.049,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "plan-update:visual:04",
+          "label": "asset step · reopened",
+          "cueIndex": 2,
+          "cueText": "就要回到资产步骤。",
+          "narrationStart": 266.899,
+          "activeStart": 11.017,
+          "renderedStart": 266.899,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "plan-update:visual:05",
+          "label": "plan · evidence updated",
+          "cueIndex": 5,
+          "cueText": "并把新证据写回计划。能根据结果重规划，",
+          "narrationStart": 273.067,
+          "activeStart": 17.185,
+          "renderedStart": 273.067,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "context-compose",
+      "visualKind": "stack",
+      "shotStart": 280.007,
+      "events": [
+        {
+          "id": "context-compose:visual:01",
+          "label": "instructions",
+          "cueIndex": 1,
+          "cueText": "每一轮，都是 Harness 重新挑选系统指令、",
+          "narrationStart": 284.063,
+          "activeStart": 3.596,
+          "renderedStart": 284.063,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "context-compose:visual:02",
+          "label": "selected history",
+          "cueIndex": 2,
+          "cueText": "历史消息、工具结果、当前计划和工作区摘要，",
+          "narrationStart": 288.007,
+          "activeStart": 7.54,
+          "renderedStart": 288.007,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "context-compose:visual:03",
+          "label": "tool results",
+          "cueIndex": 2,
+          "cueText": "历史消息、工具结果、当前计划和工作区摘要，",
+          "narrationStart": 288.007,
+          "activeStart": 7.54,
+          "renderedStart": 288.007,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "context-compose:visual:04",
+          "label": "plan + state",
+          "cueIndex": 2,
+          "cueText": "历史消息、工具结果、当前计划和工作区摘要，",
+          "narrationStart": 288.007,
+          "activeStart": 7.54,
+          "renderedStart": 288.007,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "context-compose:visual:05",
+          "label": "workspace summary",
+          "cueIndex": 2,
+          "cueText": "历史消息、工具结果、当前计划和工作区摘要，",
+          "narrationStart": 288.007,
+          "activeStart": 7.54,
+          "renderedStart": 288.007,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "context-compose:visual:06",
+          "label": "NEXT REQUEST",
+          "cueIndex": 3,
+          "cueText": "再组装进上下文。哪些信息留下，哪些隐藏，",
+          "narrationStart": 292.25,
+          "activeStart": 11.783,
+          "renderedStart": 292.25,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "context-window",
+      "visualKind": "bars",
+      "shotStart": 303.784,
+      "events": [
+        {
+          "id": "context-window:visual:01",
+          "label": "messages + code",
+          "cueIndex": 0,
+          "cueText": "上下文窗口有上限。消息、源码和工具结果不断增长，",
+          "narrationStart": 303.784,
+          "activeStart": 0,
+          "renderedStart": 304.244,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "context-window:visual:02",
+          "label": "history",
+          "cueIndex": 0,
+          "cueText": "上下文窗口有上限。消息、源码和工具结果不断增长，",
+          "narrationStart": 303.784,
+          "activeStart": 0,
+          "renderedStart": 304.244,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "context-window:visual:03",
+          "label": "tool results",
+          "cueIndex": 0,
+          "cueText": "上下文窗口有上限。消息、源码和工具结果不断增长，",
+          "narrationStart": 303.784,
+          "activeStart": 0,
+          "renderedStart": 304.244,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "context-window:visual:04",
+          "label": "free",
+          "cueIndex": 1,
+          "cueText": "最终会挤满窗口。Harness 可以裁剪旧消息，",
+          "narrationStart": 308.532,
+          "activeStart": 4.288,
+          "renderedStart": 308.532,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "context-window:visual:05",
+          "label": "after / compacted",
+          "cueIndex": 2,
+          "cueText": "或者把长历史压缩成摘要，再把摘要带入后续轮次。",
+          "narrationStart": 312.513,
+          "activeStart": 8.269,
+          "renderedStart": 312.513,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "state-memory",
+      "visualKind": "topology",
+      "shotStart": 328.823,
+      "events": [
+        {
+          "id": "state-memory:visual:01",
+          "label": "STATE · 当前进度",
+          "cueIndex": 1,
+          "cueText": "状态描述任务此刻进行到哪里；",
+          "narrationStart": 332.393,
+          "activeStart": 3.11,
+          "renderedStart": 332.393,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "state-memory:visual:02",
+          "label": "MEMORY · 跨任务经验",
+          "cueIndex": 2,
+          "cueText": "长期记忆保存跨任务仍有价值的偏好或经验；",
+          "narrationStart": 335.627,
+          "activeStart": 6.344,
+          "renderedStart": 335.627,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "state-memory:visual:03",
+          "label": "ARTIFACT · 外部成果",
+          "cueIndex": 3,
+          "cueText": "文件是外部可检查的工作成果；",
+          "narrationStart": 339.683,
+          "activeStart": 10.4,
+          "renderedStart": 339.683,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "state-memory:visual:04",
+          "label": "CHECKPOINT · 恢复快照",
+          "cueIndex": 4,
+          "cueText": "检查点则保存恢复所需的最小快照。崩溃以后，",
+          "narrationStart": 342.375,
+          "activeStart": 13.091,
+          "renderedStart": 342.375,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "multi-agent",
+      "visualKind": "topology",
+      "shotStart": 352.921,
+      "events": [
+        {
+          "id": "multi-agent:visual:01",
+          "label": "RESEARCH",
+          "cueIndex": 1,
+          "cueText": "管理者把研究、脚本、",
+          "narrationStart": 355.931,
+          "activeStart": 2.549,
+          "renderedStart": 355.931,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "multi-agent:visual:02",
+          "label": "SCRIPT",
+          "cueIndex": 1,
+          "cueText": "管理者把研究、脚本、",
+          "narrationStart": 355.931,
+          "activeStart": 2.549,
+          "renderedStart": 355.931,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "multi-agent:visual:03",
+          "label": "VISUAL",
+          "cueIndex": 2,
+          "cueText": "视觉和 QA 派给独立工作台，",
+          "narrationStart": 357.8,
+          "activeStart": 4.419,
+          "renderedStart": 357.8,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "multi-agent:visual:04",
+          "label": "QA",
+          "cueIndex": 2,
+          "cueText": "视觉和 QA 派给独立工作台，",
+          "narrationStart": 357.8,
+          "activeStart": 4.419,
+          "renderedStart": 357.8,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "multi-agent-cost",
+      "visualKind": "curve",
+      "shotStart": 375.226,
+      "events": [
+        {
+          "id": "multi-agent-cost:visual:01",
+          "label": "speed",
+          "cueIndex": 1,
+          "cueText": "并行能缩短墙钟时间，隔离上下文也能减少干扰；",
+          "narrationStart": 377.357,
+          "activeStart": 1.671,
+          "renderedStart": 377.357,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "multi-agent-cost:visual:02",
+          "label": "coordination",
+          "cueIndex": 2,
+          "cueText": "但它增加 Token、延迟、冲突和追踪难度。",
+          "narrationStart": 382.011,
+          "activeStart": 6.325,
+          "renderedStart": 382.011,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "structured-output",
+      "visualKind": "code",
+      "shotStart": 398.706,
+      "events": [
+        {
+          "id": "structured-output:visual:01",
+          "label": "  \"args\": {\"fps\": \"fast\"},",
+          "cueIndex": 2,
+          "cueText": "或者把日期写成错误类型。",
+          "narrationStart": 405.939,
+          "activeStart": 6.774,
+          "renderedStart": 405.939,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "structured-output:visual:02",
+          "label": "validator: $.args.fps must be integer",
+          "cueIndex": 3,
+          "cueText": "Harness 先做 JSON 解析和 Schema 校验；",
+          "narrationStart": 408.911,
+          "activeStart": 9.746,
+          "renderedStart": 408.911,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "retry-idempotency",
+      "visualKind": "timeline",
+      "shotStart": 422.865,
+      "events": [
+        {
+          "id": "retry-idempotency:visual:01",
+          "label": "timeout · outcome unknown",
+          "cueIndex": 0,
+          "cueText": "网络超时不代表动作没有发生。",
+          "narrationStart": 422.865,
+          "activeStart": 0,
+          "renderedStart": 423.325,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "retry-idempotency:visual:02",
+          "label": "classify retryable",
+          "cueIndex": 1,
+          "cueText": "Harness 重试前必须区分可重试错误和永久错误，",
+          "narrationStart": 425.65,
+          "activeStart": 2.325,
+          "renderedStart": 425.65,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "retry-idempotency:visual:03",
+          "label": "backoff + idempotency key",
+          "cueIndex": 2,
+          "cueText": "使用退避，限制次数，并给有副作用的请求加幂等键。",
+          "narrationStart": 430.921,
+          "activeStart": 7.596,
+          "renderedStart": 430.921,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "retry-idempotency:visual:04",
+          "label": "upload already committed",
+          "cueIndex": 3,
+          "cueText": "否则第一次上传已经成功，只是响应丢了；",
+          "narrationStart": 435.763,
+          "activeStart": 12.437,
+          "renderedStart": 435.763,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "retry-idempotency:visual:05",
+          "label": "avoid duplicate publish",
+          "cueIndex": 4,
+          "cueText": "第二次盲目重试，就会发布两条相同视频。",
+          "narrationStart": 439.837,
+          "activeStart": 16.512,
+          "renderedStart": 439.837,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "checkpoint-resume",
+      "visualKind": "character",
+      "shotStart": 449.744,
+      "events": [
+        {
+          "id": "checkpoint-resume:visual:01",
+          "label": "render process ✕",
+          "cueIndex": 0,
+          "cueText": "如果渲染进程在第十八分钟崩溃，",
+          "narrationStart": 449.744,
+          "activeStart": 0,
+          "renderedStart": 450.204,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "checkpoint-resume:visual:02",
+          "label": "checkpoint found ✓",
+          "cueIndex": 2,
+          "cueText": "Harness 从检查点恢复已确认的来源、",
+          "narrationStart": 449.968,
+          "activeStart": 0,
+          "renderedStart": 450.204,
+          "deltaSeconds": 0.236,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "checkpoint-resume:visual:03",
+          "label": "script + voice ✓",
+          "cueIndex": 3,
+          "cueText": "脚本版本、音频清单和渲染帧，",
+          "narrationStart": 459.127,
+          "activeStart": 8.923,
+          "renderedStart": 459.127,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "checkpoint-resume:visual:04",
+          "label": "downstream only ↻",
+          "cueIndex": 4,
+          "cueText": "只重跑受影响的下游步骤。恢复以后还要验证指纹，",
+          "narrationStart": 462.342,
+          "activeStart": 12.138,
+          "renderedStart": 462.342,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "checkpoint-resume:visual:05",
+          "label": "fingerprint verified ✓",
+          "cueIndex": 5,
+          "cueText": "避免拿旧音频配新画面。",
+          "narrationStart": 467.052,
+          "activeStart": 16.848,
+          "renderedStart": 467.052,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "prompt-injection",
+      "visualKind": "gates",
+      "shotStart": 474.533,
+      "events": [
+        {
+          "id": "prompt-injection:visual:01",
+          "label": "mark untrusted data",
+          "cueIndex": 4,
+          "cueText": "Harness 必须把外部内容视为不可信数据，",
+          "narrationStart": 488.997,
+          "activeStart": 14.004,
+          "renderedStart": 488.997,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "prompt-injection:visual:02",
+          "label": "separate instructions",
+          "cueIndex": 5,
+          "cueText": "隔离指令与资料，限制工具权限，",
+          "narrationStart": 492.383,
+          "activeStart": 17.39,
+          "renderedStart": 492.383,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "prompt-injection:visual:03",
+          "label": "least privilege",
+          "cueIndex": 5,
+          "cueText": "隔离指令与资料，限制工具权限，",
+          "narrationStart": 492.383,
+          "activeStart": 17.39,
+          "renderedStart": 492.383,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "prompt-injection:visual:04",
+          "label": "deny secret access",
+          "cueIndex": 6,
+          "cueText": "并避免把秘密无条件放进模型可见范围。",
+          "narrationStart": 495,
+          "activeStart": 20.007,
+          "renderedStart": 495,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "prompt-injection:visual:05",
+          "label": "LIMITED OBSERVATION",
+          "cueIndex": 6,
+          "cueText": "并避免把秘密无条件放进模型可见范围。",
+          "narrationStart": 495,
+          "activeStart": 20.007,
+          "renderedStart": 495,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "sandbox-approval",
+      "visualKind": "gates",
+      "shotStart": 498.467,
+      "events": [
+        {
+          "id": "sandbox-approval:visual:01",
+          "label": "workspace scope",
+          "cueIndex": 0,
+          "cueText": "Sandbox 把文件、",
+          "narrationStart": 498.467,
+          "activeStart": 0,
+          "renderedStart": 498.927,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "sandbox-approval:visual:02",
+          "label": "network policy",
+          "cueIndex": 1,
+          "cueText": "进程和网络限制在允许范围；",
+          "narrationStart": 500.542,
+          "activeStart": 1.615,
+          "renderedStart": 500.542,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "sandbox-approval:visual:03",
+          "label": "least privilege",
+          "cueIndex": 2,
+          "cueText": "最小权限让工具只能访问完成任务所需的资源。",
+          "narrationStart": 503.85,
+          "activeStart": 4.923,
+          "renderedStart": 503.85,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "sandbox-approval:visual:04",
+          "label": "HUMAN APPROVAL",
+          "cueIndex": 4,
+          "cueText": "发布内容或付款，也应该停在审批门前，",
+          "narrationStart": 512.243,
+          "activeStart": 13.316,
+          "renderedStart": 512.243,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "sandbox-approval:visual:05",
+          "label": "HUMAN DECISION",
+          "cueIndex": 5,
+          "cueText": "让人看见目标、参数和影响范围。",
+          "narrationStart": 515.738,
+          "activeStart": 16.811,
+          "renderedStart": 515.738,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "guardrail-boundary",
+      "visualKind": "stack",
+      "shotStart": 523.434,
+      "events": [
+        {
+          "id": "guardrail-boundary:visual:01",
+          "label": "input filtering + output checks",
+          "cueIndex": 0,
+          "cueText": "输入过滤、输出检查、",
+          "narrationStart": 523.434,
+          "activeStart": 0,
+          "renderedStart": 523.894,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "guardrail-boundary:visual:02",
+          "label": "classifiers + policies",
+          "cueIndex": 1,
+          "cueText": "内容分类器和策略规则都是分层防御，",
+          "narrationStart": 525.938,
+          "activeStart": 2.045,
+          "renderedStart": 525.938,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "guardrail-boundary:visual:03",
+          "label": "authn + authz",
+          "cueIndex": 3,
+          "cueText": "也不能替代认证、授权、沙箱、审计和传统应用安全。",
+          "narrationStart": 532.48,
+          "activeStart": 8.587,
+          "renderedStart": 532.48,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "guardrail-boundary:visual:04",
+          "label": "sandbox + audit",
+          "cueIndex": 3,
+          "cueText": "也不能替代认证、授权、沙箱、审计和传统应用安全。",
+          "narrationStart": 532.48,
+          "activeStart": 8.587,
+          "renderedStart": 532.48,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "guardrail-boundary:visual:05",
+          "label": "least privilege",
+          "cueIndex": 5,
+          "cueText": "就让 Agent 拿到所有密钥和生产权限。",
+          "narrationStart": 541.265,
+          "activeStart": 17.372,
+          "renderedStart": 541.265,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "guardrail-boundary:visual:06",
+          "label": "DEFENSE IN DEPTH",
+          "cueIndex": 6,
+          "cueText": "可靠系统假设防线会失效，并限制失效后的损害。",
+          "narrationStart": 544.779,
+          "activeStart": 20.886,
+          "renderedStart": 544.779,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "feedback-eval",
+      "visualKind": "topology",
+      "shotStart": 548.855,
+      "events": [
+        {
+          "id": "feedback-eval:visual:01",
+          "label": "unit tests",
+          "cueIndex": 2,
+          "cueText": "代码任务跑测试和 lint；",
+          "narrationStart": 554.818,
+          "activeStart": 5.503,
+          "renderedStart": 554.818,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "feedback-eval:visual:02",
+          "label": "citation check",
+          "cueIndex": 3,
+          "cueText": "研究任务检查引用是否存在；视频任务做 ASR、",
+          "narrationStart": 557.341,
+          "activeStart": 8.026,
+          "renderedStart": 557.341,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "feedback-eval:visual:03",
+          "label": "ASR review",
+          "cueIndex": 3,
+          "cueText": "研究任务检查引用是否存在；视频任务做 ASR、",
+          "narrationStart": 557.341,
+          "activeStart": 8.026,
+          "renderedStart": 557.341,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "feedback-eval:visual:04",
+          "label": "visual QA",
+          "cueIndex": 4,
+          "cueText": "画面越界、黑帧和音画同步检查。失败一旦反复出现，",
+          "narrationStart": 561.379,
+          "activeStart": 12.063,
+          "renderedStart": 561.379,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "feedback-eval:visual:05",
+          "label": "executable constraints",
+          "cueIndex": 8,
+          "cueText": "就是把经验变成可执行约束。",
+          "narrationStart": 571.902,
+          "activeStart": 22.587,
+          "renderedStart": 571.902,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "trace-metrics",
+      "visualKind": "bars",
+      "shotStart": 574.46,
+      "events": [
+        {
+          "id": "trace-metrics:visual:01",
+          "label": "success",
+          "cueIndex": 3,
+          "cueText": "也能计算任务成功率、延迟、成本、",
+          "narrationStart": 585.918,
+          "activeStart": 10.998,
+          "renderedStart": 585.918,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "trace-metrics:visual:02",
+          "label": "latency",
+          "cueIndex": 3,
+          "cueText": "也能计算任务成功率、延迟、成本、",
+          "narrationStart": 585.918,
+          "activeStart": 10.998,
+          "renderedStart": 585.918,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "trace-metrics:visual:03",
+          "label": "retry",
+          "cueIndex": 4,
+          "cueText": "重试次数和人工接管率。日志不是为了堆满终端，",
+          "narrationStart": 589.581,
+          "activeStart": 14.661,
+          "renderedStart": 589.581,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "live-trace-start",
+      "visualKind": "swimlane",
+      "shotStart": 599.829,
+      "events": [
+        {
+          "id": "live-trace-start:visual:01",
+          "label": "goal + constraints",
+          "cueIndex": 1,
+          "cueText": "用户目标进入 Harness；它加载女声、片长、",
+          "narrationStart": 602.109,
+          "activeStart": 1.82,
+          "renderedStart": 602.109,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-start:visual:02",
+          "label": "tool_call search_sources",
+          "cueIndex": 3,
+          "cueText": "模型先调用 search_sources，",
+          "narrationStart": 610.894,
+          "activeStart": 10.605,
+          "renderedStart": 610.894,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-start:visual:03",
+          "label": "schema + network policy",
+          "cueIndex": 4,
+          "cueText": "Harness 校验参数和网络范围后执行；",
+          "narrationStart": 614.278,
+          "activeStart": 13.989,
+          "renderedStart": 614.278,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-start:visual:04",
+          "label": "12 results",
+          "cueIndex": 5,
+          "cueText": "十二条来源回流，模型选出四条一手材料，",
+          "narrationStart": 617.044,
+          "activeStart": 16.755,
+          "renderedStart": 617.044,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-start:visual:05",
+          "label": "4 primary sources",
+          "cueIndex": 5,
+          "cueText": "十二条来源回流，模型选出四条一手材料，",
+          "narrationStart": 617.044,
+          "activeStart": 16.755,
+          "renderedStart": 617.044,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-start:visual:06",
+          "label": "state diff: script running",
+          "cueIndex": 7,
+          "cueText": "再把脚本任务标为 running。",
+          "narrationStart": 623.736,
+          "activeStart": 23.447,
+          "renderedStart": 623.736,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "live-trace-recover",
+      "visualKind": "timeline",
+      "shotStart": 626.162,
+      "events": [
+        {
+          "id": "live-trace-recover:visual:01",
+          "label": "render page 12 · timeout",
+          "cueIndex": 0,
+          "cueText": "渲染阶段第一次失败：浏览器在第十二页超时。",
+          "narrationStart": 626.162,
+          "activeStart": 0,
+          "renderedStart": 626.622,
+          "deltaSeconds": 0.46,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-recover:visual:02",
+          "label": "checkpoint frame 12,840",
+          "cueIndex": 3,
+          "cueText": "而是从 frame checkpoint 恢复，",
+          "narrationStart": 635.9,
+          "activeStart": 9.278,
+          "renderedStart": 635.9,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-recover:visual:03",
+          "label": "retry concurrency 4 → 2",
+          "cueIndex": 4,
+          "cueText": "降低并发后重试。随后发布工具请求外部写入，",
+          "narrationStart": 637.807,
+          "activeStart": 11.185,
+          "renderedStart": 637.807,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-recover:visual:04",
+          "label": "retry render · concurrency 2",
+          "cueIndex": 4,
+          "cueText": "降低并发后重试。随后发布工具请求外部写入，",
+          "narrationStart": 637.807,
+          "activeStart": 11.185,
+          "renderedStart": 637.807,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-recover:visual:05",
+          "label": "publish · needs human",
+          "cueIndex": 5,
+          "cueText": "审批门暂停循环；我确认标题、平台和文件指纹，",
+          "narrationStart": 642.779,
+          "activeStart": 16.157,
+          "renderedStart": 642.779,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-recover:visual:06",
+          "label": "approved by xiaolan",
+          "cueIndex": 6,
+          "cueText": "才允许继续。一次恢复，一次人工批准，",
+          "narrationStart": 647.377,
+          "activeStart": 20.755,
+          "renderedStart": 647.377,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "live-trace-finish",
+      "visualKind": "character",
+      "shotStart": 652.437,
+      "events": [
+        {
+          "id": "live-trace-finish:visual:01",
+          "label": "video.mp4 ✓",
+          "cueIndex": 3,
+          "cueText": "失败就返回对应阶段修复。最终交付 MP4、字幕、",
+          "narrationStart": 664.045,
+          "activeStart": 11.147,
+          "renderedStart": 664.045,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-finish:visual:02",
+          "label": "subtitles.srt ✓",
+          "cueIndex": 3,
+          "cueText": "失败就返回对应阶段修复。最终交付 MP4、字幕、",
+          "narrationStart": 664.045,
+          "activeStart": 11.147,
+          "renderedStart": 664.045,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-finish:visual:03",
+          "label": "citations.json ✓",
+          "cueIndex": 4,
+          "cueText": "来源和可交互制作轨迹。",
+          "narrationStart": 668.961,
+          "activeStart": 16.063,
+          "renderedStart": 668.961,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-finish:visual:04",
+          "label": "trace kind · narrative",
+          "cueIndex": 6,
+          "cueText": "这里的轨迹由冻结分镜生成，只示范应记录什么，",
+          "narrationStart": 674.045,
+          "activeStart": 21.147,
+          "renderedStart": 674.045,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "live-trace-finish:visual:05",
+          "label": "raw telemetry · external",
+          "cueIndex": 7,
+          "cueText": "不冒充原始模型遥测。生产系统还应追加调用标识、",
+          "narrationStart": 678.026,
+          "activeStart": 25.129,
+          "renderedStart": 678.026,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    },
+    {
+      "shotId": "synthesis",
+      "visualKind": "topology",
+      "shotStart": 684.524,
+      "events": [
+        {
+          "id": "synthesis:visual:01",
+          "label": "MODEL · decide",
+          "cueIndex": 1,
+          "cueText": "模型负责根据上下文判断下一步；",
+          "narrationStart": 688.562,
+          "activeStart": 3.577,
+          "renderedStart": 688.562,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "synthesis:visual:02",
+          "label": "HARNESS · orchestrate",
+          "cueIndex": 3,
+          "cueText": "Harness 则负责组装上下文、驱动循环、",
+          "narrationStart": 696.356,
+          "activeStart": 11.372,
+          "renderedStart": 696.356,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "synthesis:visual:03",
+          "label": "TOOLS · act",
+          "cueIndex": 4,
+          "cueText": "执行工具、保存状态、控制权限、处理失败，",
+          "narrationStart": 699.982,
+          "activeStart": 14.998,
+          "renderedStart": 699.982,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "synthesis:visual:04",
+          "label": "STATE · remember",
+          "cueIndex": 4,
+          "cueText": "执行工具、保存状态、控制权限、处理失败，",
+          "narrationStart": 699.982,
+          "activeStart": 14.998,
+          "renderedStart": 699.982,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        },
+        {
+          "id": "synthesis:visual:05",
+          "label": "EVALS · verify",
+          "cueIndex": 5,
+          "cueText": "并留下可评测的 Trace。简单确定的任务，",
+          "narrationStart": 704.188,
+          "activeStart": 19.204,
+          "renderedStart": 704.188,
+          "deltaSeconds": 0,
+          "strategy": "explicit-forced-alignment"
+        }
+      ]
+    }
+  ]
+}

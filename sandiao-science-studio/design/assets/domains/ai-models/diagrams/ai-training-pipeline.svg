@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576">
+  <defs></defs>
+  <g id="ai-training-pipeline">
+    <rect id="canvas" x="18" y="42" width="988" height="492" rx="34" fill="#FFFFFF" stroke="#13223A" stroke-width="6"/>
+    <g id="dataset-stage"><path d="M82 210h130v162H82z" fill="#1FD6E2" fill-opacity=".13" stroke="#1FD6E2" stroke-width="5"/><path d="M104 250h86M104 292h70M104 334h92" stroke="#1FD6E2" stroke-width="10" stroke-linecap="round"/></g>
+  <g id="data-flow">
+    <path d="M222 291 L322 291" fill="none" stroke="#1FD6E2" stroke-width="8" stroke-linecap="round"/>
+    <path d="M322 281 L336 291 L322 301" fill="none" stroke="#1FD6E2" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+    <g id="forward-stage"><rect x="348" y="180" width="166" height="222" rx="28" fill="#8B5CF6" fill-opacity=".13" stroke="#8B5CF6" stroke-width="5"/><path d="M384 242h94M384 292h94M384 342h94" stroke="#8B5CF6" stroke-width="11" stroke-linecap="round"/></g>
+  <g id="prediction-flow">
+    <path d="M526 291 L626 291" fill="none" stroke="#8B5CF6" stroke-width="8" stroke-linecap="round"/>
+    <path d="M626 281 L640 291 L626 301" fill="none" stroke="#8B5CF6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+    <g id="loss-stage"><circle cx="708" cy="291" r="66" fill="#F04B2F" fill-opacity=".13" stroke="#F04B2F" stroke-width="5"/><path d="M678 270l60 42M738 270l-60 42" stroke="#F04B2F" stroke-width="8" stroke-linecap="round"/></g>
+    <path id="backprop-flow" d="M708 214 C708 92 430 92 430 164" fill="none" stroke="#F59E0B" stroke-width="8" stroke-linecap="round" stroke-dasharray="14 12"/>
+    <g id="optimizer-stage"><rect x="820" y="228" width="124" height="126" rx="28" fill="#1F5CFF" fill-opacity=".12" stroke="#1F5CFF" stroke-width="5"/><circle cx="882" cy="291" r="32" fill="none" stroke="#1F5CFF" stroke-width="8"/><path d="M882 259v64M850 291h64" stroke="#1F5CFF" stroke-width="6"/></g>
+  </g>
+</svg>

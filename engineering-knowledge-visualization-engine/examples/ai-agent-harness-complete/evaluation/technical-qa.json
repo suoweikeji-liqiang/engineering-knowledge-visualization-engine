@@ -1,0 +1,323 @@
+{
+  "schemaVersion": "1.0",
+  "artifact": "final/ai-agent-harness-complete.mp4",
+  "media": {
+    "duration": 714.833333,
+    "sizeBytes": 265008107,
+    "bitRate": 2965817,
+    "video": {
+      "index": 0,
+      "codec_name": "h264",
+      "codec_type": "video",
+      "width": 1920,
+      "height": 1080,
+      "r_frame_rate": "30/1"
+    },
+    "audio": {
+      "index": 1,
+      "codec_name": "aac",
+      "codec_type": "audio",
+      "sample_rate": "48000",
+      "channels": 2,
+      "r_frame_rate": "0/0"
+    }
+  },
+  "loudness": {
+    "integratedLufs": -16.69,
+    "truePeakDb": -4.01,
+    "rangeLu": 3.5
+  },
+  "blackSegments": [],
+  "motion": {
+    "freezeSegmentsOver3Seconds": 4,
+    "frozenSeconds": 13.333334,
+    "frozenFraction": 0.018652367460318193,
+    "maximumFreezeSeconds": 3.666667
+  },
+  "asr": {
+    "segments": 29,
+    "meanSimilarity": 0.988,
+    "minimumSimilarity": 0.932,
+    "below0_8": 0,
+    "errors": 0
+  },
+  "subtitles": {
+    "cues": 209,
+    "within500ms": 1,
+    "maximumDeltaSeconds": 0.4600000000000364
+  },
+  "forcedAlignment": {
+    "method": "faster-whisper-word-timestamps-plus-frozen-text-alignment",
+    "model": "base",
+    "metrics": {
+      "shots": 29,
+      "meanTranscriptSimilarity": 0.8663,
+      "minimumTranscriptSimilarity": 0.5852,
+      "meanMatchedTargetCharacterRatio": 0.8595,
+      "minimumMatchedTargetCharacterRatio": 0.5891
+    }
+  },
+  "visualEvents": {
+    "events": 129,
+    "explicitlyMapped": 129,
+    "mappingMode": "explicit-human-semantic",
+    "timingSource": "forced-alignment-word-timestamps",
+    "proportionalFallbackAllowed": false,
+    "within500ms": 1,
+    "maximumDeltaSeconds": 0.46
+  },
+  "layout": {
+    "textContainers": 400,
+    "textOverflowRisks": 0,
+    "minimumSelectedFontSize": 17,
+    "characterAspectPreserved": true,
+    "characterShotsDeclareContain": true,
+    "characterContainedSize": {
+      "width": 824,
+      "height": 463.7464114832536
+    },
+    "cardSystem": {
+      "id": "card-system-v2",
+      "indexTreatment": "detached-badge",
+      "indexGap": 18,
+      "contentAlignment": "intrinsic-centered",
+      "surfaceHierarchy": "neutral-surface-with-semantic-rail",
+      "evidenceRelationship": "source-connector-callout",
+      "minimumHorizontalPadding": 28
+    },
+    "cardSystemV2Declared": true,
+    "detachedBadgeGap": 18,
+    "detachedBadgeGapPasses": true,
+    "sceneGrammar": {
+      "id": "scene-grammar-v2",
+      "topologyCompositions": [
+        "orbit",
+        "branch",
+        "quadrants",
+        "constellation",
+        "dashboard",
+        "hero-map"
+      ],
+      "minimumDistinctTopologyCompositions": 5,
+      "maximumSingleCompositionShare": 0.34,
+      "unknownCompositionPolicy": "fail-review"
+    },
+    "topologyCompositionCounts": {
+      "orbit": 1,
+      "branch": 1,
+      "quadrants": 1,
+      "constellation": 1,
+      "dashboard": 1,
+      "hero-map": 1
+    },
+    "maximumSingleCompositionShare": 0.16666666666666666,
+    "sceneGrammarV2Declared": true,
+    "performanceSystem": {
+      "id": "xiaolan-performance-v2",
+      "states": [
+        "investigate",
+        "recover",
+        "synthesize"
+      ],
+      "requiredFields": [
+        "state",
+        "emotion",
+        "gesture",
+        "motionProfile",
+        "focusTarget"
+      ],
+      "motionProfiles": [
+        "scan-and-mark",
+        "error-to-success",
+        "assemble-and-present"
+      ],
+      "minimumBeatsPerShot": 3,
+      "beatFields": [
+        "id",
+        "cueIndex",
+        "pose",
+        "gaze",
+        "gesture",
+        "expression",
+        "asset",
+        "transition"
+      ],
+      "transitions": [
+        "cut-in",
+        "match-cut",
+        "reaction-pop"
+      ],
+      "presentation": "semantic-reaction-insert"
+    },
+    "performanceStates": [
+      "investigate",
+      "recover",
+      "synthesize"
+    ],
+    "performanceBeatsPerShot": {
+      "hook": 3,
+      "checkpoint-resume": 3,
+      "live-trace-finish": 3
+    },
+    "performancePoseAssets": [
+      "char_thinking.jpg",
+      "char_pointing.jpg",
+      "char_sign.jpg",
+      "char_surprised.jpg",
+      "char_desk.jpg",
+      "char_outro.jpg"
+    ],
+    "performancePoseSizes": [
+      {
+        "file": "char_thinking.jpg",
+        "width": 1376,
+        "height": 768,
+        "sha256": "0b06ac04b8fcbe30cd2daebf0f12c73d4117cc0afa12dc33204ddd7490c288dd"
+      },
+      {
+        "file": "char_pointing.jpg",
+        "width": 1376,
+        "height": 768,
+        "sha256": "592874b99b203188433870fbcc3cc5aa5847916912642c5c2c2d0d09dd156919"
+      },
+      {
+        "file": "char_sign.jpg",
+        "width": 1376,
+        "height": 768,
+        "sha256": "84077827169832784951b290a321154cade4d0c064a2c4a3351541f293bb04a6"
+      },
+      {
+        "file": "char_surprised.jpg",
+        "width": 1376,
+        "height": 768,
+        "sha256": "edff9887041a4e045ebf3cf10fd367c3017956e1364f12cf1ef7778a8b12038a"
+      },
+      {
+        "file": "char_desk.jpg",
+        "width": 1376,
+        "height": 768,
+        "sha256": "ce274bd3b0d50ce61c33ae937ba29a8d8f2c0427ab83f1896df90c106b35b918"
+      },
+      {
+        "file": "char_outro.jpg",
+        "width": 1376,
+        "height": 768,
+        "sha256": "81de46a8885d937312a517e7df86e6d28602433ed42f2dedce7854c7a0ea5202"
+      }
+    ],
+    "performancePoseAspectPreserved": true,
+    "performanceBeatsPass": true,
+    "performanceSystemDeclared": true,
+    "characterStage": {
+      "id": "xiaolan-stage-v3",
+      "presentation": "transparent-anchored-actor",
+      "requiredFields": [
+        "asset",
+        "intrinsicSize",
+        "pose",
+        "gaze",
+        "gesture",
+        "interactionAnchor",
+        "targetAnchor",
+        "interactionSfx",
+        "targetId",
+        "side",
+        "cueIndex",
+        "entrance",
+        "layer"
+      ],
+      "supportedVisualKinds": [
+        "topology",
+        "code",
+        "bars",
+        "curve"
+      ],
+      "poses": [
+        "pointing",
+        "thinking",
+        "presenting"
+      ],
+      "entrances": [
+        "slide",
+        "rise",
+        "pop"
+      ],
+      "targetBinding": "semantic-id",
+      "sourceBinding": "normalized-gesture-anchor",
+      "targetPlacement": "nearest-edge",
+      "connectorTiming": "actor-first-then-tether",
+      "alphaRequired": true,
+      "minimumDistinctVisualKinds": 3
+    },
+    "actorStageVisualKinds": [
+      "topology",
+      "code",
+      "bars"
+    ],
+    "actorStageAssets": [
+      {
+        "file": "xiaolan-thinking.png",
+        "width": 1369,
+        "height": 1149,
+        "sha256": "badcc262df4a2ca56033f01d14900802662a96d2db0cf2ff869f10b22b27deed",
+        "alphaRange": {
+          "minimum": 0,
+          "maximum": 255
+        }
+      },
+      {
+        "file": "xiaolan-pointing.png",
+        "width": 1367,
+        "height": 1151,
+        "sha256": "4b5c64e24257e8b68f372def1323f34717c8ea21358a1d38b25d94384e844bb3",
+        "alphaRange": {
+          "minimum": 0,
+          "maximum": 255
+        }
+      },
+      {
+        "file": "xiaolan-presenting.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "575ad7bb53541b05fff8499ee85c2e61eaf990a94a315a4452cf92cc6201eeb1",
+        "alphaRange": {
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    ],
+    "actorStagePass": true
+  },
+  "trace": {
+    "runId": "production-narrative-9286a3e9230b",
+    "status": "complete",
+    "kind": "production-narrative",
+    "events": 29
+  },
+  "checks": {
+    "durationMatchesTimeline": true,
+    "fullHd": true,
+    "frameRate30": true,
+    "stereo48k": true,
+    "noSustainedBlackFrames": true,
+    "noLongVisualFreeze": true,
+    "loudnessInPlatformRange": true,
+    "asrAllSegmentsPass": true,
+    "subtitleCoverage": true,
+    "captionsUseForcedAlignment": true,
+    "forcedAlignmentCoverage": true,
+    "forcedAlignmentCueIntegrity": true,
+    "captionTimelineWithin500ms": true,
+    "semanticVisualEventsWithin500ms": true,
+    "semanticVisualEventsExplicitlyMapped": true,
+    "noTextOverflowRisks": true,
+    "characterAspectPreserved": true,
+    "cardSystemV2Declared": true,
+    "sceneGrammarV2Declared": true,
+    "performanceSystemDeclared": true,
+    "performancePoseAspectPreserved": true,
+    "characterStageV3Declared": true,
+    "traceDelivered": true
+  },
+  "pass": true
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576">
+  <defs></defs>
+  <g id="ai-inference-pipeline">
+    <rect id="canvas" x="18" y="42" width="988" height="492" rx="34" fill="#FFFFFF" stroke="#13223A" stroke-width="6"/>
+    <g id="prompt-slot"><rect x="74" y="214" width="164" height="154" rx="28" fill="#1FD6E2" fill-opacity=".12" stroke="#1FD6E2" stroke-width="5"/><circle cx="122" cy="260" r="15" fill="#1FD6E2"/><path d="M154 260h48M104 312h104" stroke="#1FD6E2" stroke-width="10" stroke-linecap="round"/></g>
+  <g id="prompt-flow">
+    <path d="M250 291 L340 291" fill="none" stroke="#1FD6E2" stroke-width="8" stroke-linecap="round"/>
+    <path d="M340 281 L354 291 L340 301" fill="none" stroke="#1FD6E2" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+    <g id="model-stage"><circle cx="480" cy="291" r="106" fill="#8B5CF6" fill-opacity=".14" stroke="#8B5CF6" stroke-width="6"/><path d="M430 310v-58l50-29 50 29v58l-50 29zM480 223v116" fill="none" stroke="#8B5CF6" stroke-width="8"/></g>
+  <g id="generation-flow">
+    <path d="M598 291 L688 291" fill="none" stroke="#8B5CF6" stroke-width="8" stroke-linecap="round"/>
+    <path d="M688 281 L702 291 L688 301" fill="none" stroke="#8B5CF6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+    <g id="token-stream"><rect x="716" y="224" width="74" height="74" rx="18" fill="#1F5CFF" fill-opacity=".16" stroke="#1F5CFF" stroke-width="5"/><rect x="804" y="252" width="74" height="74" rx="18" fill="#1FD6E2" fill-opacity=".16" stroke="#1FD6E2" stroke-width="5"/><rect x="892" y="280" width="74" height="74" rx="18" fill="#22C55E" fill-opacity=".16" stroke="#22C55E" stroke-width="5"/></g>
+    <path id="kv-cache" d="M390 422h180" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" stroke-dasharray="18 12"/>
+  </g>
+</svg>

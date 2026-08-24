@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs></defs>
+  <g id="ai-model-core">
+    <circle id="outer-orbit" cx="256" cy="256" r="206" fill="#101C31" stroke="#1F5CFF" stroke-width="6"/>
+    <ellipse id="orbit-one" cx="256" cy="256" rx="174" ry="76" fill="none" stroke="#1FD6E2" stroke-width="5" transform="rotate(-24 256 256)"/>
+    <ellipse id="orbit-two" cx="256" cy="256" rx="174" ry="76" fill="none" stroke="#8B5CF6" stroke-width="5" transform="rotate(42 256 256)"/>
+    <circle id="parameter-field" cx="256" cy="256" r="104" fill="#8B5CF6" fill-opacity=".28" stroke="#8B5CF6" stroke-width="5"/>
+    <path id="model-glyph" d="M196 278V224l60-34 60 34v68l-60 34-60-34zM256 190v136M196 224l120 68M316 224l-120 68" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round"/>
+    <circle id="active-parameter" cx="390" cy="126" r="18" fill="#1FD6E2"/>
+  </g>
+</svg>

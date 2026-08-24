@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 768" width="512" height="768">
+  <!-- Xiao Ming (Character: xiaoming, Pose: idle) -->
+  <g id="root">
+    <!-- Anchor Points: feet=(256, 680), mouth=(256, 240), center=(256, 384) -->
+
+    <!-- Legs & Feet -->
+    <g id="legs">
+      <path id="leg_left" d="M 220,540 L 220,680 L 190,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <path id="leg_right" d="M 292,540 L 292,680 L 322,680" fill="none" stroke="#080E18" stroke-width="26" stroke-linecap="round"/>
+      <rect x="180" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+      <rect x="282" y="668" width="52" height="18" rx="5" fill="#1FD6E2" stroke="#101C31" stroke-width="2"/>
+    </g>
+
+
+    <!-- Torso: Observatory Tech Coat -->
+    <g id="torso">
+      <path d="M 196,280 C 186,350 196,540 216,540 L 296,540 C 316,540 326,350 316,280 Z" fill="#172A46" stroke="#101C31" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M 236,280 L 256,360 L 276,280 Z" fill="#1FD6E2" opacity="0.35"/>
+      <!-- Lanyard with ID OBS-01 -->
+      <path d="M 242,280 L 256,380 L 270,280" fill="none" stroke="#1FD6E2" stroke-width="2.5"/>
+      <rect x="245" y="380" width="22" height="30" rx="3" fill="#FFFFFF" stroke="#101C31" stroke-width="1.5"/>
+      <rect x="248" y="384" width="16" height="8" fill="#1F5CFF"/>
+    </g>
+
+
+    <!-- Arms Default (Idle) -->
+    <g id="arms">
+      <g id="arm_left">
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 196,300 C 160,340 150,440 190,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_left" cx="190" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+      <g id="arm_right">
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#172A46" stroke-width="26" stroke-linecap="round"/>
+        <path d="M 316,300 C 352,340 362,440 322,460" fill="none" stroke="#101C31" stroke-width="3"/>
+        <circle id="hand_right" cx="322" cy="460" r="14" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+      </g>
+    </g>
+
+
+    <!-- Xiao Ming Head Component -->
+    <g id="head">
+      <!-- Neck -->
+      <rect id="neck" x="242" y="250" width="28" height="38" rx="5" fill="#F8D5B8" stroke="#101C31" stroke-width="2"/>
+
+      <!-- Head Base (Slender Oval) -->
+      <ellipse id="face" cx="256" cy="195" rx="50" ry="60" fill="#F8D5B8" stroke="#101C31" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Modern Neat Geometrical Hair -->
+      <path id="hair" d="M 204,188 C 202,148 232,130 256,130 C 285,130 310,150 308,188 C 292,160 256,162 204,188 Z" fill="#101C31"/>
+
+      <!-- Smart Glasses (Star-Orbit Telemetry) -->
+      <g id="glasses" transform="translate(256, 192)">
+        <rect x="-46" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <rect x="8" y="-14" width="38" height="28" rx="6" fill="#101C31" stroke="#1FD6E2" stroke-width="1.5"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#101C31" stroke-width="3"/>
+
+        <!-- Glowing Cyan Lenses -->
+        <rect x="-42" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <rect x="12" y="-10" width="30" height="20" rx="4" fill="#1FD6E2" opacity="0.45"/>
+        <line x1="-38" y1="-5" x2="-26" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="16" y1="-5" x2="28" y2="-5" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Eyes -->
+        <circle id="eye_left" cx="-27" cy="0" r="4.5" fill="#101C31"/>
+        <circle id="eye_right" cx="27" cy="0" r="4.5" fill="#101C31"/>
+      </g>
+
+      <!-- Eyebrows -->
+      <path id="brow_left" d="M 205,178 L 243,188" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+      <path id="brow_right" d="M 269,188 L 307,178" fill="none" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Mouth -->
+      <line id="mouth" x1="242" y1="240" x2="270" y2="240" stroke="#101C31" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- Extras -->
+
+    </g>
+
+    <g id="prop_anchor" transform="translate(256, 420)"/>
+  </g>
+</svg>

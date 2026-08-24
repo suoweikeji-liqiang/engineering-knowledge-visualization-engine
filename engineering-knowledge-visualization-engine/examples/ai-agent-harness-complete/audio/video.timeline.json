@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "1.0",
+  "storySlug": "ai-agent-harness-complete",
+  "storyFingerprint": "9286a3e9230b9f8b6b020ce22947f486bbeb5511540bb82592e2e5740d7e7821",
+  "provider": "mimo",
+  "duration": 714.7663551401869,
+  "shots": [
+    {
+      "id": "hook",
+      "plannedDuration": 10,
+      "speechDuration": 20.094392523364487,
+      "duration": 20.28130841121495
+    },
+    {
+      "id": "bare-model",
+      "plannedDuration": 12,
+      "speechDuration": 20.07196261682243,
+      "duration": 20.258878504672897
+    },
+    {
+      "id": "boundary",
+      "plannedDuration": 12,
+      "speechDuration": 23.15607476635514,
+      "duration": 23.342990654205607
+    },
+    {
+      "id": "components",
+      "plannedDuration": 11,
+      "speechDuration": 19.22897196261682,
+      "duration": 19.415887850467286
+    },
+    {
+      "id": "request-compose",
+      "plannedDuration": 13,
+      "speechDuration": 23.254205607476635,
+      "duration": 23.441121495327103
+    },
+    {
+      "id": "tool-decision",
+      "plannedDuration": 13,
+      "speechDuration": 22.476635514018692,
+      "duration": 22.663551401869157
+    },
+    {
+      "id": "validate-route",
+      "plannedDuration": 13,
+      "speechDuration": 22.73644859813084,
+      "duration": 22.923364485981306
+    },
+    {
+      "id": "tool-result",
+      "plannedDuration": 13,
+      "speechDuration": 23.628971962616824,
+      "duration": 23.815887850467288
+    },
+    {
+      "id": "agent-loop",
+      "plannedDuration": 13,
+      "speechDuration": 27.267289719626167,
+      "duration": 27.454205607476634
+    },
+    {
+      "id": "stop-reasons",
+      "plannedDuration": 12,
+      "speechDuration": 29.076635514018687,
+      "duration": 29.263551401869158
+    },
+    {
+      "id": "planning-modes",
+      "plannedDuration": 13,
+      "speechDuration": 22.374766355140185,
+      "duration": 22.561682242990653
+    },
+    {
+      "id": "plan-update",
+      "plannedDuration": 11,
+      "speechDuration": 24.397196261682243,
+      "duration": 24.584112149532707
+    },
+    {
+      "id": "context-compose",
+      "plannedDuration": 13,
+      "speechDuration": 23.590654205607475,
+      "duration": 23.777570093457943
+    },
+    {
+      "id": "context-window",
+      "plannedDuration": 14,
+      "speechDuration": 24.852336448598127,
+      "duration": 25.039252336448598
+    },
+    {
+      "id": "state-memory",
+      "plannedDuration": 13,
+      "speechDuration": 23.911214953271028,
+      "duration": 24.098130841121495
+    },
+    {
+      "id": "multi-agent",
+      "plannedDuration": 13,
+      "speechDuration": 22.117757009345794,
+      "duration": 22.30467289719626
+    },
+    {
+      "id": "multi-agent-cost",
+      "plannedDuration": 11,
+      "speechDuration": 23.292523364485977,
+      "duration": 23.479439252336448
+    },
+    {
+      "id": "structured-output",
+      "plannedDuration": 13,
+      "speechDuration": 23.97289719626168,
+      "duration": 24.159813084112148
+    },
+    {
+      "id": "retry-idempotency",
+      "plannedDuration": 14,
+      "speechDuration": 26.691588785046726,
+      "duration": 26.878504672897197
+    },
+    {
+      "id": "checkpoint-resume",
+      "plannedDuration": 12,
+      "speechDuration": 24.601869158878504,
+      "duration": 24.78878504672897
+    },
+    {
+      "id": "prompt-injection",
+      "plannedDuration": 14,
+      "speechDuration": 23.747663551401867,
+      "duration": 23.934579439252335
+    },
+    {
+      "id": "sandbox-approval",
+      "plannedDuration": 13,
+      "speechDuration": 24.779439252336445,
+      "duration": 24.966355140186913
+    },
+    {
+      "id": "guardrail-boundary",
+      "plannedDuration": 11,
+      "speechDuration": 25.234579439252336,
+      "duration": 25.421495327102804
+    },
+    {
+      "id": "feedback-eval",
+      "plannedDuration": 14,
+      "speechDuration": 25.41775700934579,
+      "duration": 25.60467289719626
+    },
+    {
+      "id": "trace-metrics",
+      "plannedDuration": 13,
+      "speechDuration": 25.182242990654203,
+      "duration": 25.36915887850467
+    },
+    {
+      "id": "live-trace-start",
+      "plannedDuration": 15,
+      "speechDuration": 26.145794392523364,
+      "duration": 26.332710280373828
+    },
+    {
+      "id": "live-trace-recover",
+      "plannedDuration": 16,
+      "speechDuration": 26.08878504672897,
+      "duration": 26.275700934579437
+    },
+    {
+      "id": "live-trace-finish",
+      "plannedDuration": 14,
+      "speechDuration": 31.900000000000002,
+      "duration": 32.086915887850466
+    },
+    {
+      "id": "synthesis",
+      "plannedDuration": 16,
+      "speechDuration": 30.056074766355135,
+      "duration": 30.242990654205606
+    }
+  ],
+  "playbackRate": 1.07
+}

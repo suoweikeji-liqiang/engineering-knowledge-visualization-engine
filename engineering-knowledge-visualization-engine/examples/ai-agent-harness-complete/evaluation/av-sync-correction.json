@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0",
+  "artifact": "final/ai-agent-harness-complete.mp4",
+  "baseline": {
+    "commit": "a2ce814",
+    "timingMethod": "character-count-proportional",
+    "problem": "caption, visual and sound cues were internally consistent but were not anchored to the spoken waveform"
+  },
+  "correction": {
+    "method": "faster-whisper-word-timestamps-plus-frozen-text-alignment",
+    "model": "base",
+    "narrationMasterSha256": "8702a667ad0020848bd122e1c0254a43d2578b1bfe8108a6b47de29e60534574",
+    "proportionalFallbackAllowed": false,
+    "metrics": {
+      "shots": 29,
+      "meanTranscriptSimilarity": 0.8663,
+      "minimumTranscriptSimilarity": 0.5852,
+      "meanMatchedTargetCharacterRatio": 0.8595,
+      "minimumMatchedTargetCharacterRatio": 0.5891
+    }
+  },
+  "baselineToCorrectedShift": {
+    "captions": {
+      "cues": 209,
+      "meanSeconds": 0.7108,
+      "medianSeconds": 0.4133,
+      "p90Seconds": 1.758,
+      "p95Seconds": 2.136,
+      "maximumSeconds": 4.896,
+      "over500Milliseconds": 93,
+      "over1Second": 50
+    },
+    "visualEvents": {
+      "events": 129,
+      "meanSeconds": 0.7406,
+      "medianSeconds": 0.498,
+      "p90Seconds": 1.629,
+      "p95Seconds": 2.01,
+      "maximumSeconds": 4.896,
+      "over500Milliseconds": 64,
+      "over1Second": 35
+    }
+  },
+  "renderedBinding": {
+    "captionCues": 209,
+    "semanticVisualEvents": 129,
+    "coverageWithin500Milliseconds": 1,
+    "maximumDeltaSeconds": 0.46
+  },
+  "outputs": {
+    "fullDurationSeconds": 714.833333,
+    "fullSha256": "8e07f7153707aca4f201f6599a1fc3670cdad37bd0f43f163f41ea7f260a7479",
+    "proof": "final/ai-agent-harness-avsync-proof-v2.mp4",
+    "proofSha256": "fbbd586504384f115ded915f28a8c1e764575cde621d7fb3cc98aa96dae95742"
+  },
+  "qa": {
+    "technicalQa": "evaluation/technical-qa.json",
+    "pass": true
+  }
+}

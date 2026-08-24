@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="384" height="512">
+  <!-- Hermetic Compressor Section -->
+  <g id="hvac-compressor">
+    <!-- Shell -->
+    <path d="M 64,120 C 64,40 320,40 320,120 L 320,380 C 320,460 64,460 64,380 Z" fill="#101C31" stroke="#13223A" stroke-width="4"/>
+    <!-- Motor Chamber -->
+    <rect x="96" y="160" width="192" height="180" rx="20" fill="#1F385C" stroke="#1FD6E2" stroke-width="2"/>
+    <circle cx="192" cy="250" r="48" fill="#1FD6E2" opacity="0.25"/>
+    <circle cx="192" cy="250" r="28" fill="#1FD6E2" stroke="#FFFFFF" stroke-width="2"/>
+    <!-- Suction & Discharge Ports -->
+    <rect x="24" y="160" width="40" height="24" rx="4" fill="#1890FF"/>
+    <rect x="320" y="120" width="40" height="24" rx="4" fill="#FA541C"/>
+    <!-- Rating Badge -->
+    <rect x="110" y="380" width="164" height="32" rx="8" fill="#000000" opacity="0.7"/>
+    <text x="192" y="402" fill="#1FD6E2" font-family="'SF Mono', monospace" font-size="14" font-weight="bold" text-anchor="middle">RATED 100%</text>
+  </g>
+</svg>

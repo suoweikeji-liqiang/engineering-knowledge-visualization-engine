@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0",
+  "strategy": "two-representative-events-per-chapter-plus-character-stage",
+  "events": [
+    {
+      "chapterId": "ch01",
+      "shotId": "hook",
+      "cue": "impact",
+      "start": 5.626
+    },
+    {
+      "chapterId": "ch01",
+      "shotId": "components",
+      "cue": "sparkle",
+      "start": 72.051
+    },
+    {
+      "chapterId": "ch02",
+      "shotId": "request-compose",
+      "cue": "paper-settle",
+      "start": 86.505
+    },
+    {
+      "chapterId": "ch02",
+      "shotId": "tool-result",
+      "cue": "terminal-success",
+      "start": 168.72
+    },
+    {
+      "chapterId": "ch03",
+      "shotId": "agent-loop",
+      "cue": "data-pulse",
+      "start": 179.264
+    },
+    {
+      "chapterId": "ch03",
+      "shotId": "plan-update",
+      "cue": "soft-tick",
+      "start": 273.067
+    },
+    {
+      "chapterId": "ch04",
+      "shotId": "context-compose",
+      "cue": "paper-settle",
+      "start": 284.063
+    },
+    {
+      "chapterId": "ch04",
+      "shotId": "state-memory",
+      "cue": "result-stamp",
+      "start": 342.375
+    },
+    {
+      "chapterId": "ch05",
+      "shotId": "multi-agent",
+      "cue": "connector-draw",
+      "start": 355.931
+    },
+    {
+      "chapterId": "ch05",
+      "shotId": "multi-agent-cost",
+      "cue": "soft-tick",
+      "start": 382.011
+    },
+    {
+      "chapterId": "ch06",
+      "shotId": "structured-output",
+      "cue": "editor-open",
+      "start": 405.939
+    },
+    {
+      "chapterId": "ch06",
+      "shotId": "checkpoint-resume",
+      "cue": "terminal-success",
+      "start": 467.052
+    },
+    {
+      "chapterId": "ch07",
+      "shotId": "prompt-injection",
+      "cue": "impact",
+      "start": 488.997
+    },
+    {
+      "chapterId": "ch07",
+      "shotId": "guardrail-boundary",
+      "cue": "impact",
+      "start": 544.779
+    },
+    {
+      "chapterId": "ch08",
+      "shotId": "feedback-eval",
+      "cue": "soft-tick",
+      "start": 554.818
+    },
+    {
+      "chapterId": "ch08",
+      "shotId": "trace-metrics",
+      "cue": "curve-draw",
+      "start": 589.581
+    },
+    {
+      "chapterId": "ch09",
+      "shotId": "live-trace-start",
+      "cue": "task-inject",
+      "start": 602.109
+    },
+    {
+      "chapterId": "ch09",
+      "shotId": "live-trace-finish",
+      "cue": "sparkle",
+      "start": 678.026
+    },
+    {
+      "chapterId": "ch10",
+      "shotId": "synthesis",
+      "cue": "impact",
+      "start": 688.562
+    },
+    {
+      "chapterId": "character-stage",
+      "shotId": "components",
+      "cue": "character-think",
+      "start": 67.192
+    },
+    {
+      "chapterId": "character-stage",
+      "shotId": "structured-output",
+      "cue": "character-point",
+      "start": 408.911
+    },
+    {
+      "chapterId": "character-stage",
+      "shotId": "trace-metrics",
+      "cue": "character-present",
+      "start": 589.581
+    }
+  ]
+}

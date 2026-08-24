@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0",
+  "storySlug": "ai-agent-harness-benchmark",
+  "storyFingerprint": "e5aea8bcdf89e6ef00ff1324a0a9a15fb60908cab2db3fc7550d15d7485dac6a",
+  "provider": "mimo",
+  "duration": 54.365,
+  "shots": [
+    {
+      "id": "hook",
+      "plannedDuration": 4.0,
+      "speechDuration": 4.402,
+      "duration": 4.602
+    },
+    {
+      "id": "single-call",
+      "plannedDuration": 4.8,
+      "speechDuration": 6.152,
+      "duration": 6.352
+    },
+    {
+      "id": "loop",
+      "plannedDuration": 5.4,
+      "speechDuration": 7.36,
+      "duration": 7.56
+    },
+    {
+      "id": "tools",
+      "plannedDuration": 5.2,
+      "speechDuration": 6.499,
+      "duration": 6.699
+    },
+    {
+      "id": "failure",
+      "plannedDuration": 5.3,
+      "speechDuration": 8.301,
+      "duration": 8.501
+    },
+    {
+      "id": "harness",
+      "plannedDuration": 6.2,
+      "speechDuration": 8.212,
+      "duration": 8.412
+    },
+    {
+      "id": "landing",
+      "plannedDuration": 5.4,
+      "speechDuration": 6.88,
+      "duration": 7.08
+    },
+    {
+      "id": "summary",
+      "plannedDuration": 4.5,
+      "speechDuration": 4.96,
+      "duration": 5.16
+    }
+  ]
+}

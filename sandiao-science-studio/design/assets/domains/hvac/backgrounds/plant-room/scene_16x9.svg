@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Plant Room: HVAC Machine & Pipe System -->
+  <rect width="1920" height="1080" fill="#151E2E"/>
+  <!-- Industrial Concrete Wall & Girders -->
+  <line x1="0" y1="180" x2="1920" y2="180" stroke="#2B3A52" stroke-width="6"/>
+  <line x1="400" y1="0" x2="400" y2="820" stroke="#2B3A52" stroke-width="4"/>
+  <line x1="1520" y1="0" x2="1520" y2="820" stroke="#2B3A52" stroke-width="4"/>
+  <!-- Overhead Supply & Return Pipes -->
+  <!-- Blue Chilled Water Supply Pipe -->
+  <path d="M 0,80 L 1920,80" fill="none" stroke="#1890FF" stroke-width="28"/>
+  <path d="M 0,80 L 1920,80" fill="none" stroke="#13223A" stroke-width="3"/>
+  <text x="960" y="87" fill="#FFFFFF" font-family="'SF Mono', monospace" font-size="14" font-weight="bold" text-anchor="middle">CHW SUPPLY 7℃</text>
+  <!-- Orange Hot Return Pipe -->
+  <path d="M 0,130 L 1920,130" fill="none" stroke="#FA541C" stroke-width="28"/>
+  <path d="M 0,130 L 1920,130" fill="none" stroke="#13223A" stroke-width="3"/>
+  <text x="960" y="137" fill="#FFFFFF" font-family="'SF Mono', monospace" font-size="14" font-weight="bold" text-anchor="middle">CONDENSER RETURN 37℃</text>
+  <!-- Floor Deck -->
+  <rect x="0" y="820" width="1920" height="260" fill="#0C121D"/>
+  <line x1="0" y1="820" x2="1920" y2="820" stroke="#FAAD14" stroke-width="4" stroke-dasharray="24 16"/>
+</svg>

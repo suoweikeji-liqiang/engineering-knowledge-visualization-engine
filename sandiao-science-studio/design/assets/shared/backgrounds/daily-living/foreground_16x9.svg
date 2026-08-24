@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Daily Living: Foreground Layer -->
+  <!-- Reserved Safe Zones: Left Char (x=80..380), Center Stage (x=420..1500), Right Char (x=1540..1840) -->
+  <g id="fg_anchors">
+    <!-- Baseboard floor trim -->
+    <rect x="0" y="740" width="1920" height="14" fill="#874D00"/>
+  </g>
+</svg>

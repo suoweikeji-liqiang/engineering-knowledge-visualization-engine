@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs></defs>
+  <g id="ai-attention-head">
+    <circle id="attention-ring" cx="256" cy="256" r="188" fill="#8B5CF6" fill-opacity=".08" stroke="#8B5CF6" stroke-width="7"/>
+    <g id="query">  <g id="query-node">
+    <circle cx="256" cy="118" r="28" fill="#1FD6E2" fill-opacity=".18" stroke="#1FD6E2" stroke-width="4"/>
+    <circle cx="256" cy="118" r="7" fill="#1FD6E2"/>
+  </g></g>
+    <g id="key-left">  <g id="key-left-node">
+    <circle cx="138" cy="330" r="26" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="138" cy="330" r="7" fill="#8B5CF6"/>
+  </g></g>
+    <g id="key-right">  <g id="key-right-node">
+    <circle cx="374" cy="330" r="26" fill="#8B5CF6" fill-opacity=".18" stroke="#8B5CF6" stroke-width="4"/>
+    <circle cx="374" cy="330" r="7" fill="#8B5CF6"/>
+  </g></g>
+    <path id="score-left" d="M242 144L154 304" stroke="#1FD6E2" stroke-width="12" stroke-linecap="round" opacity=".9"/>
+    <path id="score-right" d="M270 144L358 304" stroke="#1FD6E2" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+    <path id="mix" d="M166 350 Q256 426 346 350" fill="none" stroke="#1F5CFF" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

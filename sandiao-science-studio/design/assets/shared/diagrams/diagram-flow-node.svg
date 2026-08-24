@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180">
+  <!-- Runtime node: ports and text slots are semantic, content is injected later. -->
+  <g id="diagram-flow-node">
+    <rect id="node-frame" width="320" height="180" rx="16" fill="#101C31" stroke="#1FD6E2" stroke-width="2.5"/>
+    <circle id="state-indicator" cx="36" cy="36" r="12" fill="#1FD6E2"/>
+    <rect id="title-slot" x="60" y="24" width="220" height="24" rx="6" fill="#1F385C"/>
+    <line id="header-divider" x1="20" y1="64" x2="300" y2="64" stroke="#1F385C" stroke-width="1.5"/>
+    <rect id="body-slot" x="24" y="84" width="272" height="56" rx="8" fill="#172A46"/>
+    <rect id="status-slot" x="24" y="150" width="150" height="12" rx="4" fill="#1FD6E2" opacity="0.65"/>
+    <circle id="input-port" cx="0" cy="112" r="8" fill="#1890FF"/>
+    <circle id="output-port" cx="320" cy="112" r="8" fill="#FA541C"/>
+  </g>
+</svg>

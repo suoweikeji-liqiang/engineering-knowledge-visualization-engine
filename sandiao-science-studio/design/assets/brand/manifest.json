@@ -1,0 +1,6533 @@
+{
+  "schemaVersion": "1.0",
+  "assets": [
+    {
+      "id": "brand.character.laowang.expression.angry",
+      "type": "character-expression",
+      "source": "characters/laowang/expressions/angry.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.expression.confident",
+      "type": "character-expression",
+      "source": "characters/laowang/expressions/confident.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.expression.cry",
+      "type": "character-expression",
+      "source": "characters/laowang/expressions/cry.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.expression.determined",
+      "type": "character-expression",
+      "source": "characters/laowang/expressions/determined.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.expression.embarrassed",
+      "type": "character-expression",
+      "source": "characters/laowang/expressions/embarrassed.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.expression.happy",
+      "type": "character-expression",
+      "source": "characters/laowang/expressions/happy.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.expression.laugh",
+      "type": "character-expression",
+      "source": "characters/laowang/expressions/laugh.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.expression.neutral",
+      "type": "character-expression",
+      "source": "characters/laowang/expressions/neutral.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.expression.puzzled",
+      "type": "character-expression",
+      "source": "characters/laowang/expressions/puzzled.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.expression.serious",
+      "type": "character-expression",
+      "source": "characters/laowang/expressions/serious.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.expression.shocked",
+      "type": "character-expression",
+      "source": "characters/laowang/expressions/shocked.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.expression.tired",
+      "type": "character-expression",
+      "source": "characters/laowang/expressions/tired.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.mouth.a-shape",
+      "type": "character-mouth",
+      "source": "characters/laowang/mouths/a_shape.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.mouth.bite-lip",
+      "type": "character-mouth",
+      "source": "characters/laowang/mouths/bite_lip.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.mouth.e-shape",
+      "type": "character-mouth",
+      "source": "characters/laowang/mouths/e_shape.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.mouth.o-shape",
+      "type": "character-mouth",
+      "source": "characters/laowang/mouths/o_shape.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.mouth.rest",
+      "type": "character-mouth",
+      "source": "characters/laowang/mouths/rest.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.mouth.slightly-open",
+      "type": "character-mouth",
+      "source": "characters/laowang/mouths/slightly_open.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.angry",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/angry.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.celebrate",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/celebrate.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.cry",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/cry.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.idle",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/idle.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.laugh",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/laugh.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.laugh-f1",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/laugh_f1.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.laugh-f2",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/laugh_f2.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.laugh-f3",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/laugh_f3.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.nod",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/nod.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.point",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/point.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.run",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/run.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.run-f1",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/run_f1.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.run-f2",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/run_f2.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.run-f3",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/run_f3.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.shake",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/shake.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.sweat",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/sweat.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.talk",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/talk.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.talk-f1",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/talk_f1.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.talk-f2",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/talk_f2.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.talk-f3",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/talk_f3.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.think",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/think.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.walk",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/walk.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.walk-f1",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/walk_f1.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.walk-f2",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/walk_f2.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.walk-f3",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/walk_f3.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.pose.whisper",
+      "type": "character-pose",
+      "source": "characters/laowang/poses/whisper.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.turnaround.back",
+      "type": "character-turnaround",
+      "source": "characters/laowang/turnaround/back.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.turnaround.front",
+      "type": "character-turnaround",
+      "source": "characters/laowang/turnaround/front.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.turnaround.side",
+      "type": "character-turnaround",
+      "source": "characters/laowang/turnaround/side.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.laowang.turnaround.three-quarter",
+      "type": "character-turnaround",
+      "source": "characters/laowang/turnaround/three_quarter.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          240
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.expression.angry",
+      "type": "character-expression",
+      "source": "characters/xiaoming/expressions/angry.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.expression.confident",
+      "type": "character-expression",
+      "source": "characters/xiaoming/expressions/confident.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.expression.cry",
+      "type": "character-expression",
+      "source": "characters/xiaoming/expressions/cry.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.expression.determined",
+      "type": "character-expression",
+      "source": "characters/xiaoming/expressions/determined.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.expression.embarrassed",
+      "type": "character-expression",
+      "source": "characters/xiaoming/expressions/embarrassed.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.expression.happy",
+      "type": "character-expression",
+      "source": "characters/xiaoming/expressions/happy.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.expression.laugh",
+      "type": "character-expression",
+      "source": "characters/xiaoming/expressions/laugh.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.expression.neutral",
+      "type": "character-expression",
+      "source": "characters/xiaoming/expressions/neutral.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.expression.puzzled",
+      "type": "character-expression",
+      "source": "characters/xiaoming/expressions/puzzled.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.expression.serious",
+      "type": "character-expression",
+      "source": "characters/xiaoming/expressions/serious.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.expression.shocked",
+      "type": "character-expression",
+      "source": "characters/xiaoming/expressions/shocked.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.expression.tired",
+      "type": "character-expression",
+      "source": "characters/xiaoming/expressions/tired.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.mouth.a-shape",
+      "type": "character-mouth",
+      "source": "characters/xiaoming/mouths/a_shape.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.mouth.bite-lip",
+      "type": "character-mouth",
+      "source": "characters/xiaoming/mouths/bite_lip.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.mouth.e-shape",
+      "type": "character-mouth",
+      "source": "characters/xiaoming/mouths/e_shape.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.mouth.o-shape",
+      "type": "character-mouth",
+      "source": "characters/xiaoming/mouths/o_shape.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.mouth.rest",
+      "type": "character-mouth",
+      "source": "characters/xiaoming/mouths/rest.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.mouth.slightly-open",
+      "type": "character-mouth",
+      "source": "characters/xiaoming/mouths/slightly_open.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.angry",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/angry.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.celebrate",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/celebrate.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.cry",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/cry.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.idle",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/idle.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.laugh",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/laugh.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.laugh-f1",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/laugh_f1.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.laugh-f2",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/laugh_f2.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.laugh-f3",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/laugh_f3.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.nod",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/nod.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.point",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/point.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.run",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/run.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.run-f1",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/run_f1.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.run-f2",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/run_f2.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.run-f3",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/run_f3.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.shake",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/shake.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.sweat",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/sweat.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.talk",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/talk.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.talk-f1",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/talk_f1.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.talk-f2",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/talk_f2.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.talk-f3",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/talk_f3.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.think",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/think.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.walk",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/walk.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.walk-f1",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/walk_f1.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.walk-f2",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/walk_f2.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.walk-f3",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/walk_f3.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.pose.whisper",
+      "type": "character-pose",
+      "source": "characters/xiaoming/poses/whisper.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.turnaround.back",
+      "type": "character-turnaround",
+      "source": "characters/xiaoming/turnaround/back.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.turnaround.front",
+      "type": "character-turnaround",
+      "source": "characters/xiaoming/turnaround/front.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.turnaround.side",
+      "type": "character-turnaround",
+      "source": "characters/xiaoming/turnaround/side.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.character.xiaoming.turnaround.three-quarter",
+      "type": "character-turnaround",
+      "source": "characters/xiaoming/turnaround/three_quarter.svg",
+      "viewBox": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "anchors": {
+        "feet": [
+          256,
+          700
+        ],
+        "center": [
+          256,
+          384
+        ],
+        "head": [
+          256,
+          180
+        ],
+        "mouth": [
+          256,
+          245
+        ],
+        "lookAt": [
+          256,
+          190
+        ],
+        "propAnchor": [
+          256,
+          495
+        ]
+      },
+      "variants": [
+        "default"
+      ],
+      "capabilities": [
+        "lipSync",
+        "lookAt",
+        "propAttach"
+      ],
+      "layers": [
+        "root",
+        "legs",
+        "leg_left",
+        "leg_right",
+        "torso",
+        "arms",
+        "arm_left",
+        "arm_right",
+        "hand_left",
+        "hand_right",
+        "head",
+        "face",
+        "eye_left",
+        "eye_right",
+        "mouth",
+        "prop_anchor"
+      ]
+    },
+    {
+      "id": "brand.background.abstract-stage.background16x9",
+      "type": "background-layer",
+      "source": "backgrounds/abstract-stage/background_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.abstract-stage.foreground16x9",
+      "type": "background-layer",
+      "source": "backgrounds/abstract-stage/foreground_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.abstract-stage.midground16x9",
+      "type": "background-layer",
+      "source": "backgrounds/abstract-stage/midground_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.abstract-stage.scene16x9",
+      "type": "background",
+      "source": "backgrounds/abstract-stage/scene_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.abstract-stage.scene9x16",
+      "type": "background",
+      "source": "backgrounds/abstract-stage/scene_9x16.svg",
+      "viewBox": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "anchors": {
+        "center": [
+          540.0,
+          960.0
+        ],
+        "horizon": [
+          540.0,
+          1497.6000000000001
+        ]
+      },
+      "variants": [
+        "vertical"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.abstract-stage.scene-dark16x9",
+      "type": "background",
+      "source": "backgrounds/abstract-stage/scene_dark_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "night"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.science-lab.background16x9",
+      "type": "background-layer",
+      "source": "backgrounds/science-lab/background_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.science-lab.foreground16x9",
+      "type": "background-layer",
+      "source": "backgrounds/science-lab/foreground_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.science-lab.midground16x9",
+      "type": "background-layer",
+      "source": "backgrounds/science-lab/midground_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.science-lab.scene16x9",
+      "type": "background",
+      "source": "backgrounds/science-lab/scene_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.science-lab.scene9x16",
+      "type": "background",
+      "source": "backgrounds/science-lab/scene_9x16.svg",
+      "viewBox": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "anchors": {
+        "center": [
+          540.0,
+          960.0
+        ],
+        "horizon": [
+          540.0,
+          1497.6000000000001
+        ]
+      },
+      "variants": [
+        "vertical"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.science-lab.scene-night16x9",
+      "type": "background",
+      "source": "backgrounds/science-lab/scene_night_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "night"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.summary-stage.background16x9",
+      "type": "background-layer",
+      "source": "backgrounds/summary-stage/background_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.summary-stage.foreground16x9",
+      "type": "background-layer",
+      "source": "backgrounds/summary-stage/foreground_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.summary-stage.midground16x9",
+      "type": "background-layer",
+      "source": "backgrounds/summary-stage/midground_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "layer"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.summary-stage.scene16x9",
+      "type": "background",
+      "source": "backgrounds/summary-stage/scene_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.summary-stage.scene9x16",
+      "type": "background",
+      "source": "backgrounds/summary-stage/scene_9x16.svg",
+      "viewBox": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "anchors": {
+        "center": [
+          540.0,
+          960.0
+        ],
+        "horizon": [
+          540.0,
+          1497.6000000000001
+        ]
+      },
+      "variants": [
+        "vertical"
+      ],
+      "capabilities": [],
+      "layers": []
+    },
+    {
+      "id": "brand.background.summary-stage.scene-night16x9",
+      "type": "background",
+      "source": "backgrounds/summary-stage/scene_night_16x9.svg",
+      "viewBox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "anchors": {
+        "center": [
+          960.0,
+          540.0
+        ],
+        "horizon": [
+          960.0,
+          842.4
+        ]
+      },
+      "variants": [
+        "landscape",
+        "night"
+      ],
+      "capabilities": [],
+      "layers": []
+    }
+  ]
+}

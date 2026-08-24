@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "references": [
+    {"id": "reference-a", "url": "https://www.youtube.com/watch?v=B91bZL8wcAI", "role": "content-and-animation-baseline", "durationSeconds": 659},
+    {"id": "reference-b", "url": "https://www.youtube.com/watch?v=L3nbNBYqJT4", "role": "inspectable-workflow-baseline", "durationSeconds": 341}
+  ],
+  "hardGates": [
+    "all-15-core-requirements-have-timecoded-narration-and-visual-evidence",
+    "no-major-technical-error-from-two-independent-engineering-judges",
+    "primary-narration-is-natural-chinese-female-voice",
+    "audio-has-no-clipping-truncation-or-abnormal-silence",
+    "at-least-95-percent-key-events-within-500ms-of-narration",
+    "1080p-code-terminal-chart-evidence-and-subtitles-are-readable",
+    "character-assets-preserve-source-aspect-ratio",
+    "all-text-containers-pass-overflow-audit-at-1080p",
+    "card-indices-are-detached-and-text-uses-content-aware-alignment",
+    "topology-scenes-declare-diverse-compositions-character-shots-have-three-cue-bound-beats-and-transparent-stage-actors-bind-semantic-targets",
+    "primary-claims-have-visible-or-packaged-primary-source-citations",
+    "render-is-reproducible-from-frozen-story-assets-and-audio-config",
+    "brand-and-shot-design-are-original-not-frame-by-frame-copy"
+  ],
+  "dimensions": [
+    {"id": "content", "label": "内容内核完整性", "weight": 24},
+    {"id": "clarity", "label": "解释清晰度", "weight": 14},
+    {"id": "animation", "label": "动画丰富度", "weight": 16},
+    {"id": "character", "label": "角色融合", "weight": 10},
+    {"id": "sound", "label": "声音", "weight": 12},
+    {"id": "brand", "label": "品牌", "weight": 8},
+    {"id": "evidence", "label": "证据", "weight": 8},
+    {"id": "reuse", "label": "可复用性", "weight": 8}
+  ],
+  "semanticAnimationFamilies": ["character-performance", "anchored-character-stage", "topology", "swimlane", "tool-call-code", "growth-bars", "trend-curve", "terminal-trace", "primary-evidence", "state-machine"],
+  "reachReference": {"minimumTotal": 82, "minimumContent": 20, "minimumClarity": 11, "minimumAnimation": 12, "minimumSound": 9, "noDimensionBelowPercent": 60},
+  "exceedReference": {"minimumTotal": 90, "minimumContent": 22, "mustBeatAtLeastThreeOf": ["content", "clarity", "animation", "sound", "evidence"], "minimumWinningMargin": 1, "mustIncludeOneOf": ["clarity", "animation"]},
+  "judges": [
+    {"role": "agent-harness-engineer", "count": 2, "scores": ["content", "evidence"], "vetoMajorTechnicalError": true},
+    {"role": "motion-designer", "count": 2, "scores": ["animation", "character", "brand"]},
+    {"role": "audio-producer", "count": 1, "scores": ["sound"]},
+    {"role": "target-viewer", "count": 5, "scores": ["clarity"], "requiresImmediateAndDelayedRecall": true}
+  ],
+  "blindProtocol": {"labels": ["X", "Y", "Z"], "randomizeOrder": true, "normalizeResolution": "1920x1080", "normalizeLoudnessLufs": -16, "scoreBeforeDiscussion": true, "aggregate": "median"}
+}

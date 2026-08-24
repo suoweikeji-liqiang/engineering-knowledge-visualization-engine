@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!-- Abstract Stage (9:16 Vertical Composite) -->
+  <rect width="1080" height="1920" fill="#080E18"/>
+  <circle cx="540" cy="800" r="350" fill="none" stroke="#1FD6E2" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.3"/>
+  <circle cx="540" cy="800" r="500" fill="none" stroke="#1F5CFF" stroke-width="1.5" opacity="0.3"/>
+</svg>

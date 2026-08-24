@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <g id="hvac-fan">
+    <circle cx="128" cy="128" r="110" fill="#E6F7FF" stroke="#13223A" stroke-width="4"/>
+    <circle cx="128" cy="128" r="28" fill="#101C31"/>
+    <!-- 4 Curved Fan Blades -->
+    <path d="M 128,100 C 128,40 170,40 180,70 C 190,100 150,110 128,100 Z" fill="#1890FF"/>
+    <path d="M 156,128 C 216,128 216,170 186,180 C 156,190 146,150 156,128 Z" fill="#1890FF"/>
+    <path d="M 128,156 C 128,216 86,216 76,186 C 66,156 106,146 128,156 Z" fill="#1890FF"/>
+    <path d="M 100,128 C 40,128 40,86 70,76 C 100,66 110,106 100,128 Z" fill="#1890FF"/>
+  </g>
+</svg>

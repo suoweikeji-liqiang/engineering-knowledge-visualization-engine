@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs></defs>
+  <g id="ai-gpu-cluster">
+    <rect id="rack" x="54" y="42" width="404" height="428" rx="32" fill="#101C31" stroke="#13223A" stroke-width="8"/>
+    <g id="gpu-one"><rect x="88" y="82" width="336" height="94" rx="18" fill="#172A46" stroke="#1F5CFF" stroke-width="4"/><circle cx="354" cy="129" r="27" fill="none" stroke="#1FD6E2" stroke-width="5"/><path d="M354 102v54M327 129h54" stroke="#1FD6E2" stroke-width="4"/></g>
+    <g id="gpu-two"><rect x="88" y="210" width="336" height="94" rx="18" fill="#172A46" stroke="#8B5CF6" stroke-width="4"/><circle cx="354" cy="257" r="27" fill="none" stroke="#8B5CF6" stroke-width="5"/><path d="M354 230v54M327 257h54" stroke="#8B5CF6" stroke-width="4"/></g>
+    <g id="gpu-three"><rect x="88" y="338" width="336" height="94" rx="18" fill="#172A46" stroke="#1FD6E2" stroke-width="4"/><circle cx="354" cy="385" r="27" fill="none" stroke="#1F5CFF" stroke-width="5"/><path d="M354 358v54M327 385h54" stroke="#1F5CFF" stroke-width="4"/></g>
+    <g id="compute-indicators"><circle cx="120" cy="129" r="9" fill="#22C55E"/><circle cx="120" cy="257" r="9" fill="#22C55E"/><circle cx="120" cy="385" r="9" fill="#F59E0B"/></g>
+  </g>
+</svg>

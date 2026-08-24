@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "assets": [
+    {
+      "id": "prop.thermometer.default",
+      "type": "prop",
+      "source": "icons/thermometer.svg",
+      "viewBox": [0, 0, 64, 96],
+      "anchors": {
+        "center": [32, 48],
+        "label": [32, 0]
+      },
+      "variants": ["default", "warning"],
+      "capabilities": ["tintable", "stateful"],
+      "layers": ["root", "body", "signal"]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "sources": [
+    {
+      "id": "qwen-ui-agent-repo",
+      "title": "Qwen-UI-Agent official repository",
+      "type": "official-repository",
+      "url": "https://github.com/Tongyi-MAI/MAI-UI",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "qwen-ui-agent-report",
+      "title": "Qwen-UI-Agent Technical Report",
+      "type": "technical-report",
+      "url": "https://tongyi-mai.github.io/Qwen-UI-Agent/Qwen-UI-Agent-Technical-Report.pdf",
+      "sha256": "c57f7e2605b370237ff0b4f1e3ef85609e5785c87391e469d0b82f33dffa9567",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "qwen-ui-agent-flight-demo",
+      "title": "Proactive flight recovery official demo",
+      "type": "official-demo",
+      "url": "https://tongyi-mai.github.io/Qwen-UI-Agent/demos/source/proactive-flight-recovery-hd.mp4",
+      "sha256": "4a0369b89fd46c74859ba551124e94cc1454930325a800c03f164f9ad4583dd5",
+      "durationSeconds": 65.223333,
+      "resolution": [608, 1080],
+      "retrievedAt": "2026-08-24"
+    }
+  ],
+  "claims": [
+    {"id": "unified-platforms", "text": "统一覆盖手机、电脑、浏览器与 DeepSearch", "sourceIds": ["qwen-ui-agent-repo", "qwen-ui-agent-report"]},
+    {"id": "hybrid-actions", "text": "统一动作空间支持 GUI、CLI、API 与批量动作", "sourceIds": ["qwen-ui-agent-report"]},
+    {"id": "long-horizon", "text": "在线强化学习轨迹超过 100 个交互步骤，约 10,000 个并行环境", "sourceIds": ["qwen-ui-agent-report"]},
+    {"id": "proactive-harness", "text": "轻量 Harness 支持通知触发的主动服务和跨平台状态流程", "sourceIds": ["qwen-ui-agent-report", "qwen-ui-agent-flight-demo"]},
+    {"id": "benchmarks", "text": "MobileWorld 82.1、MobileWorld-Real 92.2、OSWorld-Verified 79.5、WebArena 73.6", "sourceIds": ["qwen-ui-agent-report"]}
+  ]
+}

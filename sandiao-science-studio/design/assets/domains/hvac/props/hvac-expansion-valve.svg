@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <g id="hvac-expansion-valve">
+    <polygon points="32,64 128,128 32,192" fill="#FA541C" stroke="#13223A" stroke-width="3"/>
+    <polygon points="224,64 128,128 224,192" fill="#1890FF" stroke="#13223A" stroke-width="3"/>
+    <line x1="128" y1="40" x2="128" y2="128" stroke="#13223A" stroke-width="4"/>
+    <ellipse cx="128" cy="40" rx="36" ry="16" fill="#FAAD14" stroke="#13223A" stroke-width="2.5"/>
+  </g>
+</svg>

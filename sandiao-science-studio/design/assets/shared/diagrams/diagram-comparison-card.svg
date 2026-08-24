@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600">
+  <!-- Runtime component: inject all labels and content in the renderer. -->
+  <g id="diagram-comparison-card">
+    <rect id="card-frame" width="1000" height="600" rx="24" fill="#FFFFFF" stroke="#13223A" stroke-width="3.5"/>
+    <g id="left-panel">
+      <rect x="36" y="36" width="440" height="528" rx="16" fill="#FFF5F5" stroke="#FFA39E" stroke-width="2"/>
+      <rect id="left-badge-slot" x="56" y="56" width="100" height="28" rx="6" fill="#F04B2F"/>
+      <rect id="left-title-slot" x="176" y="56" width="260" height="28" rx="6" fill="#FFE1DF"/>
+      <rect id="left-content-slot" x="56" y="112" width="400" height="424" rx="12" fill="#FFFFFF" opacity="0.7"/>
+    </g>
+    <g id="right-panel">
+      <rect x="524" y="36" width="440" height="528" rx="16" fill="#E6F9FB" stroke="#87E8DE" stroke-width="2"/>
+      <rect id="right-badge-slot" x="544" y="56" width="100" height="28" rx="6" fill="#13C2C2"/>
+      <rect id="right-title-slot" x="664" y="56" width="260" height="28" rx="6" fill="#B5F5EC"/>
+      <rect id="right-content-slot" x="544" y="112" width="400" height="424" rx="12" fill="#FFFFFF" opacity="0.7"/>
+    </g>
+  </g>
+</svg>

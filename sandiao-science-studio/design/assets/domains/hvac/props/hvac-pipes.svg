@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 128" width="512" height="128">
+  <g id="hvac-pipes">
+    <rect x="0" y="32" width="512" height="64" rx="12" fill="#BAE7FF" stroke="#13223A" stroke-width="3.5"/>
+    <path d="M 60,64 L 140,64 M 220,64 L 300,64 M 380,64 L 460,64" stroke="#1890FF" stroke-width="8" stroke-linecap="round"/>
+    <polygon points="140,54 165,64 140,74" fill="#1890FF"/>
+    <polygon points="300,54 325,64 300,74" fill="#1890FF"/>
+    <polygon points="460,54 485,64 460,74" fill="#1890FF"/>
+  </g>
+</svg>

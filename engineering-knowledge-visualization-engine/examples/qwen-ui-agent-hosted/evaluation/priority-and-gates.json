@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "priority": [
+    {"rank": 1, "item": "主持人驱动的连续案例", "reason": "这是当前作品与 lilimozi 方向之间最大的叙事差异"},
+    {"rank": 2, "item": "真实产品演示与可验证结果", "reason": "减少卡片式讲解，让能力通过行为被看见"},
+    {"rank": 3, "item": "图解、数据与证据的动态表达", "reason": "补足 YouTube 参考片的形式密度"},
+    {"rank": 4, "item": "镜头内微动画和音效", "reason": "在前三项成立后增强节奏与质感"},
+    {"rank": 5, "item": "旧片局部装饰打磨", "reason": "收益低于建立可复用的新模板"}
+  ],
+  "gates": {
+    "hostPresenceRatio": {"min": 0.45, "max": 0.65},
+    "officialDemoTimeRatio": {"min": 0.25},
+    "primarySourceCount": {"min": 2},
+    "maxSecondsWithoutVisualChange": 5,
+    "caseResolvedAtEnd": true,
+    "templateMustNotReplaceExisting": true
+  }
+}

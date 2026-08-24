@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Science Lab: Observatory Research Stage -->
+  <defs>
+    <linearGradient id="labBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0E1726"/>
+      <stop offset="60%" stop-color="#142136"/>
+      <stop offset="100%" stop-color="#1A2C49"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#labBg)"/>
+  <!-- Telemetry Grid & Modular Server Racks -->
+  <g opacity="0.2">
+    <line x1="0" y1="120" x2="1920" y2="120" stroke="#1FD6E2" stroke-width="1.5"/>
+    <line x1="0" y1="840" x2="1920" y2="840" stroke="#1FD6E2" stroke-width="1.5"/>
+    <line x1="80" y1="0" x2="80" y2="1080" stroke="#1FD6E2" stroke-width="1.5"/>
+    <line x1="1840" y1="0" x2="1840" y2="1080" stroke="#1FD6E2" stroke-width="1.5"/>
+  </g>
+  <!-- Left Telemetry Sensor Column -->
+  <g transform="translate(80, 200)">
+    <rect x="0" y="0" width="140" height="580" rx="14" fill="#101C31" stroke="#1F5CFF" stroke-width="2"/>
+    <circle cx="70" cy="40" r="16" fill="#1FD6E2" opacity="0.3"/>
+    <circle cx="70" cy="40" r="8" fill="#1FD6E2"/>
+    <line x1="20" y1="80" x2="120" y2="80" stroke="#1F5CFF" stroke-width="2"/>
+    <rect x="20" y="100" width="100" height="30" rx="6" fill="#172A46"/>
+    <text x="70" y="121" fill="#1FD6E2" font-family="'SF Mono', monospace" font-size="14" text-anchor="middle">SENS-01</text>
+  </g>
+  <!-- Right Telemetry Sensor Column -->
+  <g transform="translate(1700, 200)">
+    <rect x="0" y="0" width="140" height="580" rx="14" fill="#101C31" stroke="#1F5CFF" stroke-width="2"/>
+    <circle cx="70" cy="40" r="16" fill="#FA541C" opacity="0.3"/>
+    <circle cx="70" cy="40" r="8" fill="#FA541C"/>
+    <line x1="20" y1="80" x2="120" y2="80" stroke="#1F5CFF" stroke-width="2"/>
+    <rect x="20" y="100" width="100" height="30" rx="6" fill="#172A46"/>
+    <text x="70" y="121" fill="#FA541C" font-family="'SF Mono', monospace" font-size="14" text-anchor="middle">SENS-02</text>
+  </g>
+  <!-- Floor Lab Deck -->
+  <rect x="0" y="840" width="1920" height="240" fill="#0A0F1A"/>
+  <line x1="0" y1="840" x2="1920" y2="840" stroke="#1FD6E2" stroke-width="3"/>
+</svg>

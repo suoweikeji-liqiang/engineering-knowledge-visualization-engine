@@ -7,3 +7,4 @@ export * from "./scene-manifest";
 export * from "./narration-intent";
 export * from "./visual-intent";
 export * from "./timing";
+export * from "./cinematic-scene";

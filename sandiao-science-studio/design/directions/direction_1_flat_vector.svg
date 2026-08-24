@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <style>
+      .bold-stroke { stroke: #1F1F1F; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .medium-stroke { stroke: #1F1F1F; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .title-text { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans SC', sans-serif; font-weight: 900; }
+      .body-text { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans SC', sans-serif; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#FFF9E6"/>
+
+  <!-- Pop Art Grid Dots -->
+  <pattern id="dotPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="3" fill="#FFE58F" opacity="0.6"/>
+  </pattern>
+  <rect width="1920" height="1080" fill="url(#dotPattern)"/>
+
+  <!-- Top Channel Header Badge -->
+  <g transform="translate(80, 50)">
+    <rect x="0" y="0" width="440" height="60" rx="30" fill="#FF4D4F" class="bold-stroke"/>
+    <text x="220" y="40" fill="#FFFFFF" class="title-text" font-size="26" text-anchor="middle" letter-spacing="2">小行星爆笑原理解剖所 #01</text>
+  </g>
+
+  <!-- Central Action Board / Diagram Stage -->
+  <g transform="translate(680, 160)">
+    <!-- Comic Action Burst Behind Card -->
+    <path d="M-40,-30 L50,-10 L80,-60 L140,-10 L220,-50 L240,0 L320,-30 L300,50 L380,80 L320,130 L390,200 L310,240 L380,310 L290,340 L320,420 L230,410 L220,500 L140,450 L100,520 L40,460 L-30,510 L-10,430 L-80,420 L-40,340 L-110,290 L-50,220 L-120,160 L-40,110 L-90,40 Z" fill="#FFD666" class="bold-stroke" transform="translate(450, 200) scale(1.6)"/>
+
+    <!-- Whiteboard Card -->
+    <rect x="0" y="0" width="1050" height="600" rx="36" fill="#FFFFFF" class="bold-stroke"/>
+
+    <!-- Top Headline Sticker -->
+    <g transform="translate(60, -30)">
+      <rect x="0" y="0" width="560" height="70" rx="16" fill="#1890FF" class="bold-stroke"/>
+      <text x="280" y="46" fill="#FFFFFF" class="title-text" font-size="32" text-anchor="middle">空调开 16℃ = 狂省电？</text>
+    </g>
+
+    <!-- Diagram Content: Cartoon Comparison -->
+    <!-- Left: Water Faucet (Red Cross) -->
+    <g transform="translate(100, 120)">
+      <rect x="0" y="0" width="380" height="400" rx="24" fill="#FFF1F0" class="medium-stroke"/>
+      <text x="190" y="60" fill="#CF1322" class="title-text" font-size="28" text-anchor="middle">生活直觉：水龙头</text>
+
+      <!-- Faucet Graphic -->
+      <path d="M120,160 L240,160 A30,30 0 0,1 270,190 L270,240" fill="none" stroke="#595959" stroke-width="20" stroke-linecap="round"/>
+      <rect x="100" y="140" width="40" height="40" rx="8" fill="#1890FF" class="medium-stroke"/>
+      <polygon points="260,260 280,260 270,300" fill="#1890FF"/>
+      <circle cx="270" cy="330" r="16" fill="#40A9FF"/>
+
+      <!-- Red Cross Badge -->
+      <g transform="translate(190, 220) scale(1.2)">
+        <circle cx="0" cy="0" r="45" fill="#FF4D4F" class="medium-stroke"/>
+        <path d="M-22,-22 L22,22 M22,-22 L-22,22" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+      </g>
+      <text x="190" y="370" fill="#FF4D4F" class="body-text" font-size="22" text-anchor="middle">错！温度不是流量阀</text>
+    </g>
+
+    <!-- Right: Compressor Fixed Power (Yellow Light) -->
+    <g transform="translate(560, 120)">
+      <rect x="0" y="0" width="390" height="400" rx="24" fill="#E6F7FF" class="medium-stroke"/>
+      <text x="195" y="60" fill="#096DD9" class="title-text" font-size="28" text-anchor="middle">实际工况：定频压缩机</text>
+
+      <!-- Compressor Icon -->
+      <rect x="110" y="110" width="170" height="190" rx="40" fill="#595959" class="medium-stroke"/>
+      <rect x="135" y="140" width="120" height="130" rx="16" fill="#434343"/>
+      <circle cx="195" cy="205" r="35" fill="#52C41A" class="medium-stroke"/>
+      <text x="195" y="215" fill="#FFFFFF" class="title-text" font-size="20" text-anchor="middle">100%</text>
+      <text x="195" y="340" fill="#096DD9" class="body-text" font-size="22" text-anchor="middle">输出冷量恒定 · 仅延长运行</text>
+    </g>
+  </g>
+
+  <!-- Left Character: Lao Wang (Comic Satire style) -->
+  <g transform="translate(220, 480)">
+    <!-- Body -->
+    <ellipse cx="140" cy="380" rx="110" ry="140" fill="#FF4D4F" class="bold-stroke"/>
+
+    <!-- Big Arm pointing excitedly -->
+    <path d="M 230,340 Q 320,300 360,220" fill="none" stroke="#FF4D4F" stroke-width="45" stroke-linecap="round"/>
+    <path d="M 230,340 Q 320,300 360,220" fill="none" class="bold-stroke"/>
+    <circle cx="370" cy="210" r="30" fill="#FFD591" class="medium-stroke"/>
+
+    <!-- Head -->
+    <ellipse cx="140" cy="200" rx="100" ry="110" fill="#FFD591" class="bold-stroke"/>
+    <!-- Hair side & bald top -->
+    <path d="M 45,190 Q 40,110 100,100 Q 140,95 180,100 Q 240,110 235,190 Q 200,130 140,130 Q 80,130 45,190 Z" fill="#262626" class="medium-stroke"/>
+    <ellipse cx="140" cy="115" rx="30" ry="15" fill="#FFFBE6" opacity="0.8"/> <!-- Head shine -->
+
+    <!-- Big Comic Shocked Eyes -->
+    <circle cx="95" cy="190" r="28" fill="#FFFFFF" class="medium-stroke"/>
+    <circle cx="102" cy="190" r="12" fill="#000000"/>
+    <circle cx="106" cy="186" r="4" fill="#FFFFFF"/>
+
+    <circle cx="175" cy="190" r="28" fill="#FFFFFF" class="medium-stroke"/>
+    <circle cx="168" cy="190" r="12" fill="#000000"/>
+    <circle cx="172" cy="186" r="4" fill="#FFFFFF"/>
+
+    <!-- Mustaches -->
+    <path d="M 110,240 Q 140,245 170,240" fill="none" stroke="#262626" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Wide Open Screaming Mouth -->
+    <path d="M 100,255 Q 140,320 180,255 Z" fill="#A8071A" class="medium-stroke"/>
+    <path d="M 115,295 Q 140,275 165,295 Z" fill="#FF7875"/>
+
+    <!-- Name Tag -->
+    <g transform="translate(60, 480)">
+      <rect x="0" y="0" width="160" height="48" rx="24" fill="#FFD666" class="medium-stroke"/>
+      <text x="80" y="33" fill="#1F1F1F" class="title-text" font-size="24" text-anchor="middle">老王 (自信)</text>
+    </g>
+  </g>
+
+  <!-- Right Character: Xiao Ming (Smart nerd slapstick) -->
+  <g transform="translate(1580, 520)">
+    <!-- Slender Body -->
+    <rect x="80" y="280" width="110" height="240" rx="30" fill="#1890FF" class="bold-stroke"/>
+
+    <!-- Glasses & Head -->
+    <rect x="60" y="110" width="150" height="170" rx="40" fill="#FFE7BA" class="bold-stroke"/>
+    <!-- Neat haircut -->
+    <path d="M 50,150 L 50,110 Q 135,70 220,110 L 220,150 Q 135,120 50,150 Z" fill="#1F1F1F" class="medium-stroke"/>
+
+    <!-- Giant Nerd Glasses -->
+    <rect x="65" y="155" width="60" height="50" rx="14" fill="#FFFFFF" class="bold-stroke"/>
+    <rect x="145" y="155" width="60" height="50" rx="14" fill="#FFFFFF" class="bold-stroke"/>
+    <line x1="125" y1="180" x2="145" y2="180" stroke="#1F1F1F" stroke-width="6"/>
+    <circle cx="95" cy="180" r="8" fill="#1F1F1F"/>
+    <circle cx="175" cy="180" r="8" fill="#1F1F1F"/>
+
+    <!-- Smug Smile -->
+    <path d="M 115,245 Q 140,260 160,240" fill="none" stroke="#1F1F1F" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Arm with Big Teacher Pointer -->
+    <line x1="90" y1="320" x2="-80" y2="200" stroke="#1F1F1F" stroke-width="12" stroke-linecap="round"/>
+    <polygon points="-80,200 -120,185 -105,225" fill="#FF4D4F"/>
+
+    <!-- Name Tag -->
+    <g transform="translate(60, 480)">
+      <rect x="0" y="0" width="160" height="48" rx="24" fill="#87E8DE" class="medium-stroke"/>
+      <text x="80" y="33" fill="#1F1F1F" class="title-text" font-size="24" text-anchor="middle">小明 (冷静)</text>
+    </g>
+  </g>
+
+  <!-- Subtitle Bar at Bottom -->
+  <g transform="translate(160, 930)">
+    <rect x="0" y="0" width="1600" height="100" rx="28" fill="#1F1F1F" opacity="0.95" class="bold-stroke"/>
+    <text x="800" y="62" fill="#FFFFFF" class="title-text" font-size="34" text-anchor="middle">老王：“温度调到 16℃，空调肯定拼命吹冷气，降温贼快！”</text>
+  </g>
+</svg>
