@@ -1,4 +1,4 @@
-import type {CharacterPerformanceAsset, CinematicSceneAsset, CinematicSoundCue} from "@repo/schemas";
+import type {CharacterPerformanceAsset, CinematicSceneAsset, CinematicSoundCue, TopologySceneGrammar} from "@repo/schemas";
 
 export const AI_CINEMATIC_SCENES: CinematicSceneAsset[] = [
   {
@@ -131,6 +131,11 @@ export const AI_CHARACTER_PERFORMANCE_ASSETS: CharacterPerformanceAsset[] = [
     id: "xiaolan-evidence-bridge",
     characterId: "xiaolan",
     narrativeRole: "investigate",
+    performanceState: "investigate",
+    emotion: "focused",
+    gesture: "annotate",
+    motionProfile: "scan-and-mark",
+    focusTarget: "evidence gap",
     action: "从来源文档中提取关键句，并把荧光标记延展成技术图解",
     gaze: "object",
     assetRef: "ai/character/xiaolan/evidence-bridge",
@@ -144,6 +149,11 @@ export const AI_CHARACTER_PERFORMANCE_ASSETS: CharacterPerformanceAsset[] = [
     id: "xiaolan-connect-modules",
     characterId: "xiaolan",
     narrativeRole: "connect",
+    performanceState: "synthesize",
+    emotion: "confident",
+    gesture: "present",
+    motionProfile: "assemble-and-present",
+    focusTarget: "artifact stack",
     action: "把分散模块接入同一条信号路径，建立系统关系",
     gaze: "path",
     assetRef: "ai/character/xiaolan/connect-modules",
@@ -157,6 +167,11 @@ export const AI_CHARACTER_PERFORMANCE_ASSETS: CharacterPerformanceAsset[] = [
     id: "xiaolan-recover-path",
     characterId: "xiaolan",
     narrativeRole: "recover",
+    performanceState: "recover",
+    emotion: "determined",
+    gesture: "reroute",
+    motionProfile: "error-to-success",
+    focusTarget: "checkpoint path",
     action: "面对失败分支重新规划路径，并把错误状态转回可执行流程",
     gaze: "path",
     assetRef: "ai/character/xiaolan/recover-path",
@@ -164,6 +179,69 @@ export const AI_CHARACTER_PERFORMANCE_ASSETS: CharacterPerformanceAsset[] = [
     transitionHooks: ["red-error-path", "green-recovery-path"],
     parallaxLayers: ["foreground-alert", "character", "route-board", "observatory-background"],
     accumulationKey: "ai/character/xiaolan/performance/recover-path"
+  }
+];
+
+export const AI_TOPOLOGY_SCENE_GRAMMARS: TopologySceneGrammar[] = [
+  {
+    schemaVersion: "1.0",
+    id: "ai-topology-orbit",
+    composition: "orbit",
+    relationship: "system-parts",
+    narrativePurpose: "表达多个能力共同围绕一个系统核心工作",
+    recommendedFor: ["agent components", "runtime capabilities", "shared services"],
+    motionBeats: ["establish core", "reveal orbiting parts", "connect into system"],
+    accumulationKey: "ai/explanation/topology/orbit"
+  },
+  {
+    schemaVersion: "1.0",
+    id: "ai-topology-branch",
+    composition: "branch",
+    relationship: "state-exits",
+    narrativePurpose: "从一个运行态明确分叉到多个互斥出口",
+    recommendedFor: ["stop reasons", "error routes", "approval outcomes"],
+    motionBeats: ["establish active state", "draw directed exits", "land on terminal states"],
+    accumulationKey: "ai/explanation/topology/branch"
+  },
+  {
+    schemaVersion: "1.0",
+    id: "ai-topology-quadrants",
+    composition: "quadrants",
+    relationship: "typed-memory",
+    narrativePurpose: "把容易混淆的四类状态或存储对象分区对照",
+    recommendedFor: ["state versus memory", "artifact types", "context layers"],
+    motionBeats: ["establish shared session", "reveal typed quadrants", "contrast responsibilities"],
+    accumulationKey: "ai/explanation/topology/quadrants"
+  },
+  {
+    schemaVersion: "1.0",
+    id: "ai-topology-constellation",
+    composition: "constellation",
+    relationship: "delegation",
+    narrativePurpose: "用不对称空间距离表达角色分工、委派与回传",
+    recommendedFor: ["multi-agent", "manager and handoff", "distributed tools"],
+    motionBeats: ["establish coordinator", "dispatch work", "return structured results"],
+    accumulationKey: "ai/explanation/topology/constellation"
+  },
+  {
+    schemaVersion: "1.0",
+    id: "ai-topology-dashboard",
+    composition: "dashboard",
+    relationship: "evaluation",
+    narrativePurpose: "把多种确定性检查聚合为一个评测核心",
+    recommendedFor: ["evals", "quality gates", "artifact verification"],
+    motionBeats: ["establish artifact", "attach checks", "resolve executable constraints"],
+    accumulationKey: "ai/explanation/topology/dashboard"
+  },
+  {
+    schemaVersion: "1.0",
+    id: "ai-topology-hero-map",
+    composition: "hero-map",
+    relationship: "synthesis",
+    narrativePurpose: "在收束镜头中把多个概念沿同一基线汇入核心判断",
+    recommendedFor: ["chapter synthesis", "system recap", "final thesis"],
+    motionBeats: ["state thesis", "assemble supporting roles", "hold final system map"],
+    accumulationKey: "ai/explanation/topology/hero-map"
   }
 ];
 

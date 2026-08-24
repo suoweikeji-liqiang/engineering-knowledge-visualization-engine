@@ -52,17 +52,44 @@ export type CinematicSoundCue = {
   assetRef?: string;
 };
 
+export type CharacterPerformanceState = "investigate" | "recover" | "synthesize";
+export type CharacterMotionProfile = "scan-and-mark" | "error-to-success" | "assemble-and-present";
+
 export type CharacterPerformanceAsset = {
   schemaVersion: "1.0";
   id: string;
   characterId: string;
   narrativeRole: "introduce" | "investigate" | "connect" | "demonstrate" | "recover" | "synthesize";
+  performanceState: CharacterPerformanceState;
+  emotion: string;
+  gesture: string;
+  motionProfile: CharacterMotionProfile;
+  focusTarget: string;
   action: string;
   gaze: "viewer" | "object" | "path" | "offscreen";
   assetRef: string;
   compatibleSceneModes: CinematicSceneMode[];
   transitionHooks?: string[];
   parallaxLayers?: string[];
+  accumulationKey: string;
+};
+
+export type TopologyComposition =
+  | "orbit"
+  | "branch"
+  | "quadrants"
+  | "constellation"
+  | "dashboard"
+  | "hero-map";
+
+export type TopologySceneGrammar = {
+  schemaVersion: "1.0";
+  id: string;
+  composition: TopologyComposition;
+  relationship: "system-parts" | "state-exits" | "typed-memory" | "delegation" | "evaluation" | "synthesis";
+  narrativePurpose: string;
+  recommendedFor: string[];
+  motionBeats: string[];
   accumulationKey: string;
 };
 

@@ -48,6 +48,27 @@ for (const shot of shots) {
   }
 }
 
+const allowedTopologyCompositions = new Set(['orbit', 'branch', 'quadrants', 'constellation', 'dashboard', 'hero-map']);
+const topologyShots = shots.filter(shot => shot.visual?.kind === 'topology');
+const topologyCompositions = topologyShots.map(shot => shot.visual?.composition).filter(Boolean);
+const topologyCompositionCounts = Object.fromEntries([...new Set(topologyCompositions)].map(composition => [composition, topologyCompositions.filter(value => value === composition).length]));
+const maximumSingleCompositionShare = Math.max(...Object.values(topologyCompositionCounts), 0) / Math.max(1, topologyShots.length);
+if (story.meta?.designSystem?.sceneGrammar !== 'scene-grammar-v2') errors.push('story must declare scene-grammar-v2');
+if (topologyCompositions.length !== topologyShots.length) errors.push('every topology shot must declare a composition');
+if (topologyCompositions.some(composition => !allowedTopologyCompositions.has(composition))) errors.push('topology shot declares an unknown composition');
+if (Object.keys(topologyCompositionCounts).length < 5) errors.push('topology shots must use at least five distinct compositions');
+if (maximumSingleCompositionShare > 0.34) errors.push(`one topology composition dominates ${(maximumSingleCompositionShare * 100).toFixed(1)}% of topology shots`);
+
+const requiredPerformanceFields = ['state', 'emotion', 'gesture', 'motionProfile', 'focusTarget'];
+const requiredPerformanceStates = ['investigate', 'recover', 'synthesize'];
+const characterShots = shots.filter(shot => shot.visual?.kind === 'character');
+const performanceStates = characterShots.map(shot => shot.visual?.performance?.state);
+if (story.meta?.designSystem?.performanceSystem !== 'xiaolan-performance-v1') errors.push('story must declare xiaolan-performance-v1');
+for (const shot of characterShots) {
+  if (requiredPerformanceFields.some(field => !String(shot.visual?.performance?.[field] ?? '').trim())) errors.push(`character shot ${shot.id} must declare a complete performance state`);
+}
+for (const state of requiredPerformanceStates) if (!performanceStates.includes(state)) errors.push(`character performance state ${state} is not represented`);
+
 const stopReasons = shots.find(shot => shot.id === 'stop-reasons');
 if (stopReasons?.visual?.edgeDirection !== 'outbound') errors.push('stop-reasons must direct arrows outward from RUNNING');
 for (const shot of shots) {
@@ -95,6 +116,9 @@ const report = {
   semanticVisualFamilies: [...visualKinds].sort(),
   semanticVisualEvents: timedVisualEvents.length,
   semanticVisualMapping: visualTimeline.mappingPolicy?.mode,
+  topologyCompositionCounts,
+  maximumSingleCompositionShare,
+  performanceStates,
   coreCoverage: core.length,
   femaleVoice: voice.mimo_voice,
   errors,

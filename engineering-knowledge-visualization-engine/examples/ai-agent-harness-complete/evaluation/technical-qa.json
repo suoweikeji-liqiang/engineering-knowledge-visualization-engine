@@ -3,8 +3,8 @@
   "artifact": "final/ai-agent-harness-complete.mp4",
   "media": {
     "duration": 714.833333,
-    "sizeBytes": 187733587,
-    "bitRate": 2101005,
+    "sizeBytes": 184621075,
+    "bitRate": 2066171,
     "video": {
       "index": 0,
       "codec_name": "h264",
@@ -24,14 +24,14 @@
   },
   "loudness": {
     "integratedLufs": -16.69,
-    "truePeakDb": -3.95,
+    "truePeakDb": -4.14,
     "rangeLu": 3.5
   },
   "blackSegments": [],
   "motion": {
-    "freezeSegmentsOver3Seconds": 55,
-    "frozenSeconds": 200.26666500000002,
-    "frozenFraction": 0.2801585429145062,
+    "freezeSegmentsOver3Seconds": 50,
+    "frozenSeconds": 181.76666500000005,
+    "frozenFraction": 0.2542783843573227,
     "maximumFreezeSeconds": 5.233333
   },
   "asr": {
@@ -75,7 +75,57 @@
     },
     "cardSystemV2Declared": true,
     "detachedBadgeGap": 18,
-    "detachedBadgeGapPasses": true
+    "detachedBadgeGapPasses": true,
+    "sceneGrammar": {
+      "id": "scene-grammar-v2",
+      "topologyCompositions": [
+        "orbit",
+        "branch",
+        "quadrants",
+        "constellation",
+        "dashboard",
+        "hero-map"
+      ],
+      "minimumDistinctTopologyCompositions": 5,
+      "maximumSingleCompositionShare": 0.34,
+      "unknownCompositionPolicy": "fail-review"
+    },
+    "topologyCompositionCounts": {
+      "orbit": 1,
+      "branch": 1,
+      "quadrants": 1,
+      "constellation": 1,
+      "dashboard": 1,
+      "hero-map": 1
+    },
+    "maximumSingleCompositionShare": 0.16666666666666666,
+    "sceneGrammarV2Declared": true,
+    "performanceSystem": {
+      "id": "xiaolan-performance-v1",
+      "states": [
+        "investigate",
+        "recover",
+        "synthesize"
+      ],
+      "requiredFields": [
+        "state",
+        "emotion",
+        "gesture",
+        "motionProfile",
+        "focusTarget"
+      ],
+      "motionProfiles": [
+        "scan-and-mark",
+        "error-to-success",
+        "assemble-and-present"
+      ]
+    },
+    "performanceStates": [
+      "investigate",
+      "recover",
+      "synthesize"
+    ],
+    "performanceSystemDeclared": true
   },
   "trace": {
     "runId": "production-narrative-9286a3e9230b",
@@ -99,6 +149,8 @@
     "noTextOverflowRisks": true,
     "characterAspectPreserved": true,
     "cardSystemV2Declared": true,
+    "sceneGrammarV2Declared": true,
+    "performanceSystemDeclared": true,
     "traceDelivered": true
   },
   "pass": true

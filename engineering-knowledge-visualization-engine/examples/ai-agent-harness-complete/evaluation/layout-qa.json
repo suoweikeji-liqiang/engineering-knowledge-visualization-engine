@@ -42,5 +42,56 @@
   "cardSystemV2Declared": true,
   "detachedBadgeGap": 18,
   "detachedBadgeGapPasses": true,
+  "sceneGrammar": {
+    "id": "scene-grammar-v2",
+    "topologyCompositions": [
+      "orbit",
+      "branch",
+      "quadrants",
+      "constellation",
+      "dashboard",
+      "hero-map"
+    ],
+    "minimumDistinctTopologyCompositions": 5,
+    "maximumSingleCompositionShare": 0.34,
+    "unknownCompositionPolicy": "fail-review"
+  },
+  "topologyCompositionCounts": {
+    "orbit": 1,
+    "branch": 1,
+    "quadrants": 1,
+    "constellation": 1,
+    "dashboard": 1,
+    "hero-map": 1
+  },
+  "distinctTopologyCompositions": 6,
+  "maximumSingleCompositionShare": 0.16666666666666666,
+  "sceneGrammarV2Declared": true,
+  "performanceSystem": {
+    "id": "xiaolan-performance-v1",
+    "states": [
+      "investigate",
+      "recover",
+      "synthesize"
+    ],
+    "requiredFields": [
+      "state",
+      "emotion",
+      "gesture",
+      "motionProfile",
+      "focusTarget"
+    ],
+    "motionProfiles": [
+      "scan-and-mark",
+      "error-to-success",
+      "assemble-and-present"
+    ]
+  },
+  "performanceStates": [
+    "investigate",
+    "recover",
+    "synthesize"
+  ],
+  "performanceSystemDeclared": true,
   "pass": true
 }

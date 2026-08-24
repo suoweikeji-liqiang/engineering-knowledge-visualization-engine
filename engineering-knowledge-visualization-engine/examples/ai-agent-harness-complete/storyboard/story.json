@@ -7,7 +7,7 @@
     "resolution": [1920, 1080],
     "fps": 30,
     "playbackRate": 1.07,
-    "designSystem": {"cardSystem": "card-system-v2", "indexTreatment": "detached-badge", "contentAlignment": "intrinsic-centered", "evidenceRelationship": "source-connector-callout"},
+    "designSystem": {"cardSystem": "card-system-v2", "sceneGrammar": "scene-grammar-v2", "performanceSystem": "xiaolan-performance-v1", "indexTreatment": "detached-badge", "contentAlignment": "intrinsic-centered", "evidenceRelationship": "source-connector-callout"},
     "video": "examples/ai-agent-harness-complete/final/ai-agent-harness-complete.mp4",
     "audio": "examples/ai-agent-harness-complete/audio/ai-agent-harness-complete.wav",
     "poster": "examples/ai-agent-harness-complete/final/ai-agent-harness-complete-poster.png"
@@ -50,7 +50,7 @@
       "sfx": ["impact", "whoosh"],
       "states": [],
       "scene": {"id": "scene.hook", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "character-task"}, "camera": {"framing": "medium-wide", "movement": "push-in"}},
-      "visual": {"kind": "character", "asset": "xiaolan-evidence-bridge.png", "assetFit": "contain", "performanceLabel": "发现任务断点", "status": ["脚本 ✓", "证据 ○", "画面 ○", "音频 ○", "成片 ○"], "cueIndexes": [2, 3, 3, 3, 4], "continuityKey": "episode-task"},
+      "visual": {"kind": "character", "asset": "xiaolan-evidence-bridge.png", "assetFit": "contain", "performanceLabel": "发现任务断点", "performance": {"state": "investigate", "emotion": "focused", "gesture": "annotate", "motionProfile": "scan-and-mark", "focusTarget": "evidence gap"}, "status": ["脚本 ✓", "证据 ○", "画面 ○", "音频 ○", "成片 ○"], "cueIndexes": [2, 3, 3, 3, 4], "continuityKey": "episode-task"},
       "citations": ["openai-agent-guide"]
     },
     {
@@ -92,7 +92,7 @@
       "sfx": ["connector-draw", "sparkle"],
       "states": [],
       "scene": {"id": "scene.components", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "radial-system"}, "camera": {"framing": "wide", "movement": "pull-out"}},
-      "visual": {"kind": "topology", "center": "AGENT", "nodes": ["GOAL", "MODEL", "TOOLS", "STATE", "LOOP"], "cueIndexes": [1, 1, 1, 2, 2], "continuityKey": "agent-system"},
+      "visual": {"kind": "topology", "composition": "orbit", "center": "AGENT", "nodes": ["GOAL", "MODEL", "TOOLS", "STATE", "LOOP"], "cueIndexes": [1, 1, 1, 2, 2], "continuityKey": "agent-system"},
       "citations": ["openai-agent-guide", "microsoft-agent-harness"]
     },
     {
@@ -176,7 +176,7 @@
       "sfx": ["soft-tick", "impact"],
       "states": [],
       "scene": {"id": "scene.stop-reasons", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "state-machine"}, "camera": {"framing": "wide", "movement": "static"}},
-      "visual": {"kind": "topology", "center": "RUNNING", "nodes": ["DONE", "FAILED", "NEEDS HUMAN", "CANCELLED"], "edgeDirection": "outbound", "cueIndexes": [0, 1, 2, 3], "meters": ["iterations 4/12", "time 38/120s", "budget ¥0.42/2.00"], "continuityKey": "agent-loop"},
+      "visual": {"kind": "topology", "composition": "branch", "center": "RUNNING", "nodes": ["DONE", "FAILED", "NEEDS HUMAN", "CANCELLED"], "edgeDirection": "outbound", "cueIndexes": [0, 1, 2, 3], "meters": ["iterations 4/12", "time 38/120s", "budget ¥0.42/2.00"], "continuityKey": "agent-loop"},
       "citations": ["openai-agent-guide"]
     },
     {
@@ -246,7 +246,7 @@
       "sfx": ["soft-tick", "result-stamp"],
       "states": [],
       "scene": {"id": "scene.state-memory", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "four-quadrants"}, "camera": {"framing": "wide", "movement": "static"}},
-      "visual": {"kind": "topology", "center": "SESSION", "nodes": ["STATE · 当前进度", "MEMORY · 跨任务经验", "ARTIFACT · 外部成果", "CHECKPOINT · 恢复快照"], "cueIndexes": [1, 2, 3, 4], "continuityKey": "context-stack"},
+      "visual": {"kind": "topology", "composition": "quadrants", "center": "SESSION", "nodes": ["STATE · 当前进度", "MEMORY · 跨任务经验", "ARTIFACT · 外部成果", "CHECKPOINT · 恢复快照"], "cueIndexes": [1, 2, 3, 4], "continuityKey": "context-stack"},
       "citations": ["microsoft-agent-harness", "microsoft-checkpoints"]
     },
     {
@@ -260,7 +260,7 @@
       "sfx": ["connector-draw", "data-pulse"],
       "states": [],
       "scene": {"id": "scene.multi-agent", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "multi-agent"}, "camera": {"framing": "wide", "movement": "pull-out"}},
-      "visual": {"kind": "topology", "center": "EDITOR", "nodes": ["RESEARCH", "SCRIPT", "VISUAL", "QA"], "returns": "structured results only", "cueIndexes": [1, 1, 2, 2], "continuityKey": "agent-system"},
+      "visual": {"kind": "topology", "composition": "constellation", "center": "EDITOR", "nodes": ["RESEARCH", "SCRIPT", "VISUAL", "QA"], "returns": "structured results only", "cueIndexes": [1, 1, 2, 2], "continuityKey": "agent-system"},
       "citations": ["openai-agent-guide", "anthropic-effective-agents"]
     },
     {
@@ -316,7 +316,7 @@
       "sfx": ["task-inject", "connector-draw", "terminal-success"],
       "states": [],
       "scene": {"id": "scene.checkpoint-resume", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "character-recovery"}, "camera": {"framing": "medium-wide", "movement": "pan"}},
-      "visual": {"kind": "character", "asset": "xiaolan-recover-path.png", "assetFit": "contain", "performanceLabel": "恢复制作现场", "status": ["render process ✕", "checkpoint found ✓", "script + voice ✓", "downstream only ↻", "fingerprint verified ✓"], "cueIndexes": [0, 2, 3, 4, 5], "continuityKey": "reliability-run"},
+      "visual": {"kind": "character", "asset": "xiaolan-recover-path.png", "assetFit": "contain", "performanceLabel": "恢复制作现场", "performance": {"state": "recover", "emotion": "determined", "gesture": "reroute", "motionProfile": "error-to-success", "focusTarget": "checkpoint path"}, "status": ["render process ✕", "checkpoint found ✓", "script + voice ✓", "downstream only ↻", "fingerprint verified ✓"], "cueIndexes": [0, 2, 3, 4, 5], "continuityKey": "reliability-run"},
       "citations": ["microsoft-checkpoints"]
     },
     {
@@ -372,7 +372,7 @@
       "sfx": ["soft-tick", "terminal-success", "connector-draw"],
       "states": [],
       "scene": {"id": "scene.feedback-eval", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "eval-dashboard"}, "camera": {"framing": "wide", "movement": "pan"}},
-      "visual": {"kind": "topology", "center": "ARTIFACT", "nodes": ["unit tests", "citation check", "ASR review", "visual QA", "executable constraints"], "cueIndexes": [2, 3, 3, 4, 8], "continuityKey": "eval-loop"},
+      "visual": {"kind": "topology", "composition": "dashboard", "center": "ARTIFACT", "nodes": ["unit tests", "citation check", "ASR review", "visual QA", "executable constraints"], "cueIndexes": [2, 3, 3, 4, 8], "continuityKey": "eval-loop"},
       "citations": ["anthropic-effective-agents", "openai-agent-guide"]
     },
     {
@@ -428,7 +428,7 @@
       "sfx": ["terminal-success", "sparkle"],
       "states": [],
       "scene": {"id": "scene.live-trace-finish", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "artifact-delivery"}, "camera": {"framing": "medium-wide", "movement": "push-in"}},
-      "visual": {"kind": "character", "asset": "xiaolan-connect-modules.png", "assetFit": "contain", "performanceLabel": "核对交付证据", "status": ["video.mp4 ✓", "subtitles.srt ✓", "citations.json ✓", "trace kind · narrative", "raw telemetry · external"], "cueIndexes": [3, 3, 4, 6, 7], "continuityKey": "live-trace"},
+      "visual": {"kind": "character", "asset": "xiaolan-connect-modules.png", "assetFit": "contain", "performanceLabel": "核对交付证据", "performance": {"state": "synthesize", "emotion": "confident", "gesture": "present", "motionProfile": "assemble-and-present", "focusTarget": "artifact stack"}, "status": ["video.mp4 ✓", "subtitles.srt ✓", "citations.json ✓", "trace kind · narrative", "raw telemetry · external"], "cueIndexes": [3, 3, 4, 6, 7], "continuityKey": "live-trace"},
       "citations": ["openai-agent-guide"]
     },
     {
@@ -442,7 +442,7 @@
       "sfx": ["impact", "sparkle", "character-return"],
       "states": [],
       "scene": {"id": "scene.synthesis", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "hero-equation"}, "camera": {"framing": "medium-wide", "movement": "pull-out"}},
-      "visual": {"kind": "topology", "center": "AGENT", "nodes": ["MODEL · decide", "HARNESS · orchestrate", "TOOLS · act", "STATE · remember", "EVALS · verify"], "characterAsset": "xiaolan-evidence-bridge.png", "cueIndexes": [1, 3, 4, 4, 5], "continuityKey": "agent-system"},
+      "visual": {"kind": "topology", "composition": "hero-map", "center": "AGENT", "nodes": ["MODEL · decide", "HARNESS · orchestrate", "TOOLS · act", "STATE · remember", "EVALS · verify"], "characterAsset": "xiaolan-evidence-bridge.png", "cueIndexes": [1, 3, 4, 4, 5], "continuityKey": "agent-system"},
       "citations": ["openai-agent-guide", "anthropic-effective-agents", "microsoft-agent-harness"]
     }
   ]

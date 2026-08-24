@@ -12,6 +12,7 @@
     "render:complete": "tsx src/prepare-complete.ts && tsx src/render-complete.ts"
   },
   "dependencies": {
+    "@repo/schemas": "workspace:*",
     "@revideo/2d": "0.11.0",
     "@revideo/core": "0.11.0",
     "@revideo/renderer": "0.11.0"

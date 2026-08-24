@@ -5,6 +5,8 @@ import {
   CHARACTER_SOURCE_SIZE,
   CHARACTER_VIEWPORT,
   CARD_SYSTEM_V2,
+  SCENE_GRAMMAR_V2,
+  XIAOLAN_PERFORMANCE_V1,
   detachedBadgeX,
   fitText,
   type TextFitOptions,
@@ -90,6 +92,21 @@ async function main() {
     && story.meta.designSystem?.evidenceRelationship === CARD_SYSTEM_V2.evidenceRelationship;
   const detachedBadgeGap = -650 / 2 - (detachedBadgeX(650, 62) + 62 / 2);
   const detachedBadgeGapPasses = detachedBadgeGap >= CARD_SYSTEM_V2.indexGap;
+  const topologyShots = story.shots.filter(shot => shot.visual.kind === 'topology');
+  const topologyCompositions = topologyShots.map(shot => String(shot.visual.composition ?? ''));
+  const validTopologyCompositions = new Set(SCENE_GRAMMAR_V2.topologyCompositions);
+  const compositionCounts = Object.fromEntries([...new Set(topologyCompositions)].map(composition => [composition, topologyCompositions.filter(value => value === composition).length]));
+  const distinctTopologyCompositions = Object.keys(compositionCounts).length;
+  const maximumSingleCompositionShare = Math.max(...Object.values(compositionCounts), 0) / Math.max(1, topologyShots.length);
+  const sceneGrammarV2Declared = story.meta.designSystem?.sceneGrammar === SCENE_GRAMMAR_V2.id
+    && topologyCompositions.every(composition => validTopologyCompositions.has(composition as any))
+    && distinctTopologyCompositions >= SCENE_GRAMMAR_V2.minimumDistinctTopologyCompositions
+    && maximumSingleCompositionShare <= SCENE_GRAMMAR_V2.maximumSingleCompositionShare;
+  const characterShots = story.shots.filter(shot => shot.visual.kind === 'character');
+  const performanceStates = characterShots.map(shot => shot.visual.performance?.state).filter(Boolean);
+  const performanceSystemDeclared = story.meta.designSystem?.performanceSystem === XIAOLAN_PERFORMANCE_V1.id
+    && characterShots.every(shot => XIAOLAN_PERFORMANCE_V1.requiredFields.every(field => typeof shot.visual.performance?.[field] === 'string' && shot.visual.performance[field].length > 0))
+    && XIAOLAN_PERFORMANCE_V1.states.every(state => performanceStates.includes(state));
   const report = {
     schemaVersion: '1.0',
     textContainers: measured.length,
@@ -104,7 +121,21 @@ async function main() {
     cardSystemV2Declared,
     detachedBadgeGap,
     detachedBadgeGapPasses,
-    pass: overflowRisks.length === 0 && characterAspectPreserved && characterShotsDeclareContain && cardSystemV2Declared && detachedBadgeGapPasses,
+    sceneGrammar: SCENE_GRAMMAR_V2,
+    topologyCompositionCounts: compositionCounts,
+    distinctTopologyCompositions,
+    maximumSingleCompositionShare,
+    sceneGrammarV2Declared,
+    performanceSystem: XIAOLAN_PERFORMANCE_V1,
+    performanceStates,
+    performanceSystemDeclared,
+    pass: overflowRisks.length === 0
+      && characterAspectPreserved
+      && characterShotsDeclareContain
+      && cardSystemV2Declared
+      && detachedBadgeGapPasses
+      && sceneGrammarV2Declared
+      && performanceSystemDeclared,
   };
   await writeFile(resolve(example, 'evaluation/layout-qa.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
   console.log(JSON.stringify(report, null, 2));

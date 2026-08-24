@@ -1,3 +1,5 @@
+import type {CharacterMotionProfile, CharacterPerformanceState, TopologyComposition} from '@repo/schemas';
+
 export type TextFit = {
   fontSize: number;
   lineHeight: number;
@@ -22,6 +24,26 @@ export const CARD_SYSTEM_V2 = {
   evidenceRelationship: 'source-connector-callout',
   minimumHorizontalPadding: 28,
 } as const;
+
+export const SCENE_GRAMMAR_V2 = {
+  id: 'scene-grammar-v2',
+  topologyCompositions: ['orbit', 'branch', 'quadrants', 'constellation', 'dashboard', 'hero-map'],
+  minimumDistinctTopologyCompositions: 5,
+  maximumSingleCompositionShare: 0.34,
+  unknownCompositionPolicy: 'fail-review',
+} as const;
+
+export type {TopologyComposition};
+
+export const XIAOLAN_PERFORMANCE_V1 = {
+  id: 'xiaolan-performance-v1',
+  states: ['investigate', 'recover', 'synthesize'],
+  requiredFields: ['state', 'emotion', 'gesture', 'motionProfile', 'focusTarget'],
+  motionProfiles: ['scan-and-mark', 'error-to-success', 'assemble-and-present'],
+} as const;
+
+export type XiaolanPerformanceState = CharacterPerformanceState;
+export type XiaolanMotionProfile = CharacterMotionProfile;
 
 export function detachedBadgeX(cardWidth: number, badgeWidth: number): number {
   return -cardWidth / 2 - CARD_SYSTEM_V2.indexGap - badgeWidth / 2;

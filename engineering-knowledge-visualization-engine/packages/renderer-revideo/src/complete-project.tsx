@@ -6,7 +6,14 @@ import captionTimeline from '../../../examples/ai-agent-harness-complete/audio/c
 import visualTimeline from '../../../examples/ai-agent-harness-complete/audio/visual-events.timeline.json';
 import {ASTEROID_WARM_THEME as C} from './theme';
 import {CINEMATIC_FONT as FONT, CINEMATIC_MONO as MONO} from './cinematic-sketch';
-import {CHARACTER_CONTAINED_SIZE, detachedBadgeX, fitText} from './layout-contracts';
+import {
+  CHARACTER_CONTAINED_SIZE,
+  detachedBadgeX,
+  fitText,
+  type TopologyComposition,
+  type XiaolanMotionProfile,
+  type XiaolanPerformanceState,
+} from './layout-contracts';
 
 type Visual = {
   kind: string;
@@ -14,6 +21,13 @@ type Visual = {
   characterAsset?: string;
   assetFit?: 'contain';
   performanceLabel?: string;
+  performance?: {
+    state: XiaolanPerformanceState;
+    emotion: string;
+    gesture: string;
+    motionProfile: XiaolanMotionProfile;
+    focusTarget: string;
+  };
   status?: string[];
   left?: {title: string; items: string[]};
   right?: {title: string; items: string[]};
@@ -37,6 +51,7 @@ type Visual = {
   callouts?: string[];
   edgeDirection?: 'inbound' | 'outbound';
   continuityKey?: string;
+  composition?: TopologyComposition;
 };
 
 type CompleteShot = {
@@ -189,6 +204,13 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
   const statusStartY = -((statuses.length - 1) * statusStep) / 2;
   const asset = shot.visual.asset ?? shot.visual.characterAsset ?? 'xiaolan-evidence-bridge.png';
   const performanceLabel = shot.visual.performanceLabel ?? '现场讲解';
+  const performance = shot.visual.performance ?? {
+    state: 'investigate',
+    emotion: 'focused',
+    gesture: 'annotate',
+    motionProfile: 'scan-and-mark',
+    focusTarget: 'evidence',
+  };
   stage.body().add(
     <>
       <Layout ref={image} x={-420} opacity={0} scale={0.94} rotation={-1.2}>
@@ -208,6 +230,10 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
           </Rect>
         </Rect>
         <Rect y={-310} width={126} height={28} radius={5} fill={`${C.tape}D8`} rotation={3} />
+        <Rect x={272} y={-260} width={268} height={42} radius={21} fill={C.night} stroke={`${accent}88`} lineWidth={2} shadowColor={'#2B253033'} shadowBlur={14}>
+          <Circle x={-108} width={10} height={10} fill={accent} shadowColor={accent} shadowBlur={12} />
+          <Txt x={10} width={208} textAlign={'left'} fontFamily={MONO} fontSize={15} fontWeight={850} fill={C.onDark} text={`${performance.state.toUpperCase()} · ${performance.emotion.toUpperCase()}`} />
+        </Rect>
       </Layout>
       <Layout x={480}>
         {statuses.map((item, idx) => {
@@ -240,9 +266,23 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
     image().position.x(-405, active, easeInOutCubic),
     tween(active, value => {
       const phase = value * Math.PI * 4;
-      portrait().position.x(Math.sin(phase) * 6);
-      portrait().position.y(-34 + Math.cos(phase * 0.7) * 4);
-      portrait().scale(1.006 + Math.sin(phase * 0.5) * 0.006);
+      if (performance.motionProfile === 'error-to-success') {
+        const damping = 1 - value;
+        portrait().position.x(Math.sin(value * Math.PI * 18) * damping * 7);
+        portrait().position.y(-34 + Math.cos(phase * 0.65) * 3);
+        portrait().scale(1.008 + value * 0.008);
+        portrait().rotation(Math.sin(value * Math.PI * 14) * damping * 0.32);
+      } else if (performance.motionProfile === 'assemble-and-present') {
+        portrait().position.x(Math.sin(phase * 0.5) * 3);
+        portrait().position.y(-34 - value * 6 + Math.cos(phase * 0.5) * 2);
+        portrait().scale(1.004 + value * 0.016);
+        portrait().rotation(-0.18 + value * 0.18);
+      } else {
+        portrait().position.x(Math.sin(phase) * 6);
+        portrait().position.y(-34 + Math.cos(phase * 0.7) * 4);
+        portrait().scale(1.006 + Math.sin(phase * 0.5) * 0.006);
+        portrait().rotation(Math.sin(phase * 0.35) * 0.12);
+      }
       liveDot().scale(0.88 + Math.sin(phase * 1.4) * 0.16);
       liveDot().shadowBlur(12 + (Math.sin(phase * 1.4) + 1) * 8);
     }),
@@ -379,39 +419,126 @@ function splitNode(value: string): [string, string] {
   return [title, rest.join(' · ') || ''];
 }
 
+type TopologyGeometry = {
+  center: [number, number];
+  nodes: Array<[number, number]>;
+  nodeWidth: number;
+  nodeHeight: number;
+};
+
+function evenlySpaced(count: number, start: number, end: number): number[] {
+  if (count <= 1) return [(start + end) / 2];
+  return Array.from({length: count}, (_, idx) => start + idx * ((end - start) / (count - 1)));
+}
+
+function topologyGeometry(composition: TopologyComposition, count: number): TopologyGeometry {
+  if (composition === 'branch') {
+    return {center: [-560, 0], nodes: evenlySpaced(count, -190, 190).map(y => [250, y]), nodeWidth: 390, nodeHeight: 96};
+  }
+  if (composition === 'quadrants') {
+    const positions: Array<[number, number]> = [[-440, -165], [440, -165], [-440, 165], [440, 165]];
+    return {center: [0, 0], nodes: Array.from({length: count}, (_, idx) => positions[idx % positions.length]), nodeWidth: 390, nodeHeight: 126};
+  }
+  if (composition === 'constellation') {
+    const positions: Array<[number, number]> = [[-120, -225], [330, -145], [510, 155], [30, 220], [-310, 80]];
+    return {center: [-560, -45], nodes: Array.from({length: count}, (_, idx) => positions[idx % positions.length]), nodeWidth: 310, nodeHeight: 104};
+  }
+  if (composition === 'dashboard') {
+    const positions: Array<[number, number]> = [[-80, -190], [300, -190], [500, 35], [300, 220], [-80, 220]];
+    return {center: [-560, 10], nodes: Array.from({length: count}, (_, idx) => positions[idx % positions.length]), nodeWidth: 330, nodeHeight: 104};
+  }
+  if (composition === 'hero-map') {
+    return {center: [0, -150], nodes: evenlySpaced(count, -600, 600).map(x => [x, 165]), nodeWidth: 250, nodeHeight: 106};
+  }
+  const radiusX = 590;
+  const radiusY = 220;
+  return {
+    center: [0, 0],
+    nodes: Array.from({length: count}, (_, idx) => {
+      const angle = -Math.PI / 2 + (idx / Math.max(1, count)) * Math.PI * 2;
+      return [Math.cos(angle) * radiusX, Math.sin(angle) * radiusY] as [number, number];
+    }),
+    nodeWidth: 300,
+    nodeHeight: 132,
+  };
+}
+
+function topologyNodePlate(composition: TopologyComposition, title: string, detail: string, color: string, width: number, height: number) {
+  const titleFit = fitText(title, width - 50, detail ? 40 : height - 32, {maxFontSize: 22, minFontSize: 15, maxLines: 2});
+  const detailFit = fitText(detail, width - 50, 38, {maxFontSize: 17, minFontSize: 13, maxLines: 2});
+  const dark = composition === 'dashboard';
+  const pill = composition === 'constellation';
+  const fill = dark ? C.night : pill ? `${color}16` : composition === 'quadrants' ? `${color}0E` : '#FFFCF7';
+  const stroke = dark ? `${color}AA` : pill ? color : C.line;
+  return (
+    <Layout>
+      {composition === 'orbit' ? <Rect x={7} y={8} width={width} height={height} radius={[20, 24, 18, 22]} fill={'#DCCFBE66'} /> : null}
+      <Rect width={width} height={height} radius={pill ? height / 2 : composition === 'hero-map' ? 12 : [18, 22, 17, 20]} fill={fill} stroke={stroke} lineWidth={dark || pill ? 2.5 : 1.5} shadowColor={composition === 'orbit' ? '#6D594024' : '#00000000'} shadowBlur={composition === 'orbit' ? 18 : 0}>
+        {composition === 'branch' ? <Rect x={-width / 2 + 5} width={10} height={height - 22} radius={5} fill={color} /> : null}
+        {composition === 'quadrants' ? <Rect x={-width / 2 + 18} y={-height / 2 + 13} width={36} height={5} radius={3} fill={color} /> : null}
+        {composition === 'dashboard' ? <Rect y={-height / 2 + 5} width={width - 34} height={8} radius={4} fill={color} /> : null}
+        {composition === 'hero-map' ? <Rect y={height / 2 - 5} width={width - 28} height={8} radius={4} fill={color} /> : null}
+        <Layout width={width - 50} height={height - 24} layout direction={'column'} justifyContent={'center'} alignItems={'start'} gap={5}>
+          <Txt width={width - 50} textWrap={true} textAlign={pill ? 'center' : 'left'} fontFamily={MONO} fontSize={titleFit.fontSize} lineHeight={titleFit.lineHeight} fontWeight={900} fill={dark ? C.onDark : C.primary} text={title} />
+          {detail ? <Txt width={width - 50} textWrap={true} textAlign={pill ? 'center' : 'left'} fontFamily={FONT} fontSize={detailFit.fontSize} lineHeight={detailFit.lineHeight} fill={dark ? C.mutedOnDark : C.soft} text={detail} /> : null}
+        </Layout>
+      </Rect>
+    </Layout>
+  );
+}
+
+function topologyCenterPlate(composition: TopologyComposition, label: string, accent: string) {
+  if (composition === 'branch') {
+    return <Rect width={250} height={250} radius={32} fill={C.night} stroke={`${accent}99`} lineWidth={3}><Rect x={-112} width={10} height={190} radius={5} fill={accent} /><Txt width={190} textWrap={true} fontFamily={MONO} fontSize={30} fontWeight={950} fill={C.onDark} text={label} /></Rect>;
+  }
+  if (composition === 'constellation') {
+    return <Rect width={176} height={176} radius={28} rotation={45} fill={C.night} stroke={accent} lineWidth={4} shadowColor={`${accent}44`} shadowBlur={30}><Txt rotation={-45} width={150} textWrap={true} fontFamily={MONO} fontSize={28} fontWeight={950} fill={C.onDark} text={label} /></Rect>;
+  }
+  if (composition === 'dashboard') {
+    return <Rect width={330} height={184} radius={28} fill={'#FFF4C7'} stroke={`${accent}88`} lineWidth={3}><Txt y={-52} fontFamily={MONO} fontSize={15} fontWeight={850} fill={accent} text={'EVALUATION CORE'} /><Line y={-25} points={[[-118, 0], [118, 0]]} stroke={`${accent}55`} lineWidth={2} /><Txt y={24} width={270} fontFamily={MONO} fontSize={30} fontWeight={950} fill={C.primary} text={label} /></Rect>;
+  }
+  if (composition === 'hero-map') {
+    return <Rect width={390} height={136} radius={68} fill={C.night} stroke={accent} lineWidth={4} shadowColor={`${accent}44`} shadowBlur={34}><Circle x={-154} width={16} height={16} fill={accent} shadowColor={accent} shadowBlur={18} /><Txt x={14} width={300} fontFamily={MONO} fontSize={34} fontWeight={950} fill={C.onDark} text={label} /></Rect>;
+  }
+  const size = composition === 'quadrants' ? 206 : 250;
+  return <Circle width={size} height={size} fill={'#FFF9F0'} stroke={accent} lineWidth={6} shadowColor={`${accent}44`} shadowBlur={36}><Txt width={size - 40} fontFamily={MONO} fontSize={composition === 'quadrants' ? 28 : 34} fontWeight={950} fill={C.primary} text={label} /></Circle>;
+}
+
 function* topologyShot(view: View2D, shot: CompleteShot, duration: number, index: number) {
-  const stage = makeCompleteStage(view, index, shot, ACCENTS[index % ACCENTS.length]);
+  const accent = ACCENTS[index % ACCENTS.length];
+  const stage = makeCompleteStage(view, index, shot, accent);
   const nodes = shot.visual.nodes ?? [];
   const refs = nodes.map(() => createRef<Layout>());
   const center = createRef<Layout>();
-  const radiusX = 590;
-  const radiusY = 220;
+  const composition = shot.visual.composition ?? 'orbit';
+  const geometry = topologyGeometry(composition, nodes.length);
   stage.body().add(
     <>
       {nodes.map((item, idx) => {
-        const angle = -Math.PI / 2 + (idx / nodes.length) * Math.PI * 2;
-        const x = Math.cos(angle) * radiusX;
-        const y = Math.sin(angle) * radiusY;
+        const [x, y] = geometry.nodes[idx];
+        const [centerX, centerY] = geometry.center;
+        const deltaX = centerX - x;
+        const deltaY = centerY - y;
         const [title, detail] = splitNode(item);
+        const outbound = shot.visual.edgeDirection === 'outbound';
         return (
           <Layout ref={refs[idx]} x={x} y={y} opacity={0} scale={0.76}>
             <Line
-              points={shot.visual.edgeDirection === 'outbound'
-                ? [[-x * 0.52, -y * 0.52], [-x * 0.34, -y * 0.34]]
-                : [[-x * 0.34, -y * 0.34], [-x * 0.52, -y * 0.52]]}
+              points={outbound
+                ? [[deltaX * 0.78, deltaY * 0.78], [deltaX * 0.24, deltaY * 0.24]]
+                : [[deltaX * 0.24, deltaY * 0.24], [deltaX * 0.78, deltaY * 0.78]]}
               stroke={`${ACCENTS[idx % ACCENTS.length]}88`}
-              lineWidth={5}
+              lineWidth={composition === 'constellation' ? 3 : 5}
+              lineDash={composition === 'constellation' ? [12, 10] : undefined}
               endArrow
               arrowSize={18}
             />
-            {paperCard(title, detail || 'system capability', ACCENTS[idx % ACCENTS.length], 300, 132)}
+            {topologyNodePlate(composition, title, detail, ACCENTS[idx % ACCENTS.length], geometry.nodeWidth, geometry.nodeHeight)}
           </Layout>
         );
       })}
-      <Layout ref={center} opacity={0} scale={0.6}>
-        <Circle width={250} height={250} fill={'#FFF9F0'} stroke={C.red} lineWidth={6} shadowColor={'#D8556244'} shadowBlur={44}>
-          <Txt width={210} fontFamily={MONO} fontSize={34} fontWeight={950} fill={C.primary} text={shot.visual.center ?? 'SYSTEM'} />
-        </Circle>
+      <Layout ref={center} x={geometry.center[0]} y={geometry.center[1]} opacity={0} scale={0.6}>
+        {topologyCenterPlate(composition, shot.visual.center ?? 'SYSTEM', accent)}
       </Layout>
       {(shot.visual.meters ?? []).map((meter, idx) => (
         <Rect x={-510 + idx * 510} y={292} width={440} height={52} radius={26} fill={'#EEE3D5'} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={2}>
@@ -423,9 +550,11 @@ function* topologyShot(view: View2D, shot: CompleteShot, duration: number, index
   yield* enter(stage);
   const active = duration - 0.74;
   yield* all(
-    all(center().opacity(1, 0.4), center().scale(1, 0.55)),
+    chain(
+      all(center().opacity(1, 0.4), center().scale(1, 0.55)),
+      tween(Math.max(0, active - 0.55), value => center().scale(1 + Math.sin(value * Math.PI * 2) * 0.012)),
+    ),
     ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.3), ref().scale(1, 0.4)))),
-    center().rotation(1.2, active, linear),
     ambientScan(stage, active),
     captions(stage, shot.id, active),
     waitFor(active),
