@@ -202,6 +202,60 @@ export type CharacterRigAsset = {
   accumulationKey: string;
 };
 
+export type LayeredCharacterRigBoneName =
+  | "root"
+  | "torso"
+  | "head"
+  | "leftUpperArm"
+  | "leftForearm"
+  | "leftHand"
+  | "rightUpperArm"
+  | "rightForearm"
+  | "rightHand"
+  | "eyes"
+  | "mouth";
+
+export type LayeredCharacterRigBone = {
+  id: LayeredCharacterRigBoneName;
+  parent?: LayeredCharacterRigBoneName;
+  partRef?: string;
+  pivot: {normalizedX: number; normalizedY: number};
+  maxRotationDegrees?: number;
+  audioDriven?: "voice-rms";
+};
+
+export type LayeredCharacterRigAction = {
+  id: "point-emphasis" | "think-focus" | "explain-open" | "resolve-wave";
+  durationHintSeconds: number;
+  loop: boolean;
+  activeBones: LayeredCharacterRigBoneName[];
+  narrativeRoles: HostNarrativeRole[];
+};
+
+/**
+ * A real cutout rig: limbs and face states are independent transparent assets.
+ * Unlike CharacterRigAsset V1, motion must rotate child bones around joints and
+ * must never be simulated by translating a complete character illustration.
+ */
+export type LayeredCharacterRigAsset = {
+  schemaVersion: "1.0";
+  id: string;
+  characterId: string;
+  system: "xiaolan-rig-v2";
+  technique: "layered-cutout-skeleton";
+  partsManifestRef: string;
+  bones: LayeredCharacterRigBone[];
+  actions: LayeredCharacterRigAction[];
+  face: {
+    blinkSprites: [string, string];
+    mouthSprites: [string, string, string];
+    lipSync: "voice-rms-sprite-selection";
+  };
+  sourceAssetCount: number;
+  alphaRequired: true;
+  accumulationKey: string;
+};
+
 export type TopologyComposition =
   | "orbit"
   | "branch"

@@ -12,7 +12,9 @@
     "render:benchmark": "tsx src/prepare.ts && tsx src/render.ts",
     "render:complete": "tsx src/prepare-complete.ts && tsx src/render-complete.ts",
     "prepare:qwen-ui-agent": "tsx src/prepare-qwen-ui-agent.ts",
-    "render:qwen-ui-agent": "tsx src/prepare-qwen-ui-agent.ts && tsx src/render-qwen-ui-agent.ts"
+    "render:qwen-ui-agent": "tsx src/prepare-qwen-ui-agent.ts && tsx src/render-qwen-ui-agent.ts",
+    "render:qwen-ui-agent-v2": "VITE_XIAOLAN_RIG_V2=1 RENDER_OUT=qwen-ui-agent-hosted-v2.mp4 tsx src/prepare-qwen-ui-agent.ts && VITE_XIAOLAN_RIG_V2=1 RENDER_OUT=qwen-ui-agent-hosted-v2.mp4 tsx src/render-qwen-ui-agent.ts",
+    "render:xiaolan-v2-proof": "tsx src/prepare-qwen-ui-agent.ts && tsx src/render-xiaolan-v2-proof.ts"
   },
   "dependencies": {
     "@repo/schemas": "workspace:*",

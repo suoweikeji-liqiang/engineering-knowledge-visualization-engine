@@ -9,9 +9,13 @@ const story = JSON.parse(readFileSync(resolve(example, 'storyboard/story.json'),
 const timeline = JSON.parse(readFileSync(resolve(example, 'audio/video.timeline.json'), 'utf8'));
 const evaluation = JSON.parse(readFileSync(resolve(example, 'evaluation/priority-and-gates.json'), 'utf8'));
 const rigContract = JSON.parse(readFileSync(resolve(example, 'evaluation/rig-contract.json'), 'utf8'));
+const rigV2Contract = JSON.parse(readFileSync(resolve(example, 'evaluation/rig-v2-contract.json'), 'utf8'));
+const rigV2Root = resolve(example, 'assets/characters-v2');
+const rigV2Manifest = JSON.parse(readFileSync(resolve(rigV2Root, 'manifest.json'), 'utf8'));
 const lipSync = JSON.parse(readFileSync(resolve(example, 'audio/lip-sync.timeline.json'), 'utf8'));
 const citations = JSON.parse(readFileSync(resolve(example, 'sources/citations.json'), 'utf8'));
 const finalPath = resolve(example, 'final/qwen-ui-agent-hosted.mp4');
+const finalV2Path = resolve(example, 'final/qwen-ui-agent-hosted-v2.mp4');
 const asrPath = resolve(example, 'evaluation/asr-report.json');
 const failures = [];
 const checks = [];
@@ -50,6 +54,22 @@ check('character-rig-bindings', riggedHostShots.length === rigContract.episodeBi
 }), `${riggedHostShots.length} bound host shots`);
 check('character-rig-coverage', riggedHostRatio >= rigContract.qualityGates.minimumRiggedHostRatio, `${riggedHostShots.length}/${hostShots.length} = ${(riggedHostRatio * 100).toFixed(1)}%`);
 
+const rigV2PartsValid = rigV2Manifest.parts.every(part => {
+  const path = resolve(rigV2Root, part.path);
+  return existsSync(path) && createHash('sha256').update(readFileSync(path)).digest('hex') === part.sha256;
+});
+const rigV2HeadPath = resolve(rigV2Root, rigV2Manifest.headBase.path);
+const rigV2HeadValid = existsSync(rigV2HeadPath) && createHash('sha256').update(readFileSync(rigV2HeadPath)).digest('hex') === rigV2Manifest.headBase.sha256;
+const alphaParts = [...rigV2Manifest.parts.map(part => resolve(rigV2Root, part.path)), rigV2HeadPath].filter(path => {
+  const probe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=pix_fmt', '-of', 'default=nw=1:nk=1', path], {encoding: 'utf8'});
+  return probe.status === 0 && probe.stdout.trim() === 'rgba';
+});
+const requiredJointChain = ['leftUpperArm', 'leftForearm', 'leftHand', 'rightUpperArm', 'rightForearm', 'rightHand'];
+check('character-rig-v2-system', rigV2Manifest.id === rigV2Contract.system && rigV2Contract.technique === 'layered-cutout-skeleton', `${rigV2Manifest.id} / ${rigV2Contract.technique}`);
+check('character-rig-v2-parts', rigV2Manifest.parts.length >= rigV2Contract.qualityGates.minimumTransparentParts && rigV2PartsValid && rigV2HeadValid && alphaParts.length === rigV2Manifest.parts.length + 1, `${rigV2Manifest.parts.length} hashed parts + head base, ${alphaParts.length} RGBA assets`);
+check('character-rig-v2-joints', requiredJointChain.every(bone => rigV2Contract.bones.includes(bone)), requiredJointChain.join(' -> '));
+check('character-rig-v2-face', rigV2Contract.face.noseMayAnimate === false && rigV2Contract.face.blinkSprites.length === 2 && rigV2Contract.face.mouthSprites.length === 3, `${rigV2Contract.face.blinkSprites.length} eye states, ${rigV2Contract.face.mouthSprites.length} mouth states, nose locked`);
+
 const lipShots = Object.entries(lipSync.shots ?? {});
 const lipValues = lipShots.flatMap(([, shot]) => shot.values ?? []);
 const lipFrameCount = lipValues.length;
@@ -72,6 +92,24 @@ for (const source of citations.sources.filter(source => source.sha256)) {
 }
 
 check('final-exists', existsSync(finalPath), finalPath);
+check('final-v2-exists', existsSync(finalV2Path), finalV2Path);
+if (existsSync(finalV2Path)) {
+  const probe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration:stream=codec_type,width,height', '-of', 'json', finalV2Path], {encoding: 'utf8'});
+  const metadata = probe.status === 0 ? JSON.parse(probe.stdout) : {};
+  const video = metadata.streams?.find(stream => stream.codec_type === 'video');
+  const audio = metadata.streams?.find(stream => stream.codec_type === 'audio');
+  const duration = Number(metadata.format?.duration ?? 0);
+  check('video-v2-format', video?.width === 1920 && video?.height === 1080 && Boolean(audio), `${video?.width ?? 0}x${video?.height ?? 0}, audio=${Boolean(audio)}`);
+  check('duration-v2-match', Math.abs(duration - timeline.duration) < 0.2, `${duration.toFixed(3)}s vs ${timeline.duration.toFixed(3)}s`);
+  const detect = spawnSync('ffmpeg', ['-hide_banner', '-i', finalV2Path, '-vf', 'blackdetect=d=1:pix_th=0.08,freezedetect=n=-55dB:d=3', '-an', '-f', 'null', '-'], {encoding: 'utf8'});
+  const diagnostic = `${detect.stdout}\n${detect.stderr}`;
+  const blackSegments = [...diagnostic.matchAll(/black_duration:([0-9.]+)/g)].map(match => Number(match[1])).filter(value => value >= 1);
+  const freezeSegments = [...diagnostic.matchAll(/freeze_duration: ([0-9.]+)/g)].map(match => Number(match[1]));
+  const frozenSeconds = freezeSegments.reduce((sum, value) => sum + value, 0);
+  const maximumFreezeSeconds = Math.max(...freezeSegments, 0);
+  check('no-black-v2-segments', blackSegments.length === 0, JSON.stringify(blackSegments));
+  check('no-long-v2-freezes', maximumFreezeSeconds < 8 && frozenSeconds / duration < 0.5, `max=${maximumFreezeSeconds.toFixed(3)}s, total=${frozenSeconds.toFixed(3)}s`);
+}
 if (existsSync(finalPath)) {
   const probe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration:stream=codec_type,width,height', '-of', 'json', finalPath], {encoding: 'utf8'});
   const metadata = probe.status === 0 ? JSON.parse(probe.stdout) : {};

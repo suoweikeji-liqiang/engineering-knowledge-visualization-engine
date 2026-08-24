@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "2.0",
+  "id": "xiaolan-rig-v2",
+  "sourceSheet": "xiaolan-v2-parts-sheet.png",
+  "sourceSheetSha256": "c5138c8692a207b905fa75074208d3863a470c6fed898fd8895c35917b851121",
+  "headBase": {
+    "path": "head-base.png",
+    "source": "xiaolan-v2-head-base-source.png",
+    "sha256": "a6d4937c9a3b2ed0b668b13607f82eae787f5f1fecf3bdfe47229c58972f0a01"
+  },
+  "chromaKey": {
+    "color": "#00FF00",
+    "similarity": 0.3,
+    "blend": 0.04,
+    "despill": {
+      "mix": 0.9,
+      "expand": 0.18
+    }
+  },
+  "parts": [
+    {
+      "id": "head",
+      "crop": [
+        320,
+        430,
+        45,
+        35
+      ],
+      "pivot": [
+        0.5,
+        0.78
+      ],
+      "path": "head.png",
+      "sha256": "6217a8f2655588dd0c881850cf42b38d45580c20c1f36dc6d93df7409a5dd6fe"
+    },
+    {
+      "id": "torso",
+      "crop": [
+        260,
+        350,
+        430,
+        45
+      ],
+      "pivot": [
+        0.5,
+        0.12
+      ],
+      "path": "torso.png",
+      "sha256": "8c160b14eac12d027012bdbd5c2dde6757531d1ce1272c5fec7c28677bf5a027"
+    },
+    {
+      "id": "left-upper-arm",
+      "crop": [
+        140,
+        300,
+        775,
+        70
+      ],
+      "pivot": [
+        0.48,
+        0.05
+      ],
+      "path": "left-upper-arm.png",
+      "sha256": "a7746908109de6938116ed7d5131664535459845e7500b5aeadacde8132585cd"
+    },
+    {
+      "id": "left-forearm",
+      "crop": [
+        115,
+        250,
+        1015,
+        105
+      ],
+      "pivot": [
+        0.48,
+        0.04
+      ],
+      "path": "left-forearm.png",
+      "sha256": "6bf6ac6ed6e90df79f2ba9b8709a07bdc4d0767e6bfa42ce7b6e648fa16e964b"
+    },
+    {
+      "id": "left-open-hand",
+      "crop": [
+        190,
+        220,
+        50,
+        500
+      ],
+      "pivot": [
+        0.55,
+        0.96
+      ],
+      "path": "left-open-hand.png",
+      "sha256": "12a996e6a5ab17116d97bfb5e0e810133f4062b69cd8c9314efe5cfe5fd41ff0"
+    },
+    {
+      "id": "right-upper-arm",
+      "crop": [
+        120,
+        290,
+        555,
+        450
+      ],
+      "pivot": [
+        0.52,
+        0.05
+      ],
+      "path": "right-upper-arm.png",
+      "sha256": "00d5b0223d7b8aae59843c15188b6d084ebcee8b32e9f70f7842c23029869d6e"
+    },
+    {
+      "id": "right-forearm",
+      "crop": [
+        110,
+        240,
+        795,
+        490
+      ],
+      "pivot": [
+        0.52,
+        0.04
+      ],
+      "path": "right-forearm.png",
+      "sha256": "1cbab6b46d221347c37cdfdd2dee0b569c0629c371b2f5124ea6b7fa30261f3a"
+    },
+    {
+      "id": "right-pointing-hand",
+      "crop": [
+        165,
+        250,
+        1015,
+        470
+      ],
+      "pivot": [
+        0.3,
+        0.96
+      ],
+      "path": "right-pointing-hand.png",
+      "sha256": "6dba6d815931de9d0255f793387e5fc6309ad1acffe85d2456967aa95894e1a1"
+    },
+    {
+      "id": "eyes-open",
+      "crop": [
+        250,
+        130,
+        40,
+        825
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "path": "eyes-open.png",
+      "sha256": "83b3e47fb486fe28bb916d3dde3532d57fe48e6ed3e731a34ac61f93ef971382"
+    },
+    {
+      "id": "eyes-closed",
+      "crop": [
+        240,
+        130,
+        355,
+        825
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "path": "eyes-closed.png",
+      "sha256": "4134b74d240d0699e8d5104238fe8bffe40e04702c5dc6c9f565244f31fc7ecc"
+    },
+    {
+      "id": "mouth-closed",
+      "crop": [
+        120,
+        55,
+        715,
+        875
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "path": "mouth-closed.png",
+      "sha256": "bdbe596b0bf68dc7d42f7f778a95f034914d21f9540042d1f60a5d544a7ea2fa"
+    },
+    {
+      "id": "mouth-mid",
+      "crop": [
+        105,
+        65,
+        975,
+        865
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "path": "mouth-mid.png",
+      "sha256": "a1575b53b4851277947ec8791433a59efda7b0ad20c491ef834dc9f036fc383b"
+    },
+    {
+      "id": "mouth-open",
+      "crop": [
+        125,
+        90,
+        110,
+        1035
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "path": "mouth-open.png",
+      "sha256": "8498e019f46ed362834c2e1c4eb9e450798a06f3953eb626f8693387b6d7d6ec"
+    },
+    {
+      "id": "brows-surprised",
+      "crop": [
+        250,
+        100,
+        355,
+        1015
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "path": "brows-surprised.png",
+      "sha256": "4174e701ac0670bdbb5f8b1730bc9c448eabd46190a4af33e2246c5659bfb484"
+    }
+  ]
+}

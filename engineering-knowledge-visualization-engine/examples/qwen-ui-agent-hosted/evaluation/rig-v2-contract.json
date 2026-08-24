@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0",
+  "system": "xiaolan-rig-v2",
+  "technique": "layered-cutout-skeleton",
+  "partsManifest": "../assets/characters-v2/manifest.json",
+  "bones": [
+    "root",
+    "torso",
+    "head",
+    "leftUpperArm",
+    "leftForearm",
+    "leftHand",
+    "rightUpperArm",
+    "rightForearm",
+    "rightHand",
+    "eyes",
+    "mouth"
+  ],
+  "actions": [
+    "point-emphasis",
+    "think-focus",
+    "explain-open",
+    "resolve-wave"
+  ],
+  "face": {
+    "blinkSprites": ["eyes-open.png", "eyes-closed.png"],
+    "mouthSprites": ["mouth-closed.png", "mouth-mid.png", "mouth-open.png"],
+    "lipSync": "voice-rms-sprite-selection",
+    "noseMayAnimate": false
+  },
+  "qualityGates": {
+    "minimumTransparentParts": 14,
+    "requireNestedShoulderElbowWristJoints": true,
+    "requireIndependentFaceSprites": true,
+    "requireAspectPreservingSourceAssets": true,
+    "v1MustRemainAvailable": true,
+    "renderMustBeAdditive": true
+  },
+  "outputs": {
+    "v1": "../final/qwen-ui-agent-hosted.mp4",
+    "v2": "../final/qwen-ui-agent-hosted-v2.mp4",
+    "motionProof": "../final/xiaolan-rig-v2-proof.mp4"
+  },
+  "knownBoundary": "V2 is a reusable 2D cutout skeleton, not hand-drawn frame-by-frame animation; joint seams still require art-directed overlap masks for final broadcast polish.",
+  "accumulationKey": "ai/character/xiaolan/rig/v2"
+}
