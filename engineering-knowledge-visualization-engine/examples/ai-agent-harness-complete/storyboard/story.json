@@ -7,7 +7,7 @@
     "resolution": [1920, 1080],
     "fps": 30,
     "playbackRate": 1.07,
-    "designSystem": {"cardSystem": "card-system-v2", "sceneGrammar": "scene-grammar-v2", "performanceSystem": "xiaolan-performance-v2", "indexTreatment": "detached-badge", "contentAlignment": "intrinsic-centered", "evidenceRelationship": "source-connector-callout"},
+    "designSystem": {"cardSystem": "card-system-v2", "sceneGrammar": "scene-grammar-v2", "performanceSystem": "xiaolan-performance-v2", "characterStage": "xiaolan-stage-v3", "indexTreatment": "detached-badge", "contentAlignment": "intrinsic-centered", "evidenceRelationship": "source-connector-callout"},
     "video": "examples/ai-agent-harness-complete/final/ai-agent-harness-complete.mp4",
     "audio": "examples/ai-agent-harness-complete/audio/ai-agent-harness-complete.wav",
     "poster": "examples/ai-agent-harness-complete/final/ai-agent-harness-complete-poster.png"
@@ -92,7 +92,7 @@
       "sfx": ["connector-draw", "sparkle"],
       "states": [],
       "scene": {"id": "scene.components", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "radial-system"}, "camera": {"framing": "wide", "movement": "pull-out"}},
-      "visual": {"kind": "topology", "composition": "orbit", "center": "AGENT", "nodes": ["GOAL", "MODEL", "TOOLS", "STATE", "LOOP"], "cueIndexes": [1, 1, 1, 2, 2], "continuityKey": "agent-system"},
+      "visual": {"kind": "topology", "composition": "orbit", "center": "AGENT", "nodes": ["GOAL", "MODEL", "TOOLS", "STATE", "LOOP"], "actorStage": {"system": "xiaolan-stage-v3", "asset": "xiaolan-thinking.png", "intrinsicSize": {"width": 1369, "height": 1149}, "pose": "thinking", "gaze": "target", "gesture": "chin-touch", "targetId": "MODEL", "side": "left", "cueIndex": 1, "entrance": "rise", "layer": "foreground"}, "cueIndexes": [1, 1, 1, 2, 2], "continuityKey": "agent-system"},
       "citations": ["openai-agent-guide", "microsoft-agent-harness"]
     },
     {
@@ -288,7 +288,7 @@
       "sfx": ["editor-open", "impact", "terminal-success"],
       "states": [],
       "scene": {"id": "scene.structured-output", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "code-diff"}, "camera": {"framing": "medium", "movement": "push-in"}},
-      "visual": {"kind": "code", "filename": "tool-call.json · schema validator", "lines": ["{", "  \"name\": \"render_video\",", "  \"args\": {\"fps\": \"fast\"},", "  \"output\": null", "}", "validator: $.args.fps must be integer"], "focus": [3, 6], "cueIndexes": [2, 3], "continuityKey": "reliability-run"},
+      "visual": {"kind": "code", "filename": "tool-call.json · schema validator", "lines": ["{", "  \"name\": \"render_video\",", "  \"args\": {\"fps\": \"fast\"},", "  \"output\": null", "}", "validator: $.args.fps must be integer"], "focus": [3, 6], "actorStage": {"system": "xiaolan-stage-v3", "asset": "xiaolan-pointing.png", "intrinsicSize": {"width": 1367, "height": 1151}, "pose": "pointing", "gaze": "target", "gesture": "point", "targetId": "validator: $.args.fps must be integer", "side": "left", "cueIndex": 1, "entrance": "slide", "layer": "foreground"}, "cueIndexes": [2, 3], "continuityKey": "reliability-run"},
       "citations": ["openai-agent-guide"]
     },
     {
@@ -386,7 +386,7 @@
       "sfx": ["data-rise", "curve-draw"],
       "states": [],
       "scene": {"id": "scene.trace-metrics", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "metrics-dashboard"}, "camera": {"framing": "wide", "movement": "push-in"}},
-      "visual": {"kind": "bars", "bars": [{"label": "success", "value": 86}, {"label": "latency", "value": 81}, {"label": "retry", "value": 63}], "note": "illustrative trace metrics · replace with measured run data", "cueIndexes": [3, 3, 4], "continuityKey": "eval-loop"},
+      "visual": {"kind": "bars", "bars": [{"label": "success", "value": 86}, {"label": "latency", "value": 81}, {"label": "retry", "value": 63}], "note": "illustrative trace metrics · replace with measured run data", "actorStage": {"system": "xiaolan-stage-v3", "asset": "xiaolan-presenting.png", "intrinsicSize": {"width": 1448, "height": 1086}, "pose": "presenting", "gaze": "viewer", "gesture": "open-palm", "targetId": "retry", "side": "right", "cueIndex": 2, "entrance": "pop", "layer": "foreground"}, "cueIndexes": [3, 3, 4], "continuityKey": "eval-loop"},
       "citations": ["openai-agent-guide"]
     },
     {

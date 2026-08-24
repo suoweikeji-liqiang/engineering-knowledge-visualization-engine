@@ -1,6 +1,7 @@
 import {readFile, writeFile} from 'node:fs/promises';
 import {existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
+import {spawnSync} from 'node:child_process';
 import {resolve} from 'node:path';
 import {
   CHARACTER_CONTAINED_SIZE,
@@ -12,6 +13,7 @@ import {
   CARD_SYSTEM_V2,
   SCENE_GRAMMAR_V2,
   XIAOLAN_PERFORMANCE_V2,
+  XIAOLAN_STAGE_V3,
   detachedBadgeX,
   fitText,
   type TextFitOptions,
@@ -65,6 +67,7 @@ function visualEntries(shot: Shot): TextEntry[] {
       items.push(entry(shot.id, 'chart-note', visual.note, 710, 38, {maxFontSize: 18, minFontSize: 13, maxLines: 2}));
       break;
   }
+  if (visual.actorStage) items.push(entry(shot.id, 'stage-actor-label', `XIAOLAN · ${String(visual.actorStage.pose).toUpperCase()}`, 268, 40, {maxFontSize: 17, minFontSize: 17, maxLines: 1}));
   return items.filter((item): item is TextEntry => Boolean(item));
 }
 
@@ -88,6 +91,22 @@ function jpegSize(buffer: Buffer) {
     offset += 2 + length;
   }
   throw new Error('Unable to read performance pose JPEG dimensions');
+}
+
+function alphaRange(file: string) {
+  const result = spawnSync(process.env.FFMPEG_PATH || 'ffmpeg', ['-hide_banner', '-i', file, '-vf', 'alphaextract,signalstats,metadata=print', '-frames:v', '1', '-f', 'null', '-'], {encoding: 'utf8'});
+  const output = `${result.stdout ?? ''}${result.stderr ?? ''}`;
+  return {minimum: Number(output.match(/lavfi\.signalstats\.YMIN=([0-9]+)/)?.[1] ?? NaN), maximum: Number(output.match(/lavfi\.signalstats\.YMAX=([0-9]+)/)?.[1] ?? NaN)};
+}
+
+function actorTargetExists(shot: Shot) {
+  const targetId = shot.visual.actorStage?.targetId;
+  if (!targetId) return false;
+  if (shot.visual.kind === 'topology') return [...(shot.visual.nodes ?? []), shot.visual.center].includes(targetId);
+  if (shot.visual.kind === 'code') return (shot.visual.lines ?? []).includes(targetId);
+  if (shot.visual.kind === 'bars') return (shot.visual.bars ?? []).some((bar: any) => bar.label === targetId);
+  if (shot.visual.kind === 'curve') return (shot.visual.series ?? []).some((series: any) => series.label === targetId);
+  return false;
 }
 
 async function main() {
@@ -156,6 +175,24 @@ async function main() {
     && characterShots.every(shot => XIAOLAN_PERFORMANCE_V2.requiredFields.every(field => typeof shot.visual.performance?.[field] === 'string' && shot.visual.performance[field].length > 0))
     && XIAOLAN_PERFORMANCE_V2.states.every(state => performanceStates.includes(state))
     && performanceBeatsPass;
+  const actorStageShots = story.shots.filter(shot => shot.visual.actorStage);
+  const actorStageVisualKinds = [...new Set(actorStageShots.map(shot => shot.visual.kind))];
+  const actorStageFiles = [...new Set(actorStageShots.map(shot => shot.visual.actorStage.asset))];
+  const actorStageAssets = await Promise.all(actorStageFiles.map(async file => {
+    const path = resolve(aiDailyRoot!, 'templates/cinematic_context_deck/assets/character-stage', file);
+    const data = await readFile(path);
+    return {file, ...pngSize(data), sha256: createHash('sha256').update(data).digest('hex'), alphaRange: alphaRange(path)};
+  }));
+  const actorStagePass = story.meta.designSystem?.characterStage === XIAOLAN_STAGE_V3.id
+    && actorStageVisualKinds.length >= XIAOLAN_STAGE_V3.minimumDistinctVisualKinds
+    && actorStageShots.every(shot => XIAOLAN_STAGE_V3.requiredFields.every(field => shot.visual.actorStage?.[field] !== undefined && String(shot.visual.actorStage[field]).length > 0))
+    && actorStageShots.every(shot => XIAOLAN_STAGE_V3.supportedVisualKinds.includes(shot.visual.kind as any) && actorTargetExists(shot))
+    && actorStageShots.every(shot => {
+      const asset = actorStageAssets.find(item => item.file === shot.visual.actorStage.asset);
+      return asset?.width === shot.visual.actorStage.intrinsicSize.width && asset?.height === shot.visual.actorStage.intrinsicSize.height;
+    })
+    && actorStageAssets.length >= 3
+    && actorStageAssets.every(asset => asset.alphaRange.minimum === 0 && asset.alphaRange.maximum === 255);
   const report = {
     schemaVersion: '1.0',
     textContainers: measured.length,
@@ -185,6 +222,10 @@ async function main() {
     performancePoseAspectPreserved,
     performanceBeatsPass,
     performanceSystemDeclared,
+    characterStage: XIAOLAN_STAGE_V3,
+    actorStageVisualKinds,
+    actorStageAssets,
+    actorStagePass,
     pass: overflowRisks.length === 0
       && characterAspectPreserved
       && characterShotsDeclareContain
@@ -192,7 +233,8 @@ async function main() {
       && detachedBadgeGapPasses
       && sceneGrammarV2Declared
       && performancePoseAspectPreserved
-      && performanceSystemDeclared,
+      && performanceSystemDeclared
+      && actorStagePass,
   };
   await writeFile(resolve(example, 'evaluation/layout-qa.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
   console.log(JSON.stringify(report, null, 2));

@@ -86,6 +86,21 @@ export type CharacterPerformanceAsset = {
   accumulationKey: string;
 };
 
+export type CharacterStageActor = {
+  schemaVersion: "1.0";
+  id: string;
+  characterId: string;
+  assetRef: string;
+  intrinsicSize: {width: number; height: number};
+  pose: "pointing" | "thinking" | "presenting";
+  gaze: "viewer" | "target";
+  gesture: "point" | "chin-touch" | "open-palm";
+  compatibleVisualKinds: Array<"topology" | "code" | "bars" | "curve">;
+  targetBinding: "semantic-id";
+  alphaRequired: true;
+  accumulationKey: string;
+};
+
 export type TopologyComposition =
   | "orbit"
   | "branch"

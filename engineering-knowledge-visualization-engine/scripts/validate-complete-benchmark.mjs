@@ -80,6 +80,28 @@ for (const shot of characterShots) {
 for (const state of requiredPerformanceStates) if (!performanceStates.includes(state)) errors.push(`character performance state ${state} is not represented`);
 if (performancePoseAssets.size < 5) errors.push(`character performance must use at least five distinct pose assets, got ${performancePoseAssets.size}`);
 
+const requiredActorStageFields = ['asset', 'intrinsicSize', 'pose', 'gaze', 'gesture', 'targetId', 'side', 'cueIndex', 'entrance', 'layer'];
+const actorStageShots = shots.filter(shot => shot.visual?.actorStage);
+const actorStageVisualKinds = new Set(actorStageShots.map(shot => shot.visual.kind));
+const actorStageAssets = new Set(actorStageShots.map(shot => shot.visual.actorStage.asset));
+if (story.meta?.designSystem?.characterStage !== 'xiaolan-stage-v3') errors.push('story must declare xiaolan-stage-v3');
+if (actorStageShots.length < 3 || actorStageVisualKinds.size < 3 || actorStageAssets.size < 3) errors.push('character stage v3 requires at least three assets across three visual kinds');
+for (const shot of actorStageShots) {
+  const actor = shot.visual.actorStage;
+  if (requiredActorStageFields.some(field => actor[field] === undefined || !String(actor[field]).trim())) errors.push(`shot ${shot.id} has an incomplete character stage binding`);
+  if (!Number.isInteger(actor.cueIndex) || actor.cueIndex < 0 || actor.cueIndex >= shot.visual.cueIndexes.length) errors.push(`shot ${shot.id} has an invalid character stage cueIndex`);
+  const targetExists = shot.visual.kind === 'topology'
+    ? [...(shot.visual.nodes ?? []), shot.visual.center].includes(actor.targetId)
+    : shot.visual.kind === 'code'
+      ? (shot.visual.lines ?? []).includes(actor.targetId)
+      : shot.visual.kind === 'bars'
+        ? (shot.visual.bars ?? []).some(bar => bar.label === actor.targetId)
+        : shot.visual.kind === 'curve'
+          ? (shot.visual.series ?? []).some(series => series.label === actor.targetId)
+          : false;
+  if (!targetExists) errors.push(`shot ${shot.id} character stage target ${actor.targetId} does not exist`);
+}
+
 const stopReasons = shots.find(shot => shot.id === 'stop-reasons');
 if (stopReasons?.visual?.edgeDirection !== 'outbound') errors.push('stop-reasons must direct arrows outward from RUNNING');
 for (const shot of shots) {
@@ -131,6 +153,8 @@ const report = {
   maximumSingleCompositionShare,
   performanceStates,
   performancePoseAssets: [...performancePoseAssets],
+  actorStageVisualKinds: [...actorStageVisualKinds],
+  actorStageAssets: [...actorStageAssets],
   coreCoverage: core.length,
   femaleVoice: voice.mimo_voice,
   errors,

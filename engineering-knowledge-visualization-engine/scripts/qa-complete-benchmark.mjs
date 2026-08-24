@@ -75,6 +75,7 @@ const checks = {
   sceneGrammarV2Declared: layout.sceneGrammarV2Declared === true,
   performanceSystemDeclared: layout.performanceSystemDeclared === true && layout.performanceBeatsPass === true,
   performancePoseAspectPreserved: layout.performancePoseAspectPreserved === true,
+  characterStageV3Declared: layout.actorStagePass === true,
   traceDelivered: trace.status === 'complete' && trace.traceKind === 'production-narrative' && trace.events.length === timeline.shots.length,
 };
 
@@ -128,6 +129,10 @@ const report = {
     performancePoseAspectPreserved: layout.performancePoseAspectPreserved,
     performanceBeatsPass: layout.performanceBeatsPass,
     performanceSystemDeclared: layout.performanceSystemDeclared,
+    characterStage: layout.characterStage,
+    actorStageVisualKinds: layout.actorStageVisualKinds,
+    actorStageAssets: layout.actorStageAssets,
+    actorStagePass: layout.actorStagePass,
   },
   trace: {runId: trace.runId, status: trace.status, kind: trace.traceKind, events: trace.events.length},
   checks,

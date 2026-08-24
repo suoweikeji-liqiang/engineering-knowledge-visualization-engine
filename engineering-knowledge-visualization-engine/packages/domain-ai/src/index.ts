@@ -1,4 +1,4 @@
-import type {CharacterPerformanceAsset, CinematicSceneAsset, CinematicSoundCue, TopologySceneGrammar} from "@repo/schemas";
+import type {CharacterPerformanceAsset, CharacterStageActor, CinematicSceneAsset, CinematicSoundCue, TopologySceneGrammar} from "@repo/schemas";
 
 export const AI_CINEMATIC_SCENES: CinematicSceneAsset[] = [
   {
@@ -195,6 +195,12 @@ export const AI_CHARACTER_PERFORMANCE_ASSETS: CharacterPerformanceAsset[] = [
     parallaxLayers: ["foreground-alert", "character", "route-board", "observatory-background"],
     accumulationKey: "ai/character/xiaolan/performance/recover-path"
   }
+];
+
+export const AI_CHARACTER_STAGE_ASSETS: CharacterStageActor[] = [
+  {schemaVersion: "1.0", id: "xiaolan-stage-pointing", characterId: "xiaolan", assetRef: "ai/character/xiaolan/stage/pointing", intrinsicSize: {width: 1367, height: 1151}, pose: "pointing", gaze: "target", gesture: "point", compatibleVisualKinds: ["topology", "code", "bars", "curve"], targetBinding: "semantic-id", alphaRequired: true, accumulationKey: "ai/character/xiaolan/stage/pointing"},
+  {schemaVersion: "1.0", id: "xiaolan-stage-thinking", characterId: "xiaolan", assetRef: "ai/character/xiaolan/stage/thinking", intrinsicSize: {width: 1369, height: 1149}, pose: "thinking", gaze: "target", gesture: "chin-touch", compatibleVisualKinds: ["topology", "code", "bars", "curve"], targetBinding: "semantic-id", alphaRequired: true, accumulationKey: "ai/character/xiaolan/stage/thinking"},
+  {schemaVersion: "1.0", id: "xiaolan-stage-presenting", characterId: "xiaolan", assetRef: "ai/character/xiaolan/stage/presenting", intrinsicSize: {width: 1448, height: 1086}, pose: "presenting", gaze: "viewer", gesture: "open-palm", compatibleVisualKinds: ["topology", "code", "bars", "curve"], targetBinding: "semantic-id", alphaRequired: true, accumulationKey: "ai/character/xiaolan/stage/presenting"}
 ];
 
 export const AI_TOPOLOGY_SCENE_GRAMMARS: TopologySceneGrammar[] = [

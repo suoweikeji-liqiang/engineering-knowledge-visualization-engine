@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "textContainers": 397,
+  "textContainers": 400,
   "textOverflowRisks": [],
   "minimumSelectedFontSize": 17,
   "characterAssets": [
@@ -171,5 +171,78 @@
   "performancePoseAspectPreserved": true,
   "performanceBeatsPass": true,
   "performanceSystemDeclared": true,
+  "characterStage": {
+    "id": "xiaolan-stage-v3",
+    "presentation": "transparent-anchored-actor",
+    "requiredFields": [
+      "asset",
+      "intrinsicSize",
+      "pose",
+      "gaze",
+      "gesture",
+      "targetId",
+      "side",
+      "cueIndex",
+      "entrance",
+      "layer"
+    ],
+    "supportedVisualKinds": [
+      "topology",
+      "code",
+      "bars",
+      "curve"
+    ],
+    "poses": [
+      "pointing",
+      "thinking",
+      "presenting"
+    ],
+    "entrances": [
+      "slide",
+      "rise",
+      "pop"
+    ],
+    "targetBinding": "semantic-id",
+    "alphaRequired": true,
+    "minimumDistinctVisualKinds": 3
+  },
+  "actorStageVisualKinds": [
+    "topology",
+    "code",
+    "bars"
+  ],
+  "actorStageAssets": [
+    {
+      "file": "xiaolan-thinking.png",
+      "width": 1369,
+      "height": 1149,
+      "sha256": "badcc262df4a2ca56033f01d14900802662a96d2db0cf2ff869f10b22b27deed",
+      "alphaRange": {
+        "minimum": 0,
+        "maximum": 255
+      }
+    },
+    {
+      "file": "xiaolan-pointing.png",
+      "width": 1367,
+      "height": 1151,
+      "sha256": "4b5c64e24257e8b68f372def1323f34717c8ea21358a1d38b25d94384e844bb3",
+      "alphaRange": {
+        "minimum": 0,
+        "maximum": 255
+      }
+    },
+    {
+      "file": "xiaolan-presenting.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "575ad7bb53541b05fff8499ee85c2e61eaf990a94a315a4452cf92cc6201eeb1",
+      "alphaRange": {
+        "minimum": 0,
+        "maximum": 255
+      }
+    }
+  ],
+  "actorStagePass": true,
   "pass": true
 }

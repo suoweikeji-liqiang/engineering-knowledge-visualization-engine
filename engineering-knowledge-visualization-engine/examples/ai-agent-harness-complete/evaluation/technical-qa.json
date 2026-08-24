@@ -3,8 +3,8 @@
   "artifact": "final/ai-agent-harness-complete.mp4",
   "media": {
     "duration": 714.833333,
-    "sizeBytes": 184952479,
-    "bitRate": 2069880,
+    "sizeBytes": 196868975,
+    "bitRate": 2203243,
     "video": {
       "index": 0,
       "codec_name": "h264",
@@ -29,9 +29,9 @@
   },
   "blackSegments": [],
   "motion": {
-    "freezeSegmentsOver3Seconds": 50,
-    "frozenSeconds": 181.76666500000005,
-    "frozenFraction": 0.2542783843573227,
+    "freezeSegmentsOver3Seconds": 45,
+    "frozenSeconds": 162.69999800000002,
+    "frozenFraction": 0.22760549975640268,
     "maximumFreezeSeconds": 5.233333
   },
   "asr": {
@@ -55,7 +55,7 @@
     "maximumDeltaSeconds": 0.21
   },
   "layout": {
-    "textContainers": 397,
+    "textContainers": 400,
     "textOverflowRisks": 0,
     "minimumSelectedFontSize": 17,
     "characterAspectPreserved": true,
@@ -195,7 +195,80 @@
     ],
     "performancePoseAspectPreserved": true,
     "performanceBeatsPass": true,
-    "performanceSystemDeclared": true
+    "performanceSystemDeclared": true,
+    "characterStage": {
+      "id": "xiaolan-stage-v3",
+      "presentation": "transparent-anchored-actor",
+      "requiredFields": [
+        "asset",
+        "intrinsicSize",
+        "pose",
+        "gaze",
+        "gesture",
+        "targetId",
+        "side",
+        "cueIndex",
+        "entrance",
+        "layer"
+      ],
+      "supportedVisualKinds": [
+        "topology",
+        "code",
+        "bars",
+        "curve"
+      ],
+      "poses": [
+        "pointing",
+        "thinking",
+        "presenting"
+      ],
+      "entrances": [
+        "slide",
+        "rise",
+        "pop"
+      ],
+      "targetBinding": "semantic-id",
+      "alphaRequired": true,
+      "minimumDistinctVisualKinds": 3
+    },
+    "actorStageVisualKinds": [
+      "topology",
+      "code",
+      "bars"
+    ],
+    "actorStageAssets": [
+      {
+        "file": "xiaolan-thinking.png",
+        "width": 1369,
+        "height": 1149,
+        "sha256": "badcc262df4a2ca56033f01d14900802662a96d2db0cf2ff869f10b22b27deed",
+        "alphaRange": {
+          "minimum": 0,
+          "maximum": 255
+        }
+      },
+      {
+        "file": "xiaolan-pointing.png",
+        "width": 1367,
+        "height": 1151,
+        "sha256": "4b5c64e24257e8b68f372def1323f34717c8ea21358a1d38b25d94384e844bb3",
+        "alphaRange": {
+          "minimum": 0,
+          "maximum": 255
+        }
+      },
+      {
+        "file": "xiaolan-presenting.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "575ad7bb53541b05fff8499ee85c2e61eaf990a94a315a4452cf92cc6201eeb1",
+        "alphaRange": {
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    ],
+    "actorStagePass": true
   },
   "trace": {
     "runId": "production-narrative-9286a3e9230b",
@@ -222,6 +295,7 @@
     "sceneGrammarV2Declared": true,
     "performanceSystemDeclared": true,
     "performancePoseAspectPreserved": true,
+    "characterStageV3Declared": true,
     "traceDelivered": true
   },
   "pass": true

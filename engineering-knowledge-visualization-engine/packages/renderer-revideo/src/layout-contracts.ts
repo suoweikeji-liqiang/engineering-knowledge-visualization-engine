@@ -51,6 +51,18 @@ export const XIAOLAN_PERFORMANCE_V2 = {
   presentation: 'semantic-reaction-insert',
 } as const;
 
+export const XIAOLAN_STAGE_V3 = {
+  id: 'xiaolan-stage-v3',
+  presentation: 'transparent-anchored-actor',
+  requiredFields: ['asset', 'intrinsicSize', 'pose', 'gaze', 'gesture', 'targetId', 'side', 'cueIndex', 'entrance', 'layer'],
+  supportedVisualKinds: ['topology', 'code', 'bars', 'curve'],
+  poses: ['pointing', 'thinking', 'presenting'],
+  entrances: ['slide', 'rise', 'pop'],
+  targetBinding: 'semantic-id',
+  alphaRequired: true,
+  minimumDistinctVisualKinds: 3,
+} as const;
+
 export type XiaolanPerformanceState = CharacterPerformanceState;
 export type XiaolanMotionProfile = CharacterMotionProfile;
 

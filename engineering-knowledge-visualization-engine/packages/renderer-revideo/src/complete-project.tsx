@@ -9,6 +9,7 @@ import {CINEMATIC_FONT as FONT, CINEMATIC_MONO as MONO} from './cinematic-sketch
 import {
   CHARACTER_CONTAINED_SIZE,
   PERFORMANCE_POSE_CONTAINED_SIZE,
+  containSize,
   detachedBadgeX,
   fitText,
   type TopologyComposition,
@@ -38,6 +39,19 @@ type Visual = {
       asset: string;
       transition: 'cut-in' | 'match-cut' | 'reaction-pop';
     }>;
+  };
+  actorStage?: {
+    system: 'xiaolan-stage-v3';
+    asset: string;
+    intrinsicSize: {width: number; height: number};
+    pose: 'pointing' | 'thinking' | 'presenting';
+    gaze: 'viewer' | 'target';
+    gesture: 'point' | 'chin-touch' | 'open-palm';
+    targetId: string;
+    side: 'left' | 'right';
+    cueIndex: number;
+    entrance: 'slide' | 'rise' | 'pop';
+    layer: 'foreground';
   };
   status?: string[];
   left?: {title: string; items: string[]};
@@ -142,6 +156,72 @@ function visualDelay(shotId: string, index: number): number {
   const event = visualEventsByShot[shotId]?.[index];
   if (!event) throw new Error(`Missing semantic visual cue ${shotId}:${index}`);
   return event.activeStart;
+}
+
+type StageActorRuntime = {
+  root: Reference<Layout>;
+  connector: Reference<Line>;
+  target: Reference<Circle>;
+  finalX: number;
+  finalY: number;
+  startX: number;
+  startY: number;
+  cueIndex: number;
+  entrance: 'slide' | 'rise' | 'pop';
+};
+
+function addStageActor(stage: CompleteStage, shot: CompleteShot, accent: string, targetPoint: [number, number]): StageActorRuntime | null {
+  const spec = shot.visual.actorStage;
+  if (!spec) return null;
+  const root = createRef<Layout>();
+  const connector = createRef<Line>();
+  const target = createRef<Circle>();
+  const viewport = spec.pose === 'presenting' ? {width: 500, height: 430} : {width: 470, height: 430};
+  const size = containSize(spec.intrinsicSize.width, spec.intrinsicSize.height, viewport.width, viewport.height);
+  const finalX = spec.side === 'left' ? -610 : 610;
+  const finalY = 82;
+  const startX = finalX + (spec.entrance === 'slide' ? (spec.side === 'left' ? -110 : 110) : 0);
+  const startY = finalY + (spec.entrance === 'rise' ? 90 : 0);
+  const sourcePoint: [number, number] = [
+    finalX + (spec.side === 'left' ? size.width * 0.31 : -size.width * 0.31),
+    finalY - size.height * 0.16,
+  ];
+  stage.body().add(
+    <>
+      <Line ref={connector} points={[sourcePoint, targetPoint]} stroke={`${accent}AA`} lineWidth={3} lineDash={[12, 9]} endArrow arrowSize={16} end={0} opacity={0} />
+      <Circle ref={target} position={targetPoint} width={24} height={24} fill={`${accent}22`} stroke={accent} lineWidth={3} opacity={0} shadowColor={accent} shadowBlur={18} />
+      <Layout ref={root} x={startX} y={startY} opacity={0} scale={spec.entrance === 'pop' ? 0.84 : 0.96}>
+        <Circle y={30} width={size.width * 0.82} height={size.height * 0.82} fill={`${accent}0D`} shadowColor={`${accent}22`} shadowBlur={38} />
+        <Img src={`/complete/stage-actors/${spec.asset}`} width={size.width} height={size.height} />
+        <Rect y={size.height / 2 - 12} width={320} height={40} radius={20} fill={C.night} stroke={`${accent}88`} lineWidth={2}>
+          <Circle x={-138} width={9} height={9} fill={accent} />
+          <Txt x={12} width={268} textAlign={'left'} fontFamily={MONO} fontSize={17} fontWeight={850} fill={C.onDark} text={`XIAOLAN · ${spec.pose.toUpperCase()}`} />
+        </Rect>
+      </Layout>
+    </>,
+  );
+  return {root, connector, target, finalX, finalY, startX, startY, cueIndex: spec.cueIndex, entrance: spec.entrance};
+}
+
+function* animateStageActor(runtime: StageActorRuntime, shotId: string, active: number) {
+  const start = visualDelay(shotId, runtime.cueIndex);
+  yield* waitFor(start);
+  yield* all(
+    runtime.root().opacity(1, 0.3),
+    runtime.root().position.x(runtime.finalX, 0.5, easeInOutCubic),
+    runtime.root().position.y(runtime.finalY, 0.5, easeInOutCubic),
+    runtime.root().scale(1, 0.5, easeInOutCubic),
+    runtime.connector().opacity(0.82, 0.22),
+    runtime.connector().end(1, 0.55, easeInOutCubic),
+    runtime.target().opacity(1, 0.24),
+  );
+  yield* runtime.target().scale(1.35, 0.2, easeInOutCubic);
+  yield* runtime.target().scale(1, 0.2, easeInOutCubic);
+  const remaining = Math.max(0, active - start - 0.95);
+  yield* tween(remaining, value => {
+    runtime.root().position.y(runtime.finalY + Math.sin(value * Math.PI * 3) * 4);
+    runtime.target().shadowBlur(12 + Math.sin(value * Math.PI * 6) * 6);
+  });
 }
 
 function* enter(stage: CompleteStage) {
@@ -553,10 +633,14 @@ function* topologyShot(view: View2D, shot: CompleteShot, duration: number, index
   const nodes = shot.visual.nodes ?? [];
   const refs = nodes.map(() => createRef<Layout>());
   const center = createRef<Layout>();
+  const diagram = createRef<Layout>();
   const composition = shot.visual.composition ?? 'orbit';
   const geometry = topologyGeometry(composition, nodes.length);
+  const actorSpec = shot.visual.actorStage;
+  const diagramScale = actorSpec ? 0.76 : 1;
+  const diagramX = actorSpec ? (actorSpec.side === 'left' ? 245 : -245) : 0;
   stage.body().add(
-    <>
+    <Layout ref={diagram} x={diagramX} scale={diagramScale}>
       {nodes.map((item, idx) => {
         const [x, y] = geometry.nodes[idx];
         const [centerX, centerY] = geometry.center;
@@ -588,8 +672,13 @@ function* topologyShot(view: View2D, shot: CompleteShot, duration: number, index
           <Txt width={400} height={38} textWrap={true} fontFamily={MONO} fontSize={fitText(meter, 400, 38, {maxFontSize: 18, minFontSize: 13, maxLines: 2}).fontSize} lineHeight={22} fontWeight={750} fill={C.primary} text={meter} />
         </Rect>
       ))}
-    </>,
+    </Layout>,
   );
+  const topologyTargetIndex = actorSpec ? nodes.findIndex(node => splitNode(node)[0] === actorSpec.targetId || node === actorSpec.targetId) : -1;
+  const topologyTarget: [number, number] = topologyTargetIndex >= 0
+    ? [diagramX + geometry.nodes[topologyTargetIndex][0] * diagramScale, geometry.nodes[topologyTargetIndex][1] * diagramScale]
+    : [diagramX + geometry.center[0] * diagramScale, geometry.center[1] * diagramScale];
+  const stageActor = addStageActor(stage, shot, accent, topologyTarget);
   yield* enter(stage);
   const active = duration - 0.74;
   yield* all(
@@ -598,6 +687,7 @@ function* topologyShot(view: View2D, shot: CompleteShot, duration: number, index
       tween(Math.max(0, active - 0.55), value => center().scale(1 + Math.sin(value * Math.PI * 2) * 0.012)),
     ),
     ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.3), ref().scale(1, 0.4)))),
+    stageActor ? animateStageActor(stageActor, shot.id, active) : waitFor(0),
     ambientScan(stage, active),
     captions(stage, shot.id, active),
     waitFor(active),
@@ -653,8 +743,11 @@ function* codeShot(view: View2D, shot: CompleteShot, duration: number, index: nu
   const lines = shot.visual.lines ?? [];
   const refs = lines.map(() => createRef<Rect>());
   const editor = createRef<Layout>();
+  const actorSpec = shot.visual.actorStage;
+  const editorX = actorSpec ? (actorSpec.side === 'left' ? 230 : -230) : 0;
+  const editorScale = actorSpec ? 0.82 : 1;
   stage.body().add(
-    <Layout ref={editor} opacity={0} scale={0.96}>
+    <Layout ref={editor} x={editorX} opacity={0} scale={actorSpec ? 0.78 : 0.96}>
       <Rect width={1420} height={590} radius={24} fill={C.night} stroke={C.line} lineWidth={3} shadowColor={'#00000044'} shadowBlur={30}>
         <Rect y={-260} width={1420} height={70} radius={[24, 24, 0, 0]} fill={C.night2}>
           <Circle x={-655} width={14} height={14} fill={C.red} /><Circle x={-625} width={14} height={14} fill={C.yellow} /><Circle x={-595} width={14} height={14} fill={C.green} />
@@ -669,6 +762,9 @@ function* codeShot(view: View2D, shot: CompleteShot, duration: number, index: nu
       </Rect>
     </Layout>,
   );
+  const codeTargetIndex = actorSpec ? Math.max(0, lines.findIndex(line => line === actorSpec.targetId)) : 0;
+  const codeTarget: [number, number] = [editorX - 360 * editorScale, (-195 + codeTargetIndex * 72) * editorScale];
+  const stageActor = addStageActor(stage, shot, C.purple, codeTarget);
   yield* enter(stage);
   const active = duration - 0.74;
   const focusIndexes = (shot.visual.focus?.length ? shot.visual.focus : refs.map((_, idx) => idx + 1)).map(value => value - 1);
@@ -679,8 +775,9 @@ function* codeShot(view: View2D, shot: CompleteShot, duration: number, index: nu
     refs[lineIndex]().fill('#D5A42D22', 0.16),
   ));
   yield* all(
-    all(editor().opacity(1, 0.35), editor().scale(1, 0.45)),
+    all(editor().opacity(1, 0.35), editor().scale(editorScale, 0.45)),
     ...scanLines,
+    stageActor ? animateStageActor(stageActor, shot.id, active) : waitFor(0),
     captions(stage, shot.id, active),
     ambientScan(stage, active),
     waitFor(active),
@@ -857,8 +954,12 @@ function* barsShot(view: View2D, shot: CompleteShot, duration: number, index: nu
   const labels = bars.map(() => createRef<Txt>());
   const available = 1220;
   const gap = available / Math.max(1, bars.length);
+  const chart = createRef<Layout>();
+  const actorSpec = shot.visual.actorStage;
+  const chartScale = actorSpec ? 0.82 : 1;
+  const chartX = actorSpec ? (actorSpec.side === 'right' ? -220 : 220) : 0;
   stage.body().add(
-    <>
+    <Layout ref={chart} x={chartX} scale={chartScale}>
       <Line points={[[-680, 250], [680, 250]]} stroke={C.primary} lineWidth={4} />
       {bars.map((bar, idx) => {
         const x = -610 + idx * gap;
@@ -872,8 +973,12 @@ function* barsShot(view: View2D, shot: CompleteShot, duration: number, index: nu
         );
       })}
       {shot.visual.note ? <Rect x={350} y={-255} width={720} height={68} radius={18} fill={'#FFF4C7'} stroke={C.yellow} lineWidth={2} clip><Txt width={660} height={50} textWrap={true} fontFamily={FONT} fontSize={fitText(shot.visual.note, 660, 50, {maxFontSize: 21, minFontSize: 14, maxLines: 2}).fontSize} lineHeight={25} fill={C.primary} text={shot.visual.note} /></Rect> : null}
-    </>,
+    </Layout>,
   );
+  const barTargetIndex = actorSpec ? Math.max(0, bars.findIndex(bar => bar.label === actorSpec.targetId)) : 0;
+  const barTargetHeight = 390 * (bars[barTargetIndex].value / max);
+  const barTarget: [number, number] = [chartX + (-610 + barTargetIndex * gap) * chartScale, (250 - barTargetHeight) * chartScale];
+  const stageActor = addStageActor(stage, shot, C.yellow, barTarget);
   yield* enter(stage);
   const active = duration - 0.74;
   const after = shot.visual.after;
@@ -900,7 +1005,7 @@ function* barsShot(view: View2D, shot: CompleteShot, duration: number, index: nu
         })),
       )
     : waitFor(0);
-  yield* all(grow, update, captions(stage, shot.id, active), ambientScan(stage, active), waitFor(active));
+  yield* all(grow, update, stageActor ? animateStageActor(stageActor, shot.id, active) : waitFor(0), captions(stage, shot.id, active), ambientScan(stage, active), waitFor(active));
   yield* exit(stage);
 }
 
