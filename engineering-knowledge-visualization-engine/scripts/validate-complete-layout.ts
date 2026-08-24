@@ -1,9 +1,14 @@
 import {readFile, writeFile} from 'node:fs/promises';
+import {existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {
   CHARACTER_CONTAINED_SIZE,
   CHARACTER_SOURCE_SIZE,
   CHARACTER_VIEWPORT,
+  PERFORMANCE_POSE_CONTAINED_SIZE,
+  PERFORMANCE_POSE_SOURCE_SIZE,
+  PERFORMANCE_POSE_VIEWPORT,
   CARD_SYSTEM_V2,
   SCENE_GRAMMAR_V2,
   XIAOLAN_PERFORMANCE_V2,
@@ -69,6 +74,22 @@ function pngSize(buffer: Buffer) {
   return {width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20)};
 }
 
+function jpegSize(buffer: Buffer) {
+  if (buffer[0] !== 0xff || buffer[1] !== 0xd8) throw new Error('Performance pose asset is not a JPEG');
+  const startOfFrameMarkers = new Set([0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf]);
+  let offset = 2;
+  while (offset + 8 < buffer.length) {
+    if (buffer[offset] !== 0xff) { offset += 1; continue; }
+    const marker = buffer[offset + 1];
+    if (startOfFrameMarkers.has(marker)) return {width: buffer.readUInt16BE(offset + 7), height: buffer.readUInt16BE(offset + 5)};
+    if (marker === 0xd8 || marker === 0xd9 || marker === 0x01) { offset += 2; continue; }
+    const length = buffer.readUInt16BE(offset + 2);
+    if (length < 2) break;
+    offset += 2 + length;
+  }
+  throw new Error('Unable to read performance pose JPEG dimensions');
+}
+
 async function main() {
   const story = JSON.parse(await readFile(resolve(example, 'storyboard/story.json'), 'utf8')) as {meta: {designSystem?: Record<string, string>}; shots: Shot[]};
   const captions = JSON.parse(await readFile(resolve(example, 'audio/captions.timeline.json'), 'utf8')) as {cues: Array<{shotId: string; text: string}>};
@@ -109,6 +130,20 @@ async function main() {
   const performanceStates = characterShots.map(shot => shot.visual.performance?.state).filter(Boolean);
   const performanceBeatsPerShot = Object.fromEntries(characterShots.map(shot => [shot.id, shot.visual.performance?.beats?.length ?? 0]));
   const performancePoseAssets = [...new Set(characterShots.flatMap(shot => shot.visual.performance?.beats?.map((beat: any) => beat.asset) ?? []))];
+  const aiDailyRoot = [process.env.AI_DAILY_REPO, resolve(root, '../../ai_daily_brief_factory_v3'), resolve(root, '../ai_daily_brief_factory_v3')]
+    .filter((candidate): candidate is string => Boolean(candidate))
+    .find(candidate => existsSync(candidate));
+  if (performancePoseAssets.length && !aiDailyRoot) throw new Error('Performance pose audit requires the sibling ai_daily_brief_factory_v3 checkout or AI_DAILY_REPO.');
+  const performancePoseSizes = await Promise.all(performancePoseAssets.map(async file => {
+    const data = await readFile(resolve(aiDailyRoot!, 'templates/cinematic_context_deck/assets/avatar', file));
+    return {file, ...jpegSize(data), sha256: createHash('sha256').update(data).digest('hex')};
+  }));
+  const performancePoseSourceRatio = PERFORMANCE_POSE_SOURCE_SIZE.width / PERFORMANCE_POSE_SOURCE_SIZE.height;
+  const performancePoseRenderedRatio = PERFORMANCE_POSE_CONTAINED_SIZE.width / PERFORMANCE_POSE_CONTAINED_SIZE.height;
+  const performancePoseAspectPreserved = performancePoseSizes.every(size => Math.abs(size.width / size.height - performancePoseSourceRatio) < 0.000001)
+    && Math.abs(performancePoseSourceRatio - performancePoseRenderedRatio) < 0.000001
+    && PERFORMANCE_POSE_CONTAINED_SIZE.width <= PERFORMANCE_POSE_VIEWPORT.width
+    && PERFORMANCE_POSE_CONTAINED_SIZE.height <= PERFORMANCE_POSE_VIEWPORT.height;
   const performanceBeatsPass = characterShots.every(shot => {
     const beats = shot.visual.performance?.beats ?? [];
     const cueCount = shot.visual.cueIndexes?.length ?? 0;
@@ -144,6 +179,10 @@ async function main() {
     performanceStates,
     performanceBeatsPerShot,
     performancePoseAssets,
+    performancePoseSizes,
+    performancePoseViewport: PERFORMANCE_POSE_VIEWPORT,
+    performancePoseContainedSize: PERFORMANCE_POSE_CONTAINED_SIZE,
+    performancePoseAspectPreserved,
     performanceBeatsPass,
     performanceSystemDeclared,
     pass: overflowRisks.length === 0
@@ -152,6 +191,7 @@ async function main() {
       && cardSystemV2Declared
       && detachedBadgeGapPasses
       && sceneGrammarV2Declared
+      && performancePoseAspectPreserved
       && performanceSystemDeclared,
   };
   await writeFile(resolve(example, 'evaluation/layout-qa.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');

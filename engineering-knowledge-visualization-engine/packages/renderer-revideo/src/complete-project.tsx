@@ -8,6 +8,7 @@ import {ASTEROID_WARM_THEME as C} from './theme';
 import {CINEMATIC_FONT as FONT, CINEMATIC_MONO as MONO} from './cinematic-sketch';
 import {
   CHARACTER_CONTAINED_SIZE,
+  PERFORMANCE_POSE_CONTAINED_SIZE,
   detachedBadgeX,
   fitText,
   type TopologyComposition,
@@ -251,7 +252,7 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
           <Layout ref={poseRefs[beatIndex]} x={beat.transition === 'cut-in' ? 310 : 250} y={26} opacity={0} scale={beat.transition === 'reaction-pop' ? 0.82 : 0.94} rotation={beatIndex % 2 ? 1.1 : -1.1}>
             <Rect x={6} y={7} width={286} height={190} radius={[16, 20, 15, 18]} fill={'#DCCFBE88'} />
             <Rect width={286} height={190} radius={[16, 20, 15, 18]} fill={'#FFFCF7'} stroke={accent} lineWidth={2} shadowColor={'#6D594033'} shadowBlur={18}>
-              <Img y={-14} src={`/complete/poses/${beat.asset}`} width={268} height={150} radius={11} />
+              <Img y={-14} src={`/complete/poses/${beat.asset}`} width={PERFORMANCE_POSE_CONTAINED_SIZE.width} height={PERFORMANCE_POSE_CONTAINED_SIZE.height} radius={11} />
               <Rect y={76} width={268} height={28} radius={[0, 0, 9, 9]} fill={C.night}>
                 <Circle x={-116} width={8} height={8} fill={accent} />
                 <Txt x={8} width={220} textAlign={'left'} fontFamily={MONO} fontSize={17} fontWeight={850} fill={C.onDark} text={beat.expression.toUpperCase()} />

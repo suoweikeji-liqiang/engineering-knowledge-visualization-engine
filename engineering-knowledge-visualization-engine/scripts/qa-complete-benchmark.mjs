@@ -74,6 +74,7 @@ const checks = {
   cardSystemV2Declared: layout.cardSystemV2Declared === true && layout.detachedBadgeGapPasses === true,
   sceneGrammarV2Declared: layout.sceneGrammarV2Declared === true,
   performanceSystemDeclared: layout.performanceSystemDeclared === true && layout.performanceBeatsPass === true,
+  performancePoseAspectPreserved: layout.performancePoseAspectPreserved === true,
   traceDelivered: trace.status === 'complete' && trace.traceKind === 'production-narrative' && trace.events.length === timeline.shots.length,
 };
 
@@ -123,6 +124,8 @@ const report = {
     performanceStates: layout.performanceStates,
     performanceBeatsPerShot: layout.performanceBeatsPerShot,
     performancePoseAssets: layout.performancePoseAssets,
+    performancePoseSizes: layout.performancePoseSizes,
+    performancePoseAspectPreserved: layout.performancePoseAspectPreserved,
     performanceBeatsPass: layout.performanceBeatsPass,
     performanceSystemDeclared: layout.performanceSystemDeclared,
   },

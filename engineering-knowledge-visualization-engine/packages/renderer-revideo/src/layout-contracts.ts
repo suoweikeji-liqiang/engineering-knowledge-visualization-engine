@@ -107,3 +107,12 @@ export const CHARACTER_CONTAINED_SIZE = containSize(
   CHARACTER_VIEWPORT.width,
   CHARACTER_VIEWPORT.height,
 );
+
+export const PERFORMANCE_POSE_SOURCE_SIZE = {width: 1376, height: 768} as const;
+export const PERFORMANCE_POSE_VIEWPORT = {width: 268, height: 150} as const;
+export const PERFORMANCE_POSE_CONTAINED_SIZE = containSize(
+  PERFORMANCE_POSE_SOURCE_SIZE.width,
+  PERFORMANCE_POSE_SOURCE_SIZE.height,
+  PERFORMANCE_POSE_VIEWPORT.width,
+  PERFORMANCE_POSE_VIEWPORT.height,
+);

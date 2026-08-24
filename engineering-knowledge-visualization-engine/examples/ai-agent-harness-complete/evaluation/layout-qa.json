@@ -122,6 +122,53 @@
     "char_desk.jpg",
     "char_outro.jpg"
   ],
+  "performancePoseSizes": [
+    {
+      "file": "char_thinking.jpg",
+      "width": 1376,
+      "height": 768,
+      "sha256": "0b06ac04b8fcbe30cd2daebf0f12c73d4117cc0afa12dc33204ddd7490c288dd"
+    },
+    {
+      "file": "char_pointing.jpg",
+      "width": 1376,
+      "height": 768,
+      "sha256": "592874b99b203188433870fbcc3cc5aa5847916912642c5c2c2d0d09dd156919"
+    },
+    {
+      "file": "char_sign.jpg",
+      "width": 1376,
+      "height": 768,
+      "sha256": "84077827169832784951b290a321154cade4d0c064a2c4a3351541f293bb04a6"
+    },
+    {
+      "file": "char_surprised.jpg",
+      "width": 1376,
+      "height": 768,
+      "sha256": "edff9887041a4e045ebf3cf10fd367c3017956e1364f12cf1ef7778a8b12038a"
+    },
+    {
+      "file": "char_desk.jpg",
+      "width": 1376,
+      "height": 768,
+      "sha256": "ce274bd3b0d50ce61c33ae937ba29a8d8f2c0427ab83f1896df90c106b35b918"
+    },
+    {
+      "file": "char_outro.jpg",
+      "width": 1376,
+      "height": 768,
+      "sha256": "81de46a8885d937312a517e7df86e6d28602433ed42f2dedce7854c7a0ea5202"
+    }
+  ],
+  "performancePoseViewport": {
+    "width": 268,
+    "height": 150
+  },
+  "performancePoseContainedSize": {
+    "width": 268,
+    "height": 149.58139534883722
+  },
+  "performancePoseAspectPreserved": true,
   "performanceBeatsPass": true,
   "performanceSystemDeclared": true,
   "pass": true
