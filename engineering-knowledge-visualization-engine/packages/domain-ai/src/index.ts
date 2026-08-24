@@ -1,4 +1,4 @@
-import type {CharacterPerformanceAsset, CharacterRigAsset, CharacterStageActor, CinematicSceneAsset, CinematicSoundCue, HostNarrativeTemplate, LayeredCharacterRigAsset, TopologySceneGrammar} from "@repo/schemas";
+import type {CharacterPerformanceAsset, CharacterRigAsset, CharacterStageActor, CinematicSceneAsset, CinematicSoundCue, HostNarrativeTemplate, TopologySceneGrammar} from "@repo/schemas";
 
 export const AI_HOST_NARRATIVE_TEMPLATES: HostNarrativeTemplate[] = [
   {
@@ -262,44 +262,6 @@ export const AI_CHARACTER_RIGS: CharacterRigAsset[] = [
     blinkIntervalSeconds: {min: 2.8, max: 5.2},
     lipSync: "voice-rms-envelope",
     accumulationKey: "ai/character/xiaolan/rig/v1"
-  }
-];
-
-export const AI_LAYERED_CHARACTER_RIGS: LayeredCharacterRigAsset[] = [
-  {
-    schemaVersion: "1.0",
-    id: "xiaolan-rig-v2",
-    characterId: "xiaolan",
-    system: "xiaolan-rig-v2",
-    technique: "layered-cutout-skeleton",
-    partsManifestRef: "ai/character/xiaolan/rig/v2/manifest.json",
-    bones: [
-      {id: "root", pivot: {normalizedX: 0.5, normalizedY: 0.85}},
-      {id: "torso", parent: "root", partRef: "torso.png", pivot: {normalizedX: 0.5, normalizedY: 0.12}},
-      {id: "head", parent: "torso", partRef: "head-base.png", pivot: {normalizedX: 0.5, normalizedY: 0.78}, maxRotationDegrees: 6},
-      {id: "leftUpperArm", parent: "torso", partRef: "left-upper-arm.png", pivot: {normalizedX: 0.48, normalizedY: 0.05}, maxRotationDegrees: 72},
-      {id: "leftForearm", parent: "leftUpperArm", partRef: "left-forearm.png", pivot: {normalizedX: 0.48, normalizedY: 0.04}, maxRotationDegrees: 92},
-      {id: "leftHand", parent: "leftForearm", partRef: "left-open-hand.png", pivot: {normalizedX: 0.55, normalizedY: 0.96}, maxRotationDegrees: 32},
-      {id: "rightUpperArm", parent: "torso", partRef: "right-upper-arm.png", pivot: {normalizedX: 0.52, normalizedY: 0.05}, maxRotationDegrees: 72},
-      {id: "rightForearm", parent: "rightUpperArm", partRef: "right-forearm.png", pivot: {normalizedX: 0.52, normalizedY: 0.04}, maxRotationDegrees: 92},
-      {id: "rightHand", parent: "rightForearm", partRef: "right-pointing-hand.png", pivot: {normalizedX: 0.3, normalizedY: 0.96}, maxRotationDegrees: 38},
-      {id: "eyes", parent: "head", partRef: "eyes-open.png", pivot: {normalizedX: 0.5, normalizedY: 0.5}},
-      {id: "mouth", parent: "head", partRef: "mouth-closed.png", pivot: {normalizedX: 0.5, normalizedY: 0.5}, audioDriven: "voice-rms"}
-    ],
-    actions: [
-      {id: "point-emphasis", durationHintSeconds: 1.4, loop: false, activeBones: ["head", "rightUpperArm", "rightForearm", "rightHand", "eyes", "mouth"], narrativeRoles: ["bridge", "warn"]},
-      {id: "think-focus", durationHintSeconds: 3.2, loop: true, activeBones: ["head", "leftUpperArm", "leftForearm", "leftHand", "eyes", "mouth"], narrativeRoles: ["investigate", "warn"]},
-      {id: "explain-open", durationHintSeconds: 2.2, loop: true, activeBones: ["torso", "head", "leftUpperArm", "leftForearm", "leftHand", "rightUpperArm", "rightForearm", "rightHand", "eyes", "mouth"], narrativeRoles: ["bridge"]},
-      {id: "resolve-wave", durationHintSeconds: 2.4, loop: false, activeBones: ["torso", "head", "leftUpperArm", "leftForearm", "leftHand", "rightUpperArm", "rightForearm", "rightHand", "eyes", "mouth"], narrativeRoles: ["resolve"]}
-    ],
-    face: {
-      blinkSprites: ["eyes-open.png", "eyes-closed.png"],
-      mouthSprites: ["mouth-closed.png", "mouth-mid.png", "mouth-open.png"],
-      lipSync: "voice-rms-sprite-selection"
-    },
-    sourceAssetCount: 14,
-    alphaRequired: true,
-    accumulationKey: "ai/character/xiaolan/rig/v2"
   }
 ];
 

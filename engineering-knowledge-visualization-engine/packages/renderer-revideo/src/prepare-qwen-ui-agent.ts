@@ -1,4 +1,4 @@
-import {copyFileSync, cpSync, createWriteStream, existsSync, mkdirSync, readFileSync} from 'node:fs';
+import {copyFileSync, createWriteStream, existsSync, mkdirSync, readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {get} from 'node:https';
 import {resolve} from 'node:path';
@@ -17,7 +17,6 @@ mkdirSync(publicRoot, {recursive: true});
 mkdirSync(examplePublicRoot, {recursive: true});
 mkdirSync(sourceRoot, {recursive: true});
 mkdirSync(resolve(publicRoot, 'characters'), {recursive: true});
-mkdirSync(resolve(publicRoot, 'characters-v2'), {recursive: true});
 mkdirSync(resolve(publicRoot, 'evidence'), {recursive: true});
 
 function sha256(path: string): string {
@@ -78,9 +77,6 @@ for (const filename of ['xiaolan-pointing.png', 'xiaolan-presenting.png', 'xiaol
   if (!existsSync(input)) throw new Error(`Missing stage actor: ${input}`);
   copyFileSync(input, resolve(publicRoot, 'characters', filename));
 }
-const v2CharacterRoot = resolve(exampleRoot, 'assets/characters-v2');
-if (!existsSync(resolve(v2CharacterRoot, 'manifest.json'))) throw new Error(`Missing Xiaolan V2 rig assets: ${v2CharacterRoot}`);
-cpSync(v2CharacterRoot, resolve(publicRoot, 'characters-v2'), {recursive: true});
 
 const voice = resolve(exampleRoot, 'audio/qwen-ui-agent-hosted.wav');
 const timelinePath = resolve(exampleRoot, 'audio/video.timeline.json');

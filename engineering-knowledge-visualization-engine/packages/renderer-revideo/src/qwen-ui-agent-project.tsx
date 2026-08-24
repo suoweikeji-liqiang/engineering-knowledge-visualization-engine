@@ -8,7 +8,6 @@ import {ASTEROID_WARM_THEME as C} from './theme';
 import {CINEMATIC_FONT as FONT, CINEMATIC_MONO as MONO} from './cinematic-sketch';
 import {fitText} from './layout-contracts';
 import {addXiaolanRig, type XiaolanRigAction, type XiaolanRigPose, type XiaolanRigRuntime} from './xiaolan-rig';
-import {addXiaolanRigV2, type XiaolanRigV2Action, type XiaolanRigV2Runtime} from './xiaolan-rig-v2';
 
 type Bar = {label: string; value: number};
 type HostedVisual = {
@@ -50,9 +49,6 @@ const captionsByShot = captions.cues.reduce<Record<string, CaptionCue[]>>((resul
   return result;
 }, {});
 const ACCENTS = [C.red, C.cyan, C.purple, C.yellow, C.green] as const;
-const USE_XIAOLAN_V2 =
-  (import.meta as ImportMeta & {env?: Record<string, string | undefined>}).env
-    ?.VITE_XIAOLAN_RIG_V2 === '1';
 
 type Stage = {root: Reference<Layout>; body: Reference<Layout>; caption: Reference<Txt>; index: number; accent: string};
 type Runtime = {update: (value: number, localSeconds: number, mouthOpen: number) => void};
@@ -169,7 +165,7 @@ function addPhone(stage: Stage, shot: HostedShot, channels = false): Runtime {
   }};
 }
 
-function addStageActor(stage: Stage, shot: HostedShot, side: 'left' | 'right'): XiaolanRigRuntime | XiaolanRigV2Runtime {
+function addStageActor(stage: Stage, shot: HostedShot, side: 'left' | 'right'): XiaolanRigRuntime {
   const x = side === 'left' ? -630 : 630;
   const rig = shot.hostNarrative.rig ?? {system: 'xiaolan-rig-v1' as const, pose: 'pointing' as const, action: 'idle-talk' as const, lipSync: 'voice-rms' as const};
   const labels: Record<XiaolanRigAction, string> = {
@@ -180,10 +176,6 @@ function addStageActor(stage: Stage, shot: HostedShot, side: 'left' | 'right'): 
     'explain-open': '小兰 · 串联任务',
     'resolve-wave': '小兰 · 收束判断',
   };
-  if (USE_XIAOLAN_V2) {
-    const action = (rig.action === 'idle-talk' || rig.action === 'react-surprise' ? 'point-emphasis' : rig.action) as XiaolanRigV2Action;
-    return addXiaolanRigV2(stage.body(), {action, width: 540, x, y: 82, accent: stage.accent, label: `${labels[rig.action]} · V2`});
-  }
   return addXiaolanRig(stage.body(), {pose: rig.pose, action: rig.action, width: 620, x, y: 56, accent: stage.accent, label: labels[rig.action]});
 }
 
@@ -352,9 +344,7 @@ function addBars(stage: Stage, shot: HostedShot): Runtime {
 }
 
 function addSynthesis(stage: Stage, shot: HostedShot): Runtime {
-  const rig = USE_XIAOLAN_V2
-    ? addXiaolanRigV2(stage.body(), {action: 'resolve-wave', width: 600, x: -440, y: 74, accent: stage.accent, label: '小兰 · 回到结论 · V2'})
-    : addXiaolanRig(stage.body(), {pose: shot.hostNarrative.rig?.pose ?? 'presenting', action: shot.hostNarrative.rig?.action ?? 'resolve-wave', width: 760, x: -440, y: 34, accent: stage.accent, label: '小兰 · 回到结论'});
+  const rig = addXiaolanRig(stage.body(), {pose: shot.hostNarrative.rig?.pose ?? 'presenting', action: shot.hostNarrative.rig?.action ?? 'resolve-wave', width: 760, x: -440, y: 34, accent: stage.accent, label: '小兰 · 回到结论'});
   const phone = createRef<Layout>();
   const result = createRef<Rect>();
   stage.body().add(
