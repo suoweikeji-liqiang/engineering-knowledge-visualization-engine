@@ -1,4 +1,32 @@
-import type {CharacterPerformanceAsset, CharacterStageActor, CinematicSceneAsset, CinematicSoundCue, TopologySceneGrammar} from "@repo/schemas";
+import type {CharacterPerformanceAsset, CharacterStageActor, CinematicSceneAsset, CinematicSoundCue, HostNarrativeTemplate, TopologySceneGrammar} from "@repo/schemas";
+
+export const AI_HOST_NARRATIVE_TEMPLATES: HostNarrativeTemplate[] = [
+  {
+    schemaVersion: "1.0",
+    id: "xiaolan-hosted-case-study-v1",
+    characterId: "xiaolan",
+    narrativeCaseRequired: true,
+    presenceTarget: {min: 0.45, max: 0.65},
+    demonstrationTarget: {min: 0.25},
+    primaryEvidenceTarget: {min: 2},
+    maxSecondsWithoutVisualChange: 5,
+    rules: [
+      "先让主持人遇到或观察到具体事件，再提出抽象概念",
+      "主持人每次出场必须执行 notice、question、investigate、bridge、warn、resolve 中的一种叙事动作",
+      "真实演示必须保留设备、结果和前后状态，不能只作为模糊背景",
+      "技术图解应从主持人的手势、道具或上一镜结果中生长出来",
+      "结尾回到开场案例，用可验证结果收束观点"
+    ],
+    beats: [
+      {id: "event", role: "notice", mode: "host-cold-open", hostOnScreen: true, focus: "现实事件与人物反应", hostAction: "注意到异常信号", transitionHook: "notification-card"},
+      {id: "proof", role: "investigate", mode: "host-demo", hostOnScreen: false, focus: "真实操作与状态变化", evidenceRef: "official-demo", transitionHook: "device-frame"},
+      {id: "model", role: "bridge", mode: "host-diagram", hostOnScreen: true, focus: "从案例抽出系统结构", hostAction: "沿执行路径指向关键节点", transitionHook: "signal-path"},
+      {id: "source", role: "warn", mode: "host-evidence", hostOnScreen: true, focus: "一手来源、能力边界和限制", hostAction: "标记证据而非代替证据", evidenceRef: "primary-source", transitionHook: "marker-stroke"},
+      {id: "return", role: "resolve", mode: "host-synthesis", hostOnScreen: true, focus: "案例结果与主持人判断", hostAction: "回到观众并给出适用边界", transitionHook: "callback-object"}
+    ],
+    accumulationKey: "ai/narrative/hosted-case-study/v1"
+  }
+];
 
 export const AI_CINEMATIC_SCENES: CinematicSceneAsset[] = [
   {

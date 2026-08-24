@@ -1,0 +1,176 @@
+{
+  "schemaVersion": "2.0",
+  "meta": {
+    "title": "Qwen UI Agent：当 AI 开始替你收拾现实世界的意外",
+    "slug": "qwen-ui-agent-hosted",
+    "episode": "comparison-01",
+    "resolution": [1920, 1080],
+    "fps": 30,
+    "playbackRate": 1.05,
+    "template": "xiaolan-hosted-case-study-v1",
+    "video": "examples/qwen-ui-agent-hosted/final/qwen-ui-agent-hosted.mp4",
+    "audio": "examples/qwen-ui-agent-hosted/audio/qwen-ui-agent-hosted.wav",
+    "poster": "examples/qwen-ui-agent-hosted/final/qwen-ui-agent-hosted-poster.png"
+  },
+  "narrativeCase": {
+    "trigger": "手机收到航班取消通知",
+    "goal": "在用户确认后完成替代行程与后续事项更新",
+    "callback": "从被动点击界面，走到现实事务闭环"
+  },
+  "characters": [
+    {
+      "id": "xiaolan",
+      "name": "小兰",
+      "palette": {"primary": "#D85562", "ink": "#2B2530", "accent": "#2C8E92"},
+      "voice": {
+        "mimo_model": "mimo-v2.5-tts",
+        "mimo_voice": "茉莉",
+        "style": "像小行星 AI 观测站的小兰在讲一则真实科技故事：自然、清晰、有判断力。开场带一点意外感，中段像带观众查案，关键技术词略停顿，结尾收束但不喊口号。不要播音腔、广告腔和夸张表演。",
+        "mimo_optimize_text_preview": false
+      },
+      "renderer": {"type": "png-pose-pack", "assetRef": {"id": "xiaolan.hosted"}}
+    }
+  ],
+  "chapters": [
+    {"id": "ch01", "title": "意外发生", "shotIds": ["cold-open", "official-demo"]},
+    {"id": "ch02", "title": "它为什么不只是点屏幕", "shotIds": ["proactive-loop", "hybrid-actions", "cross-platform", "long-horizon"]},
+    {"id": "ch03", "title": "证据与判断", "shotIds": ["primary-evidence", "benchmarks", "synthesis"]}
+  ],
+  "shots": [
+    {
+      "id": "cold-open",
+      "duration": 14,
+      "speaker": "xiaolan",
+      "dialogue": "晚上十点，手机突然弹出一条通知：明早的航班取消了。你真正需要的不是一个会点按钮的 AI，而是有人先看懂影响，再把可选方案整理到你面前。Qwen UI Agent 的新演示，就从这个意外开始。",
+      "headline": "航班取消之后，AI 能接住多少事？",
+      "diagram": "host-event",
+      "transition": "notification-match",
+      "sfx": ["notification", "character-think"],
+      "states": [],
+      "scene": {"id": "scene.cold-open", "background": {"id": "background.observatory", "variant": "warm-night"}, "layout": {"preset": "host-cold-open"}, "camera": {"framing": "medium", "movement": "push-in"}},
+      "hostNarrative": {"role": "notice", "mode": "host-cold-open", "hostOnScreen": true, "asset": "char_surprised.jpg", "action": "注意到航班取消通知"},
+      "visual": {"kind": "host", "accent": "red", "notification": "CA1517 · 7月26日 · 已取消", "cueIndexes": [0, 2, 4]},
+      "citations": ["qwen-ui-agent-flight-demo"]
+    },
+    {
+      "id": "official-demo",
+      "duration": 14,
+      "speaker": "xiaolan",
+      "dialogue": "通知不是终点，而是触发信号。演示里，Agent 先读取取消信息和相关日程，再主动提出查找替代交通方案。注意这个顺序：先理解影响，再给计划；涉及重新预订时，它把决定权交回用户。",
+      "headline": "从通知触发，而不是等你重新下指令",
+      "diagram": "official-demo",
+      "transition": "device-follow",
+      "sfx": ["data-pulse"],
+      "states": [],
+      "scene": {"id": "scene.official-demo", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "host-demo"}, "camera": {"framing": "medium-close", "movement": "follow"}},
+      "hostNarrative": {"role": "investigate", "mode": "host-demo", "hostOnScreen": false},
+      "visual": {"kind": "demo", "demoStart": 0, "demoEnd": 18, "callouts": ["通知触发", "理解影响", "请求确认"], "cueIndexes": [0, 2, 4]},
+      "citations": ["qwen-ui-agent-flight-demo", "qwen-ui-agent-report"]
+    },
+    {
+      "id": "proactive-loop",
+      "duration": 14,
+      "speaker": "xiaolan",
+      "dialogue": "这背后多了一层轻量 Harness。它把现实信号、用户上下文和持续状态交给 Planner：感知事件，推演影响，准备方案，等待确认，然后继续执行。小兰现在指的这条线，才是主动服务真正发生的地方。",
+      "headline": "主动，不等于擅自行动",
+      "diagram": "proactive-loop",
+      "transition": "signal-trace",
+      "sfx": ["connector-draw", "character-point"],
+      "states": [],
+      "scene": {"id": "scene.proactive-loop", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "host-diagram"}, "camera": {"framing": "wide", "movement": "pan"}},
+      "hostNarrative": {"role": "bridge", "mode": "host-diagram", "hostOnScreen": true, "asset": "xiaolan-pointing.png", "action": "沿主动服务路径指向确认节点"},
+      "visual": {"kind": "flow", "nodes": ["现实信号", "理解影响", "准备方案", "用户确认", "跨端执行"], "emphasis": 3, "cueIndexes": [0, 1, 2, 3, 4]},
+      "citations": ["qwen-ui-agent-report"]
+    },
+    {
+      "id": "hybrid-actions",
+      "duration": 14,
+      "speaker": "xiaolan",
+      "dialogue": "接下来它并不执着于模拟人的每一次点击。适合界面的步骤用 GUI，搜索和结构化数据可以走 API，处理文件时再切到 CLI；多个确定动作还能批量发出。真正的升级，是为目标选择更合适的动作通道。",
+      "headline": "GUI、CLI、API：为目标选择动作通道",
+      "diagram": "hybrid-demo",
+      "transition": "channel-split",
+      "sfx": ["code-focus", "soft-tick"],
+      "states": [],
+      "scene": {"id": "scene.hybrid-actions", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "host-demo"}, "camera": {"framing": "wide", "movement": "static"}},
+      "hostNarrative": {"role": "investigate", "mode": "host-demo", "hostOnScreen": false},
+      "visual": {"kind": "demo-channels", "demoStart": 18, "demoEnd": 43, "channels": ["GUI", "CLI", "API", "BATCH"], "cueIndexes": [0, 1, 3, 4]},
+      "citations": ["qwen-ui-agent-report", "qwen-ui-agent-flight-demo"]
+    },
+    {
+      "id": "cross-platform",
+      "duration": 14,
+      "speaker": "xiaolan",
+      "dialogue": "更关键的是，任务不会被锁在一块屏幕里。手机负责通知和确认，浏览器或 DeepSearch 查资料，电脑更新表格和会议，再把结果送回相关的人。平台变了，但同一份任务状态没有断。",
+      "headline": "设备在切换，任务状态不掉线",
+      "diagram": "cross-platform",
+      "transition": "orbit-to-path",
+      "sfx": ["data-pulse", "character-present"],
+      "states": [],
+      "scene": {"id": "scene.cross-platform", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "host-diagram"}, "camera": {"framing": "wide", "movement": "pan"}},
+      "hostNarrative": {"role": "bridge", "mode": "host-diagram", "hostOnScreen": true, "asset": "xiaolan-presenting.png", "action": "把四个平台连成同一条任务路径"},
+      "visual": {"kind": "platforms", "nodes": ["MOBILE", "BROWSER", "DEEP SEARCH", "COMPUTER"], "center": "STATEFUL TASK", "cueIndexes": [0, 1, 2, 3, 4]},
+      "citations": ["qwen-ui-agent-report"]
+    },
+    {
+      "id": "long-horizon",
+      "duration": 14,
+      "speaker": "xiaolan",
+      "dialogue": "这类跨端任务很长，局部点对并不代表最后做完。技术报告把在线强化学习推进到超过一百个交互步骤，并用大约一万个并行环境加速训练。重点不是数字更大，而是专门训练中途观察、修正和继续。",
+      "headline": "长任务的难点，是中途还能继续",
+      "diagram": "long-horizon",
+      "transition": "step-rise",
+      "sfx": ["data-rise"],
+      "states": [],
+      "scene": {"id": "scene.long-horizon", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "metric-progression"}, "camera": {"framing": "wide", "movement": "push-in"}},
+      "hostNarrative": {"role": "investigate", "mode": "host-diagram", "hostOnScreen": false},
+      "visual": {"kind": "steps", "steps": 100, "environments": 10000, "labels": ["观察", "修正", "继续", "完成"], "cueIndexes": [0, 2, 3, 4]},
+      "citations": ["qwen-ui-agent-report"]
+    },
+    {
+      "id": "primary-evidence",
+      "duration": 14,
+      "speaker": "xiaolan",
+      "dialogue": "把宣传词放到一边，报告第五页给出了完整轨迹：通知触发，查询替代航班，用户批准，手机重新预订，电脑更新会议，最后发送新文件。小兰标出的不是一句口号，而是一条可以逐段核对的闭环。",
+      "headline": "一手证据里，闭环是逐段展开的",
+      "diagram": "primary-evidence",
+      "transition": "marker-to-route",
+      "sfx": ["document-settle", "marker-draw"],
+      "states": [],
+      "scene": {"id": "scene.primary-evidence", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "host-evidence"}, "camera": {"framing": "wide", "movement": "push-in"}},
+      "hostNarrative": {"role": "warn", "mode": "host-evidence", "hostOnScreen": true, "asset": "xiaolan-thinking.png", "action": "标记报告中的完整跨端轨迹"},
+      "visual": {"kind": "evidence", "asset": "qwen-report-page-05.png", "sourceLabel": "TECHNICAL REPORT · FIGURE 2 · P.5", "cueIndexes": [0, 2, 4]},
+      "citations": ["qwen-ui-agent-report"]
+    },
+    {
+      "id": "benchmarks",
+      "duration": 14,
+      "speaker": "xiaolan",
+      "dialogue": "评测也要分场景看。报告给出的结果包括 MobileWorld 八十二点一，真实手机任务九十二点二，OSWorld Verified 七十九点五，以及 WebArena 七十三点六。它们不能直接互相比高低，但共同说明能力覆盖了不同界面。",
+      "headline": "四类界面，四组独立评测",
+      "diagram": "benchmark-bars",
+      "transition": "bars-rise",
+      "sfx": ["data-rise"],
+      "states": [],
+      "scene": {"id": "scene.benchmarks", "background": {"id": "background.observatory", "variant": "warm-paper"}, "layout": {"preset": "metric-progression"}, "camera": {"framing": "wide", "movement": "static"}},
+      "hostNarrative": {"role": "warn", "mode": "host-evidence", "hostOnScreen": false},
+      "visual": {"kind": "bars", "bars": [{"label": "MobileWorld", "value": 82.1}, {"label": "MobileWorld-Real", "value": 92.2}, {"label": "OSWorld-Verified", "value": 79.5}, {"label": "WebArena", "value": 73.6}], "note": "不同基准，不能横向当作同一把尺", "cueIndexes": [0, 1, 2, 3]},
+      "citations": ["qwen-ui-agent-report"]
+    },
+    {
+      "id": "synthesis",
+      "duration": 14,
+      "speaker": "xiaolan",
+      "dialogue": "所以，Qwen UI Agent 值得看的不是它会不会点屏幕，而是它正把感知、计划、确认和跨端执行接成现实事务的闭环。航班取消这件事最终仍由人拍板；AI 的价值，是把混乱提前整理成可行动的选择。",
+      "headline": "不是替你做主，而是把意外变成可行动的选择",
+      "diagram": "host-synthesis",
+      "transition": "callback-resolve",
+      "sfx": ["character-return", "result-stamp"],
+      "states": [],
+      "scene": {"id": "scene.synthesis", "background": {"id": "background.observatory", "variant": "warm-night"}, "layout": {"preset": "host-synthesis"}, "camera": {"framing": "medium", "movement": "pull-out"}},
+      "hostNarrative": {"role": "resolve", "mode": "host-synthesis", "hostOnScreen": true, "asset": "char_outro.jpg", "action": "回到航班案例并给出适用边界"},
+      "visual": {"kind": "host-result", "demoStart": 50, "demoEnd": 65, "result": "SIGNAL → PLAN → APPROVAL → ACTION", "cueIndexes": [0, 2, 4]},
+      "citations": ["qwen-ui-agent-report", "qwen-ui-agent-flight-demo"]
+    }
+  ]
+}

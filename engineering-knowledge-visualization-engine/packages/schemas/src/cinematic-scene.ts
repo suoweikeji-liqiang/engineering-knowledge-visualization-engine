@@ -7,6 +7,51 @@ export type CinematicSceneMode =
   | "code-perspective"
   | "character-synthesis";
 
+export type HostNarrativeSceneMode =
+  | "host-cold-open"
+  | "host-demo"
+  | "host-diagram"
+  | "host-evidence"
+  | "host-synthesis";
+
+export type HostNarrativeRole =
+  | "notice"
+  | "question"
+  | "investigate"
+  | "bridge"
+  | "warn"
+  | "resolve";
+
+export type HostNarrativeBeat = {
+  id: string;
+  role: HostNarrativeRole;
+  mode: HostNarrativeSceneMode;
+  hostOnScreen: boolean;
+  focus: string;
+  hostAction?: string;
+  evidenceRef?: string;
+  transitionHook: string;
+};
+
+/**
+ * A reusable episode-level grammar for presenter-led explainers. It keeps the
+ * host, a continuous real-world case, demonstrations, and primary evidence in
+ * one narrative instead of treating character shots as decoration.
+ */
+export type HostNarrativeTemplate = {
+  schemaVersion: "1.0";
+  id: string;
+  characterId: string;
+  narrativeCaseRequired: true;
+  presenceTarget: {min: number; max: number};
+  demonstrationTarget: {min: number};
+  primaryEvidenceTarget: {min: number};
+  maxSecondsWithoutVisualChange: number;
+  rules: string[];
+  beats: HostNarrativeBeat[];
+  accumulationKey: string;
+};
+
 export type CinematicBeatRole =
   | "establish"
   | "question"

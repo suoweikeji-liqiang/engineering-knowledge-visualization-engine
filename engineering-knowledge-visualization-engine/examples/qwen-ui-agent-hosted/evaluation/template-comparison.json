@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "comparisonDate": "2026-08-24",
+  "baseline": "ai-agent-harness-complete",
+  "candidate": "qwen-ui-agent-hosted",
+  "metrics": [
+    {
+      "dimension": "hostNarrativePresence",
+      "baseline": {"shots": 6, "totalShots": 29, "ratio": 0.2069},
+      "candidate": {"shots": 5, "totalShots": 9, "ratio": 0.5556},
+      "interpretation": "小兰从章节装饰升级为贯穿事件、结构和证据的主持人"
+    },
+    {
+      "dimension": "officialDemoTime",
+      "baseline": {"seconds": 0, "ratio": 0},
+      "candidate": {"seconds": 57.0581, "ratio": 0.327},
+      "interpretation": "真实产品行为成为主叙事材料，不再只靠卡片复述"
+    },
+    {
+      "dimension": "continuousNarrativeCase",
+      "baseline": {"present": true, "resolvedInSameConcreteCase": false},
+      "candidate": {"present": true, "resolvedInSameConcreteCase": true},
+      "interpretation": "航班取消在开场触发，并在结尾回收到用户确认与行动结果"
+    },
+    {
+      "dimension": "visualFamilies",
+      "baseline": ["character", "evidence", "topology", "stack", "code", "gates", "swimlane", "loop", "timeline", "bars", "curve"],
+      "candidate": ["host", "official-demo", "proactive-flow", "hybrid-channel", "cross-platform-topology", "long-horizon-steps", "primary-evidence", "animated-bars", "host-demo-synthesis"],
+      "interpretation": "候选片减少重复卡片结构，用实际界面、人物表演和解释动画轮换推进"
+    }
+  ],
+  "lilimoziDirection": {
+    "improved": ["个人形象参与叙事", "角色在关键转折回场", "案例贯穿而不是章节拼接"],
+    "remainingGap": ["人物尚未拥有口型、眨眼和连续肢体动画", "真实场景内的角色与道具互动仍以二维合成为主", "镜头语言还需要更多景别变化和动作反应"]
+  },
+  "decision": "promote-as-new-template-candidate"
+}

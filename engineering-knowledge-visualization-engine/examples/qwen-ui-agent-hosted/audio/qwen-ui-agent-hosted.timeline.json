@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0",
+  "storySlug": "qwen-ui-agent-hosted",
+  "storyFingerprint": "363d2f2ab6a756c5b9f2e29f3575587a94f4494bc9b3ab46dd2768755036c7c2",
+  "provider": "mimo",
+  "duration": 183.22,
+  "shots": [
+    {
+      "id": "cold-open",
+      "plannedDuration": 14.0,
+      "speechDuration": 18.928,
+      "duration": 19.128
+    },
+    {
+      "id": "official-demo",
+      "plannedDuration": 14.0,
+      "speechDuration": 18.641,
+      "duration": 18.841
+    },
+    {
+      "id": "proactive-loop",
+      "plannedDuration": 14.0,
+      "speechDuration": 19.627,
+      "duration": 19.827
+    },
+    {
+      "id": "hybrid-actions",
+      "plannedDuration": 14.0,
+      "speechDuration": 19.49,
+      "duration": 19.69
+    },
+    {
+      "id": "cross-platform",
+      "plannedDuration": 14.0,
+      "speechDuration": 18.841,
+      "duration": 19.041
+    },
+    {
+      "id": "long-horizon",
+      "plannedDuration": 14.0,
+      "speechDuration": 20.617,
+      "duration": 20.817
+    },
+    {
+      "id": "primary-evidence",
+      "plannedDuration": 14.0,
+      "speechDuration": 22.209,
+      "duration": 22.409
+    },
+    {
+      "id": "benchmarks",
+      "plannedDuration": 14.0,
+      "speechDuration": 21.888,
+      "duration": 22.088
+    },
+    {
+      "id": "synthesis",
+      "plannedDuration": 14.0,
+      "speechDuration": 21.18,
+      "duration": 21.38
+    }
+  ]
+}

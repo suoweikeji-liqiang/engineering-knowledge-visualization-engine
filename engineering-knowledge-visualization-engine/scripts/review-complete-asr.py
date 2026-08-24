@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Blindly transcribe every MiMo segment and compare it with the authored narration."""
+"""Blindly transcribe every MiMo story segment and compare it with the authored narration."""
 from __future__ import annotations
 
 import base64
@@ -15,11 +15,12 @@ from pathlib import Path
 import requests
 
 ROOT = Path(__file__).resolve().parents[1]
-EXAMPLE = ROOT / "examples/ai-agent-harness-complete"
+STORY_SLUG = os.environ.get("ASR_STORY_SLUG", "ai-agent-harness-complete")
+EXAMPLE = ROOT / "examples" / STORY_SLUG
 STORY = json.loads((EXAMPLE / "storyboard/story.json").read_text(encoding="utf-8"))
 AI_DAILY = Path(os.environ.get("AI_DAILY_REPO", "/Users/asteroida/work/ai_daily_brief_factory_v3"))
 SANDIAO = ROOT.parent / "sandiao-science-studio"
-CACHE = SANDIAO / "build/audio/ai-agent-harness-complete"
+CACHE = SANDIAO / "build/audio" / STORY_SLUG
 
 sys.path.insert(0, str(AI_DAILY))
 from dailybrief.utils import load_dotenv_if_available  # noqa: E402

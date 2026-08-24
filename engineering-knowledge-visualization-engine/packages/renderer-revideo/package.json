@@ -6,10 +6,13 @@
   "scripts": {
     "editor": "revideo editor --projectFile ./src/project.tsx",
     "editor:complete": "revideo editor --projectFile ./src/complete-project.tsx",
+    "editor:qwen-ui-agent": "revideo editor --projectFile ./src/qwen-ui-agent-project.tsx",
     "prepare:benchmark": "tsx src/prepare.ts",
     "prepare:complete": "tsx src/prepare-complete.ts",
     "render:benchmark": "tsx src/prepare.ts && tsx src/render.ts",
-    "render:complete": "tsx src/prepare-complete.ts && tsx src/render-complete.ts"
+    "render:complete": "tsx src/prepare-complete.ts && tsx src/render-complete.ts",
+    "prepare:qwen-ui-agent": "tsx src/prepare-qwen-ui-agent.ts",
+    "render:qwen-ui-agent": "tsx src/prepare-qwen-ui-agent.ts && tsx src/render-qwen-ui-agent.ts"
   },
   "dependencies": {
     "@repo/schemas": "workspace:*",
