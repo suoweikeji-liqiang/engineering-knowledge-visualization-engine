@@ -3,8 +3,8 @@
   "artifact": "final/ai-agent-harness-complete.mp4",
   "media": {
     "duration": 714.833333,
-    "sizeBytes": 187380569,
-    "bitRate": 2097054,
+    "sizeBytes": 187733587,
+    "bitRate": 2101005,
     "video": {
       "index": 0,
       "codec_name": "h264",
@@ -24,7 +24,7 @@
   },
   "loudness": {
     "integratedLufs": -16.69,
-    "truePeakDb": -4.14,
+    "truePeakDb": -3.95,
     "rangeLu": 3.5
   },
   "blackSegments": [],

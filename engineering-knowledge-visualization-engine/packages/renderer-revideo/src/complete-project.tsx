@@ -183,6 +183,10 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
   const liveDot = createRef<Circle>();
   const statuses = shot.visual.status ?? [];
   const refs = statuses.map(() => createRef<Layout>());
+  const statusGap = 17;
+  const statusHeight = 86;
+  const statusStep = statusHeight + statusGap;
+  const statusStartY = -((statuses.length - 1) * statusStep) / 2;
   const asset = shot.visual.asset ?? shot.visual.characterAsset ?? 'xiaolan-evidence-bridge.png';
   const performanceLabel = shot.visual.performanceLabel ?? '现场讲解';
   stage.body().add(
@@ -205,18 +209,18 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
         </Rect>
         <Rect y={-310} width={126} height={28} radius={5} fill={`${C.tape}D8`} rotation={3} />
       </Layout>
-      <Layout x={480} layout direction={'column'} gap={17}>
+      <Layout x={480}>
         {statuses.map((item, idx) => {
           const statusFit = fitText(item, 490, 64, {maxFontSize: 22, minFontSize: 15, maxLines: 2});
           return (
-            <Layout ref={refs[idx]} opacity={0} x={42} scale={0.94}>
+            <Layout ref={refs[idx]} y={statusStartY + idx * statusStep} opacity={0} x={42} scale={0.94}>
               <Rect x={5} y={6} width={610} height={86} radius={[15, 20, 16, 18]} fill={'#DCCFBE66'} />
               <Rect width={610} height={86} radius={[15, 20, 16, 18]} fill={idx === statuses.length - 1 ? `${accent}10` : '#FFFCF7'} stroke={C.line} lineWidth={1.5}>
                 <Rect x={-299} width={8} height={62} radius={4} fill={accent} />
-                <Rect x={detachedBadgeX(610, 58)} width={58} height={36} radius={12} fill={accent} shadowColor={`${accent}44`} shadowBlur={12}>
-                  <Txt fontFamily={MONO} fontSize={17} fontWeight={900} fill={'#FFFFFF'} text={String(idx + 1).padStart(2, '0')} />
-                </Rect>
                 <Txt x={26} width={490} textWrap={true} textAlign={'left'} fontFamily={MONO} fontSize={statusFit.fontSize} lineHeight={statusFit.lineHeight} fontWeight={700} fill={C.primary} text={item} />
+              </Rect>
+              <Rect x={detachedBadgeX(610, 58)} width={58} height={36} radius={12} fill={accent} shadowColor={`${accent}44`} shadowBlur={12}>
+                <Txt fontFamily={MONO} fontSize={17} fontWeight={900} fill={'#FFFFFF'} text={String(idx + 1).padStart(2, '0')} />
               </Rect>
             </Layout>
           );
@@ -251,6 +255,8 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
 
 function compareBoard(title: string, items: string[], color: string) {
   const titleFit = fitText(title, 610, 60, {maxFontSize: 28, minFontSize: 18, maxLines: 2});
+  const itemStep = items.length <= 3 ? 112 : items.length === 4 ? 90 : 72;
+  const itemStartY = 45 - ((items.length - 1) * itemStep) / 2;
   return (
     <Layout>
       <Rect x={9} y={11} width={710} height={560} radius={[28, 22, 30, 24]} fill={'#DCCFBE77'} />
@@ -259,7 +265,7 @@ function compareBoard(title: string, items: string[], color: string) {
         <Txt y={-224} width={610} textWrap={true} fontFamily={MONO} fontSize={titleFit.fontSize} lineHeight={titleFit.lineHeight} fontWeight={900} fill={color} text={title} />
         <Line y={-178} points={[[-300, 0], [300, 0]]} stroke={`${color}48`} lineWidth={2} />
         {items.map((item, idx) => (
-          <Layout y={-105 + idx * 92}>
+          <Layout y={itemStartY + idx * itemStep}>
             <Rect x={-275} width={22} height={22} radius={7} fill={`${color}18`} stroke={color} lineWidth={2}>
               <Circle width={7} height={7} fill={color} />
             </Rect>
@@ -540,7 +546,11 @@ function* gatesShot(view: View2D, shot: CompleteShot, duration: number, index: n
   const active = duration - 0.74;
   const moves = refs.map((_, idx) => pulse().position.x(startX + idx * step, Math.max(0.42, active * 0.72 / Math.max(1, refs.length + 1)), linear));
   yield* all(
-    chain(...moves, pulse().position.x(680, 0.5, linear)),
+    chain(
+      ...moves,
+      pulse().position.x(520, 0.38, linear),
+      all(pulse().scale(0, 0.18), pulse().opacity(0, 0.18)),
+    ),
     ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.24), ref().scale(1, 0.3)))),
     chain(waitFor(visualDelay(shot.id, refs.length)), output().opacity(1, 0.3)),
     captions(stage, shot.id, active),
