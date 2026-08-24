@@ -13,6 +13,7 @@
     "1080p-code-terminal-chart-evidence-and-subtitles-are-readable",
     "character-assets-preserve-source-aspect-ratio",
     "all-text-containers-pass-overflow-audit-at-1080p",
+    "card-indices-are-detached-and-text-uses-content-aware-alignment",
     "primary-claims-have-visible-or-packaged-primary-source-citations",
     "render-is-reproducible-from-frozen-story-assets-and-audio-config",
     "brand-and-shot-design-are-original-not-frame-by-frame-copy"

@@ -4,6 +4,8 @@ import {
   CHARACTER_CONTAINED_SIZE,
   CHARACTER_SOURCE_SIZE,
   CHARACTER_VIEWPORT,
+  CARD_SYSTEM_V2,
+  detachedBadgeX,
   fitText,
   type TextFitOptions,
 } from '../packages/renderer-revideo/src/layout-contracts';
@@ -63,7 +65,7 @@ function pngSize(buffer: Buffer) {
 }
 
 async function main() {
-  const story = JSON.parse(await readFile(resolve(example, 'storyboard/story.json'), 'utf8')) as {shots: Shot[]};
+  const story = JSON.parse(await readFile(resolve(example, 'storyboard/story.json'), 'utf8')) as {meta: {designSystem?: Record<string, string>}; shots: Shot[]};
   const captions = JSON.parse(await readFile(resolve(example, 'audio/captions.timeline.json'), 'utf8')) as {cues: Array<{shotId: string; text: string}>};
   const entries = [
     ...story.shots.flatMap(visualEntries),
@@ -82,6 +84,12 @@ async function main() {
   const characterShotsDeclareContain = story.shots
     .filter(shot => shot.visual.kind === 'character')
     .every(shot => shot.visual.assetFit === 'contain');
+  const cardSystemV2Declared = story.meta.designSystem?.cardSystem === CARD_SYSTEM_V2.id
+    && story.meta.designSystem?.indexTreatment === CARD_SYSTEM_V2.indexTreatment
+    && story.meta.designSystem?.contentAlignment === CARD_SYSTEM_V2.contentAlignment
+    && story.meta.designSystem?.evidenceRelationship === CARD_SYSTEM_V2.evidenceRelationship;
+  const detachedBadgeGap = -650 / 2 - (detachedBadgeX(650, 62) + 62 / 2);
+  const detachedBadgeGapPasses = detachedBadgeGap >= CARD_SYSTEM_V2.indexGap;
   const report = {
     schemaVersion: '1.0',
     textContainers: measured.length,
@@ -92,7 +100,11 @@ async function main() {
     characterContainedSize: CHARACTER_CONTAINED_SIZE,
     characterAspectPreserved,
     characterShotsDeclareContain,
-    pass: overflowRisks.length === 0 && characterAspectPreserved && characterShotsDeclareContain,
+    cardSystem: CARD_SYSTEM_V2,
+    cardSystemV2Declared,
+    detachedBadgeGap,
+    detachedBadgeGapPasses,
+    pass: overflowRisks.length === 0 && characterAspectPreserved && characterShotsDeclareContain && cardSystemV2Declared && detachedBadgeGapPasses,
   };
   await writeFile(resolve(example, 'evaluation/layout-qa.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
   console.log(JSON.stringify(report, null, 2));

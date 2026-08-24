@@ -30,5 +30,17 @@
   },
   "characterAspectPreserved": true,
   "characterShotsDeclareContain": true,
+  "cardSystem": {
+    "id": "card-system-v2",
+    "indexTreatment": "detached-badge",
+    "indexGap": 18,
+    "contentAlignment": "intrinsic-centered",
+    "surfaceHierarchy": "neutral-surface-with-semantic-rail",
+    "evidenceRelationship": "source-connector-callout",
+    "minimumHorizontalPadding": 28
+  },
+  "cardSystemV2Declared": true,
+  "detachedBadgeGap": 18,
+  "detachedBadgeGapPasses": true,
   "pass": true
 }

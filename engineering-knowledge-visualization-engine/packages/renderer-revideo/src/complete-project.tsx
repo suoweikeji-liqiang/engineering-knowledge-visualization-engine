@@ -6,7 +6,7 @@ import captionTimeline from '../../../examples/ai-agent-harness-complete/audio/c
 import visualTimeline from '../../../examples/ai-agent-harness-complete/audio/visual-events.timeline.json';
 import {ASTEROID_WARM_THEME as C} from './theme';
 import {CINEMATIC_FONT as FONT, CINEMATIC_MONO as MONO} from './cinematic-sketch';
-import {CHARACTER_CONTAINED_SIZE, fitText} from './layout-contracts';
+import {CHARACTER_CONTAINED_SIZE, detachedBadgeX, fitText} from './layout-contracts';
 
 type Visual = {
   kind: string;
@@ -163,11 +163,13 @@ function paperCard(title: string, detail: string, color: string, width = 300, he
   const detailFit = fitText(detail, width - 48, 56, {maxFontSize: 19, minFontSize: 13, maxLines: 2});
   return (
     <Layout>
-      <Rect x={6} y={7} width={width} height={height} radius={[20, 25, 18, 23]} fill={'#E4D6C5'} rotation={0.7} />
-      <Rect width={width} height={height} radius={[23, 18, 25, 20]} fill={C.panel} stroke={color} lineWidth={3} shadowColor={`${color}28`} shadowBlur={16}>
-        <Circle x={-width / 2 + 27} y={-height / 2 + 25} width={11} height={11} fill={color} />
-        <Txt y={-25} width={width - 48} height={42} textWrap={true} fontFamily={MONO} fontSize={titleFit.fontSize} lineHeight={titleFit.lineHeight} fontWeight={850} fill={C.primary} text={title} />
-        <Txt y={27} width={width - 48} height={56} textWrap={true} fontFamily={FONT} fontSize={detailFit.fontSize} lineHeight={detailFit.lineHeight} fill={C.soft} text={detail} />
+      <Rect x={8} y={10} width={width} height={height} radius={[20, 25, 18, 23]} fill={'#DCCFBE88'} />
+      <Rect width={width} height={height} radius={[22, 18, 24, 20]} fill={'#FFFCF7'} stroke={C.line} lineWidth={1.5} shadowColor={'#6D594024'} shadowBlur={18}>
+        <Rect x={-width / 2 + 6} width={10} height={height - 28} radius={5} fill={color} />
+        <Layout x={12} width={width - 62} height={height - 30} layout direction={'column'} justifyContent={'center'} alignItems={'start'} gap={7}>
+          <Txt width={width - 62} textWrap={true} textAlign={'left'} fontFamily={MONO} fontSize={titleFit.fontSize} lineHeight={titleFit.lineHeight} fontWeight={850} fill={C.primary} text={title} />
+          <Txt width={width - 62} textWrap={true} textAlign={'left'} fontFamily={FONT} fontSize={detailFit.fontSize} lineHeight={detailFit.lineHeight} fill={C.soft} text={detail} />
+        </Layout>
       </Rect>
     </Layout>
   );
@@ -204,14 +206,21 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
         <Rect y={-310} width={126} height={28} radius={5} fill={`${C.tape}D8`} rotation={3} />
       </Layout>
       <Layout x={480} layout direction={'column'} gap={17}>
-        {statuses.map((item, idx) => (
-          <Layout ref={refs[idx]} opacity={0} x={42} scale={0.94}>
-            <Rect width={610} height={86} radius={[15, 20, 16, 18]} fill={C.panel} stroke={idx === statuses.length - 1 ? accent : C.line} lineWidth={2.5}>
-              <Txt x={-254} width={62} textAlign={'left'} fontFamily={MONO} fontSize={20} fontWeight={850} fill={accent} text={String(idx + 1).padStart(2, '0')} />
-              <Txt x={32} width={470} height={64} textWrap={true} textAlign={'left'} fontFamily={MONO} fontSize={fitText(item, 470, 64, {maxFontSize: 22, minFontSize: 15, maxLines: 2}).fontSize} lineHeight={27} fontWeight={700} fill={C.primary} text={item} />
-            </Rect>
-          </Layout>
-        ))}
+        {statuses.map((item, idx) => {
+          const statusFit = fitText(item, 490, 64, {maxFontSize: 22, minFontSize: 15, maxLines: 2});
+          return (
+            <Layout ref={refs[idx]} opacity={0} x={42} scale={0.94}>
+              <Rect x={5} y={6} width={610} height={86} radius={[15, 20, 16, 18]} fill={'#DCCFBE66'} />
+              <Rect width={610} height={86} radius={[15, 20, 16, 18]} fill={idx === statuses.length - 1 ? `${accent}10` : '#FFFCF7'} stroke={C.line} lineWidth={1.5}>
+                <Rect x={-299} width={8} height={62} radius={4} fill={accent} />
+                <Rect x={detachedBadgeX(610, 58)} width={58} height={36} radius={12} fill={accent} shadowColor={`${accent}44`} shadowBlur={12}>
+                  <Txt fontFamily={MONO} fontSize={17} fontWeight={900} fill={'#FFFFFF'} text={String(idx + 1).padStart(2, '0')} />
+                </Rect>
+                <Txt x={26} width={490} textWrap={true} textAlign={'left'} fontFamily={MONO} fontSize={statusFit.fontSize} lineHeight={statusFit.lineHeight} fontWeight={700} fill={C.primary} text={item} />
+              </Rect>
+            </Layout>
+          );
+        })}
       </Layout>
     </>,
   );
@@ -243,16 +252,22 @@ function* characterShot(view: View2D, shot: CompleteShot, duration: number, inde
 function compareBoard(title: string, items: string[], color: string) {
   const titleFit = fitText(title, 610, 60, {maxFontSize: 28, minFontSize: 18, maxLines: 2});
   return (
-    <Rect width={710} height={560} radius={[28, 22, 30, 24]} fill={C.panel} stroke={color} lineWidth={3} shadowColor={`${color}28`} shadowBlur={24}>
-      <Txt y={-224} width={610} height={60} textWrap={true} fontFamily={MONO} fontSize={titleFit.fontSize} lineHeight={titleFit.lineHeight} fontWeight={900} fill={color} text={title} />
-      <Line y={-178} points={[[-300, 0], [300, 0]]} stroke={`${color}66`} lineWidth={3} />
-      {items.map((item, idx) => (
-        <Layout y={-105 + idx * 92}>
-          <Circle x={-275} width={15} height={15} fill={color} />
-          <Txt x={25} width={530} height={76} textWrap={true} textAlign={'left'} fontFamily={FONT} fontSize={fitText(item, 530, 76, {maxFontSize: 27, minFontSize: 17, maxLines: 3}).fontSize} lineHeight={31} fontWeight={650} fill={C.primary} text={item} />
-        </Layout>
-      ))}
-    </Rect>
+    <Layout>
+      <Rect x={9} y={11} width={710} height={560} radius={[28, 22, 30, 24]} fill={'#DCCFBE77'} />
+      <Rect width={710} height={560} radius={[28, 22, 30, 24]} fill={'#FFFCF7'} stroke={C.line} lineWidth={1.5} shadowColor={'#6D594024'} shadowBlur={24}>
+        <Rect y={-274} width={650} height={12} radius={6} fill={color} />
+        <Txt y={-224} width={610} textWrap={true} fontFamily={MONO} fontSize={titleFit.fontSize} lineHeight={titleFit.lineHeight} fontWeight={900} fill={color} text={title} />
+        <Line y={-178} points={[[-300, 0], [300, 0]]} stroke={`${color}48`} lineWidth={2} />
+        {items.map((item, idx) => (
+          <Layout y={-105 + idx * 92}>
+            <Rect x={-275} width={22} height={22} radius={7} fill={`${color}18`} stroke={color} lineWidth={2}>
+              <Circle width={7} height={7} fill={color} />
+            </Rect>
+            <Txt x={25} width={530} textWrap={true} textAlign={'left'} fontFamily={FONT} fontSize={fitText(item, 530, 76, {maxFontSize: 27, minFontSize: 17, maxLines: 3}).fontSize} lineHeight={31} fontWeight={650} fill={C.primary} text={item} />
+          </Layout>
+        ))}
+      </Rect>
+    </Layout>
   );
 }
 
@@ -287,6 +302,8 @@ function* evidenceShot(view: View2D, shot: CompleteShot, duration: number, index
   const sourceImage = createRef<Img>();
   const callouts = shot.visual.callouts ?? [];
   const refs = callouts.map(() => createRef<Layout>());
+  const connectors = callouts.map(() => createRef<Line>());
+  const calloutY = (idx: number) => -190 + idx * 190;
   stage.body().add(
     <>
       <Layout ref={document} x={-430} opacity={0} scale={0.94} rotation={-0.8}>
@@ -298,38 +315,50 @@ function* evidenceShot(view: View2D, shot: CompleteShot, duration: number, index
         </Rect>
         <Rect y={-315} width={128} height={26} radius={5} fill={`${C.tape}D8`} rotation={3} />
       </Layout>
-      <Layout x={390} layout direction={'column'} gap={22}>
-        {callouts.map((item, idx) => (
-          <Layout ref={refs[idx]} opacity={0} x={46}>
-            <Rect width={690} height={140} radius={[20, 24, 19, 22]} fill={C.panel} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={3} clip>
-              <Txt x={-286} width={64} textAlign={'left'} fontFamily={MONO} fontSize={20} fontWeight={900} fill={ACCENTS[idx % ACCENTS.length]} text={`0${idx + 1}`} />
-              <Txt
-                x={34}
-                width={540}
-                height={108}
-                textWrap={true}
-                textAlign={'left'}
-                fontFamily={FONT}
-                fontSize={fitText(item, 540, 108, {maxFontSize: 27, minFontSize: 17, maxLines: 3}).fontSize}
-                lineHeight={31}
-                fontWeight={750}
-                fill={C.primary}
-                text={item}
-              />
+      {callouts.map((_, idx) => (
+        <Line
+          ref={connectors[idx]}
+          points={[[-192, -72 + idx * 34], [32, calloutY(idx)]]}
+          stroke={`${ACCENTS[idx % ACCENTS.length]}99`}
+          lineWidth={3}
+          radius={18}
+          endArrow
+          arrowSize={12}
+          end={0}
+        />
+      ))}
+      {callouts.map((item, idx) => {
+        const color = ACCENTS[idx % ACCENTS.length];
+        const textFit = fitText(item, 540, 108, {maxFontSize: 27, minFontSize: 17, maxLines: 3});
+        return (
+          <Layout ref={refs[idx]} x={430} y={calloutY(idx)} opacity={0} scale={0.96}>
+            <Rect x={7} y={8} width={650} height={142} radius={[20, 24, 19, 22]} fill={'#DCCFBE66'} />
+            <Rect width={650} height={142} radius={[20, 24, 19, 22]} fill={'#FFFCF7'} stroke={C.line} lineWidth={1.5} shadowColor={'#6D594024'} shadowBlur={18} clip>
+              <Rect x={-319} width={10} height={112} radius={5} fill={color} />
+              <Layout x={18} width={540} height={110} layout direction={'column'} justifyContent={'center'} alignItems={'start'}>
+                <Txt width={540} textWrap={true} textAlign={'left'} fontFamily={FONT} fontSize={textFit.fontSize} lineHeight={textFit.lineHeight} fontWeight={750} fill={C.primary} text={item} />
+              </Layout>
+            </Rect>
+            <Rect x={detachedBadgeX(650, 62)} y={-48} width={62} height={40} radius={13} fill={color} shadowColor={`${color}55`} shadowBlur={14}>
+              <Txt fontFamily={MONO} fontSize={18} fontWeight={900} fill={'#FFFFFF'} text={String(idx + 1).padStart(2, '0')} />
             </Rect>
           </Layout>
-        ))}
-        <Rect width={690} height={58} radius={18} fill={'#FFF4C7'} stroke={C.yellow} lineWidth={2}>
-          <Txt fontFamily={MONO} fontSize={18} fontWeight={750} fill={C.primary} text={'PRIMARY SOURCES · OpenAI p.4 + Anthropic'} />
-        </Rect>
-      </Layout>
+        );
+      })}
+      <Rect x={430} y={286} width={650} height={56} radius={16} fill={'#FFF4C7'} stroke={'#D7B84A66'} lineWidth={1.5}>
+        <Circle x={-286} width={10} height={10} fill={C.yellow} />
+        <Txt x={12} width={560} textAlign={'left'} fontFamily={MONO} fontSize={17} fontWeight={750} fill={C.primary} text={'PRIMARY SOURCES · OpenAI p.4 + Anthropic'} />
+      </Rect>
     </>,
   );
   yield* enter(stage);
   const active = duration - 0.74;
   yield* all(
     all(document().opacity(1, 0.4), document().scale(1, 0.52)),
-    ...refs.map((ref, cueIndex) => chain(waitFor(visualDelay(shot.id, cueIndex)), all(ref().opacity(1, 0.3), ref().position.x(0, 0.36)))),
+    ...refs.map((ref, cueIndex) => chain(
+      waitFor(visualDelay(shot.id, cueIndex)),
+      all(connectors[cueIndex]().end(1, 0.34, easeInOutCubic), ref().opacity(1, 0.28), ref().scale(1, 0.34)),
+    )),
     document().rotation(0.8, active, easeInOutCubic),
     sourceImage().scale(1.018, active, easeInOutCubic),
     captions(stage, shot.id, active),
@@ -406,14 +435,24 @@ function* stackShot(view: View2D, shot: CompleteShot, duration: number, index: n
   stage.body().add(
     <>
       <Layout x={-330}>
-        {layers.map((layer, idx) => (
-          <Layout ref={refs[idx]} y={-245 + idx * (480 / Math.max(1, layers.length - 1))} x={idx * 18} opacity={0} scale={0.92}>
-            <Rect width={760 - idx * 24} height={82} radius={[14, 18, 15, 17]} fill={idx % 2 ? '#EEE3D5' : C.panel} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={2.5}>
-              <Txt x={-310 + idx * 12} width={90} textAlign={'left'} fontFamily={MONO} fontSize={18} fontWeight={900} fill={ACCENTS[idx % ACCENTS.length]} text={String(idx + 1).padStart(2, '0')} />
-              <Txt x={45} width={520} height={62} textWrap={true} textAlign={'left'} fontFamily={MONO} fontSize={fitText(layer, 520, 62, {maxFontSize: 22, minFontSize: 15, maxLines: 2}).fontSize} lineHeight={27} fontWeight={700} fill={C.primary} text={layer} />
-            </Rect>
-          </Layout>
-        ))}
+        {layers.map((layer, idx) => {
+          const cardWidth = 760 - idx * 24;
+          const textWidth = cardWidth - 92;
+          const color = ACCENTS[idx % ACCENTS.length];
+          const layerFit = fitText(layer, textWidth, 62, {maxFontSize: 22, minFontSize: 15, maxLines: 2});
+          return (
+            <Layout ref={refs[idx]} y={-245 + idx * (480 / Math.max(1, layers.length - 1))} x={idx * 18} opacity={0} scale={0.92}>
+              <Rect x={5} y={6} width={cardWidth} height={82} radius={[14, 18, 15, 17]} fill={'#DCCFBE66'} />
+              <Rect width={cardWidth} height={82} radius={[14, 18, 15, 17]} fill={'#FFFCF7'} stroke={C.line} lineWidth={1.5}>
+                <Rect x={-cardWidth / 2 + 6} width={8} height={60} radius={4} fill={color} />
+                <Rect x={detachedBadgeX(cardWidth, 52)} width={52} height={34} radius={11} fill={color} shadowColor={`${color}44`} shadowBlur={10}>
+                  <Txt fontFamily={MONO} fontSize={16} fontWeight={900} fill={'#FFFFFF'} text={String(idx + 1).padStart(2, '0')} />
+                </Rect>
+                <Txt x={22} width={textWidth} textWrap={true} textAlign={'left'} fontFamily={MONO} fontSize={layerFit.fontSize} lineHeight={layerFit.lineHeight} fontWeight={700} fill={C.primary} text={layer} />
+              </Rect>
+            </Layout>
+          );
+        })}
       </Layout>
       <Line points={[[100, 0], [310, 0]]} stroke={C.cyan} lineWidth={5} endArrow arrowSize={16} />
       <Layout ref={output} x={520} opacity={0} scale={0.7}>{paperCard(shot.visual.output ?? 'OUTPUT', 'assembled by harness', C.red, 430, 210)}</Layout>
@@ -485,9 +524,11 @@ function* gatesShot(view: View2D, shot: CompleteShot, duration: number, index: n
       <Layout x={-680} y={55}>{paperCard(shot.visual.input ?? 'INPUT', 'untrusted request', C.yellow, 240, 120)}</Layout>
       {gates.map((gate, idx) => (
         <Layout ref={refs[idx]} x={startX + idx * step} y={55} opacity={0} scale={0.8}>
-          <Rect width={190} height={190} radius={28} fill={C.panel} stroke={ACCENTS[idx % ACCENTS.length]} lineWidth={4}>
-            <Txt width={154} height={118} textWrap={true} fontFamily={MONO} fontSize={fitText(gate, 154, 118, {maxFontSize: 20, minFontSize: 13, maxLines: 4}).fontSize} lineHeight={24} fontWeight={850} fill={C.primary} text={gate} />
-            <Rect y={78} width={84} height={20} radius={4} fill={`${ACCENTS[idx % ACCENTS.length]}44`} rotation={3} />
+          <Rect x={6} y={8} width={190} height={190} radius={28} fill={'#DCCFBE66'} />
+          <Rect width={190} height={190} radius={28} fill={'#FFFCF7'} stroke={C.line} lineWidth={1.5} shadowColor={'#6D594024'} shadowBlur={16}>
+            <Rect y={-90} width={150} height={10} radius={5} fill={ACCENTS[idx % ACCENTS.length]} />
+            <Txt width={154} textWrap={true} fontFamily={MONO} fontSize={fitText(gate, 154, 118, {maxFontSize: 20, minFontSize: 13, maxLines: 4}).fontSize} lineHeight={24} fontWeight={850} fill={C.primary} text={gate} />
+            <Rect y={78} width={84} height={16} radius={4} fill={`${ACCENTS[idx % ACCENTS.length]}33`} rotation={3} />
           </Rect>
         </Layout>
       ))}

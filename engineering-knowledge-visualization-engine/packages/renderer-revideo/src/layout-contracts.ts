@@ -13,6 +13,20 @@ export type TextFitOptions = {
   horizontalSafety?: number;
 };
 
+export const CARD_SYSTEM_V2 = {
+  id: 'card-system-v2',
+  indexTreatment: 'detached-badge',
+  indexGap: 18,
+  contentAlignment: 'intrinsic-centered',
+  surfaceHierarchy: 'neutral-surface-with-semantic-rail',
+  evidenceRelationship: 'source-connector-callout',
+  minimumHorizontalPadding: 28,
+} as const;
+
+export function detachedBadgeX(cardWidth: number, badgeWidth: number): number {
+  return -cardWidth / 2 - CARD_SYSTEM_V2.indexGap - badgeWidth / 2;
+}
+
 export function textUnits(text: string): number {
   return [...text].reduce((total, character) => {
     if (/\s/u.test(character)) return total + 0.34;

@@ -71,6 +71,7 @@ const checks = {
     && explicitSemanticVisualEvents === visualEvents.length,
   noTextOverflowRisks: layout.pass === true && layout.textOverflowRisks.length === 0,
   characterAspectPreserved: layout.characterAspectPreserved === true && layout.characterShotsDeclareContain === true,
+  cardSystemV2Declared: layout.cardSystemV2Declared === true && layout.detachedBadgeGapPasses === true,
   traceDelivered: trace.status === 'complete' && trace.traceKind === 'production-narrative' && trace.events.length === timeline.shots.length,
 };
 
@@ -108,6 +109,10 @@ const report = {
     characterAspectPreserved: layout.characterAspectPreserved,
     characterShotsDeclareContain: layout.characterShotsDeclareContain,
     characterContainedSize: layout.characterContainedSize,
+    cardSystem: layout.cardSystem,
+    cardSystemV2Declared: layout.cardSystemV2Declared,
+    detachedBadgeGap: layout.detachedBadgeGap,
+    detachedBadgeGapPasses: layout.detachedBadgeGapPasses,
   },
   trace: {runId: trace.runId, status: trace.status, kind: trace.traceKind, events: trace.events.length},
   checks,

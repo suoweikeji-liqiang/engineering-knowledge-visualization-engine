@@ -7,6 +7,7 @@
     "resolution": [1920, 1080],
     "fps": 30,
     "playbackRate": 1.07,
+    "designSystem": {"cardSystem": "card-system-v2", "indexTreatment": "detached-badge", "contentAlignment": "intrinsic-centered", "evidenceRelationship": "source-connector-callout"},
     "video": "examples/ai-agent-harness-complete/final/ai-agent-harness-complete.mp4",
     "audio": "examples/ai-agent-harness-complete/audio/ai-agent-harness-complete.wav",
     "poster": "examples/ai-agent-harness-complete/final/ai-agent-harness-complete-poster.png"

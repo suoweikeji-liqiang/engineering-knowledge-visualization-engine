@@ -3,8 +3,8 @@
   "artifact": "final/ai-agent-harness-complete.mp4",
   "media": {
     "duration": 714.833333,
-    "sizeBytes": 187421800,
-    "bitRate": 2097516,
+    "sizeBytes": 187380569,
+    "bitRate": 2097054,
     "video": {
       "index": 0,
       "codec_name": "h264",
@@ -24,14 +24,14 @@
   },
   "loudness": {
     "integratedLufs": -16.69,
-    "truePeakDb": -3.95,
+    "truePeakDb": -4.14,
     "rangeLu": 3.5
   },
   "blackSegments": [],
   "motion": {
     "freezeSegmentsOver3Seconds": 55,
-    "frozenSeconds": 200.73333200000005,
-    "frozenFraction": 0.2808113762092849,
+    "frozenSeconds": 200.26666500000002,
+    "frozenFraction": 0.2801585429145062,
     "maximumFreezeSeconds": 5.233333
   },
   "asr": {
@@ -63,7 +63,19 @@
     "characterContainedSize": {
       "width": 824,
       "height": 463.7464114832536
-    }
+    },
+    "cardSystem": {
+      "id": "card-system-v2",
+      "indexTreatment": "detached-badge",
+      "indexGap": 18,
+      "contentAlignment": "intrinsic-centered",
+      "surfaceHierarchy": "neutral-surface-with-semantic-rail",
+      "evidenceRelationship": "source-connector-callout",
+      "minimumHorizontalPadding": 28
+    },
+    "cardSystemV2Declared": true,
+    "detachedBadgeGap": 18,
+    "detachedBadgeGapPasses": true
   },
   "trace": {
     "runId": "production-narrative-9286a3e9230b",
@@ -86,6 +98,7 @@
     "semanticVisualEventsExplicitlyMapped": true,
     "noTextOverflowRisks": true,
     "characterAspectPreserved": true,
+    "cardSystemV2Declared": true,
     "traceDelivered": true
   },
   "pass": true
