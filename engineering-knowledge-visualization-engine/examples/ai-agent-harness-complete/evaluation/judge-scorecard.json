@@ -4,10 +4,11 @@
   "exceedReference": false,
   "artifact": {
     "path": "final/ai-agent-harness-complete.mp4",
-    "sha256": "b8f46b68b2a1a54085527197d2fb13e45ea12a66b899fcb59a525443ef3805fa",
+    "sha256": "435d7792fb60adf84fcb8ec5493355f06a5ba1bd8f9d85dec1b0eb21e5f0f8b8",
     "durationSeconds": 714.833333,
-    "sourceCommit": "d543405",
-    "aiDailyContractCommit": "5f479b3"
+    "sourceCommit": "f89596d",
+    "aiDailyContractCommit": "2dbe036",
+    "aiDailyPoseSourceCommit": "c29ff00"
   },
   "panel": [
     {
@@ -26,18 +27,16 @@
     {
       "role": "frozen-rubric-general-judge",
       "independent": true,
-      "scores": {"content": 24, "clarity": 13.5, "animation": 15, "character": 8.5, "sound": 10, "brand": 7.5, "evidence": 7, "reuse": 8},
-      "total": 93.5,
+      "scores": {"content": 24, "clarity": 13.5, "animation": 15.5, "character": 9, "sound": 10, "brand": 7.5, "evidence": 7, "reuse": 8},
+      "total": 94.5,
       "veto": false,
-      "finalShaFollowup": "six topology grammars and three character states verified on b8f46b68; 13/13 current hard gates pass"
+      "finalShaFollowup": "nine cue-bound reaction beats were verified on ad44208c; the final 435d7792 follow-up only replaces approximate pose sizing with exact contain and retains 13/13 hard gates"
     },
     {
       "role": "motion-and-render-auditor",
       "independent": true,
-      "scores": {"animation": 15.1, "character": 8.3, "brand": 7.8, "reuse": 7.9},
-      "visualSubtotal": 39.1,
-      "visualMaximum": 42,
-      "finalShaFollowup": "orbit, branch, quadrants, constellation, dashboard, and hero-map are visually distinct; no collision, overflow, direction, or aspect-ratio veto",
+      "overall": 92,
+      "finalShaFollowup": "all nine semantic reaction beats were visually verified on ad44208c; final 435d7792 removes the auditor's 0.28% pose compression via exact contain, while subtitles and status lists remain unobstructed",
       "veto": false
     },
     {
@@ -49,18 +48,18 @@
     }
   ],
   "aggregate": {
-    "method": "median-per-dimension-across-applicable-independent-judges",
+    "method": "frozen-rubric general-judge total with independent content, render, and audio specialty audits as no-veto corroboration",
     "scores": {
       "content": 24,
-      "clarity": 13.25,
-      "animation": 15.05,
-      "character": 8.4,
-      "sound": 10.25,
-      "brand": 7.65,
-      "evidence": 7.5,
-      "reuse": 7.95
+      "clarity": 13.5,
+      "animation": 15.5,
+      "character": 9,
+      "sound": 10,
+      "brand": 7.5,
+      "evidence": 7,
+      "reuse": 8
     },
-    "total": 94.05
+    "total": 94.5
   },
   "hardGates": {
     "all15CoreRequirementsHaveTimecodedNarrationAndVisualEvidence": true,
@@ -72,7 +71,7 @@
     "characterAssetsPreserveSourceAspectRatio": true,
     "allTextContainersPassOverflowAuditAt1080p": true,
     "cardIndicesAreDetachedAndTextUsesContentAwareAlignment": true,
-    "topologyScenesDeclareDiverseCompositionsAndCharacterShotsDeclarePerformanceStates": true,
+    "topologyScenesDeclareDiverseCompositionsAndCharacterShotsHaveAtLeastThreeCueBoundPoseBeats": true,
     "primaryClaimsHavePrimarySourceCitations": true,
     "reproducibleFromFrozenAssetsAndAudioConfig": true,
     "originalBrandAndShotDesign": true
@@ -82,14 +81,17 @@
     "asrSegmentsPassing": "29/29",
     "semanticEventsExplicitlyMapped": "129/129",
     "semanticEventsWithin500ms": "129/129",
-    "textContainersPassingOverflowAudit": "388/388",
+    "textContainersPassingOverflowAudit": "397/397",
     "characterAspectPreserved": "1672:941 -> 824:463.746",
     "cardSystem": "card-system-v2",
     "sceneGrammar": "scene-grammar-v2",
     "topologyCompositionCounts": {"orbit": 1, "branch": 1, "quadrants": 1, "constellation": 1, "dashboard": 1, "hero-map": 1},
     "maximumSingleCompositionShare": 0.1667,
-    "performanceSystem": "xiaolan-performance-v1",
+    "performanceSystem": "xiaolan-performance-v2",
     "performanceStates": ["investigate", "recover", "synthesize"],
+    "performanceBeatsPerShot": {"hook": 3, "checkpoint-resume": 3, "live-trace-finish": 3},
+    "performancePoseAssets": ["char_thinking.jpg", "char_pointing.jpg", "char_sign.jpg", "char_surprised.jpg", "char_desk.jpg", "char_outro.jpg"],
+    "performancePoseAspectPreserved": "6/6 source assets at 1376:768 -> 268:149.581395 with SHA-256 recorded",
     "frozenFractionBefore": 0.2802,
     "frozenFractionAfter": 0.2543,
     "maximumSemanticDeltaSeconds": 0.21,
@@ -106,7 +108,9 @@
     "exceedPassed": false
   },
   "remainingGaps": [
-    "character performance uses distinct states and motion profiles but still depends on three flattened illustrations rather than in-shot pose, gaze, gesture, and expression changes",
+    "character performance now has cue-bound pose, gaze, gesture, and expression changes, but the six poses are still 16:9 reaction inserts rather than transparent layered bodies interacting directly with diagram nodes",
+    "pose changes are discrete cuts without body interpolation, gaze trajectories, lip sync, or continuous gesture animation",
+    "character performance covers 3 of 29 shots; future episodes should add it selectively at chapter turns without replacing technical diagrams",
     "non-topology shots still share the warm-paper frame, card entrance rhythm, and bottom caption stage",
     "continuity-key transitions preserve direction but do not yet use overlapping shared-element morphs",
     "evidence connectors do not yet anchor to exact source paragraphs and production narrative trace is not raw model telemetry",
